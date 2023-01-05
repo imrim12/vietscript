@@ -2,9 +2,6 @@
 
 ViScript - Ngôn ngữ lập trình tiếng Việt, là một ngôn ngữ lập trình mã nguồn mở được viết hoàn toàn bằng TypeScript và hỗ trợ cú pháp tiếng Việt. ViScript được thiết kế để giúp cho người mới bắt đầu học lập trình có thể dễ dàng học và sử dụng ngôn ngữ lập trình.
 
-## Lý thuyết
-ViScript là ngôn ngữ thông dịch, nó được chuyển đổi thành mã nguồn JavaScript và chạy trên trình duyệt. JavaScript cũng là ngôn ngữ thông dịch, nó không được chuyển đổi ngay lập tức thành mã máy và sẽ được thông dịch từng dòng một trước khi nó được thực thi.
-
 ## Getting Started
 
 Please follow the documentation at [viscript.org](https://viscript.org)!
