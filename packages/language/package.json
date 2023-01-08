@@ -1,5 +1,5 @@
 {
-  "name": "viscript",
+  "name": "davascript",
   "version": "0.0.1",
   "description": "Vietnamese programming language - Ngôn ngữ lập trình tiếng Việt.",
   "type": "module",
@@ -20,23 +20,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imrim12/viscript.git",
+    "url": "git+https://github.com/imrim12/davascript.git",
     "directory": "language"
   },
   "keywords": [
     "language",
-    "viscript",
+    "davascript",
     "vietnamese",
     "programming language"
   ],
   "author": "thecodeorigin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/imrim12/viscript/issues"
+    "url": "https://github.com/imrim12/davascript/issues"
   },
-  "homepage": "https://github.com/imrim12/viscript#readme",
+  "homepage": "https://github.com/imrim12/davascript#readme",
   "dependencies": {
-    "@viscript/shared": "workspace:*"
+    "@davascript/shared": "workspace:*"
   },
   "devDependencies": {
     "@vitest/ui": "^0.24.5",

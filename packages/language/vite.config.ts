@@ -9,14 +9,14 @@ export default defineConfig({
   build: {
     emptyOutDir: false,
     lib: {
-      name: "viscript",
+      name: "davascript",
       entry: path.resolve(__dirname, "./src/index.ts"),
       formats: ["es", "cjs"],
 
       fileName: (format: string) => (format === "es" ? "index.mjs" : "index.cjs"),
     },
     rollupOptions: {
-      external: ["@viscript/shared"],
+      external: ["@davascript/shared"],
 
       output: {
         exports: "named",
