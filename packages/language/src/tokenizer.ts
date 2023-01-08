@@ -1,4 +1,4 @@
-import { Token, Spec } from "./types";
+import { Token, Spec } from "@davascript/shared";
 
 /**
  * Tokenizer spec.
@@ -12,41 +12,125 @@ const Specs: Array<Spec> = [
   // Comments:
   // Skip single-line comments:
   [/^\/\/.*/, null],
-
   // Skip multi-line comments:
   [/^\/\*[\S\s]*?\*\//, null],
 
   // --------------------------------------
   // Symbols and delimiters:
-  [/^;/, ";"], // Semicolon
-  [/^{/, "{"], // LeftBrace
-  [/^}/, "}"], // RightBrace
-  [/^\(/, "("], // LeftParen
-  [/^\)/, ")"], // RightParen
-  [/^\[/, "["], // LeftBracket
-  [/^]/, "]"], // RightBracket
+  [/^\[/, "["], // OpenBracket
+  [/^]/, "]"], // CloseBracket
+  [/^\(/, "("], // OpenParen
+  [/^\)/, ")"], // CloseParen
+  [/^{/, "{"], // OpenBrace
+  [/^}/, "}"], // CloseBrace
+  [/^;/, ";"], // SemiColon
   [/^,/, ","], // Comma
+  [/^=/, "="], // Assign
+  [/^\?/, "?"], // QuestionMark
+  [/^\?\.?/, "?."], // QuestionMarkDot
+  [/^:/, ":"], // Colon
+  [/^\.{3}/, "..."], // Ellipsis
   [/^\./, "."], // Dot
-
-  // --------------------------------------
-  // Validation Operators:
-  // <, >, <=, >=
-  [/^[<>]=?/, "OPERATOR_RELATIONAL"],
-  [/^[!=]=/, "OPERATOR_EQUALITY"],
-
-  // Logical Operators
-  // ||, &&, !
-  [/^&&/, "LOGICAL_AND"],
-  [/^\|\|/, "LOGICAL_OR"],
-  [/^!/, "LOGICAL_NOT"],
+  [/^\+\+/, "++"], // PlusPlus
+  [/^--/, "--"], // MinusMinus
+  [/^\+/, "+"], // Plus
+  [/^-/, "-"], // Minus
+  [/^~/, "~"], // BitNot
+  [/^!/, "!"], // Not
+  [/^\*/, "*"], // Multiply
+  [/^\//, "/"], // Divide
+  [/^%/, "%"], // Modulus
+  [/^\*\*/, "**"], // Power
+  [/^\?\?/, "??"], // NullCoalesce
+  [/^#/, "#"], // Hashtag
+  [/^>>/, ">>"], // RightShiftArithmetic
+  [/^<</, "<<"], // LeftShiftArithmetic
+  [/^>>>/, ">>>"], // RightShiftLogical
+  [/^</, "<"], // LessThan
+  [/^>/, ">"], // MoreThan
+  [/^<=/, "<="], // LessThanEquals
+  [/^>=/, ">="], // GreaterThanEquals
+  [/^==/, "=="], // Equals_
+  [/^!=/, "!="], // NotEquals
+  [/^===/, "==="], // IdentityEquals
+  [/^!==/, "!=="], // IdentityNotEquals
+  [/^&/, "&"], // BitAnd
+  [/^\^/, "^"], // BitXOr
+  [/^\|/, "|"], // BitOr
+  [/^&&/, "&&"], // And
+  [/^\|\|/, "||"], // Or
+  [/^\*=/, "*="], // MultiplyAssign
+  [/^\//, "/="], // DivideAssign
+  [/^%=/, "%="], // ModulusAssign
+  [/^\+=/, "+="], // PlusAssign
+  [/^-=/, "-="], // MinusAssign
+  [/^<<=/, "<<="], // LeftShiftArithmeticAssign
+  [/^>>=/, ">>="], // RightShiftArithmeticAssign
+  [/^>>>=/, ">>>="], // RightShiftLogicalAssign
+  [/^&=/, "&="], // BitAndAssign
+  [/^\^=/, "^="], // BitXorAssign
+  [/^\|=/, "|="], // BitOrAssign
+  [/^\*\*=/, "**="], // PowerAssign
+  [/^=>/, "=>"], // ARROW
 
   // --------------------------------------
   // Keywords
-  [/^\bfunction\b/, "FUNCTION"],
+  [/^\bbreak\b/, "Break"],
+  [/^\bdo\b/, "Do"],
+  [/^\binstanceof\b/, "Instanceof"],
+  [/^\btypeof\b/, "Typeof"],
+  [/^\bcase\b/, "Case"],
+  [/^\belse\b/, "Else"],
+  [/^\bnew\b/, "New"],
+  [/^\bvar\b/, "Var"],
+  [/^\bcatch\b/, "Catch"],
+  [/^\bfinally\b/, "Finally"],
+  [/^\breturn\b/, "Return"],
+  [/^\bvoid\b/, "Void"],
+  [/^\bcontinue\b/, "Continue"],
+  [/^\bfor\b/, "For"],
+  [/^\bswitch\b/, "Switch"],
+  [/^\bwhile\b/, "While"],
+  [/^\bdebugger\b/, "Debugger"],
+  [/^\bfunction\b/, "Function_"],
+  [/^\bthis\b/, "This"],
+  [/^\bwith\b/, "With"],
+  [/^\bdefault\b/, "Default"],
+  [/^\bif\b/, "If"],
+  [/^\bthrow\b/, "Throw"],
+  [/^\bdelete\b/, "Delete"],
+  [/^\bin\b/, "In"],
+  [/^\btry\b/, "Try"],
+  [/^\bas\b/, "As"],
+  [/^\bfrom\b/, "From"],
+
+  // --------------------------------------
+  // Future Reserved Words
+  [/^\bclass\b/, "Class"],
+  [/^\benum\b/, "Enum"],
+  [/^\bextends\b/, "Extends"],
+  [/^\bsuper\b/, "Super"],
+  [/^\bconst\b/, "Const"],
+  [/^\bexport\b/, "Export"],
+  [/^\bimport\b/, "Import"],
+  [/^\basync\b/, "Async"],
+  [/^\bawait\b/, "Await"],
+  [/^\byield\b/, "Yield"],
+  [/^\bimplements\b/, "Implements"],
+  [/^\blet\b/, "StrictLet"],
+  [/^\bprivate\b/, "Private"],
+  [/^\bpublic\b/, "Public"],
+  [/^\binterface\b/, "Interface"],
+  [/^\bpackage\b/, "Package"],
+  [/^\bprotected\b/, "Protected"],
+  [/^\bstatic\b/, "Static"],
 
   // --------------------------------------
   // Identifier
   [/^\$\w+/, "IDENTIFIER"],
+
+  // --------------------------------------
+  // Primitive Literals:
 
   // --------------------------------------
   // Numbers:
@@ -61,12 +145,11 @@ const Specs: Array<Spec> = [
   [/^'[^']*'/, "STRING"],
 
   // --------------------------------------
-  // Values by Keyword:
-  [/^\bNaN\b/, "NAN"],
-  [/^\btrue\b/, "FALSE"],
-  [/^\bfalse\b/, "TRUE"],
+  // Literal with Keyword:
   [/^\bnull\b/, "NULL"],
+  [/^\bNaN\b/, "NAN"],
   [/^\bundefined\b/, "UNDEFINED"],
+  [/^\b(true|false)\b/, "BOOLEAN"],
 ];
 
 /**

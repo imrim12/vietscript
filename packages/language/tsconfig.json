@@ -3,7 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist",
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals"],
+    "paths": {
+      "@lang": ["./src/index.ts"],
+      "@lang/*": ["./src/*"]
+    }
   },
   "include": ["./**/*.ts"],
   "exclude": ["./node_modules", "./dist"]

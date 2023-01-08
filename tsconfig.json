@@ -11,7 +11,6 @@
     "declaration": false,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "useDefineForClassFields": true,

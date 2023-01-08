@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   env: {
     browser: true,
@@ -21,6 +22,7 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "unicorn"],
   rules: {
+    "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "import/order": [
       "error",
@@ -30,13 +32,8 @@ module.exports = {
       },
     ],
     "arrow-body-style": ["error", "as-needed"],
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
-    ],
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error", { allow: ["_"] }],
+    "no-unused-vars": "off",
     "lines-between-class-members": ["error", "always"],
     "no-param-reassign": ["warn", { props: true, ignorePropertyModificationsFor: ["draft"] }],
     "padding-line-between-statements": [
@@ -49,14 +46,15 @@ module.exports = {
         next: ["const", "let", "var"],
       },
     ],
+    // Typescript
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+    ],
+    "@typescript-eslint/no-shadow": ["error", { allow: ["_"] }],
+    // Unicorn
+    "unicorn/filename-case": "off",
     "unicorn/no-null": "off",
-  },
-  settings: {
-    "import/resolver": {
-      node: {
-        paths: ["src"],
-        extensions: [".js", ".ts"],
-      },
-    },
   },
 };

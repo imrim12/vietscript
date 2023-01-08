@@ -35,7 +35,9 @@
     "url": "https://github.com/imrim12/davascript/issues"
   },
   "homepage": "https://github.com/imrim12/davascript#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@davascript/shared": "workspace:*"
+  },
   "devDependencies": {
     "@vitest/ui": "^0.24.5",
     "rimraf": "^3.0.2",
