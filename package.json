@@ -37,7 +37,6 @@
     "packages/**"
   ],
   "dependencies": {
-    "@davascript/shared": "workspace:*",
     "davascript": "workspace:*",
     "vitepress": "1.0.0-alpha.20"
   },

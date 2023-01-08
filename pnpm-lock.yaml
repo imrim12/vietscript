@@ -13,11 +13,11 @@ importers:
       '@types/node': ^18.11.8
       '@typescript-eslint/eslint-plugin': ^5.38.0
       '@typescript-eslint/parser': ^5.38.0
-      '@davascript/shared': workspace:*
       '@vitejs/plugin-vue': ^3.1.2
       '@vitejs/plugin-vue-jsx': ^2.0.1
       '@vitest/ui': ^0.24.5
       '@vue/test-utils': ^2.2.1
+      davascript: workspace:*
       eslint: ^8.23.1
       eslint-plugin-import: ^2.26.0
       eslint-plugin-prettier: ^4.2.1
@@ -30,13 +30,11 @@ importers:
       rimraf: ^3.0.2
       ts-node: ^10.9.1
       typescript: ^4.9.4
-      davascript: workspace:*
       vitepress: 1.0.0-alpha.20
       vitest: ^0.24.4
       vue: ^3.2.41
       vue-tsc: ^1.0.9
     dependencies:
-      '@davascript/shared': link:packages/shared
       davascript: link:packages/language
       vitepress: 1.0.0-alpha.20_j73j5xdbzpkigstapj6vkce2xy
     devDependencies:
@@ -71,15 +69,12 @@ importers:
 
   packages/language:
     specifiers:
-      '@davascript/shared': workspace:*
       '@vitest/ui': ^0.24.5
       rimraf: ^3.0.2
       typescript: ^4.9.4
       vite: ^3.1.3
       vite-plugin-dts: ^1.6.6
       vitest: ^0.24.4
-    dependencies:
-      '@davascript/shared': link:../shared
     devDependencies:
       '@vitest/ui': 0.24.5
       rimraf: 3.0.2
@@ -89,7 +84,20 @@ importers:
       vitest: 0.24.5_@vitest+ui@0.24.5
 
   packages/shared:
-    specifiers: {}
+    specifiers:
+      '@vitest/ui': ^0.24.5
+      rimraf: ^3.0.2
+      typescript: ^4.9.4
+      vite: ^3.1.3
+      vite-plugin-dts: ^1.6.6
+      vitest: ^0.24.4
+    devDependencies:
+      '@vitest/ui': 0.24.5
+      rimraf: 3.0.2
+      typescript: 4.9.4
+      vite: 3.2.5
+      vite-plugin-dts: 1.7.1_vite@3.2.5
+      vitest: 0.24.5_@vitest+ui@0.24.5
 
 packages:
 
@@ -3781,7 +3789,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
