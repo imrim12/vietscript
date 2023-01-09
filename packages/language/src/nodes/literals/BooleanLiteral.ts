@@ -1,16 +1,21 @@
 import { Parser } from "@lang/parser";
-import { BaseAtsNode } from "@lang/nodes/BaseAtsNode";
 
-export class BooleanLiteral extends BaseAtsNode<boolean> {
+export class BooleanLiteral {
+  node: {
+    type: "BooleanLiteral";
+    value: boolean;
+    raw: string;
+  };
+
   constructor(parser: Parser) {
-    super();
+    const token = parser.eat("Boolean");
 
-    const token = parser.eat("BOOLEAN");
+    const value = token.value === "TRUE" ? true : false;
 
-    this.value = token.value === "TRUE" ? true : false;
     this.node = {
       type: "BooleanLiteral",
-      value: this.value,
+      value: value,
+      raw: String(value),
     };
   }
 }

@@ -1,15 +1,21 @@
 import { Parser } from "@lang/parser";
-import { BaseAtsNode } from "@lang/nodes/BaseAtsNode";
 
-export class UndefinedLiteral extends BaseAtsNode<undefined> {
+export class UndefinedLiteral {
+  node: {
+    type: "UndefinedLiteral";
+    value: undefined;
+    raw: string;
+  };
+
   constructor(parser: Parser) {
-    super();
-    parser.eat("UNDEFINED");
+    parser.eat("Undefined");
 
-    this.value = undefined;
+    const value = undefined;
+
     this.node = {
       type: "UndefinedLiteral",
-      value: this.value,
+      value,
+      raw: "undefined",
     };
   }
 }

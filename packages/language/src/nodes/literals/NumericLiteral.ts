@@ -1,15 +1,21 @@
 import { Parser } from "@lang/parser";
-import { BaseAtsNode } from "@lang/nodes/BaseAtsNode";
 
-export class NumericLiteral extends BaseAtsNode<number> {
+export class NumericLiteral {
+  node: {
+    type: "NumericLiteral";
+    value: number;
+    raw: string;
+  };
+
   constructor(parser: Parser) {
-    super();
-    const token = parser.eat("NUMBER");
+    const token = parser.eat("Number");
 
-    this.value = Number(token.value);
+    const value = Number(token.value);
+
     this.node = {
       type: "NumericLiteral",
-      value: this.value,
+      value,
+      raw: String(value),
     };
   }
 }

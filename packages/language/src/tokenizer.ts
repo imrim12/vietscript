@@ -127,29 +127,29 @@ const Specs: Array<Spec> = [
 
   // --------------------------------------
   // Identifier
-  [/^\$\w+/, "IDENTIFIER"],
+  [/^\$\w+/, "Identifier"],
 
   // --------------------------------------
   // Primitive Literals:
 
   // --------------------------------------
   // Numbers:
-  [/^\d+/, "NUMBER"],
+  [/^\d+/, "Number"],
 
   // --------------------------------------
   // Double quoted String:
-  [/^"[^"]*"/, "STRING"],
+  [/^"[^"]*"/, "String"],
 
   // --------------------------------------
   // Single quoted String:
-  [/^'[^']*'/, "STRING"],
+  [/^'[^']*'/, "String"],
 
   // --------------------------------------
   // Literal with Keyword:
-  [/^\bnull\b/, "NULL"],
-  [/^\bNaN\b/, "NAN"],
-  [/^\bundefined\b/, "UNDEFINED"],
-  [/^\b(true|false)\b/, "BOOLEAN"],
+  [/^\bnull\b/, "Null"],
+  [/^\bNaN\b/, "NaN"],
+  [/^\bundefined\b/, "Undefined"],
+  [/^\b(true|false)\b/, "Boolean"],
 ];
 
 /**

@@ -1,3 +1,5 @@
+import { Parser } from "@lang/parser";
+
 import { BooleanLiteral } from "./BooleanLiteral";
 import { NaNLiteral } from "./NaNLiteral";
 import { NullLiteral } from "./NullLiteral";
@@ -5,42 +7,39 @@ import { NumericLiteral } from "./NumericLiteral";
 import { StringLiteral } from "./StringLiteral";
 import { UndefinedLiteral } from "./UndefinedLiteral";
 
-import { Parser } from "@lang/parser";
-import { BaseAtsNode } from "@lang/nodes/BaseAtsNode";
-
-export class Literal extends BaseAtsNode<any> {
-  literal: any;
+export class Literal {
+  node: {
+    type: "Literal";
+    value: number | boolean | string | null | undefined;
+    raw: string;
+  };
 
   constructor(parser: Parser) {
-    super();
     switch (parser.lookahead?.type) {
-      case "NUMBER": {
-        this.literal = new NumericLiteral(parser);
+      case "Number": {
+        this.node = { ...new NumericLiteral(parser).node, type: "Literal" };
         break;
       }
-      case "STRING": {
-        this.literal = new StringLiteral(parser);
+      case "String": {
+        this.node = { ...new StringLiteral(parser).node, type: "Literal" };
         break;
       }
-      case "BOOLEAN": {
-        this.literal = new BooleanLiteral(parser);
+      case "Boolean": {
+        this.node = { ...new BooleanLiteral(parser).node, type: "Literal" };
         break;
       }
-      case "NAN": {
-        this.literal = new NaNLiteral(parser);
+      case "NaN": {
+        this.node = { ...new NaNLiteral(parser).node, type: "Literal" };
         break;
       }
-      case "NULL": {
-        this.literal = new NullLiteral(parser);
+      case "Null": {
+        this.node = { ...new NullLiteral(parser).node, type: "Literal" };
         break;
       }
-      case "UNDEFINED": {
-        this.literal = new UndefinedLiteral(parser);
+      case "Undefined": {
+        this.node = { ...new UndefinedLiteral(parser).node, type: "Literal" };
         break;
       }
     }
-
-    this.value = this.literal.value;
-    this.node = this.literal.node;
   }
 }

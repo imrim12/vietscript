@@ -4,9 +4,9 @@ import { Tokenizer } from "./tokenizer";
 import { Program } from "./nodes/Program";
 
 export class Parser {
-  private _string: string;
+  protected _string: string;
 
-  private _tokenizer: Tokenizer;
+  protected _tokenizer: Tokenizer;
 
   lookahead: Token | null;
 
@@ -19,10 +19,12 @@ export class Parser {
     this.lookahead = null;
   }
 
+  public parse(syntax: string, InitAtsNodeClass: any): any;
+
   /**
    * Parse a Formkl syntax string into Formkl object
    */
-  parse(string: string) {
+  public parse(string: string) {
     this.lookahead = null;
     this._string = "";
 

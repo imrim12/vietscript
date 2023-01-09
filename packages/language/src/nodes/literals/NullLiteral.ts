@@ -1,15 +1,19 @@
 import { Parser } from "@lang/parser";
-import { BaseAtsNode } from "@lang/nodes/BaseAtsNode";
 
-export class NullLiteral extends BaseAtsNode<null> {
+export class NullLiteral {
+  node: {
+    type: "NullLiteral";
+    value: null;
+    raw: string;
+  };
+
   constructor(parser: Parser) {
-    super();
-    parser.eat("NULL");
+    parser.eat("Null");
 
-    this.value = null;
     this.node = {
       type: "NullLiteral",
-      value: this.value,
+      value: null,
+      raw: "null",
     };
   }
 }

@@ -13,6 +13,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "strictNullChecks": true,
     "useDefineForClassFields": true,
     "lib": ["ESNext", "DOM"],
     "types": ["vitest/globals"],
