@@ -4,16 +4,16 @@ import { Tokenizer } from "@lang/tokenizer";
 class SingleNodeParser extends Parser {
   parse(syntax: string, InitAtsNodeClass: any) {
     this.lookahead = null;
-    this._string = "";
+    this.syntax = "";
 
-    this._string = syntax;
-    this._tokenizer = new Tokenizer(this._string);
+    this.syntax = syntax;
+    this.tokenizer = new Tokenizer(this.syntax);
 
     // Prime the tokenizer to obtain the first
     // token which is our lookahead. The lookahead is
     // used for predective parsing.
 
-    this.lookahead = this._tokenizer.getNextToken();
+    this.lookahead = this.tokenizer.getNextToken();
 
     return new InitAtsNodeClass(this);
   }

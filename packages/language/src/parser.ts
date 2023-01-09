@@ -4,9 +4,9 @@ import { Tokenizer } from "./tokenizer";
 import { Program } from "./nodes/Program";
 
 export class Parser {
-  protected _string: string;
+  protected syntax: string;
 
-  protected _tokenizer: Tokenizer;
+  protected tokenizer: Tokenizer;
 
   lookahead: Token | null;
 
@@ -14,8 +14,8 @@ export class Parser {
    * Initializes the parser.
    */
   constructor() {
-    this._string = "";
-    this._tokenizer = new Tokenizer("");
+    this.syntax = "";
+    this.tokenizer = new Tokenizer("");
     this.lookahead = null;
   }
 
@@ -24,21 +24,15 @@ export class Parser {
   /**
    * Parse a Formkl syntax string into Formkl object
    */
-  public parse(string: string) {
+  public parse(syntax: string) {
     this.lookahead = null;
-    this._string = "";
+    this.syntax = "";
 
-    this._string = string;
-    this._tokenizer = new Tokenizer(this._string);
+    this.syntax = syntax;
+    this.tokenizer = new Tokenizer(this.syntax);
 
-    // Prime the tokenizer to obtain the first
-    // token which is our lookahead. The lookahead is
-    // used for predective parsing.
+    this.lookahead = this.tokenizer.getNextToken();
 
-    this.lookahead = this._tokenizer.getNextToken();
-
-    // Parse recursively starting from the main
-    // entry point, the Program:
     return new Program(this);
   }
 
@@ -49,7 +43,6 @@ export class Parser {
     const token = this.lookahead;
 
     if (token === null) {
-      // un token nulo es como un token EOF.
       throw new SyntaxError(`Unexpected end of input, expected: "${tokenType}"`);
     }
 
@@ -57,8 +50,7 @@ export class Parser {
       throw new SyntaxError(`Unexpected token: "${token.value}", expected: "${tokenType}"`);
     }
 
-    // Advance to next token.
-    this.lookahead = this._tokenizer.getNextToken();
+    this.lookahead = this.tokenizer.getNextToken();
 
     return token;
   }

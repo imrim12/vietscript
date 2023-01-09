@@ -11,23 +11,25 @@ export class VariableDeclaration {
 
   constructor(parser: Parser) {
     let kind: "var" | "let" | "const" = "var";
+    let isConstant = false;
 
     switch (parser.lookahead?.type) {
-      case "VAR": {
-        parser.eat("VAR");
+      case "Var": {
+        parser.eat("Var");
         kind = "var";
 
         break;
       }
-      case "LET": {
-        parser.eat("LET");
+      case "Let": {
+        parser.eat("Let");
         kind = "let";
 
         break;
       }
-      case "CONST": {
-        parser.eat("CONST");
+      case "Const": {
+        parser.eat("Const");
         kind = "const";
+        isConstant = true;
 
         break;
       }
@@ -36,7 +38,7 @@ export class VariableDeclaration {
     const declarations: Array<VariableDeclarator["node"]> = [];
 
     do {
-      declarations.push(new VariableDeclarator(parser).node);
+      declarations.push(new VariableDeclarator(parser, isConstant).node);
     } while (parser.lookahead?.type === "," && parser.eat(","));
 
     this.node = {

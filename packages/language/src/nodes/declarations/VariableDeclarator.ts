@@ -11,7 +11,7 @@ export class VariableDeclarator {
     init: Literal["node"];
   };
 
-  constructor(parser: Parser) {
+  constructor(parser: Parser, isConstant = false) {
     const identifier = parser.eat("Identifier");
 
     let init: Literal["node"] = {
@@ -20,9 +20,8 @@ export class VariableDeclarator {
       raw: "undefined",
     };
 
-    if (parser.lookahead?.type === "=") {
+    if (isConstant || parser.lookahead?.type === "=") {
       parser.eat("=");
-
       init = new Literal(parser).node;
     }
 

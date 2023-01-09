@@ -10,7 +10,7 @@ export class BooleanLiteral {
   constructor(parser: Parser) {
     const token = parser.eat("Boolean");
 
-    const value = token.value === "TRUE" ? true : false;
+    const value = token.value === "true" ? true : false;
 
     this.node = {
       type: "BooleanLiteral",
