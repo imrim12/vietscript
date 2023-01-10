@@ -3,11 +3,11 @@ import { Parser } from "@lang/parser";
 import { VariableDeclarator } from "./VariableDeclarator";
 
 export class VariableDeclaration {
-  node: {
-    type: "VariableDeclaration";
-    declarations: Array<VariableDeclarator["node"]>;
-    kind: "var" | "let" | "const";
-  };
+  type: "VariableDeclaration";
+
+  declarations: Array<VariableDeclarator>;
+
+  kind: "var" | "let" | "const";
 
   constructor(parser: Parser) {
     let kind: "var" | "let" | "const" = "var";
@@ -35,16 +35,14 @@ export class VariableDeclaration {
       }
     }
 
-    const declarations: Array<VariableDeclarator["node"]> = [];
+    const declarations: Array<VariableDeclarator> = [];
 
     do {
-      declarations.push(new VariableDeclarator(parser, isConstant).node);
+      declarations.push(new VariableDeclarator(parser, isConstant));
     } while (parser.lookahead?.type === "," && parser.eat(","));
 
-    this.node = {
-      type: "VariableDeclaration",
-      declarations,
-      kind,
-    };
+    this.type = "VariableDeclaration";
+    this.declarations = declarations;
+    this.kind = kind;
   }
 }

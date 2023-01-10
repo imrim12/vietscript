@@ -4,16 +4,15 @@ import { Statement } from "./statements/Statement";
 import { EmptyStatement } from "./statements/EmptyStatement";
 
 export class Program {
-  node: {
-    type: "Program";
-    body: Array<Statement["node"]>;
-  };
+  type: "Program";
+
+  body: Array<Statement>;
 
   constructor(parser: Parser) {
-    const statements: Array<Statement["node"]> = [];
+    const statements: Array<Statement> = [];
 
     while (parser.tokenizer.isEOF() === false) {
-      const statement = new Statement(parser).node;
+      const statement = new Statement(parser);
 
       if (statement !== undefined) {
         statements.push(statement);
@@ -26,13 +25,11 @@ export class Program {
 
       // The rest would be empty statements
       while (parser.lookahead?.type === ";") {
-        statements.push(new EmptyStatement(parser).node);
+        statements.push(new EmptyStatement(parser));
       }
     }
 
-    this.node = {
-      type: "Program",
-      body: statements,
-    };
+    this.type = "Program";
+    this.body = statements;
   }
 }

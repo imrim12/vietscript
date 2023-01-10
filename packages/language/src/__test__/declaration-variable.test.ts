@@ -1,12 +1,13 @@
 import { VariableDeclaration } from "@lang/nodes/declarations/VariableDeclaration";
 
 import parser from "./setup-test";
+import toPlainObject from "./toPlainObject";
 
 describe("declaration-variable.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`var a = 1`, VariableDeclaration);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "VariableDeclaration",
       declarations: [
         {
@@ -29,7 +30,7 @@ describe("declaration-variable.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`var a = 1, b`, VariableDeclaration);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "VariableDeclaration",
       declarations: [
         {
@@ -52,7 +53,7 @@ describe("declaration-variable.test", () => {
           },
           init: {
             type: "Literal",
-            value: undefined,
+
             raw: "undefined",
           },
         },
@@ -64,7 +65,7 @@ describe("declaration-variable.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`let a = 1`, VariableDeclaration);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "VariableDeclaration",
       declarations: [
         {
@@ -87,7 +88,7 @@ describe("declaration-variable.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`let a = 1, b`, VariableDeclaration);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "VariableDeclaration",
       declarations: [
         {
@@ -110,7 +111,7 @@ describe("declaration-variable.test", () => {
           },
           init: {
             type: "Literal",
-            value: undefined,
+
             raw: "undefined",
           },
         },
@@ -122,7 +123,7 @@ describe("declaration-variable.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`const a = 1`, VariableDeclaration);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "VariableDeclaration",
       declarations: [
         {
@@ -145,7 +146,7 @@ describe("declaration-variable.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`khai báo số một = 1`, VariableDeclaration);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "VariableDeclaration",
       declarations: [
         {
@@ -168,7 +169,7 @@ describe("declaration-variable.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`khai báo a = 1, b`, VariableDeclaration);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "VariableDeclaration",
       declarations: [
         {
@@ -191,7 +192,7 @@ describe("declaration-variable.test", () => {
           },
           init: {
             type: "Literal",
-            value: undefined,
+
             raw: "undefined",
           },
         },
@@ -203,7 +204,7 @@ describe("declaration-variable.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`hằng số họ và tên = "Nguyễn"`, VariableDeclaration);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "VariableDeclaration",
       declarations: [
         {
@@ -226,7 +227,7 @@ describe("declaration-variable.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`khai báo tuổi = không xác định, tên = "Nhi"`, VariableDeclaration);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "VariableDeclaration",
       declarations: [
         {
@@ -237,7 +238,7 @@ describe("declaration-variable.test", () => {
           },
           init: {
             type: "Literal",
-            value: undefined,
+
             raw: "undefined",
           },
         },

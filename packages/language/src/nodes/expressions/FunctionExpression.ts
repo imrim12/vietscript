@@ -3,18 +3,22 @@ import { Parser } from "@lang/parser";
 import { BlockStatement } from "../statements/BlockStatement";
 
 export class FunctionExpression {
-  node: {
-    type: "FunctionExpression";
-    id: null;
-    expression: boolean;
-    generator: boolean;
-    async: boolean;
-    params: Array<{
-      type: "Identifier";
-      name: string;
-    }>;
-    body: BlockStatement["node"];
-  };
+  type: "FunctionExpression";
+
+  id: null;
+
+  expression: boolean;
+
+  generator: boolean;
+
+  async: boolean;
+
+  params: Array<{
+    type: "Identifier";
+    name: string;
+  }>;
+
+  body: BlockStatement;
 
   constructor(parser: Parser) {
     let isAsync = false;
@@ -50,14 +54,12 @@ export class FunctionExpression {
 
     const body = new BlockStatement(parser);
 
-    this.node = {
-      type: "FunctionExpression",
-      id: null,
-      expression: false,
-      generator: isGenerator,
-      async: isAsync,
-      params: parameters,
-      body: body.node,
-    };
+    this.type = "FunctionExpression";
+    this.id = null;
+    this.expression = false;
+    this.generator = isGenerator;
+    this.async = isAsync;
+    this.params = parameters;
+    this.body = body;
   }
 }

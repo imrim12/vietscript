@@ -1,23 +1,20 @@
 import { Parser } from "@lang/parser";
 
 export class ContinueStatement {
-  node: {
-    type: "ContinueStatement";
-    label: null | string;
-  };
+  type: "ContinueStatement";
+
+  label: null | string;
 
   constructor(parser: Parser) {
-    parser.eat("Continue");
+    parser.eat("Break");
 
-    let label: ContinueStatement["node"]["label"] = null;
+    let label: ContinueStatement["label"] = null;
 
     if (parser.lookahead?.type === "Identifier") {
       label = String(parser.eat("Identifier").value);
     }
 
-    this.node = {
-      type: "ContinueStatement",
-      label,
-    };
+    this.type = "ContinueStatement";
+    this.label = label;
   }
 }

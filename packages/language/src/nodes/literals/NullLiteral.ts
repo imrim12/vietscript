@@ -1,19 +1,17 @@
 import { Parser } from "@lang/parser";
 
 export class NullLiteral {
-  node: {
-    type: "NullLiteral";
-    value: null;
-    raw: string;
-  };
+  type: "NullLiteral";
+
+  value: null;
+
+  raw: string;
 
   constructor(parser: Parser) {
     parser.eat("Null");
 
-    this.node = {
-      type: "NullLiteral",
-      value: null,
-      raw: "null",
-    };
+    this.type = "NullLiteral";
+    this.value = null;
+    this.raw = "null";
   }
 }

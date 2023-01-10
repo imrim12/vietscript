@@ -3,37 +3,35 @@ import { Parser } from "@lang/parser";
 import { Expression } from "../expressions/Expression";
 
 export class VariableDeclarator {
-  node: {
-    type: "VariableDeclarator";
-    id: {
-      type: "Identifier";
-      name: string;
-    };
-    init: Expression["node"];
+  type: "VariableDeclarator";
+
+  id: {
+    type: "Identifier";
+    name: string;
   };
+
+  init: Expression;
 
   constructor(parser: Parser, isConstant = false) {
     const identifier = parser.eat("Identifier");
 
-    let init: VariableDeclarator["node"]["init"] = {
+    let init: VariableDeclarator["init"] = {
       type: "Literal",
-      value: undefined,
+
       raw: "undefined",
     };
 
     if (isConstant || parser.lookahead?.type === "=") {
       parser.eat("=");
 
-      init = new Expression(parser).node;
+      init = new Expression(parser);
     }
 
-    this.node = {
-      type: "VariableDeclarator",
-      id: {
-        type: "Identifier",
-        name: String(identifier.value),
-      },
-      init,
+    this.type = "VariableDeclarator";
+    this.id = {
+      type: "Identifier",
+      name: String(identifier.value),
     };
+    this.init = init;
   }
 }

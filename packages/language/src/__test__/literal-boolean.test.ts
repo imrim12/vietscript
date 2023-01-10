@@ -1,12 +1,13 @@
 import { BooleanLiteral } from "@lang/nodes/literals/BooleanLiteral";
 
 import parser from "./setup-test";
+import toPlainObject from "./toPlainObject";
 
 describe("literal-boolean.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse("true", BooleanLiteral);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "BooleanLiteral",
       value: true,
       raw: "true",
@@ -16,7 +17,7 @@ describe("literal-boolean.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse("false", BooleanLiteral);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "BooleanLiteral",
       value: false,
       raw: "false",

@@ -1,12 +1,13 @@
 import { StringLiteral } from "@lang/nodes/literals/StringLiteral";
 
 import parser from "./setup-test";
+import toPlainObject from "./toPlainObject";
 
 describe("literal-string.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`"Hello world!"`, StringLiteral);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "StringLiteral",
       value: "Hello world!",
       raw: '"Hello world!"',
@@ -16,7 +17,7 @@ describe("literal-string.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`'Hello world!'`, StringLiteral);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "StringLiteral",
       value: "Hello world!",
       raw: '"Hello world!"',
@@ -26,7 +27,7 @@ describe("literal-string.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse("`Hello world!`", StringLiteral);
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "StringLiteral",
       value: "Hello world!",
       raw: '"Hello world!"',

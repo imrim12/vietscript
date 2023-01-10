@@ -1,11 +1,11 @@
 import { Parser } from "@lang/parser";
 
 export class NumericLiteral {
-  node: {
-    type: "NumericLiteral";
-    value: number;
-    raw: string;
-  };
+  type: "NumericLiteral";
+
+  value: number;
+
+  raw: string;
 
   constructor(parser: Parser) {
     let isMinus = false;
@@ -19,10 +19,8 @@ export class NumericLiteral {
 
     const value = isMinus ? -token.value : Number(token.value);
 
-    this.node = {
-      type: "NumericLiteral",
-      value,
-      raw: String(value),
-    };
+    this.type = "NumericLiteral";
+    this.value = value;
+    this.raw = String(value);
   }
 }

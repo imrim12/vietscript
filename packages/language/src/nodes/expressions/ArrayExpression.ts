@@ -2,25 +2,22 @@ import { Parser } from "@lang/parser";
 import { Literal } from "@lang/nodes/literals/Literal";
 
 export class ArrayExpression {
-  node: {
-    type: "ArrayExpression";
-    elements: Array<Literal["node"]["value"]>;
-  };
+  type: "ArrayExpression";
+
+  elements: Array<Literal["value"]>;
 
   constructor(parser: Parser) {
-    const elements: Array<Literal["node"]["value"]> = [];
+    const elements: Array<Literal["value"]> = [];
 
     parser.eat("[");
 
     do {
-      elements.push(new Literal(parser).node.value);
+      elements.push(new Literal(parser).value);
     } while (parser.lookahead?.type === "," && parser.eat(","));
 
     parser.eat("]");
 
-    this.node = {
-      type: "ArrayExpression",
-      elements,
-    };
+    this.type = "ArrayExpression";
+    this.elements = elements;
   }
 }

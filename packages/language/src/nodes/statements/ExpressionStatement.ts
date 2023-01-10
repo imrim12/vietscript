@@ -3,9 +3,9 @@ import { Parser } from "@lang/parser";
 import { Expression } from "../expressions/Expression";
 
 export class ExpressionStatement {
-  node: Record<string, any>;
+  [key: string]: any;
 
   constructor(parser: Parser) {
-    this.node = new Expression(parser).node;
+    Object.assign(this, new Expression(parser));
   }
 }

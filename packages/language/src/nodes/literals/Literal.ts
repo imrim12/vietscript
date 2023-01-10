@@ -8,38 +8,45 @@ import { StringLiteral } from "./StringLiteral";
 import { UndefinedLiteral } from "./UndefinedLiteral";
 
 export class Literal {
-  node: {
-    type: "Literal";
-    value: number | boolean | string | null | undefined;
-    raw: string;
-  };
+  type: "Literal";
+
+  value: number | boolean | string | null | undefined;
+
+  raw: string;
 
   constructor(parser: Parser) {
+    let literal: any;
+
+    this.type = "Literal";
+
     switch (parser.lookahead?.type) {
       case "Number": {
-        this.node = { ...new NumericLiteral(parser).node, type: "Literal" };
+        literal = new NumericLiteral(parser);
         break;
       }
       case "String": {
-        this.node = { ...new StringLiteral(parser).node, type: "Literal" };
+        literal = new StringLiteral(parser);
         break;
       }
       case "Boolean": {
-        this.node = { ...new BooleanLiteral(parser).node, type: "Literal" };
+        literal = new BooleanLiteral(parser);
         break;
       }
       case "NaN": {
-        this.node = { ...new NaNLiteral(parser).node, type: "Literal" };
+        literal = new NaNLiteral(parser);
         break;
       }
       case "Null": {
-        this.node = { ...new NullLiteral(parser).node, type: "Literal" };
+        literal = new NullLiteral(parser);
         break;
       }
       case "Undefined": {
-        this.node = { ...new UndefinedLiteral(parser).node, type: "Literal" };
+        literal = new UndefinedLiteral(parser);
         break;
       }
     }
+
+    this.value = literal.value;
+    this.raw = literal.raw;
   }
 }

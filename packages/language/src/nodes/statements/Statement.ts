@@ -11,46 +11,45 @@ import { ThrowStatement } from "./ThrowStatement";
 import { DebuggerStatement } from "./DebuggerStatement";
 
 export class Statement {
-  node: {
-    type: string;
-    [key: string]: any;
-  };
+  type: string;
+
+  [key: string]: any;
 
   constructor(parser: Parser) {
     switch (parser.lookahead?.type) {
       case "{": {
-        this.node = new BlockStatement(parser).node;
+        Object.assign(this, new BlockStatement(parser));
         break;
       }
       case "Var":
       case "Let":
       case "Const": {
-        this.node = new VariableDeclaration(parser).node;
+        Object.assign(this, new VariableDeclaration(parser));
         break;
       }
       case "Async":
       case "Function": {
-        this.node = new FunctionDeclaration(parser).node;
+        Object.assign(this, new FunctionDeclaration(parser));
         break;
       }
       case "Continue": {
-        this.node = new ContinueStatement(parser).node;
+        Object.assign(this, new ContinueStatement(parser));
         break;
       }
       case "Break": {
-        this.node = new BreakStatement(parser).node;
+        Object.assign(this, new BreakStatement(parser));
         break;
       }
       case "Return": {
-        this.node = new ReturnStatement(parser).node;
+        Object.assign(this, new ReturnStatement(parser));
         break;
       }
       case "Throw": {
-        this.node = new ThrowStatement(parser).node;
+        Object.assign(this, new ThrowStatement(parser));
         break;
       }
       case "Debugger": {
-        this.node = new DebuggerStatement(parser).node;
+        Object.assign(this, new DebuggerStatement(parser));
         break;
       }
     }

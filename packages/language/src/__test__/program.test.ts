@@ -1,6 +1,7 @@
 import { Program } from "@lang/nodes/Program";
 
 import parser from "./setup-test";
+import toPlainObject from "./toPlainObject";
 
 describe("program.test", () => {
   it("should parse the syntax normally", () => {
@@ -10,7 +11,7 @@ describe("program.test", () => {
       Program,
     );
 
-    expect(result.node).toStrictEqual({
+    expect(toPlainObject(result)).toStrictEqual({
       type: "Program",
       body: [
         {
