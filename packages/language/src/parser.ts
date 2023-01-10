@@ -4,11 +4,11 @@ import { Tokenizer } from "./tokenizer";
 import { Program } from "./nodes/Program";
 
 export class Parser {
-  protected syntax: string;
+  public syntax: string;
 
-  protected tokenizer: Tokenizer;
+  public tokenizer: Tokenizer;
 
-  lookahead: Token | null;
+  public lookahead: Token | null;
 
   /**
    * Initializes the parser.

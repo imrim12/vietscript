@@ -1,5 +1,6 @@
 import { Parser } from "@lang/parser";
-import { Literal } from "@lang/nodes/literals/Literal";
+
+import { Expression } from "../expressions/Expression";
 
 export class VariableDeclarator {
   node: {
@@ -8,13 +9,13 @@ export class VariableDeclarator {
       type: "Identifier";
       name: string;
     };
-    init: Literal["node"];
+    init: Expression["node"];
   };
 
   constructor(parser: Parser, isConstant = false) {
     const identifier = parser.eat("Identifier");
 
-    let init: Literal["node"] = {
+    let init: VariableDeclarator["node"]["init"] = {
       type: "Literal",
       value: undefined,
       raw: "undefined",
@@ -22,7 +23,8 @@ export class VariableDeclarator {
 
     if (isConstant || parser.lookahead?.type === "=") {
       parser.eat("=");
-      init = new Literal(parser).node;
+
+      init = new Expression(parser).node;
     }
 
     this.node = {

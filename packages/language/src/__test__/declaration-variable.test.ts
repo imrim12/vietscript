@@ -224,7 +224,7 @@ describe("declaration-variable.test", () => {
   });
 
   it("should parse the syntax normally", () => {
-    const result = parser.parse(`khai báo tuổi = không xác định`, VariableDeclaration);
+    const result = parser.parse(`khai báo tuổi = không xác định, tên = "Nhi"`, VariableDeclaration);
 
     expect(result.node).toStrictEqual({
       type: "VariableDeclaration",
@@ -239,6 +239,18 @@ describe("declaration-variable.test", () => {
             type: "Literal",
             value: undefined,
             raw: "undefined",
+          },
+        },
+        {
+          type: "VariableDeclarator",
+          id: {
+            type: "Identifier",
+            name: "tên",
+          },
+          init: {
+            type: "Literal",
+            value: "Nhi",
+            raw: '"Nhi"',
           },
         },
       ],

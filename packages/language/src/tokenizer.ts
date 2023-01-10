@@ -95,7 +95,7 @@ const Specs: Array<Spec> = [
   [/^\bswitch\b/, "Switch"],
   [/^\bwhile\b/, "While"],
   [/^\bdebugger\b/, "Debugger"],
-  [/^\bfunction\b/, "Function_"],
+  [/^\bfunction\b/, "Function"],
   [/^\bthis\b/, "This"],
   [/^\bwith\b/, "With"],
   [/^\bdefault\b/, "Default"],
@@ -182,7 +182,7 @@ export class Tokenizer {
   /**
    * Whether the tokenizer reached EOF.
    */
-  protected isEOF() {
+  public isEOF() {
     return this.cursor === this.syntax.length;
   }
 
