@@ -19,8 +19,20 @@ export class Expression {
         Object.assign(this, new ArrayExpression(parser));
         break;
       }
-      default: {
+      case "Number":
+      case "String":
+      case "Boolean":
+      case "NaN":
+      case "Null":
+      case "Undefined": {
         Object.assign(this, new Literal(parser));
+        break;
+      }
+      default: {
+        Object.assign(this, {
+          type: "Identifier",
+          name: String(parser.eat("Identifier").value),
+        });
         break;
       }
     }

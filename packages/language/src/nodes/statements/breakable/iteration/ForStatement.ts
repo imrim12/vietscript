@@ -1,7 +1,7 @@
 import { Parser } from "@lang/parser";
 
-export class TryStatement {
+export class ForStatement {
   constructor(parser: Parser) {
-    parser.eat("Try");
+    parser.eat("For");
   }
 }

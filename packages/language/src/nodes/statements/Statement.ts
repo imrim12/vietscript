@@ -1,18 +1,18 @@
 import { Parser } from "@lang/parser";
 
-import { VariableDeclaration } from "../declarations/VariableDeclaration";
-import { FunctionDeclaration } from "../declarations/FunctionDeclaration";
-
 import { BlockStatement } from "./BlockStatement";
 import { BreakStatement } from "./BreakStatement";
 import { ContinueStatement } from "./ContinueStatement";
 import { ReturnStatement } from "./ReturnStatement";
 import { ThrowStatement } from "./ThrowStatement";
 import { DebuggerStatement } from "./DebuggerStatement";
+import { BreakableStatement } from "./breakable/BreakableStatement";
+import { IfStatement } from "./IfStatement";
+import { TryStatement } from "./TryStatement";
+import { LabelledStatement } from "./LabelledStatement";
+import { WithStatement } from "./WithStatement";
 
 export class Statement {
-  type: string;
-
   [key: string]: any;
 
   constructor(parser: Parser) {
@@ -21,15 +21,15 @@ export class Statement {
         Object.assign(this, new BlockStatement(parser));
         break;
       }
-      case "Var":
-      case "Let":
-      case "Const": {
-        Object.assign(this, new VariableDeclaration(parser));
+      case "If": {
+        Object.assign(this, new IfStatement(parser));
         break;
       }
-      case "Async":
-      case "Function": {
-        Object.assign(this, new FunctionDeclaration(parser));
+      case "Do":
+      case "While":
+      case "For":
+      case "Switch": {
+        Object.assign(this, new BreakableStatement(parser));
         break;
       }
       case "Continue": {
@@ -44,8 +44,20 @@ export class Statement {
         Object.assign(this, new ReturnStatement(parser));
         break;
       }
+      case "With": {
+        Object.assign(this, new WithStatement(parser));
+        break;
+      }
+      case "Identifier": {
+        Object.assign(this, new LabelledStatement(parser));
+        break;
+      }
       case "Throw": {
         Object.assign(this, new ThrowStatement(parser));
+        break;
+      }
+      case "Try": {
+        Object.assign(this, new TryStatement(parser));
         break;
       }
       case "Debugger": {

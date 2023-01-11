@@ -1,21 +1,20 @@
 import { Parser } from "@lang/parser";
 
-import { Statement } from "./Statement";
+import { StatementList } from "./StatementList";
+import { StatementListItem } from "./StatementListItem";
 
 export class BlockStatement {
   type: "BlockStatement";
 
-  body: Array<Statement>;
+  body: Array<StatementListItem>;
 
   constructor(parser: Parser) {
-    const statements: Array<Statement> = [];
+    const statements: Array<StatementListItem> = [];
 
     parser.eat("{");
 
     // List of statement
-    while (parser.lookahead?.type !== "}") {
-      statements.push(new Statement(parser));
-    }
+    statements.push(...new StatementList(parser).body);
 
     parser.eat("}");
 

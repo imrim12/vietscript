@@ -78,46 +78,46 @@ const Specs: Array<Spec> = [
 
   // --------------------------------------
   // Keywords
-  [/^\b(var|khai b\u00E1o)\b/, "Var"],
-  [/^\bbreak\b/, "Break"],
-  [/^\bdo\b/, "Do"],
+  [/^\b(var|khai b\u00E1o)\b/, "Var"], // khai báo
+  [/^\b(break|ph\u00E1 v\u00F2ng l\u1EB7p)\b/, "Break"], // phá vòng lặp
+  [/^\b(do|th\u1EF1c hi\u1EC7n)\b/, "Do"], // thực hiện
   [/^\binstanceof\b/, "Instanceof"],
-  [/^\btypeof\b/, "Typeof"],
-  [/^\bcase\b/, "Case"],
-  [/^\belse\b/, "Else"],
+  [/^\b(typeof|ki\u1EC3u c\u1EE7a)\b/, "Typeof"], // kiểu của
+  [/^\b(switch|duy\u1EC7t)\b/, "Switch"], // duyệt
+  [/^\b(case|tr\u01B0\u1EDDng h\u1EE3p)\b/, "Case"], // trường hợp
+  [/^\b(if|n\u1EBFu)\b/, "If"], // nếu
+  [/^\b(else|kh\u00F4ng th\u00EC)\b/, "Else"],
   [/^\bnew\b/, "New"],
-  [/^\bcatch\b/, "Catch"],
-  [/^\bfinally\b/, "Finally"],
-  [/^\breturn\b/, "Return"],
+  [/^\b(catch|b\u1EAFt l\u1ED7i)\b/, "Catch"], // bắt lỗi
+  [/^\b(finally|cu\u1ED1i c\u00F9ng)\b/, "Finally"], // cuối cùng
+  [/^\b(return|tr\u1EA3 v\u1EC1)\b/, "Return"], // trả về
   [/^\bvoid\b/, "Void"],
-  [/^\bcontinue\b/, "Continue"],
-  [/^\bfor\b/, "For"],
-  [/^\bswitch\b/, "Switch"],
-  [/^\bwhile\b/, "While"],
+  [/^\b(continue|ti\u1EBFp t\u1EE5c)\b/, "Continue"], // tiếp tục
+  [/^\bfor\b/, "For"], // lặp
+  [/^\b(while|khi m\u00E0)\b/, "While"], // khi mà
   [/^\bdebugger\b/, "Debugger"],
-  [/^\bfunction\b/, "Function"],
+  [/^\b(function|h\u00E0m)\b/, "Function"], // hàm
   [/^\bthis\b/, "This"],
   [/^\bwith\b/, "With"],
-  [/^\bdefault\b/, "Default"],
-  [/^\bif\b/, "If"],
-  [/^\bthrow\b/, "Throw"],
-  [/^\bdelete\b/, "Delete"],
-  [/^\bin\b/, "In"],
-  [/^\btry\b/, "Try"],
+  [/^\b(default|m\u1EB7c \u0111\u1ECBnh)\b/, "Default"], // mặc định
+  [/^\b(throw|b\u00E1o l\u1ED7i)\b/, "Throw"], // báo lỗi
+  [/^\b(delete|xo\u00E1)\b/, "Delete"], // xoá
+  [/^\b(in|trong)\b/, "In"], // trong
+  [/^\b(try|th\u1EED)\b/, "Try"], // thử
   [/^\bas\b/, "As"],
-  [/^\bfrom\b/, "From"],
+  [/^\b(from|t\u1EEB)\b/, "From"], // từ
 
   // --------------------------------------
   // Future Reserved Words
   [/^const|h\u1EB1ng s\u1ED1/, "Const"],
-  [/^\bclass\b/, "Class"],
+  [/^\b(class|l\u1EDBp)\b/, "Class"], // lớp
   [/^\benum\b/, "Enum"],
-  [/^\bextends\b/, "Extends"],
-  [/^\bsuper\b/, "Super"],
-  [/^\bexport\b/, "Export"],
-  [/^\bimport\b/, "Import"],
-  [/^\basync\b/, "Async"],
-  [/^\bawait\b/, "Await"],
+  [/^\b(extends|k\u1EBF th\u1EEBa)\b/, "Extends"], // kế thừa
+  [/^\b(super|kh\u1EDFi t\u1EA1o cha)\b/, "Super"], // khởi tạo cha
+  [/^\b(export|xu\u1EA5t)\b/, "Export"], // xuất
+  [/^\b(import|nh\u1EADp)\b/, "Import"], // nhập
+  [/^\b(async|b\u1EA5t \u0111\u1ED3ng b\u1ED9)\b/, "Async"], // bất đồng bộ
+  [/^\b(await|ch\u1EDD)\b/, "Await"], // chờ
   [/^\byield\b/, "Yield"],
   [/^\bimplements\b/, "Implements"],
   [/^\blet\b/, "Let"],
