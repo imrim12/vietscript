@@ -86,7 +86,7 @@ const Specs: Array<Spec> = [
   [/^\b(switch|duy\u1EC7t)\b/, "Switch"], // duyệt
   [/^\b(case|tr\u01B0\u1EDDng h\u1EE3p)\b/, "Case"], // trường hợp
   [/^\b(if|n\u1EBFu)\b/, "If"], // nếu
-  [/^\b(else|kh\u00F4ng th\u00EC)\b/, "Else"],
+  [/^\b(else|kh\u00F4ng th\u00EC)/, "Else"], // không thì
   [/^\bnew\b/, "New"],
   [/^\b(catch|b\u1EAFt l\u1ED7i)\b/, "Catch"], // bắt lỗi
   [/^\b(finally|cu\u1ED1i c\u00F9ng)\b/, "Finally"], // cuối cùng

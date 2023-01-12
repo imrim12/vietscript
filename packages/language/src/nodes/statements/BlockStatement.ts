@@ -14,7 +14,7 @@ export class BlockStatement {
     parser.eat("{");
 
     // List of statement
-    statements.push(...new StatementList(parser).body);
+    statements.push(...new StatementList(parser, ["}"]).body);
 
     parser.eat("}");
 
