@@ -1,14 +1,11 @@
 import { Parser } from "@lang/parser";
-
-import { Expression } from "../expressions/Expression";
+import { Expression } from "@lang/nodes/expressions/Expression";
+import { Identifier } from "@lang/nodes/identifier/Identifier";
 
 export class VariableDeclarator {
   type: "VariableDeclarator";
 
-  id: {
-    type: "Identifier";
-    name: string;
-  };
+  id: Identifier;
 
   init: Expression;
 

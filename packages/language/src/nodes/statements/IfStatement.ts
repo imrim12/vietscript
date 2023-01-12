@@ -1,6 +1,6 @@
 import { Parser } from "@lang/parser";
-
-import { Expression } from "../expressions/Expression";
+import { Identifier } from "@lang/nodes/identifier/Identifier";
+import { Expression } from "@lang/nodes/expressions/Expression";
 
 import { BlockStatement } from "./BlockStatement";
 import { Statement } from "./Statement";
@@ -8,12 +8,7 @@ import { Statement } from "./Statement";
 export class IfStatement {
   type = "IfStatement" as const;
 
-  test:
-    | {
-        type: "Identifier";
-        name: string;
-      }
-    | Expression;
+  test: Identifier | Expression;
 
   consequent: Statement | BlockStatement;
 
@@ -25,12 +20,7 @@ export class IfStatement {
     parser.eat("(");
 
     this.test =
-      parser.lookahead?.type === "Identifier"
-        ? {
-            type: "Identifier",
-            name: String(parser.eat("Identifier")?.value),
-          }
-        : new Expression(parser);
+      parser.lookahead?.type === "Identifier" ? new Identifier(parser) : new Expression(parser);
 
     parser.eat(")");
 

@@ -1,14 +1,11 @@
 import { Parser } from "@lang/parser";
-
-import { BlockStatement } from "../statements/BlockStatement";
+import { Identifier } from "@lang/nodes/identifier/Identifier";
+import { BlockStatement } from "@lang/nodes/statements/BlockStatement";
 
 export class FunctionDeclaration {
   type: "FunctionDeclaration";
 
-  id: {
-    type: "Identifier";
-    name: string;
-  };
+  id: Identifier;
 
   expression: boolean;
 
@@ -16,10 +13,7 @@ export class FunctionDeclaration {
 
   async: boolean;
 
-  params: Array<{
-    type: "Identifier";
-    name: string;
-  }>;
+  params: Array<Identifier>;
 
   body: BlockStatement;
 
@@ -43,16 +37,10 @@ export class FunctionDeclaration {
 
     parser.eat("(");
 
-    const parameters: Array<{
-      type: "Identifier";
-      name: string;
-    }> = [];
+    const parameters: Array<Identifier> = [];
 
     do {
-      parameters.push({
-        type: "Identifier",
-        name: String(parser.eat("Identifier").value),
-      });
+      parameters.push(new Identifier(parser));
     } while (parser.lookahead?.type === "," && parser.eat(","));
 
     parser.eat(")");

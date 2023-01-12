@@ -1,4 +1,5 @@
 import { Expression } from "@lang/nodes/expressions/Expression";
+import { Identifier } from "@lang/nodes/identifier/Identifier";
 import { Parser } from "@lang/parser";
 
 export class PropertyDefinition {
@@ -8,22 +9,11 @@ export class PropertyDefinition {
 
   computed: boolean;
 
-  key: {
-    type: "Identifier";
-    name: string;
-  };
+  key: Identifier;
 
   value: null | Expression;
 
-  constructor(
-    parser: Parser,
-    isStatic: boolean,
-    isComputed: boolean,
-    key: {
-      type: "Identifier";
-      name: string;
-    },
-  ) {
+  constructor(parser: Parser, isStatic: boolean, isComputed: boolean, key: Identifier) {
     this.type = "PropertyDefinition";
     this.static = isStatic;
     this.computed = isComputed;

@@ -1,14 +1,12 @@
 import { Parser } from "@lang/parser";
+import { Identifier } from "@lang/nodes/identifier/Identifier";
 
 export class UpdateExpression {
   type = "UpdateExpression" as const;
 
   operator: string;
 
-  argument: {
-    type: "Identifier";
-    name: string;
-  };
+  argument: Identifier;
 
   prefix: boolean;
 
@@ -17,15 +15,9 @@ export class UpdateExpression {
       this.prefix = true;
       this.operator = String(parser.eat(parser.lookahead.type).value);
 
-      this.argument = {
-        type: "Identifier",
-        name: String(parser.eat("Identifier").value),
-      };
+      this.argument = new Identifier(parser);
     } else if (parser.lookahead?.type === "Identifier") {
-      this.argument = {
-        type: "Identifier",
-        name: String(parser.eat("Identifier").value),
-      };
+      this.argument = new Identifier(parser);
 
       this.prefix = false;
       this.operator = String(parser.eat(parser.lookahead.type).value);

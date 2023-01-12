@@ -1,6 +1,6 @@
 import { Parser } from "@lang/parser";
-
-import { BlockStatement } from "../statements/BlockStatement";
+import { BlockStatement } from "@lang/nodes/statements/BlockStatement";
+import { Identifier } from "@lang/nodes/identifier/Identifier";
 
 export class FunctionExpression {
   type: "FunctionExpression";
@@ -13,10 +13,7 @@ export class FunctionExpression {
 
   async: boolean;
 
-  params: Array<{
-    type: "Identifier";
-    name: string;
-  }>;
+  params: Array<Identifier>;
 
   body: BlockStatement;
 
@@ -38,16 +35,10 @@ export class FunctionExpression {
 
     parser.eat("(");
 
-    const parameters: Array<{
-      type: "Identifier";
-      name: string;
-    }> = [];
+    const parameters: Array<Identifier> = [];
 
     do {
-      parameters.push({
-        type: "Identifier",
-        name: String(parser.eat("Identifier").value),
-      });
+      parameters.push(new Identifier(parser));
     } while (parser.lookahead?.type === "," && parser.eat(","));
 
     parser.eat(")");

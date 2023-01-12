@@ -1,4 +1,5 @@
 import { FunctionExpression } from "@lang/nodes/expressions/FunctionExpression";
+import { Identifier } from "@lang/nodes/identifier/Identifier";
 import { Parser } from "@lang/parser";
 
 export class MethodDefinition {
@@ -8,10 +9,7 @@ export class MethodDefinition {
 
   computed: boolean;
 
-  key: {
-    type: "Identifier";
-    name: string;
-  };
+  key: Identifier;
 
   kind: "method" | "get" | "set";
 
@@ -21,10 +19,7 @@ export class MethodDefinition {
     parser: Parser,
     isStatic: boolean,
     isComputed: boolean,
-    key: {
-      type: "Identifier";
-      name: string;
-    },
+    key: Identifier,
     kind: "method" | "get" | "set",
   ) {
     this.type = "MethodDefinition";

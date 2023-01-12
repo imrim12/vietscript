@@ -1,4 +1,5 @@
 import { Parser } from "@lang/parser";
+import { Identifier } from "@lang/nodes/identifier/Identifier";
 
 import { MethodDefinition } from "./class/MethodDefinition";
 import { PropertyDefinition } from "./class/PropertyDefinition";
@@ -6,10 +7,7 @@ import { PropertyDefinition } from "./class/PropertyDefinition";
 export class ClassDeclaration {
   type: "ClassDeclaration";
 
-  id: {
-    type: "Identifier";
-    name: string;
-  };
+  id: Identifier;
 
   body: {
     type: "ClassBody";
@@ -19,10 +17,7 @@ export class ClassDeclaration {
   constructor(parser: Parser) {
     parser.eat("Class");
 
-    this.id = {
-      type: "Identifier",
-      name: String(parser.eat("Identifier").value),
-    };
+    this.id = new Identifier(parser);
     parser.eat("{");
 
     this.body = {
@@ -44,10 +39,7 @@ export class ClassDeclaration {
 
       let isStatic = false,
         isComputed = false,
-        identifier: {
-          type: "Identifier";
-          name: string;
-        } | null = null;
+        identifier: Identifier | null = null;
 
       if (!isGetter && !isSetter) {
         isStatic = parser.lookahead?.type === "Static";
@@ -60,20 +52,14 @@ export class ClassDeclaration {
         if (isComputed) {
           parser.eat("[");
 
-          identifier = {
-            type: "Identifier",
-            name: String(parser.eat("Identifier").value),
-          };
+          identifier = new Identifier(parser);
 
           parser.eat("]");
         }
       }
 
       if (identifier === null) {
-        identifier = {
-          type: "Identifier" as const,
-          name: String(parser.eat("Identifier").value),
-        };
+        identifier = new Identifier(parser);
       }
 
       if (parser.lookahead?.type === "(") {
