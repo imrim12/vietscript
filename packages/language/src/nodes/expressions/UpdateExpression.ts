@@ -2,7 +2,7 @@ import { Parser } from "@lang/parser";
 import { Identifier } from "@lang/nodes/identifier/Identifier";
 
 export class UpdateExpression {
-  type = "UpdateExpression" as const;
+  type = "UpdateExpression";
 
   operator: string;
 

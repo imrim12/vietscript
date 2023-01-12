@@ -28,6 +28,10 @@ const Specs: Array<Spec> = [
   [/^}/, "}"], // CloseBrace
   [/^;/, ";"], // SemiColon
   [/^,/, ","], // Comma
+  [/^===/, "==="], // IdentityEquals
+  [/^==/, "=="], // Equals_
+  [/^!==/, "!=="], // IdentityNotEquals
+  [/^!=/, "!="], // NotEquals
   [/^=/, "="], // Assign
   [/^\?/, "?"], // QuestionMark
   [/^\?\.?/, "?."], // QuestionMarkDot
@@ -35,8 +39,8 @@ const Specs: Array<Spec> = [
   [/^\.{3}/, "..."], // Ellipsis
   [/^\./, "."], // Dot
   [/^\+\+/, "++"], // PlusPlus
-  [/^--/, "--"], // MinusMinus
   [/^\+/, "+"], // Plus
+  [/^--/, "--"], // MinusMinus
   [/^-/, "-"], // Minus
   [/^~/, "~"], // BitNot
   [/^!/, "!"], // Not
@@ -46,30 +50,26 @@ const Specs: Array<Spec> = [
   [/^\*\*/, "**"], // Power
   [/^\?\?/, "??"], // NullCoalesce
   [/^#/, "#"], // Hashtag
-  [/^>>/, ">>"], // RightShiftArithmetic
-  [/^<</, "<<"], // LeftShiftArithmetic
+  [/^>>>=/, ">>>="], // RightShiftLogicalAssign
   [/^>>>/, ">>>"], // RightShiftLogical
-  [/^</, "<"], // LessThan
-  [/^>/, ">"], // MoreThan
+  [/^>>/, ">>"], // RightShiftArithmetic
+  [/^>>=/, ">>="], // RightShiftArithmeticAssign
+  [/^<<=/, "<<="], // LeftShiftArithmeticAssign
+  [/^<</, "<<"], // LeftShiftArithmetic
   [/^<=/, "<="], // LessThanEquals
   [/^>=/, ">="], // GreaterThanEquals
-  [/^==/, "=="], // Equals_
-  [/^!=/, "!="], // NotEquals
-  [/^===/, "==="], // IdentityEquals
-  [/^!==/, "!=="], // IdentityNotEquals
+  [/^</, "<"], // LessThan
+  [/^>/, ">"], // MoreThan
+  [/^&&/, "&&"], // And
+  [/^\|\|/, "||"], // Or
   [/^&/, "&"], // BitAnd
   [/^\^/, "^"], // BitXOr
   [/^\|/, "|"], // BitOr
-  [/^&&/, "&&"], // And
-  [/^\|\|/, "||"], // Or
   [/^\*=/, "*="], // MultiplyAssign
   [/^\//, "/="], // DivideAssign
   [/^%=/, "%="], // ModulusAssign
   [/^\+=/, "+="], // PlusAssign
   [/^-=/, "-="], // MinusAssign
-  [/^<<=/, "<<="], // LeftShiftArithmeticAssign
-  [/^>>=/, ">>="], // RightShiftArithmeticAssign
-  [/^>>>=/, ">>>="], // RightShiftLogicalAssign
   [/^&=/, "&="], // BitAndAssign
   [/^\^=/, "^="], // BitXorAssign
   [/^\|=/, "|="], // BitOrAssign
