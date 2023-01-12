@@ -3,7 +3,7 @@ import { Identifier } from "@lang/nodes/identifier/Identifier";
 import { Parser } from "@lang/parser";
 
 export class PropertyDefinition {
-  type: "PropertyDefinition";
+  type = "PropertyDefinition";
 
   static: boolean;
 
@@ -14,7 +14,6 @@ export class PropertyDefinition {
   value: null | Expression;
 
   constructor(parser: Parser, isStatic: boolean, isComputed: boolean, key: Identifier) {
-    this.type = "PropertyDefinition";
     this.static = isStatic;
     this.computed = isComputed;
     this.key = key;

@@ -1,7 +1,7 @@
 import { Parser } from "@lang/parser";
 
 export class BreakStatement {
-  type: "BreakStatement";
+  type = "BreakStatement";
 
   label: null | string;
 
@@ -14,7 +14,6 @@ export class BreakStatement {
       label = String(parser.eat("Identifier").value);
     }
 
-    this.type = "BreakStatement";
     this.label = label;
   }
 }

@@ -1,7 +1,7 @@
 import { Parser } from "@lang/parser";
 
 export class BooleanLiteral {
-  type: "BooleanLiteral";
+  type = "BooleanLiteral";
 
   value: boolean;
 
@@ -12,7 +12,6 @@ export class BooleanLiteral {
 
     const value = token.value === "true" ? true : false;
 
-    this.type = "BooleanLiteral";
     this.value = value;
     this.raw = String(value);
   }

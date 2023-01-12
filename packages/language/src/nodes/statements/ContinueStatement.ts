@@ -1,7 +1,7 @@
 import { Parser } from "@lang/parser";
 
 export class ContinueStatement {
-  type: "ContinueStatement";
+  type = "ContinueStatement";
 
   label: null | string;
 
@@ -14,7 +14,6 @@ export class ContinueStatement {
       label = String(parser.eat("Identifier").value);
     }
 
-    this.type = "ContinueStatement";
     this.label = label;
   }
 }

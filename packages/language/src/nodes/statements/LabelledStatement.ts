@@ -3,7 +3,7 @@ import { Parser } from "@lang/parser";
 import { IterationStatement } from "./breakable/iteration/IterationStatement";
 
 export class LabelledStatement {
-  type: "LabelledStatement";
+  type = "LabelledStatement";
 
   label: {
     type: "Identifier";
@@ -18,7 +18,5 @@ export class LabelledStatement {
     parser.eat(":");
 
     this.body = new IterationStatement(parser);
-
-    this.type = "LabelledStatement";
   }
 }

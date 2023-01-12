@@ -1,7 +1,7 @@
 import { Parser } from "@lang/parser";
 
 export class NumericLiteral {
-  type: "NumericLiteral";
+  type = "NumericLiteral";
 
   value: number;
 
@@ -19,7 +19,6 @@ export class NumericLiteral {
 
     const value = isMinus ? -token.value : Number(token.value);
 
-    this.type = "NumericLiteral";
     this.value = value;
     this.raw = String(value);
   }

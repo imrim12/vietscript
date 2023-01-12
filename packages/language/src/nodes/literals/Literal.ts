@@ -8,7 +8,7 @@ import { StringLiteral } from "./StringLiteral";
 import { UndefinedLiteral } from "./UndefinedLiteral";
 
 export class Literal {
-  type: "Literal";
+  type = "Literal";
 
   value: number | boolean | string | null | undefined;
 
@@ -16,8 +16,6 @@ export class Literal {
 
   constructor(parser: Parser) {
     let literal: any;
-
-    this.type = "Literal";
 
     switch (parser.lookahead?.type) {
       case "Number": {

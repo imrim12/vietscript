@@ -4,7 +4,7 @@ import { BlockStatement } from "@lang/nodes/statements/BlockStatement";
 import { Expression } from "@lang/nodes/expressions/Expression";
 
 export class WhileStatement {
-  type = "WhileStatement" as const;
+  type = "WhileStatement";
 
   body: Statement | BlockStatement;
 

@@ -4,7 +4,7 @@ import { Statement } from "@lang/nodes/statements/Statement";
 import { StatementList } from "@lang/nodes/statements/StatementList";
 
 export class SwitchStatement {
-  type: "SwitchStatement";
+  type = "SwitchStatement";
 
   discriminant: Expression;
 
@@ -65,7 +65,5 @@ export class SwitchStatement {
     }
 
     parser.eat("}");
-
-    this.type = "SwitchStatement";
   }
 }

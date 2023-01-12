@@ -3,7 +3,7 @@ import { Expression } from "@lang/nodes/expressions/Expression";
 import { Identifier } from "@lang/nodes/identifier/Identifier";
 
 export class VariableDeclarator {
-  type: "VariableDeclarator";
+  type = "VariableDeclarator";
 
   id: Identifier;
 
@@ -24,7 +24,6 @@ export class VariableDeclarator {
       init = new Expression(parser);
     }
 
-    this.type = "VariableDeclarator";
     this.id = {
       type: "Identifier",
       name: String(identifier.value),

@@ -4,7 +4,7 @@ import { StatementList } from "./StatementList";
 import { StatementListItem } from "./StatementListItem";
 
 export class BlockStatement {
-  type: "BlockStatement";
+  type = "BlockStatement";
 
   body: Array<StatementListItem>;
 
@@ -18,7 +18,6 @@ export class BlockStatement {
 
     parser.eat("}");
 
-    this.type = "BlockStatement";
     this.body = statements;
   }
 }

@@ -6,7 +6,7 @@ import { BlockStatement } from "./BlockStatement";
 import { Statement } from "./Statement";
 
 export class IfStatement {
-  type = "IfStatement" as const;
+  type = "IfStatement";
 
   test: Identifier | Expression;
 

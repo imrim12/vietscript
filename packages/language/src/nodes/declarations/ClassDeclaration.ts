@@ -5,7 +5,7 @@ import { MethodDefinition } from "./class/MethodDefinition";
 import { PropertyDefinition } from "./class/PropertyDefinition";
 
 export class ClassDeclaration {
-  type: "ClassDeclaration";
+  type = "ClassDeclaration";
 
   id: Identifier;
 
@@ -78,6 +78,5 @@ export class ClassDeclaration {
     }
 
     parser.eat("}");
-    this.type = "ClassDeclaration";
   }
 }

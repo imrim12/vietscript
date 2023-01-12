@@ -3,7 +3,7 @@ import { Identifier } from "@lang/nodes/identifier/Identifier";
 import { BlockStatement } from "@lang/nodes/statements/BlockStatement";
 
 export class FunctionDeclaration {
-  type: "FunctionDeclaration";
+  type = "FunctionDeclaration";
 
   id: Identifier;
 
@@ -47,7 +47,6 @@ export class FunctionDeclaration {
 
     const body = new BlockStatement(parser);
 
-    this.type = "FunctionDeclaration";
     this.id = {
       type: "Identifier",
       name,

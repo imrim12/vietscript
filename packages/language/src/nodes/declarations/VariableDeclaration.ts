@@ -3,7 +3,7 @@ import { Parser } from "@lang/parser";
 import { VariableDeclarator } from "./VariableDeclarator";
 
 export class VariableDeclaration {
-  type: "VariableDeclaration";
+  type = "VariableDeclaration";
 
   declarations: Array<VariableDeclarator>;
 
@@ -41,7 +41,6 @@ export class VariableDeclaration {
       declarations.push(new VariableDeclarator(parser, isConstant));
     } while (parser.lookahead?.type === "," && parser.eat(","));
 
-    this.type = "VariableDeclaration";
     this.declarations = declarations;
     this.kind = kind;
   }

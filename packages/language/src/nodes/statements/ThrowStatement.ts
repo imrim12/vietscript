@@ -3,7 +3,7 @@ import { Parser } from "@lang/parser";
 import { Expression } from "../expressions/Expression";
 
 export class ThrowStatement {
-  type: "ThrowStatement";
+  type = "ThrowStatement";
 
   argument: Expression;
 
@@ -12,7 +12,6 @@ export class ThrowStatement {
 
     const expression = new Expression(parser);
 
-    this.type = "ThrowStatement";
     this.argument = expression;
   }
 }

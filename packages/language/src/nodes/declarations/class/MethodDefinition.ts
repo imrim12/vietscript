@@ -3,7 +3,7 @@ import { Identifier } from "@lang/nodes/identifier/Identifier";
 import { Parser } from "@lang/parser";
 
 export class MethodDefinition {
-  type: "MethodDefinition";
+  type = "MethodDefinition";
 
   static: boolean;
 
@@ -22,7 +22,6 @@ export class MethodDefinition {
     key: Identifier,
     kind: "method" | "get" | "set",
   ) {
-    this.type = "MethodDefinition";
     this.static = isStatic;
     this.computed = isComputed;
     this.kind = kind || "method";

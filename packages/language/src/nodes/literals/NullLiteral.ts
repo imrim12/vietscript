@@ -1,7 +1,7 @@
 import { Parser } from "@lang/parser";
 
 export class NullLiteral {
-  type: "NullLiteral";
+  type = "NullLiteral";
 
   value: null;
 
@@ -10,7 +10,6 @@ export class NullLiteral {
   constructor(parser: Parser) {
     parser.eat("Null");
 
-    this.type = "NullLiteral";
     this.value = null;
     this.raw = "null";
   }

@@ -3,7 +3,7 @@ import { BlockStatement } from "@lang/nodes/statements/BlockStatement";
 import { Identifier } from "@lang/nodes/identifier/Identifier";
 
 export class FunctionExpression {
-  type: "FunctionExpression";
+  type = "FunctionExpression";
 
   id: null;
 
@@ -45,7 +45,6 @@ export class FunctionExpression {
 
     const body = new BlockStatement(parser);
 
-    this.type = "FunctionExpression";
     this.id = null;
     this.expression = false;
     this.generator = isGenerator;

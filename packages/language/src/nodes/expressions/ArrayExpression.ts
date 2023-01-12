@@ -2,7 +2,7 @@ import { Parser } from "@lang/parser";
 import { Literal } from "@lang/nodes/literals/Literal";
 
 export class ArrayExpression {
-  type: "ArrayExpression";
+  type = "ArrayExpression";
 
   elements: Array<Literal["value"]>;
 
@@ -17,7 +17,6 @@ export class ArrayExpression {
 
     parser.eat("]");
 
-    this.type = "ArrayExpression";
     this.elements = elements;
   }
 }
