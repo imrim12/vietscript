@@ -17,16 +17,18 @@ export class FunctionExpression {
 
   body: BlockStatement;
 
-  constructor(parser: Parser) {
-    let isAsync = false;
+  constructor(parser: Parser, ignoreKeyword = false, isDefaultAsync = false) {
+    let isAsync = isDefaultAsync;
     let isGenerator = false;
 
-    if (parser.lookahead?.type === "Async") {
+    if (parser.lookahead?.type === "Async" && !isDefaultAsync) {
       parser.eat("Async");
       isAsync = true;
     }
 
-    parser.eat("Function");
+    if (!ignoreKeyword) {
+      parser.eat("Function");
+    }
 
     if (parser.lookahead?.type === "*") {
       parser.eat("*");
@@ -37,9 +39,13 @@ export class FunctionExpression {
 
     const parameters: Array<Identifier> = [];
 
-    do {
+    while (parser.lookahead?.type !== ")") {
+      if (parameters.length > 0) {
+        parser.eat(",");
+      }
+
       parameters.push(new Identifier(parser));
-    } while (parser.lookahead?.type === "," && parser.eat(","));
+    }
 
     parser.eat(")");
 

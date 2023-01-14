@@ -18,6 +18,7 @@ export class MethodDefinition {
   constructor(
     parser: Parser,
     isStatic: boolean,
+    isAsync: boolean,
     isComputed: boolean,
     key: Identifier,
     kind: "method" | "get" | "set",
@@ -27,6 +28,6 @@ export class MethodDefinition {
     this.kind = kind || "method";
     this.key = key;
 
-    this.value = new FunctionExpression(parser);
+    this.value = new FunctionExpression(parser, true, isAsync);
   }
 }

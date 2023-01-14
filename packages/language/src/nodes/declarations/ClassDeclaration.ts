@@ -9,6 +9,8 @@ export class ClassDeclaration {
 
   id: Identifier;
 
+  superClass: null | Identifier = null;
+
   body: {
     type: "ClassBody";
     body: Array<MethodDefinition | PropertyDefinition>;
@@ -18,6 +20,15 @@ export class ClassDeclaration {
     parser.eat("Class");
 
     this.id = new Identifier(parser);
+
+    if (parser.lookahead?.type === "(") {
+      parser.eat("(");
+
+      this.superClass = new Identifier(parser);
+
+      parser.eat(")");
+    }
+
     parser.eat("{");
 
     this.body = {
@@ -39,6 +50,7 @@ export class ClassDeclaration {
 
       let isStatic = false,
         isComputed = false,
+        isAsync = false,
         identifier: Identifier | null = null;
 
       if (!isGetter && !isSetter) {
@@ -47,6 +59,13 @@ export class ClassDeclaration {
         if (isStatic) {
           parser.eat("Static");
         }
+
+        isAsync = parser.lookahead?.type === "Async";
+
+        if (isAsync) {
+          parser.eat("Async");
+        }
+
         isComputed = parser.lookahead?.type === "[";
 
         if (isComputed) {
@@ -67,6 +86,7 @@ export class ClassDeclaration {
           new MethodDefinition(
             parser,
             isStatic,
+            isAsync,
             isComputed,
             identifier,
             isGetter ? "get" : isSetter ? "set" : "method",
