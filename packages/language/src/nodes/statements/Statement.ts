@@ -8,7 +8,7 @@ import { ThrowStatement } from "./ThrowStatement";
 import { DebuggerStatement } from "./DebuggerStatement";
 import { BreakableStatement } from "./breakable/BreakableStatement";
 import { IfStatement } from "./IfStatement";
-import { TryStatement } from "./TryStatement";
+import { TryStatement } from "./try/TryStatement";
 import { LabelledStatement } from "./LabelledStatement";
 import { WithStatement } from "./WithStatement";
 

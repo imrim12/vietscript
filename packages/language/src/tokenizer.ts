@@ -104,7 +104,7 @@ const Specs: Array<Spec> = [
   [/^\b(throw|b\u00E1o l\u1ED7i)\b/, "Throw"], // báo lỗi
   [/^\b(delete|xo\u00E1)\b/, "Delete"], // xoá
   [/^\b(in|trong)\b/, "In"], // trong
-  [/^\b(try|th\u1EED)\b/, "Try"], // thử
+  [/^\b(try|th\u1EED)/, "Try"], // thử
   [/^\bas\b/, "As"],
   [/^\b(from|t\u1EEB)\b/, "From"], // từ
 

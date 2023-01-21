@@ -7,27 +7,23 @@ export class VariableDeclarator {
 
   id: Identifier;
 
-  init: Expression;
+  init: Expression = {
+    type: "Literal",
+    raw: "undefined",
+  };
 
   constructor(parser: Parser, isConstant = false) {
     const identifier = parser.eat("Identifier");
 
-    let init: VariableDeclarator["init"] = {
-      type: "Literal",
-
-      raw: "undefined",
-    };
-
     if (isConstant || parser.lookahead?.type === "=") {
       parser.eat("=");
 
-      init = new Expression(parser);
+      this.init = new Expression(parser);
     }
 
     this.id = {
       type: "Identifier",
       name: String(identifier.value),
     };
-    this.init = init;
   }
 }
