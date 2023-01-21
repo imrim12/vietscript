@@ -8,6 +8,8 @@ import { BinaryExpression } from "./BinaryExpression";
 import { AssignmentExpression } from "./AssignmentExpression";
 import { UpdateExpression } from "./UpdateExpression";
 import { UnaryExpression } from "./UnaryExpression";
+import { LogicalExpression } from "./LogicalExpression";
+import { AwaitExpression } from "./AwaitExpression";
 
 export class Expression {
   [key: string]: any;
@@ -35,13 +37,42 @@ export class Expression {
       case "Identifier": {
         const identifier = new Identifier(parser);
 
-        if ([">", "<", ">=", "<=", "==", "==="].includes(parser.lookahead?.type)) {
-          Object.assign(this, new BinaryExpression(parser, identifier));
-          // @ts-ignore
-        } else if (parser.lookahead?.type === "=") {
-          Object.assign(this, new AssignmentExpression(parser, identifier));
-        } else {
-          Object.assign(this, identifier);
+        // TODO: handle more cases
+        switch (parser.lookahead?.type as string) {
+          case "+":
+          case "-":
+          case "*":
+          case "/":
+          case "%":
+          case "**":
+          case "^":
+          case ">":
+          case ">>":
+          case ">>>":
+          case "<":
+          case "<<":
+          case "<<<":
+          case ">=":
+          case "<=":
+          case "==":
+          case "===": {
+            Object.assign(this, new BinaryExpression(parser, identifier));
+            break;
+          }
+          case "=": {
+            Object.assign(this, new AssignmentExpression(parser, identifier));
+            break;
+          }
+          case "??":
+          case "||":
+          case "&&": {
+            Object.assign(this, new LogicalExpression(parser, identifier));
+            break;
+          }
+          default: {
+            Object.assign(this, identifier);
+            break;
+          }
         }
 
         break;
@@ -51,11 +82,18 @@ export class Expression {
         Object.assign(this, new UpdateExpression(parser));
         break;
       }
+      case "delete":
+      case "void":
+      case "typeof":
       case "+":
       case "-":
       case "~":
       case "!": {
         Object.assign(this, new UnaryExpression(parser));
+        break;
+      }
+      case "Await": {
+        Object.assign(this, new AwaitExpression(parser));
         break;
       }
       default: {

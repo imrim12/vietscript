@@ -2,8 +2,8 @@ import { Parser } from "@lang/parser";
 import { Identifier } from "@lang/nodes/identifier/Identifier";
 import { Expression } from "@lang/nodes/expressions/Expression";
 
-export class BinaryExpression {
-  type = "BinaryExpression";
+export class LogicalExpression {
+  type = "LogicalExpression";
 
   left: Identifier | Expression;
 
@@ -17,28 +17,14 @@ export class BinaryExpression {
       (parser.lookahead?.type === "Identifier" ? new Identifier(parser) : new Expression(parser));
 
     switch (parser.lookahead?.type as string) {
-      case "+":
-      case "-":
-      case "*":
-      case "/":
-      case "%":
-      case "**":
-      case "^":
-      case ">":
-      case ">>":
-      case ">>>":
-      case "<":
-      case "<<":
-      case "<<<":
-      case ">=":
-      case "<=":
-      case "==":
-      case "===": {
+      case "??":
+      case "||":
+      case "&&": {
         this.operator = String(parser.eat(String(parser.lookahead?.type)).value);
         break;
       }
       default: {
-        throw new Error("Invalid operator for BinaryExpression");
+        throw new Error("Invalid operator for LogicalExpression");
       }
     }
 

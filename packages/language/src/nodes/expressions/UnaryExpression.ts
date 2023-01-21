@@ -8,9 +8,22 @@ export class UnaryExpression {
 
   prefix: boolean;
 
+  argument: Expression;
+
   constructor(parser: Parser) {
-    if (["+", "-", "~", "!"].includes(String(parser.lookahead?.type))) {
-      Object.assign(this, new Expression(parser));
+    switch (parser.lookahead?.type as string) {
+      case "delete":
+      case "void":
+      case "typeof":
+      case "+":
+      case "-":
+      case "~":
+      case "!": {
+        this.operator = String(parser.eat(String(parser.lookahead?.type)).value);
+        this.prefix = true;
+        this.argument = new Expression(parser);
+        break;
+      }
     }
   }
 }
