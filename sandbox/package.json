@@ -2,6 +2,10 @@
   "name": "@davascript/sandbox",
   "private": true,
   "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "rimraf ./dist && vite build"
+  },
   "dependencies": {
     "@davascript/plugin-vite": "workspace:*",
     "davascript": "workspace:*"

@@ -8,10 +8,9 @@ export default defineConfig({
     emptyOutDir: false,
     lib: {
       name: "davascript",
-      entry: path.resolve("./src/index.ts"),
-      formats: ["es", "cjs"],
-
-      fileName: (format: string) => (format === "es" ? "index.mjs" : "index.cjs"),
+      entry: path.resolve("./src/index.vjs"),
+      formats: ["es"],
+      fileName: "index.mjs",
     },
   },
   plugins: [DavaScriptPlugin()],

@@ -10,7 +10,7 @@ describe("declaration-class.test", () => {
 		lớp Con Mèo (Động Vật) {
 			số chân
 			bất đồng bộ kêu(số lần, hmm) {
-				return "Meo meo"
+				trả về "Meo meo"
 			}
 		}
 		`,

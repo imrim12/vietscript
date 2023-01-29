@@ -91,7 +91,7 @@ const Specs: Array<Spec> = [
   [/^\bnew\b/, "New"],
   [/^\b(catch|b\u1EAFt l\u1ED7i)\b/, "Catch"], // bắt lỗi
   [/^\b(finally|cu\u1ED1i c\u00F9ng)\b/, "Finally"], // cuối cùng
-  [/^\b(return|tr\u1EA3 v\u1EC1)\b/, "Return"], // trả về
+  [/^\b(return|tr\u1EA3 v\u1EC1)/, "Return"], // trả về
   [/^\bvoid\b/, "Void"],
   [/^\b(continue|ti\u1EBFp t\u1EE5c)\b/, "Continue"], // tiếp tục
   [/^\bfor\b/, "For"], // lặp
