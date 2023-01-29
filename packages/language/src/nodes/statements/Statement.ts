@@ -11,6 +11,7 @@ import { IfStatement } from "./IfStatement";
 import { TryStatement } from "./try/TryStatement";
 import { LabelledStatement } from "./LabelledStatement";
 import { WithStatement } from "./WithStatement";
+import { ExpressionStatement } from "./ExpressionStatement";
 
 export class Statement {
   [key: string]: any;
@@ -62,6 +63,10 @@ export class Statement {
       }
       case "Debugger": {
         Object.assign(this, new DebuggerStatement(parser));
+        break;
+      }
+      default: {
+        Object.assign(this, new ExpressionStatement(parser));
         break;
       }
     }
