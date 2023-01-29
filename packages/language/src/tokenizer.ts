@@ -112,9 +112,10 @@ const Specs: Array<Spec> = [
   // Future Reserved Words
   [/^const|h\u1EB1ng s\u1ED1/, "Const"],
   [/^\b(class|l\u1EDBp)\b/, "Class"], // lớp
+  [/^\b(super|kh\u1EDFi t\u1EA1o cha)\b/, "Super"], // khởi tạo cha
+  [/^\b(constructor|kh\u1EDFi t\u1EA1o)\b/, "Constructor"], // khởi tạo
   [/^\benum\b/, "Enum"],
   [/^\b(extends|k\u1EBF th\u1EEBa)\b/, "Extends"], // kế thừa
-  [/^\b(super|kh\u1EDFi t\u1EA1o cha)\b/, "Super"], // khởi tạo cha
   [/^\b(export|xu\u1EA5t)\b/, "Export"], // xuất
   [/^\b(import|nh\u1EADp)\b/, "Import"], // nhập
   [/^\b(async|b\u1EA5t \u0111\u1ED3ng b\u1ED9)/, "Async"], // bất đồng bộ
