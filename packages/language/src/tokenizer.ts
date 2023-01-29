@@ -98,8 +98,8 @@ const Specs: Array<Spec> = [
   [/^\b(while|khi m\u00E0)\b/, "While"], // khi mà
   [/^\bdebugger\b/, "Debugger"],
   [/^\b(function|h\u00E0m)\b/, "Function"], // hàm
-  [/^\bthis\b/, "This"],
-  [/^\bwith\b/, "With"],
+  [/^\bthis\b/, "This"], // đối tượng này
+  [/^\bwith\b/, "With"], // với
   [/^\b(default|m\u1EB7c \u0111\u1ECBnh)\b/, "Default"], // mặc định
   [/^\b(throw|b\u00E1o l\u1ED7i)\b/, "Throw"], // báo lỗi
   [/^\b(delete|xo\u00E1)\b/, "Delete"], // xoá
@@ -110,7 +110,7 @@ const Specs: Array<Spec> = [
 
   // --------------------------------------
   // Future Reserved Words
-  [/^const|h\u1EB1ng s\u1ED1/, "Const"],
+  [/^const|h\u1EB1ng s\u1ED1/, "Const"], // hằng số
   [/^\b(class|l\u1EDBp)\b/, "Class"], // lớp
   [/^\b(super|kh\u1EDFi t\u1EA1o cha)\b/, "Super"], // khởi tạo cha
   [/^\b(constructor|kh\u1EDFi t\u1EA1o)\b/, "Constructor"], // khởi tạo
@@ -121,7 +121,7 @@ const Specs: Array<Spec> = [
   [/^\b(async|b\u1EA5t \u0111\u1ED3ng b\u1ED9)/, "Async"], // bất đồng bộ
   [/^\b(await|ch\u1EDD)\b/, "Await"], // chờ
   [/^\byield\b/, "Yield"],
-  [/^\bimplements\b/, "Implements"],
+  [/^\bimplements\b/, "Implements"], // áp dụng
   [/^\blet\b/, "Let"],
   [/^\bprivate\b/, "Private"],
   [/^\bpublic\b/, "Public"],
