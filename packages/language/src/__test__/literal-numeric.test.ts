@@ -11,6 +11,8 @@ describe("literal-numeric.test", () => {
       type: "NumericLiteral",
       value: 0,
       raw: "0",
+      start: 0,
+      end: 1,
     });
   });
 
@@ -20,7 +22,9 @@ describe("literal-numeric.test", () => {
     expect(toPlainObject(result)).toStrictEqual({
       type: "NumericLiteral",
       value: 3,
-      raw: "3",
+      raw: "3.",
+      start: 0,
+      end: 2,
     });
   });
 
@@ -31,6 +35,8 @@ describe("literal-numeric.test", () => {
       type: "NumericLiteral",
       value: 0.1,
       raw: "0.1",
+      start: 0,
+      end: 3,
     });
   });
 
@@ -41,6 +47,8 @@ describe("literal-numeric.test", () => {
       type: "NumericLiteral",
       value: 0.001_123,
       raw: "0.001123",
+      start: 0,
+      end: 8,
     });
   });
 
@@ -50,7 +58,9 @@ describe("literal-numeric.test", () => {
     expect(toPlainObject(result)).toStrictEqual({
       type: "NumericLiteral",
       value: 70e3,
-      raw: "70000",
+      raw: "70e3",
+      start: 0,
+      end: 4,
     });
   });
 
@@ -60,7 +70,9 @@ describe("literal-numeric.test", () => {
     expect(toPlainObject(result)).toStrictEqual({
       type: "NumericLiteral",
       value: 70e3,
-      raw: "70000",
+      raw: "70E3",
+      start: 0,
+      end: 4,
     });
   });
 
@@ -70,7 +82,9 @@ describe("literal-numeric.test", () => {
     expect(toPlainObject(result)).toStrictEqual({
       type: "NumericLiteral",
       value: 70e3,
-      raw: "70000",
+      raw: "70E+3",
+      start: 0,
+      end: 5,
     });
   });
 
@@ -80,7 +94,9 @@ describe("literal-numeric.test", () => {
     expect(toPlainObject(result)).toStrictEqual({
       type: "NumericLiteral",
       value: 70e-3,
-      raw: "0.07",
+      raw: "70e-3",
+      start: 0,
+      end: 5,
     });
   });
 
@@ -90,7 +106,9 @@ describe("literal-numeric.test", () => {
     expect(toPlainObject(result)).toStrictEqual({
       type: "NumericLiteral",
       value: 70e-3,
-      raw: "0.07",
+      raw: "70E-3",
+      start: 0,
+      end: 5,
     });
   });
 

@@ -1,25 +1,24 @@
+import { Node } from "@davascript/shared";
 import { Parser } from "@lang/parser";
 
-export class NumericLiteral {
+export class NumericLiteral implements Node {
   type = "NumericLiteral";
 
   value: number;
 
   raw: string;
 
+  start: number;
+
+  end: number;
+
   constructor(parser: Parser) {
-    let isMinus = false;
-
-    if (parser.lookahead?.value === "-") {
-      isMinus = true;
-      parser.eat("-");
-    }
-
     const token = parser.eat("Number");
 
-    const value = isMinus ? -token.value : Number(token.value);
+    this.start = token.start;
+    this.end = token.end;
 
-    this.value = value;
-    this.raw = String(value);
+    this.value = Number(token.value);
+    this.raw = String(token.value);
   }
 }

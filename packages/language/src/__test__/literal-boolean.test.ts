@@ -11,6 +11,8 @@ describe("literal-boolean.test", () => {
       type: "BooleanLiteral",
       value: true,
       raw: "true",
+      start: 0,
+      end: 4,
     });
   });
 
@@ -21,6 +23,8 @@ describe("literal-boolean.test", () => {
       type: "BooleanLiteral",
       value: false,
       raw: "false",
+      start: 0,
+      end: 5,
     });
   });
 
