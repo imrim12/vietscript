@@ -221,6 +221,8 @@ export class Tokenizer {
       return {
         type: tokenType,
         value: tokenValue,
+        start: this.cursor - String(tokenValue).length,
+        end: this.cursor,
       };
     }
 
