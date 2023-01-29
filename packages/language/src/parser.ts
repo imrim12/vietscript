@@ -19,7 +19,7 @@ export class Parser {
     this.lookahead = null;
   }
 
-  public parse(syntax: string, InitAtsNodeClass: any): any;
+  public parse(syntax: string, InitAtsNodeClass?: any): any;
 
   /**
    * Parse a Formkl syntax string into Formkl object

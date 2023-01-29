@@ -1,0 +1,5 @@
+lớp Con Mèo (Động Vật) {
+		hàm nói () {
+				trả về "Meo meo, tên tôi là " + this.tên;
+		}
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@davascript/plugin-webpack",
+  "version": "0.0.1",
+  "description": "A Davascript plugin to include .vjs file into Webpack build",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "rimraf ./dist && vite build && pnpm build:test",
+    "build:test": "pnpm build:test:module && pnpm build:test:syntax",
+    "build:test:module": "webpack build --config ./__test__/module-loader/webpack.config.js",
+    "build:test:syntax": "webpack build --config ./__test__/syntax-loader/webpack.config.js"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^0.24.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vite-plugin-dts": "^1.6.6",
+    "vitest": "^0.28.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "davascript": "workspace:*"
+  }
+}

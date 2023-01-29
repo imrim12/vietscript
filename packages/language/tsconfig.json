@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist",
-    "types": ["vitest/globals"],
+    "types": ["vite/client", "vitest/globals"],
     "paths": {
       "@lang": ["./src/index.ts"],
       "@lang/*": ["./src/*"]

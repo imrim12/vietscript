@@ -4,23 +4,16 @@ import dts from "vite-plugin-dts";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      "@lang": path.resolve("./src"),
-    },
-  },
   build: {
     emptyOutDir: false,
     lib: {
-      name: "davascript",
+      name: "@davascript/plugin-vite",
       entry: path.resolve("./src/index.ts"),
       formats: ["es", "cjs"],
-
       fileName: (format: string) => (format === "es" ? "index.mjs" : "index.cjs"),
     },
     rollupOptions: {
-      external: ["@davascript/shared"],
-
+      external: ["davascript", "fs", "path"],
       output: {
         exports: "named",
         globals: {},

@@ -1,0 +1,32 @@
+{
+  "name": "@davascript/plugin-vite",
+  "description": "A Davascript Vite plugin to load .vjs files.",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "rimraf ./dist && vite build"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^0.24.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vite-plugin-dts": "^1.6.6",
+    "vitest": "^0.28.3"
+  },
+  "dependencies": {
+    "davascript": "workspace:*"
+  }
+}

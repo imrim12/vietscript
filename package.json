@@ -34,7 +34,8 @@
   },
   "homepage": "https://github.com/imrim12/davascript#readme",
   "workspaces": [
-    "packages/**"
+    "packages/**",
+    "sandbox"
   ],
   "dependencies": {
     "davascript": "workspace:*",
