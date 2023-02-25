@@ -39,9 +39,11 @@ describe("program.test", () => {
 		};
 		
     hàm ngẫu nhiên() {}
-		`,
+`,
       Program,
     );
+
+    console.log(parser.tokenizer.executable);
 
     expect(toPlainObject(result)).toStrictEqual({
       type: "Program",
