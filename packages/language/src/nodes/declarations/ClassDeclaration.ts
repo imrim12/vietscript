@@ -1,8 +1,7 @@
 import { Parser } from "@lang/parser";
 import { Identifier } from "@lang/nodes/identifier/Identifier";
 
-import { MethodDefinition } from "./class/MethodDefinition";
-import { PropertyDefinition } from "./class/PropertyDefinition";
+import { ClassBody } from "./class/ClassBody";
 
 export class ClassDeclaration {
   type = "ClassDeclaration";
@@ -11,10 +10,7 @@ export class ClassDeclaration {
 
   superClass: null | Identifier = null;
 
-  body: {
-    type: "ClassBody";
-    body: Array<MethodDefinition | PropertyDefinition>;
-  };
+  body: ClassBody;
 
   constructor(parser: Parser) {
     parser.eat("Class");
@@ -29,74 +25,6 @@ export class ClassDeclaration {
       parser.eat(")");
     }
 
-    parser.eat("{");
-
-    this.body = {
-      type: "ClassBody",
-      body: [],
-    };
-
-    while (parser.lookahead?.type !== "}") {
-      const isGetter = parser.lookahead?.type === "Get";
-
-      if (isGetter) {
-        parser.eat("Get");
-      }
-      const isSetter = parser.lookahead?.type === "Set";
-
-      if (isSetter) {
-        parser.eat("Set");
-      }
-
-      let isStatic = false,
-        isComputed = false,
-        isAsync = false,
-        identifier: Identifier | null = null;
-
-      if (!isGetter && !isSetter) {
-        isStatic = parser.lookahead?.type === "Static";
-
-        if (isStatic) {
-          parser.eat("Static");
-        }
-
-        isAsync = parser.lookahead?.type === "Async";
-
-        if (isAsync) {
-          parser.eat("Async");
-        }
-
-        isComputed = parser.lookahead?.type === "[";
-
-        if (isComputed) {
-          parser.eat("[");
-
-          identifier = new Identifier(parser);
-
-          parser.eat("]");
-        }
-      }
-
-      if (identifier === null) {
-        identifier = new Identifier(parser);
-      }
-
-      if (parser.lookahead?.type === "(") {
-        this.body.body.push(
-          new MethodDefinition(
-            parser,
-            isStatic,
-            isAsync,
-            isComputed,
-            identifier,
-            isGetter ? "get" : isSetter ? "set" : "method",
-          ),
-        );
-      } else {
-        this.body.body.push(new PropertyDefinition(parser, isStatic, isComputed, identifier));
-      }
-    }
-
-    parser.eat("}");
+    this.body = new ClassBody(parser);
   }
 }

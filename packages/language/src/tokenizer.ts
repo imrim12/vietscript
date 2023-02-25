@@ -135,7 +135,7 @@ const Specs: Array<Spec> = [
 
   // --------------------------------------
   // Numbers:
-  [/^(\d+(\.\d+|)([Ee]([+-]|)\d+|))/, "Number"],
+  [/^(\d+(\.|)(\d+|)([Ee]([+-]|)\d+|))/, "Number"],
 
   // --------------------------------------
   // Double quoted String:
@@ -221,6 +221,8 @@ export class Tokenizer {
       return {
         type: tokenType,
         value: tokenValue,
+        start: this.cursor - String(tokenValue).length,
+        end: this.cursor,
       };
     }
 
