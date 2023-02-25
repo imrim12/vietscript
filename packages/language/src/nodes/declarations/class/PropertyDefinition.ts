@@ -13,13 +13,19 @@ export class PropertyDefinition {
 
   value: null | Expression;
 
-  constructor(parser: Parser, isStatic: boolean, isComputed: boolean, key: Identifier) {
+  constructor(
+    parser: Parser,
+    isStatic: boolean,
+    isComputed: boolean,
+    key: Identifier,
+    declarator = "=",
+  ) {
     this.static = isStatic;
     this.computed = isComputed;
     this.key = key;
 
-    if (parser.lookahead?.type === "=") {
-      parser.eat("=");
+    if (parser.lookahead?.type === declarator) {
+      parser.eat(declarator);
       this.value = new Expression(parser);
     } else {
       this.value = null;

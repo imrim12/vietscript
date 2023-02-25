@@ -39,9 +39,13 @@ export class FunctionDeclaration {
 
     const parameters: Array<Identifier> = [];
 
-    do {
+    while (parser.lookahead?.type !== ")") {
       parameters.push(new Identifier(parser));
-    } while (parser.lookahead?.type === "," && parser.eat(","));
+
+      if (parser.lookahead?.type !== ")") {
+        parser.eat(",");
+      }
+    }
 
     parser.eat(")");
 

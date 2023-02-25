@@ -11,9 +11,13 @@ export class ArrayExpression {
 
     parser.eat("[");
 
-    do {
+    while (parser.lookahead?.type !== "]") {
       elements.push(new Literal(parser).value);
-    } while (parser.lookahead?.type === "," && parser.eat(","));
+
+      if (parser.lookahead?.type !== "]") {
+        parser.eat(",");
+      }
+    }
 
     parser.eat("]");
 

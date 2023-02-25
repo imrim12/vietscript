@@ -8,7 +8,7 @@ describe("declaration-class.test", () => {
     const result = parser.parse(
       `
 		lớp Con Mèo (Động Vật) {
-			số chân
+			số chân = 4
 			bất đồng bộ kêu(số lần, hmm) {
 				trả về "Meo meo"
 			}
@@ -38,7 +38,11 @@ describe("declaration-class.test", () => {
               type: "Identifier",
               name: "số chân",
             },
-            value: null,
+            value: {
+              type: "Literal",
+              value: 4,
+              raw: "4",
+            },
           },
           {
             type: "MethodDefinition",

@@ -38,6 +38,7 @@ describe("program.test", () => {
 			khai báo gì đó khác nữa;
 		};
 		
+    hàm ngẫu nhiên() {}
 		`,
       Program,
     );
@@ -365,6 +366,21 @@ describe("program.test", () => {
                 kind: "var",
               },
             ],
+          },
+        },
+        {
+          type: "FunctionDeclaration",
+          id: {
+            type: "Identifier",
+            name: "ngẫu nhiên",
+          },
+          async: false,
+          expression: false,
+          generator: false,
+          params: [],
+          body: {
+            type: "BlockStatement",
+            body: [],
           },
         },
       ],

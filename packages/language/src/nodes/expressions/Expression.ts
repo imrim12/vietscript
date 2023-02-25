@@ -12,6 +12,7 @@ import { LogicalExpression } from "./LogicalExpression";
 import { AwaitExpression } from "./AwaitExpression";
 import { ThisExpression } from "./ThisExpression";
 import { MemberExpression } from "./MemberExpression";
+import { ObjectExpression } from "./ObjectExpression";
 
 export class Expression {
   [key: string]: any;
@@ -25,6 +26,10 @@ export class Expression {
       }
       case "[": {
         Object.assign(this, new ArrayExpression(parser));
+        break;
+      }
+      case "{": {
+        Object.assign(this, new ObjectExpression(parser));
         break;
       }
       case "Number":
