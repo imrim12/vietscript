@@ -36,6 +36,8 @@ export class MemberExpression {
           this.object = this.property ? { ...this } : { ...this.object };
           this.property = new Identifier(parser);
 
+          this.computed = false;
+
           break;
         }
       }

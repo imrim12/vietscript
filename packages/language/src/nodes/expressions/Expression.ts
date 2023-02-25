@@ -98,6 +98,7 @@ export class Expression {
             Object.assign(this, new LogicalExpression(parser, identifier));
             break;
           }
+          case "[":
           case ".": {
             Object.assign(this, new MemberExpression(parser, identifier));
             break;
