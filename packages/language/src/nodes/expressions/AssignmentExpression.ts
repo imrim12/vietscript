@@ -11,7 +11,7 @@ export class AssignmentExpression {
 
   right: Identifier | Expression;
 
-  constructor(parser: Parser, identifier?: Identifier) {
+  constructor(parser: Parser, identifier?: Identifier | Expression) {
     this.left =
       identifier ??
       (parser.lookahead?.type === "Identifier" ? new Identifier(parser) : new Expression(parser));

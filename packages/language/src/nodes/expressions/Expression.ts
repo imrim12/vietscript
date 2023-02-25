@@ -13,6 +13,7 @@ import { AwaitExpression } from "./AwaitExpression";
 import { ThisExpression } from "./ThisExpression";
 import { MemberExpression } from "./MemberExpression";
 import { ObjectExpression } from "./ObjectExpression";
+import { CallExpression } from "./CallExpression";
 
 export class Expression {
   [key: string]: any;
@@ -105,7 +106,22 @@ export class Expression {
           }
           case "[":
           case ".": {
-            Object.assign(this, new MemberExpression(parser, identifier));
+            const memberExpression = new MemberExpression(parser, identifier);
+
+            switch (parser.lookahead?.type) {
+              case "=": {
+                Object.assign(this, new AssignmentExpression(parser, memberExpression));
+                break;
+              }
+              case "(": {
+                Object.assign(this, new CallExpression(parser, memberExpression));
+                break;
+              }
+              default: {
+                Object.assign(this, memberExpression);
+                break;
+              }
+            }
             break;
           }
           default: {
