@@ -43,8 +43,6 @@ describe("program.test", () => {
       Program,
     );
 
-    console.log(parser.tokenizer.executable);
-
     expect(toPlainObject(result)).toStrictEqual({
       type: "Program",
       body: [

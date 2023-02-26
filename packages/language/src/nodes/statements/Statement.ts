@@ -9,7 +9,6 @@ import { DebuggerStatement } from "./DebuggerStatement";
 import { BreakableStatement } from "./breakable/BreakableStatement";
 import { IfStatement } from "./IfStatement";
 import { TryStatement } from "./try/TryStatement";
-import { LabelledStatement } from "./LabelledStatement";
 import { WithStatement } from "./WithStatement";
 import { ExpressionStatement } from "./ExpressionStatement";
 
@@ -47,10 +46,6 @@ export class Statement {
       }
       case "With": {
         Object.assign(this, new WithStatement(parser));
-        break;
-      }
-      case "Identifier": {
-        Object.assign(this, new LabelledStatement(parser));
         break;
       }
       case "Throw": {

@@ -2,6 +2,8 @@ import { Parser } from "@lang/parser";
 import { Literal } from "@lang/nodes/literals/Literal";
 import { Identifier } from "@lang/nodes/identifier/Identifier";
 
+import { LabelledStatement } from "../statements/LabelledStatement";
+
 import { ArrayExpression } from "./ArrayExpression";
 import { FunctionExpression } from "./FunctionExpression";
 import { BinaryExpression } from "./BinaryExpression";
@@ -102,6 +104,10 @@ export class Expression {
           case "||":
           case "&&": {
             Object.assign(this, new LogicalExpression(parser, identifier));
+            break;
+          }
+          case ":": {
+            Object.assign(this, new LabelledStatement(parser, identifier));
             break;
           }
           case "[":

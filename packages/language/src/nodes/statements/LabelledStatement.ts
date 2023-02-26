@@ -1,19 +1,18 @@
 import { Parser } from "@lang/parser";
 
+import { Identifier } from "../identifier/Identifier";
+
 import { IterationStatement } from "./breakable/iteration/IterationStatement";
 
 export class LabelledStatement {
   type = "LabelledStatement";
 
-  label: {
-    type: "Identifier";
-    name: "loop";
-  };
+  label: Identifier;
 
   body: IterationStatement;
 
-  constructor(parser: Parser) {
-    parser.eat("Identifier");
+  constructor(parser: Parser, identifier: Identifier) {
+    this.label = identifier;
 
     parser.eat(":");
 
