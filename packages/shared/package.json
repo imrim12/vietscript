@@ -1,5 +1,6 @@
 {
   "name": "@vietscript/shared",
+  "version": "0.0.1",
   "main": "./index.ts",
   "files": [
     "./"
@@ -11,7 +12,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
     "@vitest/ui": "^0.24.5",
