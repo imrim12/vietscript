@@ -39,10 +39,8 @@
     "url": "https://github.com/imrim12/vietscript/issues"
   },
   "homepage": "https://github.com/imrim12/vietscript#readme",
-  "dependencies": {
-    "@vietscript/shared": "workspace:*"
-  },
   "devDependencies": {
+    "@vietscript/shared": "workspace:*",
     "@types/node": "^18.14.1",
     "@vitest/ui": "^0.24.5",
     "lodash": "^4.17.21",

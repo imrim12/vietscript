@@ -78,10 +78,9 @@ importers:
       vite: ^4.0.4
       vite-plugin-dts: ^1.6.6
       vitest: ^0.28.3
-    dependencies:
-      '@vietscript/shared': link:../shared
     devDependencies:
       '@types/node': 18.14.1
+      '@vietscript/shared': link:../shared
       '@vitest/ui': 0.24.5
       lodash: 4.17.21
       rimraf: 3.0.2
