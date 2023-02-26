@@ -10,3 +10,8 @@ export default parser;
 export { executor };
 export { Tokenizer } from "./tokenizer";
 export { Parser } from "./parser";
+
+if (typeof window !== "undefined") {
+  // @ts-ignore
+  window.VietScript = { parser, executor };
+}
