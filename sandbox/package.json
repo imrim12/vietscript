@@ -1,5 +1,5 @@
 {
-  "name": "@davascript/sandbox",
+  "name": "@vietscript/sandbox",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,8 +7,8 @@
     "build": "rimraf ./dist && vite build"
   },
   "dependencies": {
-    "@davascript/plugin-vite": "workspace:*",
-    "davascript": "workspace:*"
+    "@vietscript/plugin-vite": "workspace:*",
+    "vietscript": "workspace:*"
   },
   "devDependencies": {
     "@vitest/ui": "^0.24.5",

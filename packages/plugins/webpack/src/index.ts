@@ -1,4 +1,4 @@
-import parser from "davascript";
+import parser from "vietscript";
 
 export default function (source: string) {
   const form = parser.parse(source);

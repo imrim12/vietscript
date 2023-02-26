@@ -1,21 +1,21 @@
-# DavaScript - Vietnamese Programming Language - Ngôn ngữ lập trình tiếng Việt
+# VietScript - Vietnamese Programming Language - Ngôn ngữ lập trình tiếng Việt
 
-DavaScript - Ngôn ngữ lập trình tiếng Việt, là một ngôn ngữ lập trình mã nguồn mở được viết hoàn toàn bằng TypeScript và hỗ trợ cú pháp tiếng Việt. DavaScript được thiết kế để giúp cho người mới bắt đầu học lập trình có thể dễ dàng học và sử dụng ngôn ngữ lập trình.
+VietScript - Ngôn ngữ lập trình tiếng Việt, là một ngôn ngữ lập trình mã nguồn mở được viết hoàn toàn bằng TypeScript và hỗ trợ cú pháp tiếng Việt. VietScript được thiết kế để giúp cho người mới bắt đầu học lập trình có thể dễ dàng học và sử dụng ngôn ngữ lập trình.
 
 ## Getting Started
 
-Please follow the documentation at [davascript.org](https://davascript.org)!
+Please follow the documentation at [vietscript.org](https://vietscript.org)!
 
-View sandbox: [sandbox.davascript.org](https://sandbox.davascript.org)
+View sandbox: [sandbox.vietscript.org](https://sandbox.vietscript.org)
 
 ## Contribution
 
-Please make sure to read the [Contributing Guide](https://davascript.org/learning/contribution-guide.html) before making a pull request.
+Please make sure to read the [Contributing Guide](https://vietscript.org/learning/contribution-guide.html) before making a pull request.
 
-Thank you to all the people who already contributed to the DavaScript - Vietnamese Programming Language project!
+Thank you to all the people who already contributed to the VietScript - Vietnamese Programming Language project!
 
-<a href="https://github.com/imrim12/davascript/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=imrim12/davascript" />
+<a href="https://github.com/imrim12/vietscript/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=imrim12/vietscript" />
 </a>
 
 Made with [contrib.rocks](https://contrib.rocks).

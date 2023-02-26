@@ -1,4 +1,4 @@
-import { Node } from "@davascript/shared";
+import { Node } from "@vietscript/shared";
 import { Parser } from "@lang/parser";
 
 export class NaNLiteral implements Node {

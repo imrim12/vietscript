@@ -1,7 +1,7 @@
-import parser from "davascript";
+import parser from "vietscript";
 
 export default () => ({
-  name: "davascript-loader",
+  name: "vietscript-loader",
   transform(code: string, id: string) {
     if (id.endsWith(".vjs")) {
       let loadedFormModule = {};

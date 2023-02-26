@@ -1,4 +1,4 @@
-import { Token } from "@davascript/shared";
+import { Token } from "@vietscript/shared";
 
 import { Tokenizer } from "./tokenizer";
 import { Program } from "./nodes/Program";

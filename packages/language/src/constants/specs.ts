@@ -1,4 +1,4 @@
-import { Spec } from "@davascript/shared";
+import { Spec } from "@vietscript/shared";
 
 import { Keyword } from "./keyword.enum";
 import { vietnameseUnicodeSet } from "./unicode";

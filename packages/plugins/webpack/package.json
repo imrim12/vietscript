@@ -1,7 +1,7 @@
 {
-  "name": "@davascript/plugin-webpack",
+  "name": "@vietscript/plugin-webpack",
   "version": "0.0.1",
-  "description": "A Davascript plugin to include .vjs file into Webpack build",
+  "description": "A VietScript plugin to include .vjs file into Webpack build",
   "type": "module",
   "exports": {
     ".": {
@@ -32,6 +32,6 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
-    "davascript": "workspace:*"
+    "vietscript": "workspace:*"
   }
 }

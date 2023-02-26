@@ -1,4 +1,4 @@
-import { Token } from "@davascript/shared";
+import { Token } from "@vietscript/shared";
 
 import { Keyword } from "./constants/keyword.enum";
 import { Specs } from "./constants/specs";

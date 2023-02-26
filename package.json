@@ -19,26 +19,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imrim12/davascript.git"
+    "url": "git+https://github.com/imrim12/vietscript.git"
   },
   "keywords": [
     "language",
-    "davascript",
+    "vietscript",
     "vietnamese",
     "programming language"
   ],
   "author": "imrim12",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/imrim12/davascript/issues"
+    "url": "https://github.com/imrim12/vietscript/issues"
   },
-  "homepage": "https://github.com/imrim12/davascript#readme",
+  "homepage": "https://github.com/imrim12/vietscript#readme",
   "workspaces": [
     "packages/**",
     "sandbox"
   ],
   "dependencies": {
-    "davascript": "workspace:*",
+    "vietscript": "workspace:*",
     "vitepress": "1.0.0-alpha.20"
   },
   "devDependencies": {

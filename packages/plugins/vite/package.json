@@ -1,6 +1,6 @@
 {
-  "name": "@davascript/plugin-vite",
-  "description": "A Davascript Vite plugin to load .vjs files.",
+  "name": "@vietscript/plugin-vite",
+  "description": "A VietScript Vite plugin to load .vjs files.",
   "version": "0.0.1",
   "type": "module",
   "exports": {
@@ -27,6 +27,6 @@
     "vitest": "^0.28.3"
   },
   "dependencies": {
-    "davascript": "workspace:*"
+    "vietscript": "workspace:*"
   }
 }

@@ -16,7 +16,7 @@
     "strictNullChecks": true,
     "useDefineForClassFields": true,
     "lib": ["ESNext", "DOM"],
-    "types": ["vitest/globals"],
+    "types": ["node", "vitest/globals"],
     "outDir": "./dist"
   },
   "include": ["./**/*.ts", "./**/*.d.ts", "./**/*.test.ts"],

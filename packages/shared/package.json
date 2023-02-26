@@ -1,5 +1,5 @@
 {
-  "name": "@davascript/shared",
+  "name": "@vietscript/shared",
   "main": "./index.ts",
   "devDependencies": {
     "@vitest/ui": "^0.24.5",

@@ -7,13 +7,13 @@ export default defineConfig({
   build: {
     emptyOutDir: false,
     lib: {
-      name: "@davascript/plugin-webpack",
+      name: "@vietscript/plugin-webpack",
       entry: path.resolve("./src/index.ts"),
       formats: ["es", "cjs"],
       fileName: (format: string) => (format === "es" ? "index.mjs" : "index.cjs"),
     },
     rollupOptions: {
-      external: ["davascript", "fs", "path"],
+      external: ["vietscript", "fs", "path"],
       output: {
         exports: "named",
         globals: {},

@@ -1,5 +1,5 @@
 {
-  "name": "davascript",
+  "name": "vietscript",
   "version": "0.0.1",
   "description": "Vietnamese programming language - Ngôn ngữ lập trình tiếng Việt.",
   "type": "module",
@@ -16,29 +16,34 @@
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "rimraf ./dist && vite build"
+    "build": "rimraf ./dist && vite build && cp ./dist/index.umd.cjs ./public/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imrim12/davascript.git",
+    "url": "git+https://github.com/imrim12/vietscript.git",
     "directory": "language"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "language",
-    "davascript",
+    "vietscript",
     "vietnamese",
     "programming language"
   ],
   "author": "thecodeorigin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/imrim12/davascript/issues"
+    "url": "https://github.com/imrim12/vietscript/issues"
   },
-  "homepage": "https://github.com/imrim12/davascript#readme",
+  "homepage": "https://github.com/imrim12/vietscript#readme",
   "dependencies": {
-    "@davascript/shared": "workspace:*"
+    "@vietscript/shared": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^18.14.1",
     "@vitest/ui": "^0.24.5",
     "lodash": "^4.17.21",
     "rimraf": "^3.0.2",
