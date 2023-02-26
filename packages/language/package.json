@@ -21,7 +21,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imrim12/vietscript.git",
-    "directory": "language"
+    "directory": "packages/language"
   },
   "publishConfig": {
     "access": "public",

@@ -11,6 +11,15 @@
   },
   "main": "./dist/index.cjs",
   "types": "./dist/types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imrim12/vietscript.git",
+    "directory": "packages/plugins/vite"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": [
     "dist"
   ],

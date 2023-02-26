@@ -1,6 +1,18 @@
 {
   "name": "@vietscript/shared",
   "main": "./index.ts",
+  "files": [
+    "./"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imrim12/vietscript.git",
+    "directory": "packages/shared"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "@vitest/ui": "^0.24.5",
     "rimraf": "^3.0.2",
