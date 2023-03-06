@@ -64,9 +64,11 @@ export class Tokenizer {
         return this.getNextToken();
       }
 
+      let tokenValueEncoded = tokenValue;
+
       switch (tokenType) {
         case Keyword.IDENTIFIER: {
-          this.executable += String(tokenValue)
+          tokenValueEncoded = String(tokenValue)
             .replace(/\s/g, "_")
             .replace(/[^\dA-Za-z]/g, (match) => encodeURI(match).replace(/%/g, ""));
           break;
@@ -77,14 +79,16 @@ export class Tokenizer {
         case Keyword.BOOLEAN:
         case Keyword.STRING:
         case Keyword.NUMBER: {
-          this.executable += String(tokenValue);
+          tokenValueEncoded = String(tokenValue);
           break;
         }
         default: {
-          this.executable += (tokenType || "").toLowerCase();
+          tokenValueEncoded = (tokenType || "").toLowerCase();
           break;
         }
       }
+
+      this.executable += tokenValueEncoded;
 
       // We return the token
       return {

@@ -21,7 +21,7 @@ export class CallExpression {
         parser.eat(",");
       }
 
-      this.arguments.push(new Identifier(parser));
+      this.arguments.push(new Expression(parser));
     }
 
     parser.eat(")");
