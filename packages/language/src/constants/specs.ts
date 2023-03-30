@@ -3,6 +3,10 @@ import { Spec } from "@vietscript/shared";
 import { Keyword } from "./keyword.enum";
 import { vietnameseUnicodeSet } from "./unicode";
 
+export const IdentifierPattern = new RegExp(
+  `^[a-zA-Z${vietnameseUnicodeSet}]+(\\s[a-zA-Z${vietnameseUnicodeSet}]+)*`,
+);
+
 export const Specs: Array<Spec> = [
   // --------------------------------------
   // Whitespace:
@@ -153,8 +157,5 @@ export const Specs: Array<Spec> = [
 
   // --------------------------------------
   // Identifier
-  [
-    new RegExp(`^[a-zA-Z${vietnameseUnicodeSet}]+(\\s[a-zA-Z${vietnameseUnicodeSet}]+)*`),
-    Keyword.IDENTIFIER,
-  ],
+  [IdentifierPattern, Keyword.IDENTIFIER],
 ];

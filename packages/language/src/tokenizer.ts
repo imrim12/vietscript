@@ -1,7 +1,8 @@
 import { Token } from "@vietscript/shared";
 
 import { Keyword } from "./constants/keyword.enum";
-import { Specs } from "./constants/specs";
+import { IdentifierPattern, Specs } from "./constants/specs";
+import { Parser } from "./parser";
 
 /**
  * Tokenizer spec.
@@ -12,16 +13,21 @@ import { Specs } from "./constants/specs";
  * Lazily pulls a token from a stream.
  */
 export class Tokenizer {
+  private parser: Parser;
+
   private syntax: string;
 
   private cursor: number;
+
+  private skipped: Array<string> = [];
 
   public executable = "";
 
   /**
    * Initializes the string.
    */
-  constructor(syntax: string) {
+  constructor(syntax: string, parser: Parser) {
+    this.parser = parser;
     this.syntax = syntax;
     this.cursor = 0; // track the position of each character
   }
@@ -43,11 +49,26 @@ export class Tokenizer {
   /**
    * Obtains next token.
    */
-  public getNextToken(): Token | null {
+  public getNextToken(isIdentifier = false): Token | null {
     if (!this.hasMoreTokens()) {
       return null;
     }
-    const string = this.syntax.slice(this.cursor);
+
+    let string = this.syntax.slice(this.cursor);
+
+    if (isIdentifier) {
+      string = this.parser.lookahead?.value + this.skipped.join("") + string;
+      this.cursor -= String(this.parser.lookahead?.value + this.skipped.join("")).length;
+
+      const tokenValue = this.match(IdentifierPattern, string);
+
+      return {
+        type: "Identifier",
+        value: String(tokenValue),
+        start: this.cursor - String(tokenValue).length,
+        end: this.cursor,
+      };
+    }
 
     for (const [regexp, tokenType] of Specs) {
       const tokenValue = this.match(regexp, string);
@@ -61,8 +82,12 @@ export class Tokenizer {
       if (tokenType === null) {
         this.executable += tokenValue;
 
+        this.skipped.push(tokenValue);
+
         return this.getNextToken();
       }
+
+      this.skipped = [];
 
       let tokenValueEncoded = tokenValue;
 

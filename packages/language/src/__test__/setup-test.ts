@@ -7,7 +7,7 @@ class SingleNodeParser extends Parser {
     this.syntax = "";
 
     this.syntax = syntax;
-    this.tokenizer = new Tokenizer(this.syntax);
+    this.tokenizer = new Tokenizer(this.syntax, this);
 
     // Prime the tokenizer to obtain the first
     // token which is our lookahead. The lookahead is

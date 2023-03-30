@@ -15,7 +15,7 @@ export class Parser {
    */
   constructor() {
     this.syntax = "";
-    this.tokenizer = new Tokenizer("");
+    this.tokenizer = new Tokenizer("", this);
     this.lookahead = null;
   }
 
@@ -29,7 +29,7 @@ export class Parser {
     this.syntax = "";
 
     this.syntax = syntax;
-    this.tokenizer = new Tokenizer(this.syntax);
+    this.tokenizer = new Tokenizer(this.syntax, this);
 
     this.lookahead = this.tokenizer.getNextToken();
 
@@ -46,11 +46,11 @@ export class Parser {
       throw new SyntaxError(`Unexpected end of input, expected: "${tokenType}"`);
     }
 
-    if (token.type !== tokenType) {
+    if (token.type !== tokenType && tokenType !== "Identifier") {
       throw new SyntaxError(`Unexpected token: "${token.value}", expected: "${tokenType}"`);
     }
 
-    this.lookahead = this.tokenizer.getNextToken();
+    this.lookahead = this.tokenizer.getNextToken(tokenType === "Identifier");
 
     return token;
   }
