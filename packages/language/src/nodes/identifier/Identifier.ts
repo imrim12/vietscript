@@ -6,6 +6,6 @@ export class Identifier {
   name: string;
 
   constructor(parser: Parser) {
-    this.name = String(parser.eat("Identifier").value);
+    this.name = String(parser.eat("Identifier")?.value);
   }
 }
