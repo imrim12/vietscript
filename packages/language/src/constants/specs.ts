@@ -3,9 +3,10 @@ import { Spec } from "@vietscript/shared";
 import { Keyword } from "./keyword.enum";
 import { vietnameseUnicodeSet } from "./unicode";
 
-export const IdentifierPattern = new RegExp(
-  `^[a-zA-Z${vietnameseUnicodeSet}]+(\\s[a-zA-Z${vietnameseUnicodeSet}]+)*`,
-);
+export const SpecIdentifier = [
+  new RegExp(`^[a-zA-Z${vietnameseUnicodeSet}]+(\\s[a-zA-Z${vietnameseUnicodeSet}]+)*`),
+  Keyword.IDENTIFIER,
+] as [RegExp, Keyword];
 
 export const Specs: Array<Spec> = [
   // --------------------------------------
@@ -157,5 +158,5 @@ export const Specs: Array<Spec> = [
 
   // --------------------------------------
   // Identifier
-  [IdentifierPattern, Keyword.IDENTIFIER],
+  SpecIdentifier,
 ];

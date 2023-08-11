@@ -5,7 +5,7 @@ import toPlainObject from "./toPlainObject";
 
 describe("identifier-match-keyword.test", () => {
   it("should parse the syntax normally", () => {
-    const result = parser.parse(`khai báo lớp gì đó = 1`, Program);
+    const result = parser.parse(`khai báo một lớp gì đó = 1`, Program);
 
     expect(toPlainObject(result)).toStrictEqual({
       type: "Program",
@@ -17,7 +17,7 @@ describe("identifier-match-keyword.test", () => {
               type: "VariableDeclarator",
               id: {
                 type: "Identifier",
-                name: "lớp gì đó",
+                name: "một lớp gì đó",
               },
               init: {
                 type: "Literal",
@@ -30,5 +30,11 @@ describe("identifier-match-keyword.test", () => {
         },
       ],
     });
+  });
+
+  it("should show the syntax error", () => {
+    expect(() => {
+      parser.parse("khai báo lớp gì đó = 1", Program);
+    }).toThrowError(/Unexpected token: "lớp", cannot use keyword "lớp" for the beginning of the identifer/);
   });
 });

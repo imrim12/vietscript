@@ -33,12 +33,16 @@ export class VariableDeclaration {
 
         break;
       }
+      default: {
+        throw new SyntaxError(`Unexpected token: "${parser.lookahead?.value}", expected a variable declarator!`)
+      }
     }
 
     const declarations: Array<VariableDeclarator> = [];
 
     do {
       declarations.push(new VariableDeclarator(parser, isConstant));
+      // @ts-expect-error no overlap
     } while (parser.lookahead?.type === "," && parser.eat(","));
 
     this.declarations = declarations;
