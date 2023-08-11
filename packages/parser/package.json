@@ -1,5 +1,5 @@
 {
-  "name": "vietscript",
+  "name": "@vietscript/parser",
   "version": "0.0.1",
   "description": "Vietnamese programming language - Ngôn ngữ lập trình tiếng Việt.",
   "type": "module",
@@ -21,7 +21,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imrim12/vietscript.git",
-    "directory": "packages/language"
+    "directory": "packages/parser"
   },
   "publishConfig": {
     "access": "public",
@@ -33,7 +33,7 @@
     "vietnamese",
     "programming language"
   ],
-  "author": "thecodeorigin",
+  "author": "imrim12",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/imrim12/vietscript/issues"
