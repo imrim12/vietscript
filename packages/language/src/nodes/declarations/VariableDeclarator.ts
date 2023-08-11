@@ -13,7 +13,7 @@ export class VariableDeclarator {
   };
 
   constructor(parser: Parser, isConstant = false) {
-    const identifier = parser.eat("Identifier");
+    const identifier = new Identifier(parser);
 
     if (isConstant || parser.lookahead?.type === "=") {
       parser.eat("=");
@@ -21,9 +21,6 @@ export class VariableDeclarator {
       this.init = new Expression(parser);
     }
 
-    this.id = {
-      type: "Identifier",
-      name: String(identifier.value),
-    };
+    this.id = identifier;
   }
 }

@@ -1,5 +1,7 @@
 import { Parser } from "@lang/parser";
 
+import { Identifier } from "../identifier/Identifier";
+
 export class BreakStatement {
   type = "BreakStatement";
 
@@ -11,7 +13,7 @@ export class BreakStatement {
     let label: BreakStatement["label"] = null;
 
     if (parser.lookahead?.type === "Identifier") {
-      label = String(parser.eat("Identifier").value);
+      label = new Identifier(parser).name;
     }
 
     this.label = label;

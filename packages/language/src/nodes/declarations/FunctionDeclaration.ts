@@ -33,7 +33,7 @@ export class FunctionDeclaration {
       isGenerator = true;
     }
 
-    const name = String(parser.eat("Identifier").value);
+    const name = String(new Identifier(parser).name);
 
     parser.eat("(");
 
