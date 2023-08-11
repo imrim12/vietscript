@@ -1,4 +1,4 @@
-import { SwitchStatement } from "@lang/nodes/statements/breakable/SwitchStatement";
+import { SwitchStatement } from "@parser/nodes/statements/breakable/SwitchStatement";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";

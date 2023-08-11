@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@vietscript/plugin-vite": "workspace:*",
-    "vietscript": "workspace:*"
+    "@vietscript/parser": "workspace:*"
   },
   "devDependencies": {
     "@vitest/ui": "^0.24.5",

@@ -10,10 +10,10 @@ export default defineConfig({
       name: "@vietscript/plugin-vite",
       entry: path.resolve("./src/index.ts"),
       formats: ["es", "cjs"],
-      fileName: (format: string) => (format === "es" ? "index.mjs" : "index.cjs"),
+      fileName: "index",
     },
     rollupOptions: {
-      external: ["vietscript", "fs", "path"],
+      external: ["@vietscript/parser", "fs", "path"],
       output: {
         exports: "named",
         globals: {},

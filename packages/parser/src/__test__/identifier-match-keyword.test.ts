@@ -1,4 +1,4 @@
-import { Program } from "@lang/nodes/Program";
+import { Program } from "@parser/nodes/Program";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";

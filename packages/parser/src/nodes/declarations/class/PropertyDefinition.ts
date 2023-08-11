@@ -1,6 +1,6 @@
-import { Expression } from "@lang/nodes/expressions/Expression";
-import { Identifier } from "@lang/nodes/identifier/Identifier";
-import { Parser } from "@lang/parser";
+import { Expression } from "@parser/nodes/expressions/Expression";
+import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { Parser } from "@parser/parser";
 
 export class PropertyDefinition {
   type = "PropertyDefinition";

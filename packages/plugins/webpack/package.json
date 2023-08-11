@@ -5,11 +5,11 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "repository": {
     "type": "git",
@@ -25,10 +25,7 @@
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "rimraf ./dist && vite build && pnpm build:test",
-    "build:test": "pnpm build:test:module && pnpm build:test:syntax",
-    "build:test:module": "webpack build --config ./__test__/module-loader/webpack.config.js",
-    "build:test:syntax": "webpack build --config ./__test__/syntax-loader/webpack.config.js"
+    "build": "rimraf ./dist && vite build"
   },
   "devDependencies": {
     "@vitest/ui": "^0.24.5",
@@ -41,6 +38,6 @@
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
-    "vietscript": "workspace:*"
+    "@vietscript/parser": "workspace:*"
   }
 }

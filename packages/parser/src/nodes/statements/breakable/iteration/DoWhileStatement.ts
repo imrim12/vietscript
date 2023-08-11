@@ -1,6 +1,6 @@
-import { Parser } from "@lang/parser";
-import { BlockStatement } from "@lang/nodes/statements/BlockStatement";
-import { Expression } from "@lang/nodes/expressions/Expression";
+import { Parser } from "@parser/parser";
+import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
+import { Expression } from "@parser/nodes/expressions/Expression";
 
 export class DoWhileStatement {
   type = "DoWhileStatement" as const;

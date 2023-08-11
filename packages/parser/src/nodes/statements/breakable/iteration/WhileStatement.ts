@@ -1,7 +1,7 @@
-import { Parser } from "@lang/parser";
-import { Statement } from "@lang/nodes/statements/Statement";
-import { BlockStatement } from "@lang/nodes/statements/BlockStatement";
-import { Expression } from "@lang/nodes/expressions/Expression";
+import { Parser } from "@parser/parser";
+import { Statement } from "@parser/nodes/statements/Statement";
+import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
+import { Expression } from "@parser/nodes/expressions/Expression";
 
 export class WhileStatement {
   type = "WhileStatement";

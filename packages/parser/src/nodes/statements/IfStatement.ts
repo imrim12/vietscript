@@ -1,6 +1,6 @@
-import { Parser } from "@lang/parser";
-import { Identifier } from "@lang/nodes/identifier/Identifier";
-import { Expression } from "@lang/nodes/expressions/Expression";
+import { Parser } from "@parser/parser";
+import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { Expression } from "@parser/nodes/expressions/Expression";
 
 import { BlockStatement } from "./BlockStatement";
 import { Statement } from "./Statement";

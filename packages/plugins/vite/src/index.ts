@@ -1,4 +1,4 @@
-import parser from "vietscript";
+import parser from "@vietscript/parser";
 
 export default () => ({
   name: "vietscript-loader",

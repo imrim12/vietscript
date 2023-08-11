@@ -1,5 +1,5 @@
 import { Node } from "@vietscript/shared";
-import { Parser } from "@lang/parser";
+import { Parser } from "@parser/parser";
 
 export class NullLiteral implements Node {
   type = "NullLiteral";

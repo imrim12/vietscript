@@ -1,4 +1,4 @@
-import { Expression } from "@lang/nodes/expressions/Expression";
+import { Expression } from "@parser/nodes/expressions/Expression";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";

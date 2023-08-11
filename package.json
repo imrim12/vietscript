@@ -2,12 +2,11 @@
   "version": "0.0.1",
   "type": "module",
   "description": "Vietnamese programming language - Ngôn ngữ lập trình tiếng Việt.",
-  "packageManager": "pnpm@7.12.2",
+  "packageManager": "pnpm@8.5.0",
   "scripts": {
     "nx": "nx",
     "lint": "eslint . --ext .ts,.js --fix",
-    "build": "nx build",
-    "build:all": "nx run-many --target=build --all",
+    "build": "nx run-many --target=build --all",
     "typecheck": "nx run-many --target=typecheck --all",
     "test": "vitest run",
     "dev": "vitest --ui",
@@ -38,14 +37,14 @@
     "sandbox"
   ],
   "dependencies": {
-    "vietscript": "workspace:*",
+    "@vietscript/parser": "workspace:*",
     "vitepress": "1.0.0-alpha.49"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
-    "@nrwl/nx-cloud": "^15.0.2",
-    "@nrwl/workspace": "^15.0.10",
+    "@nrwl/nx-cloud": "16.3.0",
+    "@nrwl/workspace": "16.6.0",
     "@release-it/conventional-changelog": "^5.1.1",
     "@types/lodash": "^4.14.187",
     "@types/node": "^18.11.8",
@@ -61,7 +60,7 @@
     "eslint-plugin-unicorn": "^45.0.2",
     "husky": "^8.0.2",
     "jsdom": "^20.0.2",
-    "nx": "^15.0.0",
+    "nx": "16.6.0",
     "prettier": "^2.8.1",
     "release-it": "^15.5.0",
     "rimraf": "^3.0.2",
@@ -72,3 +71,4 @@
     "vue-tsc": "^1.0.9"
   }
 }
+

@@ -1,4 +1,4 @@
-import { NumericLiteral } from "@lang/nodes/literals/NumericLiteral";
+import { NumericLiteral } from "@parser/nodes/literals/NumericLiteral";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";

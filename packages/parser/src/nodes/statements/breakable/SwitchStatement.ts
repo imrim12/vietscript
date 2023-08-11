@@ -1,7 +1,7 @@
-import { Parser } from "@lang/parser";
-import { Expression } from "@lang/nodes/expressions/Expression";
-import { Statement } from "@lang/nodes/statements/Statement";
-import { StatementList } from "@lang/nodes/statements/StatementList";
+import { Parser } from "@parser/parser";
+import { Expression } from "@parser/nodes/expressions/Expression";
+import { Statement } from "@parser/nodes/statements/Statement";
+import { StatementList } from "@parser/nodes/statements/StatementList";
 
 export class SwitchStatement {
   type = "SwitchStatement";

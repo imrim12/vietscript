@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
-      "@lang": path.resolve("./packages/parser/src"),
+      "@parser": path.resolve("./packages/parser/src"),
     },
   },
   test: {

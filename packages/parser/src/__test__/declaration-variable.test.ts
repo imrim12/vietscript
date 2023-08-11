@@ -1,4 +1,4 @@
-import { VariableDeclaration } from "@lang/nodes/declarations/VariableDeclaration";
+import { VariableDeclaration } from "@parser/nodes/declarations/VariableDeclaration";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";

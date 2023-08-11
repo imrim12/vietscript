@@ -1,4 +1,4 @@
-import { Parser } from "@lang/parser";
+import { Parser } from "@parser/parser";
 
 import { SwitchStatement } from "./SwitchStatement";
 import { IterationStatement } from "./iteration/IterationStatement";

@@ -1,4 +1,4 @@
-import { Parser } from "@lang/parser";
+import { Parser } from "@parser/parser";
 
 import { Statement } from "./statements/Statement";
 import { StatementList } from "./statements/StatementList";

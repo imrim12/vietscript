@@ -1,7 +1,7 @@
-import { Identifier } from "@lang/nodes/identifier/Identifier";
-import { MethodDefinition } from "@lang/nodes/declarations/class/MethodDefinition";
-import { PropertyDefinition } from "@lang/nodes/declarations/class/PropertyDefinition";
-import { Parser } from "@lang/parser";
+import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { MethodDefinition } from "@parser/nodes/declarations/class/MethodDefinition";
+import { PropertyDefinition } from "@parser/nodes/declarations/class/PropertyDefinition";
+import { Parser } from "@parser/parser";
 
 export class ObjectExpression {
   type = "ObjectExpression";

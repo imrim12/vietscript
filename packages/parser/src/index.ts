@@ -1,13 +1,9 @@
-import { Executor } from "./executor";
 import { Parser } from "./parser";
 
 const parser = new Parser();
 
-const executor = new Executor();
-
 export default parser;
 
-export { executor };
 export { Tokenizer } from "./tokenizer";
 export { Parser } from "./parser";
 
@@ -26,7 +22,7 @@ if (typeof window !== "undefined") {
           this.innerHTML = "";
 
           if (script) {
-            executor.execute(script);
+            // executor.execute(script);
           }
         });
       }
@@ -34,5 +30,5 @@ if (typeof window !== "undefined") {
   );
 
   // @ts-ignore
-  window.VietScript = { parser, executor };
+  window.VietScript = { parser };
 }

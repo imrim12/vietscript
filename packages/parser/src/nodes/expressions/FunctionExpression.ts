@@ -1,6 +1,6 @@
-import { Parser } from "@lang/parser";
-import { BlockStatement } from "@lang/nodes/statements/BlockStatement";
-import { Identifier } from "@lang/nodes/identifier/Identifier";
+import { Parser } from "@parser/parser";
+import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
+import { Identifier } from "@parser/nodes/identifier/Identifier";
 
 export class FunctionExpression {
   type = "FunctionExpression";

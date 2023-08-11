@@ -1,4 +1,4 @@
-import { Parser } from "@lang";
+import { Parser } from "@parser";
 
 import { Identifier } from "../identifier/Identifier";
 

@@ -1,4 +1,4 @@
-import { Parser } from "@lang/parser";
+import { Parser } from "@parser/parser";
 
 export class DebuggerStatement {
   type = "DebuggerStatement";

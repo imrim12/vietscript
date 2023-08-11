@@ -1,6 +1,6 @@
-import { Parser } from "@lang/parser";
-import { Literal } from "@lang/nodes/literals/Literal";
-import { Identifier } from "@lang/nodes/identifier/Identifier";
+import { Parser } from "@parser/parser";
+import { Literal } from "@parser/nodes/literals/Literal";
+import { Identifier } from "@parser/nodes/identifier/Identifier";
 
 import { LabelledStatement } from "../statements/LabelledStatement";
 

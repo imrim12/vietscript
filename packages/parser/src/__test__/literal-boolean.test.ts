@@ -1,4 +1,4 @@
-import { BooleanLiteral } from "@lang/nodes/literals/BooleanLiteral";
+import { BooleanLiteral } from "@parser/nodes/literals/BooleanLiteral";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";

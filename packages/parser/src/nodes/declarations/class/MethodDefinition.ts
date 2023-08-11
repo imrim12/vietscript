@@ -1,6 +1,6 @@
-import { FunctionExpression } from "@lang/nodes/expressions/FunctionExpression";
-import { Identifier } from "@lang/nodes/identifier/Identifier";
-import { Parser } from "@lang/parser";
+import { FunctionExpression } from "@parser/nodes/expressions/FunctionExpression";
+import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { Parser } from "@parser/parser";
 
 export class MethodDefinition {
   type = "MethodDefinition";

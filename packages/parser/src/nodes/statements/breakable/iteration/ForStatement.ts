@@ -1,9 +1,9 @@
-import { Parser } from "@lang/parser";
-import { VariableDeclaration } from "@lang/nodes/declarations/VariableDeclaration";
-import { Statement } from "@lang/nodes/statements/Statement";
-import { BlockStatement } from "@lang/nodes/statements/BlockStatement";
-import { Expression } from "@lang/nodes/expressions/Expression";
-import { Identifier } from "@lang/nodes/identifier/Identifier";
+import { Parser } from "@parser/parser";
+import { VariableDeclaration } from "@parser/nodes/declarations/VariableDeclaration";
+import { Statement } from "@parser/nodes/statements/Statement";
+import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
+import { Expression } from "@parser/nodes/expressions/Expression";
+import { Identifier } from "@parser/nodes/identifier/Identifier";
 
 // import { ForInOfStatement } from "./ForInOfStatement";
 

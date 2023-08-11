@@ -1,5 +1,5 @@
-import { Parser } from "@lang/parser";
-import { Tokenizer } from "@lang/tokenizer";
+import { Parser } from "@parser/parser";
+import { Tokenizer } from "@parser/tokenizer";
 
 class SingleNodeParser extends Parser {
   parse(syntax: string, InitAtsNodeClass: any) {

@@ -1,5 +1,5 @@
-import { Parser } from "@lang/parser";
-import { Identifier } from "@lang/nodes/identifier/Identifier";
+import { Parser } from "@parser/parser";
+import { Identifier } from "@parser/nodes/identifier/Identifier";
 
 import { BlockStatement } from "../BlockStatement";
 

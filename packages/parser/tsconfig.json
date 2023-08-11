@@ -3,12 +3,25 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist",
-    "types": ["@types/node", "vite/client", "vitest/globals"],
+    "types": [
+      "@types/node",
+      "vite/client",
+      "vitest/globals"
+    ],
     "paths": {
-      "@lang": ["./src/index.ts"],
-      "@lang/*": ["./src/*"]
+      "@parser": [
+        "./src/index.ts"
+      ],
+      "@parser/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["./**/*.ts"],
-  "exclude": ["./node_modules", "./dist"]
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./dist"
+  ]
 }

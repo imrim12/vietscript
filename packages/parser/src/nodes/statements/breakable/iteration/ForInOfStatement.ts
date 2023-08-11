@@ -1,6 +1,6 @@
-import { Parser } from "@lang/parser";
-import { VariableDeclaration } from "@lang/nodes/declarations/VariableDeclaration";
-import { Identifier } from "@lang/nodes/identifier/Identifier";
+import { Parser } from "@parser/parser";
+import { VariableDeclaration } from "@parser/nodes/declarations/VariableDeclaration";
+import { Identifier } from "@parser/nodes/identifier/Identifier";
 
 export class ForInOfStatement {
   type: "ForInStatement" | "ForOfStatement";

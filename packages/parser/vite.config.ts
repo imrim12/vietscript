@@ -6,13 +6,13 @@ import { defineConfig } from "vite";
 export default defineConfig({
   resolve: {
     alias: {
-      "@lang": path.resolve("./src"),
+      "@parser": path.resolve("./src"),
     },
   },
   build: {
     emptyOutDir: false,
     lib: {
-      name: "vietscript",
+      name: "@vietscript/parser",
       entry: path.resolve("./src/index.ts"),
       formats: ["es", "cjs", "umd"],
       fileName: "index",

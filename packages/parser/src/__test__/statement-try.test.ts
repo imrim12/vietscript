@@ -1,4 +1,4 @@
-import { TryStatement } from "@lang/nodes/statements/try/TryStatement";
+import { TryStatement } from "@parser/nodes/statements/try/TryStatement";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";

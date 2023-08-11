@@ -1,4 +1,4 @@
-import { StringLiteral } from "@lang/nodes/literals/StringLiteral";
+import { StringLiteral } from "@parser/nodes/literals/StringLiteral";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";

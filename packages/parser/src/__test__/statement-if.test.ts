@@ -1,4 +1,4 @@
-import { IfStatement } from "@lang/nodes/statements/IfStatement";
+import { IfStatement } from "@parser/nodes/statements/IfStatement";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";

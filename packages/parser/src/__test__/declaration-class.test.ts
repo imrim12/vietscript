@@ -1,4 +1,4 @@
-import { ClassDeclaration } from "@lang/nodes/declarations/ClassDeclaration";
+import { ClassDeclaration } from "@parser/nodes/declarations/ClassDeclaration";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";

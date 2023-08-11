@@ -1,5 +1,5 @@
-import { Parser } from "@lang/parser";
-import { Literal } from "@lang/nodes/literals/Literal";
+import { Parser } from "@parser/parser";
+import { Literal } from "@parser/nodes/literals/Literal";
 
 export class ArrayExpression {
   type = "ArrayExpression";

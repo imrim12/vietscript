@@ -1,4 +1,4 @@
-import { BinaryExpression } from "@lang/nodes/expressions/BinaryExpression";
+import { BinaryExpression } from "@parser/nodes/expressions/BinaryExpression";
 
 import parser from "./setup-test";
 import toPlainObject from "./toPlainObject";
