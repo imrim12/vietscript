@@ -1,5 +1,6 @@
 import { Parser } from "@parser/parser";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { Keyword } from "@vietscript/shared";
 
 import { ClassBody } from "./class/ClassBody";
 
@@ -13,7 +14,7 @@ export class ClassDeclaration {
   body: ClassBody;
 
   constructor(parser: Parser) {
-    parser.eat("Class");
+    parser.eat(Keyword.CLASS);
 
     this.id = new Identifier(parser);
 

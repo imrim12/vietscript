@@ -1,4 +1,5 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { Declaration } from "../declarations/Declaration";
 
@@ -9,28 +10,28 @@ export class StatementListItem {
 
   constructor(parser: Parser) {
     switch (parser.lookahead?.type) {
-      case "Var":
-      case "Let":
-      case "Const":
-      case "Async":
-      case "Function":
-      case "Class": {
+      case Keyword.VAR:
+      case Keyword.LET:
+      case Keyword.CONST:
+      case Keyword.ASYNC:
+      case Keyword.FUNCTION:
+      case Keyword.CLASS: {
         Object.assign(this, new Declaration(parser));
         break;
       }
-      case "If":
-      case "Do":
-      case "While":
-      case "For":
-      case "Switch":
-      case "Continue":
-      case "Break":
-      case "Return":
-      case "With":
-      case "Identifier":
-      case "Throw":
-      case "Try":
-      case "Debugger": {
+      case Keyword.IF:
+      case Keyword.DO:
+      case Keyword.WHILE:
+      case Keyword.FOR:
+      case Keyword.SWITCH:
+      case Keyword.CONTINUE:
+      case Keyword.BREAK:
+      case Keyword.RETURN:
+      case Keyword.WITH:
+      case Keyword.IDENTIFIER:
+      case Keyword.THROW:
+      case Keyword.TRY:
+      case Keyword.DEBUGGER: {
         Object.assign(this, new Statement(parser));
         break;
       }

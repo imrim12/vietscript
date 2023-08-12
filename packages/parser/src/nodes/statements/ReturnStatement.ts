@@ -1,4 +1,5 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { Expression } from "../expressions/Expression";
 
@@ -8,7 +9,7 @@ export class ReturnStatement {
   argument: Expression;
 
   constructor(parser: Parser) {
-    parser.eat("Return");
+    parser.eat(Keyword.RETURN);
 
     const expression = new Expression(parser);
 

@@ -1,5 +1,6 @@
 import { Node } from "@vietscript/shared";
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 export class NaNLiteral implements Node {
   type = "NaNLiteral";
@@ -13,12 +14,12 @@ export class NaNLiteral implements Node {
   end: number;
 
   constructor(parser: Parser) {
-    const token = parser.eat("NaN");
+    const token = parser.eat(Keyword.NAN);
 
     this.start = token.start;
     this.end = token.end;
 
     this.value = Number.NaN;
-    this.raw = "NaN";
+    this.raw = Keyword.NAN;
   }
 }

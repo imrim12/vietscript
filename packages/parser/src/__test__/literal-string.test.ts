@@ -10,7 +10,7 @@ describe("literal-string.test", () => {
     expect(toPlainObject(result)).toStrictEqual({
       type: "StringLiteral",
       value: "Hello world!",
-      raw: '"Hello world!"',
+      raw: "\"Hello world!\"",
       start: 0,
       end: 14,
     });
@@ -22,7 +22,7 @@ describe("literal-string.test", () => {
     expect(toPlainObject(result)).toStrictEqual({
       type: "StringLiteral",
       value: "Hello world!",
-      raw: '"Hello world!"',
+      raw: "\"Hello world!\"",
       start: 0,
       end: 14,
     });
@@ -34,7 +34,7 @@ describe("literal-string.test", () => {
     expect(toPlainObject(result)).toStrictEqual({
       type: "StringLiteral",
       value: "Hello world!",
-      raw: '"Hello world!"',
+      raw: "\"Hello world!\"",
       start: 0,
       end: 14,
     });

@@ -1,6 +1,5 @@
-import { Spec } from "@vietscript/shared";
+import { Keyword, Spec } from "@vietscript/shared";
 
-import { Keyword } from "./keyword.enum";
 import { vietnameseUnicodeSet } from "./unicode";
 
 export const SpecIdentifier = [

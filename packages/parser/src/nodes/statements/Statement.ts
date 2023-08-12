@@ -1,4 +1,5 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { BlockStatement } from "./BlockStatement";
 import { BreakStatement } from "./BreakStatement";
@@ -21,42 +22,42 @@ export class Statement {
         Object.assign(this, new BlockStatement(parser));
         break;
       }
-      case "If": {
+      case Keyword.IF: {
         Object.assign(this, new IfStatement(parser));
         break;
       }
-      case "Do":
-      case "While":
-      case "For":
-      case "Switch": {
+      case Keyword.DO:
+      case Keyword.WHILE:
+      case Keyword.FOR:
+      case Keyword.SWITCH: {
         Object.assign(this, new BreakableStatement(parser));
         break;
       }
-      case "Continue": {
+      case Keyword.CONTINUE: {
         Object.assign(this, new ContinueStatement(parser));
         break;
       }
-      case "Break": {
+      case Keyword.BREAK: {
         Object.assign(this, new BreakStatement(parser));
         break;
       }
-      case "Return": {
+      case Keyword.RETURN: {
         Object.assign(this, new ReturnStatement(parser));
         break;
       }
-      case "With": {
+      case Keyword.WITH: {
         Object.assign(this, new WithStatement(parser));
         break;
       }
-      case "Throw": {
+      case Keyword.THROW: {
         Object.assign(this, new ThrowStatement(parser));
         break;
       }
-      case "Try": {
+      case Keyword.TRY: {
         Object.assign(this, new TryStatement(parser));
         break;
       }
-      case "Debugger": {
+      case Keyword.DEBUGGER: {
         Object.assign(this, new DebuggerStatement(parser));
         break;
       }

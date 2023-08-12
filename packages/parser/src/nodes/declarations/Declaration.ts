@@ -1,4 +1,5 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { ClassDeclaration } from "./ClassDeclaration";
 import { FunctionDeclaration } from "./FunctionDeclaration";
@@ -9,18 +10,18 @@ export class Declaration {
 
   constructor(parser: Parser) {
     switch (parser.lookahead?.type) {
-      case "Var":
-      case "Let":
-      case "Const": {
+      case Keyword.VAR:
+      case Keyword.LET:
+      case Keyword.CONST: {
         Object.assign(this, new VariableDeclaration(parser));
         break;
       }
-      case "Async":
-      case "Function": {
+      case Keyword.ASYNC:
+      case Keyword.FUNCTION: {
         Object.assign(this, new FunctionDeclaration(parser));
         break;
       }
-      case "Class": {
+      case Keyword.CLASS: {
         Object.assign(this, new ClassDeclaration(parser));
         break;
       }

@@ -1,4 +1,5 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { BooleanLiteral } from "./BooleanLiteral";
 import { NaNLiteral } from "./NaNLiteral";
@@ -18,27 +19,27 @@ export class Literal {
     let literal: any;
 
     switch (parser.lookahead?.type) {
-      case "Number": {
+      case Keyword.NUMBER: {
         literal = new NumericLiteral(parser);
         break;
       }
-      case "String": {
+      case Keyword.STRING: {
         literal = new StringLiteral(parser);
         break;
       }
-      case "Boolean": {
+      case Keyword.BOOLEAN: {
         literal = new BooleanLiteral(parser);
         break;
       }
-      case "NaN": {
+      case Keyword.NAN: {
         literal = new NaNLiteral(parser);
         break;
       }
-      case "Null": {
+      case Keyword.NULL: {
         literal = new NullLiteral(parser);
         break;
       }
-      case "Undefined": {
+      case Keyword.UNDEFINED: {
         literal = new UndefinedLiteral(parser);
         break;
       }

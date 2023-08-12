@@ -1,6 +1,7 @@
 import { Parser } from "@parser/parser";
 import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { Keyword } from "@vietscript/shared";
 
 export class FunctionExpression {
   type = "FunctionExpression";
@@ -21,13 +22,13 @@ export class FunctionExpression {
     let isAsync = isDefaultAsync;
     let isGenerator = false;
 
-    if (parser.lookahead?.type === "Async" && !isDefaultAsync) {
-      parser.eat("Async");
+    if (parser.lookahead?.type === Keyword.ASYNC && !isDefaultAsync) {
+      parser.eat(Keyword.ASYNC);
       isAsync = true;
     }
 
     if (!ignoreKeyword) {
-      parser.eat("Function");
+      parser.eat(Keyword.FUNCTION);
     }
 
     if (parser.lookahead?.type === "*") {

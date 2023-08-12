@@ -2,6 +2,7 @@ import { Identifier } from "@parser/nodes/identifier/Identifier";
 import { MethodDefinition } from "@parser/nodes/declarations/class/MethodDefinition";
 import { PropertyDefinition } from "@parser/nodes/declarations/class/PropertyDefinition";
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 export class ObjectExpression {
   type = "ObjectExpression";
@@ -12,15 +13,15 @@ export class ObjectExpression {
     parser.eat("{");
 
     while (parser.lookahead?.type !== "}") {
-      const isGetter = parser.lookahead?.type === "Get";
+      const isGetter = parser.lookahead?.type === Keyword.GET;
 
       if (isGetter) {
-        parser.eat("Get");
+        parser.eat(Keyword.GET);
       }
-      const isSetter = parser.lookahead?.type === "Set";
+      const isSetter = parser.lookahead?.type === Keyword.SET;
 
       if (isSetter) {
-        parser.eat("Set");
+        parser.eat(Keyword.SET);
       }
 
       let isComputed = false,
@@ -28,10 +29,10 @@ export class ObjectExpression {
         identifier: Identifier | null = null;
 
       if (!isGetter && !isSetter) {
-        isAsync = parser.lookahead?.type === "Async";
+        isAsync = parser.lookahead?.type === Keyword.ASYNC;
 
         if (isAsync) {
-          parser.eat("Async");
+          parser.eat(Keyword.ASYNC);
         }
 
         isComputed = parser.lookahead?.type === "[";

@@ -1,4 +1,5 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { Expression } from "./Expression";
 
@@ -8,7 +9,7 @@ export class AwaitExpression {
   argument: Expression;
 
   constructor(parser: Parser) {
-    parser.eat("Await");
+    parser.eat(Keyword.AWAIT);
 
     this.argument = new Expression(parser);
   }

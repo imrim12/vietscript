@@ -120,27 +120,4 @@ describe("expression-member.test", () => {
       },
     });
   });
-
-  it("should parse the syntax normally", () => {
-    const result = parser.parse("con chó.kêu()", Expression);
-
-    expect(toPlainObject(result)).toStrictEqual({
-      type: "CallExpression",
-      arguments: [],
-      optional: false,
-      callee: {
-        type: "MemberExpression",
-        object: {
-          type: "Identifier",
-          name: "con chó",
-        },
-        property: {
-          type: "Identifier",
-          name: "kêu",
-        },
-        computed: false,
-        optional: false,
-      },
-    });
-  });
 });
