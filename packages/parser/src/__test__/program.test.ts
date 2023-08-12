@@ -1,7 +1,7 @@
 import { Program } from "@parser/nodes/Program";
 
-import parser from "./setup-test";
-import toPlainObject from "./toPlainObject";
+import parser from "../setup-test";
+import toPlainObject from "../toPlainObject";
 
 describe("program.test", () => {
   it("should parse the syntax normally", () => {
@@ -60,9 +60,14 @@ describe("program.test", () => {
                 name: "tuổi",
               },
               init: {
-                type: "Literal",
+                type: "NumericLiteral",
                 value: 25,
-                raw: "25",
+                extra: {
+                  rawValue: 25,
+                  raw: "25",
+                },
+                start: 16,
+                end: 18,
               },
             },
           ],
@@ -84,9 +89,14 @@ describe("program.test", () => {
                 name: "tên",
               },
               init: {
-                type: "Literal",
+                type: "StringLiteral",
                 value: "Tú Nguyễn",
-                raw: '"Tú Nguyễn"',
+                extra: {
+                  rawValue: "Tú Nguyễn",
+                  raw: '"Tú Nguyễn"',
+                },
+                start: 39,
+                end: 50,
               },
             },
           ],
@@ -109,7 +119,7 @@ describe("program.test", () => {
             type: "ClassBody",
             body: [
               {
-                type: "PropertyDefinition",
+                type: "ClassProperty",
                 static: false,
                 computed: false,
                 key: {
@@ -119,20 +129,19 @@ describe("program.test", () => {
                 value: null,
               },
               {
-                type: "MethodDefinition",
+                type: "ClassMethod",
                 static: false,
                 computed: false,
                 key: {
                   type: "Identifier",
                   name: "kêu",
                 },
-                kind: "method",
                 value: {
                   type: "FunctionExpression",
                   id: null,
                   expression: false,
                   generator: false,
-                  async: true,
+                  async: false,
                   params: [
                     {
                       type: "Identifier",
@@ -149,14 +158,21 @@ describe("program.test", () => {
                       {
                         type: "ReturnStatement",
                         argument: {
-                          type: "Literal",
+                          type: "StringLiteral",
                           value: "Meo meo",
-                          raw: '"Meo meo"',
+                          extra: {
+                            rawValue: "Meo meo",
+                            raw: '"Meo meo"',
+                          },
+                          start: 136,
+                          end: 145,
                         },
                       },
                     ],
                   },
                 },
+                async: true,
+                kind: "method",
               },
             ],
           },
@@ -171,9 +187,14 @@ describe("program.test", () => {
             {
               type: "SwitchCase",
               test: {
-                type: "Literal",
+                type: "NumericLiteral",
                 value: 1,
-                raw: "1",
+                extra: {
+                  rawValue: 1,
+                  raw: "1",
+                },
+                start: 193,
+                end: 194,
               },
               consequent: [
                 {
@@ -186,9 +207,14 @@ describe("program.test", () => {
                         name: "xyz",
                       },
                       init: {
-                        type: "Literal",
+                        type: "NumericLiteral",
                         value: 1,
-                        raw: "1",
+                        extra: {
+                          rawValue: 1,
+                          raw: "1",
+                        },
+                        start: 210,
+                        end: 211,
                       },
                     },
                   ],
@@ -199,18 +225,28 @@ describe("program.test", () => {
             {
               type: "SwitchCase",
               test: {
-                type: "Literal",
+                type: "NumericLiteral",
                 value: 18,
-                raw: "18",
+                extra: {
+                  rawValue: 18,
+                  raw: "18",
+                },
+                start: 227,
+                end: 229,
               },
               consequent: [],
             },
             {
               type: "SwitchCase",
               test: {
-                type: "Literal",
+                type: "NumericLiteral",
                 value: 60,
-                raw: "60",
+                extra: {
+                  rawValue: 60,
+                  raw: "60",
+                },
+                start: 245,
+                end: 247,
               },
               consequent: [],
             },
@@ -235,8 +271,8 @@ describe("program.test", () => {
                       name: "gì đó",
                     },
                     init: {
-                      type: "Literal",
-                      raw: "undefined",
+                      type: "Identifier",
+                      name: "undefined",
                     },
                   },
                 ],
@@ -263,8 +299,8 @@ describe("program.test", () => {
                         name: "gì đó khác",
                       },
                       init: {
-                        type: "Literal",
-                        raw: "undefined",
+                        type: "Identifier",
+                        name: "undefined",
                       },
                     },
                   ],
@@ -285,8 +321,8 @@ describe("program.test", () => {
                         name: "gì đó khác nữa",
                       },
                       init: {
-                        type: "Literal",
-                        raw: "undefined",
+                        type: "Identifier",
+                        name: "undefined",
                       },
                     },
                   ],
@@ -311,8 +347,8 @@ describe("program.test", () => {
                       name: "gì đó",
                     },
                     init: {
-                      type: "Literal",
-                      raw: "undefined",
+                      type: "Identifier",
+                      name: "undefined",
                     },
                   },
                 ],
@@ -335,8 +371,8 @@ describe("program.test", () => {
                         name: "gì đó khác",
                       },
                       init: {
-                        type: "Literal",
-                        raw: "undefined",
+                        type: "Identifier",
+                        name: "undefined",
                       },
                     },
                   ],
@@ -362,8 +398,8 @@ describe("program.test", () => {
                       name: "gì đó khác nữa",
                     },
                     init: {
-                      type: "Literal",
-                      raw: "undefined",
+                      type: "Identifier",
+                      name: "undefined",
                     },
                   },
                 ],
@@ -395,9 +431,14 @@ describe("program.test", () => {
                       name: "hành động",
                     },
                     init: {
-                      type: "Literal",
+                      type: "StringLiteral",
                       value: "cắn",
-                      raw: '"cắn"',
+                      extra: {
+                        rawValue: "cắn",
+                        raw: '"cắn"',
+                      },
+                      start: 590,
+                      end: 595,
                     },
                   },
                 ],

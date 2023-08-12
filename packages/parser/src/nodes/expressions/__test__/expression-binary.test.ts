@@ -1,7 +1,7 @@
 import { BinaryExpression } from "@parser/nodes/expressions/BinaryExpression";
 
-import parser from "./setup-test";
-import toPlainObject from "./toPlainObject";
+import parser from "../../../setup-test";
+import toPlainObject from "../../../toPlainObject";
 
 describe("expression-binary.test", () => {
   it("should parse the syntax normally", () => {

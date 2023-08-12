@@ -1,13 +1,15 @@
-import { Node } from "@vietscript/shared";
 import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import { Keyword, Node } from "@vietscript/shared";
 
 export class StringLiteral implements Node {
   type = "StringLiteral";
 
   value: string;
 
-  raw: string;
+  extra: {
+    rawValue: string;
+    raw: string;
+  };
 
   start: number;
 
@@ -22,6 +24,10 @@ export class StringLiteral implements Node {
     const value = String(token.value).slice(1, -1);
 
     this.value = value;
-    this.raw = JSON.stringify(value);
+
+    this.extra = {
+      rawValue: value,
+      raw: JSON.stringify(value),
+    };
   }
 }

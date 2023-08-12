@@ -1,7 +1,7 @@
 import { SwitchStatement } from "@parser/nodes/statements/breakable/SwitchStatement";
 
-import parser from "./setup-test";
-import toPlainObject from "./toPlainObject";
+import parser from "../../../../setup-test";
+import toPlainObject from "../../../../toPlainObject";
 
 describe("statement-breakable-switch.test", () => {
   it("should parse the syntax normally", () => {
@@ -27,9 +27,14 @@ describe("statement-breakable-switch.test", () => {
         {
           type: "SwitchCase",
           test: {
-            type: "Literal",
+            type: "NumericLiteral",
             value: 1,
-            raw: "1",
+            extra: {
+              rawValue: 1,
+              raw: "1",
+            },
+            start: 38,
+            end: 39,
           },
           consequent: [
             {
@@ -42,9 +47,14 @@ describe("statement-breakable-switch.test", () => {
                     name: "xyz",
                   },
                   init: {
-                    type: "Literal",
+                    type: "NumericLiteral",
                     value: 1,
-                    raw: "1",
+                    extra: {
+                      rawValue: 1,
+                      raw: "1",
+                    },
+                    start: 56,
+                    end: 57,
                   },
                 },
               ],
@@ -55,18 +65,28 @@ describe("statement-breakable-switch.test", () => {
         {
           type: "SwitchCase",
           test: {
-            type: "Literal",
+            type: "NumericLiteral",
             value: 18,
-            raw: "18",
+            extra: {
+              rawValue: 18,
+              raw: "18",
+            },
+            start: 74,
+            end: 76,
           },
           consequent: [],
         },
         {
           type: "SwitchCase",
           test: {
-            type: "Literal",
+            type: "NumericLiteral",
             value: 60,
-            raw: "60",
+            extra: {
+              rawValue: 60,
+              raw: "60",
+            },
+            start: 93,
+            end: 95,
           },
           consequent: [],
         },

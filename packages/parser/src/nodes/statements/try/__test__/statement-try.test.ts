@@ -1,7 +1,7 @@
 import { TryStatement } from "@parser/nodes/statements/try/TryStatement";
 
-import parser from "./setup-test";
-import toPlainObject from "./toPlainObject";
+import parser from "../../../../setup-test";
+import toPlainObject from "../../../../toPlainObject";
 
 describe("statement-try.test", () => {
   it("should parse the syntax normally", () => {
@@ -33,8 +33,8 @@ describe("statement-try.test", () => {
                   name: "gì đó",
                 },
                 init: {
-                  type: "Literal",
-                  raw: "undefined",
+                  type: "Identifier",
+                  name: "undefined",
                 },
               },
             ],
@@ -57,8 +57,8 @@ describe("statement-try.test", () => {
                     name: "gì đó khác",
                   },
                   init: {
-                    type: "Literal",
-                    raw: "undefined",
+                    type: "Identifier",
+                    name: "undefined",
                   },
                 },
               ],
@@ -84,8 +84,8 @@ describe("statement-try.test", () => {
                   name: "gì đó khác nữa",
                 },
                 init: {
-                  type: "Literal",
-                  raw: "undefined",
+                  type: "Identifier",
+                  name: "undefined",
                 },
               },
             ],

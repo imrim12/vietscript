@@ -1,13 +1,15 @@
-import { Node } from "@vietscript/shared";
 import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import { Keyword, Node } from "@vietscript/shared";
 
 export class NumericLiteral implements Node {
   type = "NumericLiteral";
 
   value: number;
 
-  raw: string;
+  extra: {
+    rawValue: number;
+    raw: string;
+  };
 
   start: number;
 
@@ -20,6 +22,10 @@ export class NumericLiteral implements Node {
     this.end = token.end;
 
     this.value = Number(token.value);
-    this.raw = String(token.value);
+
+    this.extra = {
+      rawValue: this.value,
+      raw: String(token.value),
+    };
   }
 }

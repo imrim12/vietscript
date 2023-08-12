@@ -1,7 +1,7 @@
 import { IfStatement } from "@parser/nodes/statements/IfStatement";
 
-import parser from "./setup-test";
-import toPlainObject from "./toPlainObject";
+import parser from "../../../setup-test";
+import toPlainObject from "../../../toPlainObject";
 
 describe("statement-if.test", () => {
   it("should parse the syntax normally", () => {
@@ -37,8 +37,8 @@ describe("statement-if.test", () => {
                   name: "gì đó",
                 },
                 init: {
-                  type: "Literal",
-                  raw: "undefined",
+                  type: "Identifier",
+                  name: "undefined",
                 },
               },
             ],
@@ -65,8 +65,8 @@ describe("statement-if.test", () => {
                     name: "gì đó khác",
                   },
                   init: {
-                    type: "Literal",
-                    raw: "undefined",
+                    type: "Identifier",
+                    name: "undefined",
                   },
                 },
               ],
@@ -87,8 +87,8 @@ describe("statement-if.test", () => {
                     name: "gì đó khác nữa",
                   },
                   init: {
-                    type: "Literal",
-                    raw: "undefined",
+                    type: "Identifier",
+                    name: "undefined",
                   },
                 },
               ],

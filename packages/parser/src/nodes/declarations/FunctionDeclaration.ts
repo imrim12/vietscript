@@ -3,6 +3,8 @@ import { Identifier } from "@parser/nodes/identifier/Identifier";
 import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
 import { Keyword } from "@vietscript/shared";
 
+import { ParameterList } from "./ParameterList";
+
 export class FunctionDeclaration {
   type = "FunctionDeclaration";
 
@@ -38,15 +40,7 @@ export class FunctionDeclaration {
 
     parser.eat("(");
 
-    const parameters: Array<Identifier> = [];
-
-    while (parser.lookahead?.type !== ")") {
-      parameters.push(new Identifier(parser));
-
-      if (parser.lookahead?.type !== ")") {
-        parser.eat(",");
-      }
-    }
+    const params: Array<Identifier> = new ParameterList(parser, ")").parameters;
 
     parser.eat(")");
 
@@ -59,7 +53,7 @@ export class FunctionDeclaration {
     this.expression = false;
     this.generator = isGenerator;
     this.async = isAsync;
-    this.params = parameters;
+    this.params = params;
     this.body = body;
   }
 }
