@@ -16,15 +16,12 @@ export class LogicalExpression {
     this.left =
       identifier ?? (parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser));
 
-    switch (parser.lookahead?.type as string) {
+    switch (parser.lookahead?.type) {
       case "??":
       case "||":
       case "&&": {
-        this.operator = String(parser.eat(String(parser.lookahead?.type)).value);
+        this.operator = String(parser.eat(parser.lookahead?.type).value);
         break;
-      }
-      default: {
-        throw new Error("Invalid operator for LogicalExpression");
       }
     }
 
