@@ -38,7 +38,11 @@ describe("program.test", () => {
 			khai báo gì đó khác nữa;
 		};
 		
-    hàm ngẫu nhiên() {}
+    hàm ngẫu nhiên() {
+      khai báo hành động = "cắn";
+      con chó.mồm.sủa()
+      con chó.mồm[hành động]()
+    }
 `,
       Program,
     );
@@ -374,13 +378,92 @@ describe("program.test", () => {
             type: "Identifier",
             name: "ngẫu nhiên",
           },
-          async: false,
           expression: false,
           generator: false,
+          async: false,
           params: [],
           body: {
             type: "BlockStatement",
-            body: [],
+            body: [
+              {
+                type: "VariableDeclaration",
+                declarations: [
+                  {
+                    type: "VariableDeclarator",
+                    id: {
+                      type: "Identifier",
+                      name: "hành động",
+                    },
+                    init: {
+                      type: "Literal",
+                      value: "cắn",
+                      raw: '"cắn"',
+                    },
+                  },
+                ],
+                kind: "var",
+              },
+              {
+                type: "ExpressionStatement",
+                expression: {
+                  type: "CallExpression",
+                  callee: {
+                    type: "MemberExpression",
+                    object: {
+                      type: "MemberExpression",
+                      object: {
+                        type: "Identifier",
+                        name: "con chó",
+                      },
+                      property: {
+                        type: "Identifier",
+                        name: "mồm",
+                      },
+                      computed: false,
+                      optional: false,
+                    },
+                    property: {
+                      type: "Identifier",
+                      name: "sủa",
+                    },
+                    computed: false,
+                    optional: false,
+                  },
+                  arguments: [],
+                  optional: false,
+                },
+              },
+              {
+                type: "ExpressionStatement",
+                expression: {
+                  type: "CallExpression",
+                  callee: {
+                    type: "MemberExpression",
+                    object: {
+                      type: "MemberExpression",
+                      object: {
+                        type: "Identifier",
+                        name: "con chó",
+                      },
+                      property: {
+                        type: "Identifier",
+                        name: "mồm",
+                      },
+                      computed: false,
+                      optional: false,
+                    },
+                    property: {
+                      type: "Identifier",
+                      name: "hành động",
+                    },
+                    computed: true,
+                    optional: false,
+                  },
+                  arguments: [],
+                  optional: false,
+                },
+              },
+            ],
           },
         },
       ],

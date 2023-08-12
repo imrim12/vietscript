@@ -1,9 +1,10 @@
+import { Keyword } from "@vietscript/shared";
 import { Parser } from "@parser/parser";
 
 export class WithStatement {
   type = "WithStatement";
 
   constructor(parser: Parser) {
-    parser.eat("With");
+    parser.eat(Keyword.WITH);
   }
 }

@@ -1,4 +1,5 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { BlockStatement } from "../BlockStatement";
 
@@ -14,20 +15,20 @@ export class TryStatement {
   finalizer: BlockStatement | null = null;
 
   constructor(parser: Parser) {
-    parser.eat("Try");
+    parser.eat(Keyword.TRY);
 
     this.block = new BlockStatement(parser);
 
-    if (parser.lookahead?.type !== "Catch" && parser.lookahead?.type !== "Finally") {
+    if (parser.lookahead?.type !== Keyword.CATCH && parser.lookahead?.type !== Keyword.FINALLY) {
       throw new Error("Expected Catch or Finally");
     }
 
-    if (parser.lookahead?.type === "Catch") {
+    if (parser.lookahead?.type === Keyword.CATCH) {
       this.handler = new CatchClause(parser);
     }
 
-    if (parser.lookahead?.type === "Finally") {
-      parser.eat("Finally");
+    if (parser.lookahead?.type === Keyword.FINALLY) {
+      parser.eat(Keyword.FINALLY);
       this.finalizer = new BlockStatement(parser);
     }
   }

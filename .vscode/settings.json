@@ -1,0 +1,47 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    120
+  ],
+  "editor.tabSize": 2,
+  "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "prettier.configPath": "./.prettierrc.cjs",
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.printWidth": 120,
+  "eslint.format.enable": true,
+  "eslint.codeActionsOnSave.mode": "all",
+  "eslint.options": {},
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.suggest.autoImports": true,
+  "volar.takeOverMode.extension": "Vue.volar",
+  "volar.format.initialIndent": {
+    "html": true
+  },
+  "vue.autoInsert.dotValue": true,
+  "vue.complete.normalizeComponentImportName": true,
+  "vue.inlayHints.optionsWrapper": true,
+  "vue.updateImportsOnFileMove.enabled": true,
+}

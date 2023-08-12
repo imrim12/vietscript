@@ -1,5 +1,6 @@
 import { Parser } from "@parser/parser";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { Keyword } from "@vietscript/shared";
 
 import { BlockStatement } from "../BlockStatement";
 
@@ -11,7 +12,7 @@ export class CatchClause {
   param: Identifier | null = null;
 
   constructor(parser: Parser) {
-    parser.eat("Catch");
+    parser.eat(Keyword.CATCH);
 
     if (parser.lookahead?.type === "(") {
       parser.eat("(");

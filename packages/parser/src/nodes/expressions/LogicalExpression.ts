@@ -1,6 +1,7 @@
 import { Parser } from "@parser/parser";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
 import { Expression } from "@parser/nodes/expressions/Expression";
+import { Keyword } from "@vietscript/shared";
 
 export class LogicalExpression {
   type = "LogicalExpression";
@@ -13,8 +14,7 @@ export class LogicalExpression {
 
   constructor(parser: Parser, identifier?: Identifier) {
     this.left =
-      identifier ??
-      (parser.lookahead?.type === "Identifier" ? new Identifier(parser) : new Expression(parser));
+      identifier ?? (parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser));
 
     switch (parser.lookahead?.type as string) {
       case "??":
@@ -28,7 +28,6 @@ export class LogicalExpression {
       }
     }
 
-    this.right =
-      parser.lookahead?.type === "Identifier" ? new Identifier(parser) : new Expression(parser);
+    this.right = parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser);
   }
 }

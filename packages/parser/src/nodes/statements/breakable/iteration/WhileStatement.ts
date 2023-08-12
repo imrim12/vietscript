@@ -2,6 +2,7 @@ import { Parser } from "@parser/parser";
 import { Statement } from "@parser/nodes/statements/Statement";
 import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
 import { Expression } from "@parser/nodes/expressions/Expression";
+import { Keyword } from "@vietscript/shared";
 
 export class WhileStatement {
   type = "WhileStatement";
@@ -11,7 +12,7 @@ export class WhileStatement {
   test: Expression;
 
   constructor(parser: Parser) {
-    parser.eat("While");
+    parser.eat(Keyword.WHILE);
 
     parser.eat("(");
 

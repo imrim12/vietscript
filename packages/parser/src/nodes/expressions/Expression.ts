@@ -1,6 +1,7 @@
 import { Parser } from "@parser/parser";
 import { Literal } from "@parser/nodes/literals/Literal";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { Keyword } from "@vietscript/shared";
 
 import { LabelledStatement } from "../statements/LabelledStatement";
 
@@ -22,8 +23,8 @@ export class Expression {
 
   constructor(parser: Parser) {
     switch (parser.lookahead?.type as string) {
-      case "Async":
-      case "Function": {
+      case Keyword.ASYNC:
+      case Keyword.FUNCTION: {
         Object.assign(this, new FunctionExpression(parser));
         break;
       }
@@ -35,12 +36,12 @@ export class Expression {
         Object.assign(this, new ObjectExpression(parser));
         break;
       }
-      case "Number":
-      case "String":
-      case "Boolean":
-      case "NaN":
-      case "Null":
-      case "Undefined": {
+      case Keyword.NUMBER:
+      case Keyword.STRING:
+      case Keyword.BOOLEAN:
+      case Keyword.NAN:
+      case Keyword.NULL:
+      case Keyword.UNDEFINED: {
         Object.assign(this, new Literal(parser));
         break;
       }
@@ -59,11 +60,11 @@ export class Expression {
         Object.assign(this, new UnaryExpression(parser));
         break;
       }
-      case "Await": {
+      case Keyword.AWAIT: {
         Object.assign(this, new AwaitExpression(parser));
         break;
       }
-      case "This": {
+      case Keyword.THIS: {
         Object.assign(this, new ThisExpression(parser));
 
         if (parser.lookahead?.type === ".") {
@@ -71,7 +72,7 @@ export class Expression {
         }
         break;
       }
-      case "Identifier": {
+      case Keyword.IDENTIFIER: {
         const identifier = new Identifier(parser);
 
         // TODO: handle more cases

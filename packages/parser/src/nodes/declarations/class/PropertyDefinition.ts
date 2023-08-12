@@ -13,13 +13,7 @@ export class PropertyDefinition {
 
   value: null | Expression;
 
-  constructor(
-    parser: Parser,
-    isStatic: boolean,
-    isComputed: boolean,
-    key: Identifier,
-    declarator = "=",
-  ) {
+  constructor(parser: Parser, isStatic: boolean, isComputed: boolean, key: Identifier, declarator = "=") {
     this.static = isStatic;
     this.computed = isComputed;
     this.key = key;

@@ -1,5 +1,6 @@
 import { Node } from "@vietscript/shared";
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 export class NumericLiteral implements Node {
   type = "NumericLiteral";
@@ -13,7 +14,7 @@ export class NumericLiteral implements Node {
   end: number;
 
   constructor(parser: Parser) {
-    const token = parser.eat("Number");
+    const token = parser.eat(Keyword.NUMBER);
 
     this.start = token.start;
     this.end = token.end;

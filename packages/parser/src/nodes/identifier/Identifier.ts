@@ -1,11 +1,12 @@
+import { Keyword } from "@vietscript/shared";
 import { Parser } from "@parser/parser";
 
 export class Identifier {
-  type = "Identifier" as const;
+  type = "Identifier";
 
   name: string;
 
   constructor(parser: Parser) {
-    this.name = String(parser.eat("Identifier")?.value);
+    this.name = String(parser.eat(Keyword.IDENTIFIER)?.value);
   }
 }

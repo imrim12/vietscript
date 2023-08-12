@@ -1,4 +1,5 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { Identifier } from "../identifier/Identifier";
 
@@ -8,11 +9,11 @@ export class ContinueStatement {
   label: null | string;
 
   constructor(parser: Parser) {
-    parser.eat("Break");
+    parser.eat(Keyword.BREAK);
 
     let label: ContinueStatement["label"] = null;
 
-    if (parser.lookahead?.type === "Identifier") {
+    if (parser.lookahead?.type === Keyword.IDENTIFIER) {
       label = new Identifier(parser).name;
     }
 

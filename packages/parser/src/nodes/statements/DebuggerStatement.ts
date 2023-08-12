@@ -1,9 +1,10 @@
+import { Keyword } from "@vietscript/shared";
 import { Parser } from "@parser/parser";
 
 export class DebuggerStatement {
   type = "DebuggerStatement";
 
   constructor(parser: Parser) {
-    parser.eat("Debugger");
+    parser.eat(Keyword.DEBUGGER);
   }
 }

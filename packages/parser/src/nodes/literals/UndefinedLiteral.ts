@@ -1,5 +1,5 @@
-import { Node } from "@vietscript/shared";
 import { Parser } from "@parser/parser";
+import { Keyword, Node } from "@vietscript/shared";
 
 export class UndefinedLiteral implements Node {
   type = "UndefinedLiteral";
@@ -13,7 +13,7 @@ export class UndefinedLiteral implements Node {
   end: number;
 
   constructor(parser: Parser) {
-    const token = parser.eat("Undefined");
+    const token = parser.eat(Keyword.UNDEFINED);
 
     this.start = token.start;
     this.end = token.end;

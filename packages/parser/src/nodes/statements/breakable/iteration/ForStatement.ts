@@ -4,6 +4,7 @@ import { Statement } from "@parser/nodes/statements/Statement";
 import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
 import { Expression } from "@parser/nodes/expressions/Expression";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { Keyword } from "@vietscript/shared";
 
 // import { ForInOfStatement } from "./ForInOfStatement";
 
@@ -19,25 +20,25 @@ export class ForStatement {
   body: Statement | BlockStatement;
 
   constructor(parser: Parser) {
-    parser.eat("For");
+    parser.eat(Keyword.FOR);
 
     let isAsync = false;
 
-    if (parser.lookahead?.type === "Await") {
-      parser.eat("Await");
+    if (parser.lookahead?.type === Keyword.AWAIT) {
+      parser.eat(Keyword.AWAIT);
       isAsync = true;
     }
 
     parser.eat("(");
 
-    if (!isAsync && parser.lookahead?.type !== "In" && parser.lookahead?.type !== "Of") {
+    if (!isAsync && parser.lookahead?.type !== Keyword.IN && parser.lookahead?.type !== Keyword.OF) {
       switch (parser.lookahead?.type) {
-        case "Let":
-        case "Var": {
+        case Keyword.VAR:
+        case Keyword.LET: {
           this.init = new VariableDeclaration(parser);
           break;
         }
-        case "Const": {
+        case Keyword.CONST: {
           throw new Error("Const declarations are not allowed in for loops");
         }
         default: {

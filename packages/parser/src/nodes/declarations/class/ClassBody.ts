@@ -1,5 +1,6 @@
 import { Identifier } from "@parser/nodes/identifier/Identifier";
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { MethodDefinition } from "./MethodDefinition";
 import { PropertyDefinition } from "./PropertyDefinition";
@@ -13,15 +14,15 @@ export class ClassBody {
     parser.eat("{");
 
     while (parser.lookahead?.type !== "}") {
-      const isGetter = parser.lookahead?.type === "Get";
+      const isGetter = parser.lookahead?.type === Keyword.GET;
 
       if (isGetter) {
-        parser.eat("Get");
+        parser.eat(Keyword.GET);
       }
-      const isSetter = parser.lookahead?.type === "Set";
+      const isSetter = parser.lookahead?.type === Keyword.SET;
 
       if (isSetter) {
-        parser.eat("Set");
+        parser.eat(Keyword.SET);
       }
 
       let isStatic = false,
@@ -30,16 +31,16 @@ export class ClassBody {
         identifier: Identifier | null = null;
 
       if (!isGetter && !isSetter) {
-        isStatic = parser.lookahead?.type === "Static";
+        isStatic = parser.lookahead?.type === Keyword.STATIC;
 
         if (isStatic) {
-          parser.eat("Static");
+          parser.eat(Keyword.STATIC);
         }
 
-        isAsync = parser.lookahead?.type === "Async";
+        isAsync = parser.lookahead?.type === Keyword.ASYNC;
 
         if (isAsync) {
-          parser.eat("Async");
+          parser.eat(Keyword.ASYNC);
         }
 
         isComputed = parser.lookahead?.type === "[";

@@ -1,4 +1,5 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { DoWhileStatement } from "./DoWhileStatement";
 import { WhileStatement } from "./WhileStatement";
@@ -9,15 +10,15 @@ export class IterationStatement {
 
   constructor(parser: Parser) {
     switch (parser.lookahead?.type) {
-      case "Do": {
+      case Keyword.DO: {
         Object.assign(this, new DoWhileStatement(parser));
         break;
       }
-      case "While": {
+      case Keyword.WHILE: {
         Object.assign(this, new WhileStatement(parser));
         break;
       }
-      case "For": {
+      case Keyword.FOR: {
         Object.assign(this, new ForStatement(parser));
         break;
       }

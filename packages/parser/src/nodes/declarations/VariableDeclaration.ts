@@ -1,4 +1,5 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 
 import { VariableDeclarator } from "./VariableDeclarator";
 
@@ -14,27 +15,27 @@ export class VariableDeclaration {
     let isConstant = false;
 
     switch (parser.lookahead?.type) {
-      case "Var": {
-        parser.eat("Var");
+      case Keyword.VAR: {
+        parser.eat(Keyword.VAR);
         kind = "var";
 
         break;
       }
-      case "Let": {
-        parser.eat("Let");
+      case Keyword.LET: {
+        parser.eat(Keyword.LET);
         kind = "let";
 
         break;
       }
-      case "Const": {
-        parser.eat("Const");
+      case Keyword.CONST: {
+        parser.eat(Keyword.CONST);
         kind = "const";
         isConstant = true;
 
         break;
       }
       default: {
-        throw new SyntaxError(`Unexpected token: "${parser.lookahead?.value}", expected a variable declarator!`)
+        throw new SyntaxError(`Unexpected token: "${parser.lookahead?.value}", expected a variable declarator!`);
       }
     }
 

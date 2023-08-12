@@ -2,6 +2,7 @@ import { Parser } from "@parser/parser";
 import { Expression } from "@parser/nodes/expressions/Expression";
 import { Statement } from "@parser/nodes/statements/Statement";
 import { StatementList } from "@parser/nodes/statements/StatementList";
+import { Keyword } from "@vietscript/shared";
 
 export class SwitchStatement {
   type = "SwitchStatement";
@@ -15,7 +16,7 @@ export class SwitchStatement {
   }> = [];
 
   constructor(parser: Parser) {
-    parser.eat("Switch");
+    parser.eat(Keyword.SWITCH);
     parser.eat("(");
 
     this.discriminant = new Expression(parser);
@@ -23,24 +24,24 @@ export class SwitchStatement {
     parser.eat(")");
     parser.eat("{");
 
-    while (parser.lookahead?.type !== "Default" && parser.lookahead?.type !== "}") {
+    while (parser.lookahead?.type !== Keyword.DEFAULT && parser.lookahead?.type !== "}") {
       let hasConsequent = false;
 
-      parser.eat("Case");
+      parser.eat(Keyword.CASE);
 
       const test = new Expression(parser);
 
       parser.eat(":");
 
       while (
-        parser.lookahead?.type !== "Case" &&
-        parser.lookahead?.type !== "Default" &&
+        parser.lookahead?.type !== Keyword.CASE &&
+        parser.lookahead?.type !== Keyword.DEFAULT &&
         parser.lookahead?.type !== "}"
       ) {
         this.cases.push({
           type: "SwitchCase",
           test,
-          consequent: new StatementList(parser, ["Case", "Default", "}"]).body,
+          consequent: new StatementList(parser, [Keyword.CASE, Keyword.DEFAULT, "}"]).body,
         });
         hasConsequent = true;
       }
@@ -54,8 +55,8 @@ export class SwitchStatement {
       }
     }
 
-    if (parser.lookahead?.type === "Default") {
-      parser.eat("Default");
+    if (parser.lookahead?.type === Keyword.DEFAULT) {
+      parser.eat(Keyword.DEFAULT);
       parser.eat(":");
       this.cases.push({
         type: "SwitchCase",
