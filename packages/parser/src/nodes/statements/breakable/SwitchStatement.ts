@@ -24,7 +24,7 @@ export class SwitchStatement {
     parser.eat(")");
     parser.eat("{");
 
-    while (parser.lookahead?.type !== Keyword.DEFAULT && parser.lookahead?.type !== "}") {
+    while (![Keyword.DEFAULT, "}"].includes(parser.lookahead?.type as string)) {
       let hasConsequent = false;
 
       parser.eat(Keyword.CASE);
@@ -33,11 +33,7 @@ export class SwitchStatement {
 
       parser.eat(":");
 
-      while (
-        parser.lookahead?.type !== Keyword.CASE &&
-        parser.lookahead?.type !== Keyword.DEFAULT &&
-        parser.lookahead?.type !== "}"
-      ) {
+      while (![Keyword.CASE, Keyword.DEFAULT, "}"].includes(parser.lookahead?.type as string)) {
         this.cases.push({
           type: "SwitchCase",
           test,

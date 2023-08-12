@@ -1,7 +1,7 @@
 import { Expression } from "@parser/nodes/expressions/Expression";
 
-import parser from "./setup-test";
-import toPlainObject from "./toPlainObject";
+import parser from "../../../setup-test";
+import toPlainObject from "../../../toPlainObject";
 
 describe("expression-call.test", () => {
   it("should parse the syntax normally", () => {
@@ -58,7 +58,7 @@ describe("expression-call.test", () => {
       },
     });
   });
-  
+
   it("should parse the syntax normally", () => {
     const result = parser.parse("con chó[chân].đá()", Expression);
 

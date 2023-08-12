@@ -1,7 +1,8 @@
 import { ClassDeclaration } from "@parser/nodes/declarations/ClassDeclaration";
 
-import parser from "./setup-test";
-import toPlainObject from "./toPlainObject";
+import parser from "../../../setup-test";
+import toPlainObject from "../../../toPlainObject";
+import { Declaration } from "../Declaration";
 
 describe("declaration-class.test", () => {
   it("should parse the syntax normally", () => {
@@ -14,7 +15,7 @@ describe("declaration-class.test", () => {
 			}
 		}
 		`,
-      ClassDeclaration,
+      Declaration,
     );
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -31,7 +32,7 @@ describe("declaration-class.test", () => {
         type: "ClassBody",
         body: [
           {
-            type: "PropertyDefinition",
+            type: "ClassProperty",
             static: false,
             computed: false,
             key: {
@@ -39,26 +40,30 @@ describe("declaration-class.test", () => {
               name: "số chân",
             },
             value: {
-              type: "Literal",
+              type: "NumericLiteral",
               value: 4,
-              raw: "4",
+              extra: {
+                rawValue: 4,
+                raw: "4",
+              },
+              start: 41,
+              end: 42,
             },
           },
           {
-            type: "MethodDefinition",
+            type: "ClassMethod",
             static: false,
             computed: false,
             key: {
               type: "Identifier",
               name: "kêu",
             },
-            kind: "method",
             value: {
               type: "FunctionExpression",
               id: null,
               expression: false,
               generator: false,
-              async: true,
+              async: false,
               params: [
                 {
                   type: "Identifier",
@@ -75,17 +80,24 @@ describe("declaration-class.test", () => {
                   {
                     type: "ReturnStatement",
                     argument: {
-                      type: "Literal",
+                      type: "StringLiteral",
                       value: "Meo meo",
-                      raw: '"Meo meo"',
+                      extra: {
+                        rawValue: "Meo meo",
+                        raw: '"Meo meo"',
+                      },
+                      start: 88,
+                      end: 97,
                     },
                   },
                 ],
               },
             },
+            async: true,
+            kind: "method",
           },
         ],
       },
-    });
+    } as ClassDeclaration);
   });
 });

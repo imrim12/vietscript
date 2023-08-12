@@ -1,26 +1,15 @@
 import { Parser } from "@parser/parser";
-import { Literal } from "@parser/nodes/literals/Literal";
+
+import { ArrayLiteral } from "../literals/ArrayLiteral";
+
+import { Expression } from "./Expression";
 
 export class ArrayExpression {
   type = "ArrayExpression";
 
-  elements: Array<Literal["value"]>;
+  elements: Array<Expression>;
 
   constructor(parser: Parser) {
-    const elements: Array<Literal["value"]> = [];
-
-    parser.eat("[");
-
-    while (parser.lookahead?.type !== "]") {
-      elements.push(new Literal(parser).value);
-
-      if (parser.lookahead?.type !== "]") {
-        parser.eat(",");
-      }
-    }
-
-    parser.eat("]");
-
-    this.elements = elements;
+    this.elements = new ArrayLiteral(parser).elements;
   }
 }

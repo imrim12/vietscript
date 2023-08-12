@@ -6,8 +6,6 @@ export class BooleanLiteral implements Node {
 
   value: boolean;
 
-  raw: string;
-
   start: number;
 
   end: number;
@@ -18,9 +16,8 @@ export class BooleanLiteral implements Node {
     this.start = token.start;
     this.end = token.end;
 
-    const value = token.value === "true" ? true : false;
+    const value = token.value === "true" ? true : token.value === "đúng" ? true : false;
 
     this.value = value;
-    this.raw = String(value);
   }
 }

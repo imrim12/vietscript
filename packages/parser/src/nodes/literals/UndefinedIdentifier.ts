@@ -1,12 +1,10 @@
 import { Parser } from "@parser/parser";
 import { Keyword, Node } from "@vietscript/shared";
 
-export class UndefinedLiteral implements Node {
-  type = "UndefinedLiteral";
+export class UndefinedIdentifier implements Node {
+  type = Keyword.IDENTIFIER;
 
-  value: undefined;
-
-  raw: string;
+  name = Keyword.UNDEFINED;
 
   start: number;
 
@@ -17,9 +15,5 @@ export class UndefinedLiteral implements Node {
 
     this.start = token.start;
     this.end = token.end;
-
-    // TODO: toPlainObject removes the undefined value, lead to fail test
-    this.value = undefined;
-    this.raw = "undefined";
   }
 }

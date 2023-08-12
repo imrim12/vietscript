@@ -1,6 +1,7 @@
 import { Parser } from "@parser/parser";
 import { Expression } from "@parser/nodes/expressions/Expression";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { Keyword } from "@vietscript/shared";
 
 export class VariableDeclarator {
   type = "VariableDeclarator";
@@ -8,8 +9,8 @@ export class VariableDeclarator {
   id: Identifier;
 
   init: Expression = {
-    type: "Literal",
-    raw: "undefined",
+    type: Keyword.IDENTIFIER,
+    name: "undefined",
   };
 
   constructor(parser: Parser, isConstant = false) {

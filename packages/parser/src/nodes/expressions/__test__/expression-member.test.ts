@@ -1,7 +1,7 @@
 import { Expression } from "@parser/nodes/expressions/Expression";
 
-import parser from "./setup-test";
-import toPlainObject from "./toPlainObject";
+import parser from "../../../setup-test";
+import toPlainObject from "../../../toPlainObject";
 
 describe("expression-member.test", () => {
   it("should parse the syntax normally", () => {
@@ -114,9 +114,14 @@ describe("expression-member.test", () => {
       },
       operator: "=",
       right: {
-        type: "Literal",
+        type: "NumericLiteral",
         value: 123,
-        raw: "123",
+        extra: {
+          rawValue: 123,
+          raw: "123",
+        },
+        start: 37,
+        end: 40,
       },
     });
   });

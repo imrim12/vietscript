@@ -153,7 +153,7 @@ export const Specs: Array<Spec> = [
   [/^\bnull\b/, Keyword.NULL],
   [/^\bNaN\b/, Keyword.NAN],
   [/^\b(undefined|kh\u00F4ng x\u00E1c \u0111\u1ECBnh)\b/, Keyword.UNDEFINED],
-  [/^\b(true|false)\b/, Keyword.BOOLEAN],
+  [/(true|false|\u0111\u00FAng|sai)\b/, Keyword.BOOLEAN],
 
   // --------------------------------------
   // Identifier

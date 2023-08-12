@@ -1,7 +1,7 @@
 import { Program } from "@parser/nodes/Program";
 
-import parser from "./setup-test";
-import toPlainObject from "./toPlainObject";
+import parser from "../setup-test";
+import toPlainObject from "../toPlainObject";
 
 describe("identifier-match-keyword.test", () => {
   it("should parse the syntax normally", () => {
@@ -20,9 +20,14 @@ describe("identifier-match-keyword.test", () => {
                 name: "một lớp gì đó",
               },
               init: {
-                type: "Literal",
+                type: "NumericLiteral",
                 value: 1,
-                raw: "1",
+                extra: {
+                  rawValue: 1,
+                  raw: "1",
+                },
+                start: 25,
+                end: 26,
               },
             },
           ],

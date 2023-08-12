@@ -4,10 +4,6 @@ import { Parser } from "@parser/parser";
 export class NullLiteral implements Node {
   type = "NullLiteral";
 
-  value: null;
-
-  raw: string;
-
   start: number;
 
   end: number;
@@ -17,8 +13,5 @@ export class NullLiteral implements Node {
 
     this.start = token.start;
     this.end = token.end;
-
-    this.value = null;
-    this.raw = "null";
   }
 }

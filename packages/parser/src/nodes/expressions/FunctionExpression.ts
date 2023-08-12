@@ -8,32 +8,29 @@ export class FunctionExpression {
 
   id: null;
 
-  expression: boolean;
+  expression = false;
 
-  generator: boolean;
+  generator = false;
 
-  async: boolean;
+  async = false;
 
   params: Array<Identifier>;
 
   body: BlockStatement;
 
-  constructor(parser: Parser, ignoreKeyword = false, isDefaultAsync = false) {
-    let isAsync = isDefaultAsync;
-    let isGenerator = false;
-
-    if (parser.lookahead?.type === Keyword.ASYNC && !isDefaultAsync) {
+  constructor(parser: Parser, ignoreFunctionKeyword = false) {
+    if (parser.lookahead?.type === Keyword.ASYNC) {
       parser.eat(Keyword.ASYNC);
-      isAsync = true;
+      this.async = true;
     }
 
-    if (!ignoreKeyword) {
+    if (!ignoreFunctionKeyword) {
       parser.eat(Keyword.FUNCTION);
     }
 
     if (parser.lookahead?.type === "*") {
       parser.eat("*");
-      isGenerator = true;
+      this.generator = true;
     }
 
     parser.eat("(");
@@ -54,8 +51,6 @@ export class FunctionExpression {
 
     this.id = null;
     this.expression = false;
-    this.generator = isGenerator;
-    this.async = isAsync;
     this.params = parameters;
     this.body = body;
   }
