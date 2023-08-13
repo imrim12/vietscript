@@ -41,7 +41,7 @@ export class Tokenizer {
   /**
    * Obtains next token.
    */
-  public getNextToken(isIdentifier = false): Token | null {
+  public getNextToken(): Token | null {
     if (!this.hasMoreTokens()) {
       return null;
     }

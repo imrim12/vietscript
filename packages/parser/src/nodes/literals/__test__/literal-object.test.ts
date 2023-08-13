@@ -7,6 +7,7 @@ describe("literal-object.test", () => {
     const result = parser.parse(
       `
 		{
+      tiếng kêu: "Meo meo",
 			số chân: 4,
 			bất đồng bộ kêu(số lần, hmm) {
 				trả về "Meo meo"
@@ -25,6 +26,25 @@ describe("literal-object.test", () => {
           computed: false,
           key: {
             type: "Identifier",
+            name: "tiếng kêu",
+          },
+          value: {
+            type: "StringLiteral",
+            value: "Meo meo",
+            extra: {
+              rawValue: "Meo meo",
+              raw: '"Meo meo"',
+            },
+            start: 22,
+            end: 31,
+          },
+        },
+        {
+          type: "ObjectProperty",
+          method: false,
+          computed: false,
+          key: {
+            type: "Identifier",
             name: "số chân",
           },
           value: {
@@ -34,8 +54,8 @@ describe("literal-object.test", () => {
               rawValue: 4,
               raw: "4",
             },
-            start: 17,
-            end: 18,
+            start: 45,
+            end: 46,
           },
         },
         {
@@ -71,8 +91,8 @@ describe("literal-object.test", () => {
                     rawValue: "Meo meo",
                     raw: '"Meo meo"',
                   },
-                  start: 65,
-                  end: 74,
+                  start: 93,
+                  end: 102,
                 },
               },
             ],

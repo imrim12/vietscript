@@ -1,11 +1,6 @@
 import { Keyword, Spec } from "@vietscript/shared";
 
-import { vietnameseUnicodeSet } from "./unicode";
-
-export const SpecIdentifier = [
-  new RegExp(`^[a-zA-Z${vietnameseUnicodeSet}]+(\\s[a-zA-Z${vietnameseUnicodeSet}]+)*`),
-  Keyword.IDENTIFIER,
-] as [RegExp, Keyword];
+export const SpecIdentifier = [/^[A-Za-z\u00C0-\u1EF9]+(\s[A-Za-z\u00C0-\u1EF9]+)*/, Keyword.IDENTIFIER] as Spec;
 
 export const Specs: Array<Spec> = [
   // --------------------------------------
