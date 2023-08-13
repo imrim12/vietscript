@@ -177,7 +177,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "số một",
+            name: "s7889_m7897t",
           },
           init: {
             type: "NumericLiteral",
@@ -244,7 +244,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "họ và tên",
+            name: "h7885_v224_t234n",
           },
           init: {
             type: "StringLiteral",
@@ -272,7 +272,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "tuổi",
+            name: "tu7893i",
           },
           init: {
             type: "Identifier",
@@ -285,7 +285,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "tên",
+            name: "t234n",
           },
           init: {
             type: "StringLiteral",

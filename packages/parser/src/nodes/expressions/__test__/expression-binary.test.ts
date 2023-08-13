@@ -12,7 +12,7 @@ describe("expression-binary.test", () => {
       operator: "===",
       left: {
         type: "Identifier",
-        name: "xin chào",
+        name: "xin_ch224o",
       },
       right: {
         type: "Identifier",

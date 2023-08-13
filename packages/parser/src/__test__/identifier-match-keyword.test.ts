@@ -17,7 +17,7 @@ describe("identifier-match-keyword.test", () => {
               type: "VariableDeclarator",
               id: {
                 type: "Identifier",
-                name: "một lớp gì đó",
+                name: "m7897t_l7899p_g236_273243",
               },
               init: {
                 type: "NumericLiteral",

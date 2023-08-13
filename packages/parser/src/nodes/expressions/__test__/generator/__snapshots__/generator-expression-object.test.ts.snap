@@ -2,9 +2,9 @@
 
 exports[`generator-expression-object.test > should parse the syntax normally 1`] = `
 "{
-  tiếng kêu: \\"Meo meo\\",
-  số chân: 4,
-  async kêu(số lần, hmm) {
+  ti7871ng_k234u: \\"Meo meo\\",
+  s7889_ch226n: 4,
+  async k234u(s7889_l7847n, hmm) {
     return \\"Meo meo\\";
   }
 }"

@@ -21,7 +21,7 @@ describe("statement-breakable-switch.test", () => {
       type: "SwitchStatement",
       discriminant: {
         type: "Identifier",
-        name: "tuổi tác",
+        name: "tu7893i_t225c",
       },
       cases: [
         {

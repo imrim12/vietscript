@@ -15,11 +15,11 @@ describe("expression-call.test", () => {
         type: "MemberExpression",
         object: {
           type: "Identifier",
-          name: "con chó",
+          name: "con_ch243",
         },
         property: {
           type: "Identifier",
-          name: "kêu",
+          name: "k234u",
         },
         computed: false,
         optional: false,
@@ -40,18 +40,18 @@ describe("expression-call.test", () => {
           type: "MemberExpression",
           object: {
             type: "Identifier",
-            name: "con chó",
+            name: "con_ch243",
           },
           property: {
             type: "Identifier",
-            name: "chân phải",
+            name: "ch226n_ph7843i",
           },
           computed: false,
           optional: false,
         },
         property: {
           type: "Identifier",
-          name: "đá",
+          name: "273225",
         },
         computed: false,
         optional: false,
@@ -72,18 +72,18 @@ describe("expression-call.test", () => {
           type: "MemberExpression",
           object: {
             type: "Identifier",
-            name: "con chó",
+            name: "con_ch243",
           },
           property: {
             type: "Identifier",
-            name: "chân",
+            name: "ch226n",
           },
           computed: true,
           optional: false,
         },
         property: {
           type: "Identifier",
-          name: "đá",
+          name: "273225",
         },
         computed: false,
         optional: false,

@@ -57,7 +57,7 @@ describe("program.test", () => {
               type: "VariableDeclarator",
               id: {
                 type: "Identifier",
-                name: "tuổi",
+                name: "tu7893i",
               },
               init: {
                 type: "NumericLiteral",
@@ -86,7 +86,7 @@ describe("program.test", () => {
               type: "VariableDeclarator",
               id: {
                 type: "Identifier",
-                name: "tên",
+                name: "t234n",
               },
               init: {
                 type: "StringLiteral",
@@ -109,11 +109,11 @@ describe("program.test", () => {
           type: "ClassDeclaration",
           id: {
             type: "Identifier",
-            name: "Con Mèo",
+            name: "Con_M232o",
           },
           superClass: {
             type: "Identifier",
-            name: "Động Vật",
+            name: "2727897ng_V7853t",
           },
           body: {
             type: "ClassBody",
@@ -124,7 +124,7 @@ describe("program.test", () => {
                 computed: false,
                 key: {
                   type: "Identifier",
-                  name: "số chân",
+                  name: "s7889_ch226n",
                 },
                 value: null,
               },
@@ -134,7 +134,7 @@ describe("program.test", () => {
                 computed: false,
                 key: {
                   type: "Identifier",
-                  name: "kêu",
+                  name: "k234u",
                 },
                 value: {
                   type: "FunctionExpression",
@@ -145,7 +145,7 @@ describe("program.test", () => {
                   params: [
                     {
                       type: "Identifier",
-                      name: "số lần",
+                      name: "s7889_l7847n",
                     },
                     {
                       type: "Identifier",
@@ -181,7 +181,7 @@ describe("program.test", () => {
           type: "SwitchStatement",
           discriminant: {
             type: "Identifier",
-            name: "tuổi tác",
+            name: "tu7893i_t225c",
           },
           cases: [
             {
@@ -256,7 +256,7 @@ describe("program.test", () => {
           type: "IfStatement",
           test: {
             type: "Identifier",
-            name: "điều kiện một",
+            name: "273i7873u_ki7879n_m7897t",
           },
           consequent: {
             type: "BlockStatement",
@@ -268,7 +268,7 @@ describe("program.test", () => {
                     type: "VariableDeclarator",
                     id: {
                       type: "Identifier",
-                      name: "gì đó",
+                      name: "g236_273243",
                     },
                     init: {
                       type: "Identifier",
@@ -284,7 +284,7 @@ describe("program.test", () => {
             type: "IfStatement",
             test: {
               type: "Identifier",
-              name: "điều kiện hai",
+              name: "273i7873u_ki7879n_hai",
             },
             consequent: {
               type: "BlockStatement",
@@ -296,7 +296,7 @@ describe("program.test", () => {
                       type: "VariableDeclarator",
                       id: {
                         type: "Identifier",
-                        name: "gì đó khác",
+                        name: "g236_273243_kh225c",
                       },
                       init: {
                         type: "Identifier",
@@ -318,7 +318,7 @@ describe("program.test", () => {
                       type: "VariableDeclarator",
                       id: {
                         type: "Identifier",
-                        name: "gì đó khác nữa",
+                        name: "g236_273243_kh225c_n7919a",
                       },
                       init: {
                         type: "Identifier",
@@ -344,7 +344,7 @@ describe("program.test", () => {
                     type: "VariableDeclarator",
                     id: {
                       type: "Identifier",
-                      name: "gì đó",
+                      name: "g236_273243",
                     },
                     init: {
                       type: "Identifier",
@@ -368,7 +368,7 @@ describe("program.test", () => {
                       type: "VariableDeclarator",
                       id: {
                         type: "Identifier",
-                        name: "gì đó khác",
+                        name: "g236_273243_kh225c",
                       },
                       init: {
                         type: "Identifier",
@@ -382,7 +382,7 @@ describe("program.test", () => {
             },
             param: {
               type: "Identifier",
-              name: "lỗi",
+              name: "l7895i",
             },
           },
           finalizer: {
@@ -395,7 +395,7 @@ describe("program.test", () => {
                     type: "VariableDeclarator",
                     id: {
                       type: "Identifier",
-                      name: "gì đó khác nữa",
+                      name: "g236_273243_kh225c_n7919a",
                     },
                     init: {
                       type: "Identifier",
@@ -412,7 +412,7 @@ describe("program.test", () => {
           type: "FunctionDeclaration",
           id: {
             type: "Identifier",
-            name: "ngẫu nhiên",
+            name: "ng7851u_nhi234n",
           },
           expression: false,
           generator: false,
@@ -428,7 +428,7 @@ describe("program.test", () => {
                     type: "VariableDeclarator",
                     id: {
                       type: "Identifier",
-                      name: "hành động",
+                      name: "h224nh_2737897ng",
                     },
                     init: {
                       type: "StringLiteral",
@@ -454,18 +454,18 @@ describe("program.test", () => {
                       type: "MemberExpression",
                       object: {
                         type: "Identifier",
-                        name: "con chó",
+                        name: "con_ch243",
                       },
                       property: {
                         type: "Identifier",
-                        name: "mồm",
+                        name: "m7891m",
                       },
                       computed: false,
                       optional: false,
                     },
                     property: {
                       type: "Identifier",
-                      name: "sủa",
+                      name: "s7911a",
                     },
                     computed: false,
                     optional: false,
@@ -484,18 +484,18 @@ describe("program.test", () => {
                       type: "MemberExpression",
                       object: {
                         type: "Identifier",
-                        name: "con chó",
+                        name: "con_ch243",
                       },
                       property: {
                         type: "Identifier",
-                        name: "mồm",
+                        name: "m7891m",
                       },
                       computed: false,
                       optional: false,
                     },
                     property: {
                       type: "Identifier",
-                      name: "hành động",
+                      name: "h224nh_2737897ng",
                     },
                     computed: true,
                     optional: false,

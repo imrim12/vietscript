@@ -22,7 +22,7 @@ describe("statement-if.test", () => {
       type: "IfStatement",
       test: {
         type: "Identifier",
-        name: "điều kiện một",
+        name: "273i7873u_ki7879n_m7897t",
       },
       consequent: {
         type: "BlockStatement",
@@ -34,7 +34,7 @@ describe("statement-if.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "gì đó",
+                  name: "g236_273243",
                 },
                 init: {
                   type: "Identifier",
@@ -50,7 +50,7 @@ describe("statement-if.test", () => {
         type: "IfStatement",
         test: {
           type: "Identifier",
-          name: "điều kiện hai",
+          name: "273i7873u_ki7879n_hai",
         },
         consequent: {
           type: "BlockStatement",
@@ -62,7 +62,7 @@ describe("statement-if.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "gì đó khác",
+                    name: "g236_273243_kh225c",
                   },
                   init: {
                     type: "Identifier",
@@ -84,7 +84,7 @@ describe("statement-if.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "gì đó khác nữa",
+                    name: "g236_273243_kh225c_n7919a",
                   },
                   init: {
                     type: "Identifier",

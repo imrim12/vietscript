@@ -30,7 +30,7 @@ describe("statement-try.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "gì đó",
+                  name: "g236_273243",
                 },
                 init: {
                   type: "Identifier",
@@ -54,7 +54,7 @@ describe("statement-try.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "gì đó khác",
+                    name: "g236_273243_kh225c",
                   },
                   init: {
                     type: "Identifier",
@@ -68,7 +68,7 @@ describe("statement-try.test", () => {
         },
         param: {
           type: "Identifier",
-          name: "lỗi",
+          name: "l7895i",
         },
       },
       finalizer: {
@@ -81,7 +81,7 @@ describe("statement-try.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "gì đó khác nữa",
+                  name: "g236_273243_kh225c_n7919a",
                 },
                 init: {
                   type: "Identifier",

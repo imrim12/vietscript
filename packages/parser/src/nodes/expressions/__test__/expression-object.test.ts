@@ -26,7 +26,7 @@ describe("expression-object.test", () => {
           computed: false,
           key: {
             type: "Identifier",
-            name: "tiếng kêu",
+            name: "ti7871ng_k234u",
           },
           value: {
             type: "StringLiteral",
@@ -45,7 +45,7 @@ describe("expression-object.test", () => {
           computed: false,
           key: {
             type: "Identifier",
-            name: "số chân",
+            name: "s7889_ch226n",
           },
           value: {
             type: "NumericLiteral",
@@ -63,7 +63,7 @@ describe("expression-object.test", () => {
           method: true,
           key: {
             type: "Identifier",
-            name: "kêu",
+            name: "k234u",
           },
           computed: false,
           kind: "method",
@@ -72,7 +72,7 @@ describe("expression-object.test", () => {
           params: [
             {
               type: "Identifier",
-              name: "số lần",
+              name: "s7889_l7847n",
             },
             {
               type: "Identifier",
