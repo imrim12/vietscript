@@ -1,8 +1,8 @@
-import { ObjectLiteral } from "../ObjectLiteral";
 import parser from "../../../setup-test";
 import toPlainObject from "../../../toPlainObject";
+import { ObjectExpression } from "../ObjectExpression";
 
-describe("literal-object.test", () => {
+describe("expression-object.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(
       `
@@ -14,11 +14,11 @@ describe("literal-object.test", () => {
 			}
 		}
 		`,
-      ObjectLiteral,
+      ObjectExpression,
     );
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ObjectLiteral",
+      type: "ObjectExpression",
       properties: [
         {
           type: "ObjectProperty",
@@ -99,15 +99,15 @@ describe("literal-object.test", () => {
           },
         },
       ],
-    } as ObjectLiteral);
+    } as ObjectExpression);
   });
 
   it("should parse the syntax normally", () => {
-    const result = parser.parse(`{}`, ObjectLiteral);
+    const result = parser.parse(`{}`, ObjectExpression);
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ObjectLiteral",
+      type: "ObjectExpression",
       properties: [],
-    } as ObjectLiteral);
+    } as ObjectExpression);
   });
 });

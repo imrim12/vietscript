@@ -1,0 +1,11 @@
+// Vitest Snapshot v1
+
+exports[`generator-expression-object.test > should parse the syntax normally 1`] = `
+"{
+  tiếng kêu: \\"Meo meo\\",
+  số chân: 4,
+  async kêu(số lần, hmm) {
+    return \\"Meo meo\\";
+  }
+}"
+`;

@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`generator-literal-numeric.test > should parse the syntax normally 1`] = `"0"`;
+
+exports[`generator-literal-numeric.test > should parse the syntax normally 2`] = `"0.001123"`;
+
+exports[`generator-literal-numeric.test > should parse the syntax normally 3`] = `"70E-3"`;

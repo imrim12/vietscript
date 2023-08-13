@@ -1,5 +1,4 @@
-// Trăm năm trong cõi người ta, chữ tài chữ mệnh khéo là ghét nhau. Trải qua một cuộc bể dâu, những điều trông thấy mà đau đớn lòng. Lạ gì bỉ sắc tư phong, trời xanh quen với má hồng đánh ghen.
-import { ObjectLiteral } from "@parser/nodes/literals/ObjectLiteral";
+import { ObjectExpression } from "@parser/nodes/expressions/ObjectExpression";
 
 import parser from "../../../setup-test";
 import toPlainObject from "../../../toPlainObject";
@@ -13,11 +12,11 @@ describe("identifier.test", () => {
       Trăm năm trong cõi người ta chữ tài chữ mệnh khéo là ghét nhau Trải qua một cuộc bể dâu những điều trông thấy mà đau đớn lòng Lạ gì bỉ sắc tư phong trời xanh quen với má hồng đánh ghen: "Giá trị pha ke"
     }
     `,
-      ObjectLiteral,
+      ObjectExpression,
     );
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ObjectLiteral",
+      type: "ObjectExpression",
       properties: [
         {
           type: "ObjectProperty",
@@ -34,11 +33,11 @@ describe("identifier.test", () => {
               rawValue: "Giá trị pha ke",
               raw: '"Giá trị pha ke"',
             },
-            start: 265,
-            end: 281,
+            start: 305,
+            end: 321,
           },
         },
       ],
-    } as ObjectLiteral);
+    } as ObjectExpression);
   });
 });

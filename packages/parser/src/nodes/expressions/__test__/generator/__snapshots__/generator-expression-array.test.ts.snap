@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`generator-expression-array.test > should parse the syntax normally 1`] = `"[1, \\"a\\", true, false, \\"đúng\\", \\"true\\", NaN]"`;

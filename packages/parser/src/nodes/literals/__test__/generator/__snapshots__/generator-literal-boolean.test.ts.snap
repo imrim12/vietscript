@@ -1,0 +1,5 @@
+// Vitest Snapshot v1
+
+exports[`generator-literal-boolean.test > should parse the syntax normally 1`] = `"true"`;
+
+exports[`generator-literal-boolean.test > should parse the syntax normally 2`] = `"false"`;

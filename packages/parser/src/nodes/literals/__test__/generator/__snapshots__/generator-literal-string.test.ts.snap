@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`generator-literal-string.test > should generate the javascript from the syntax normally 1`] = `"\\"Chào thế giới!\\""`;

@@ -1,13 +1,13 @@
 import parser from "../../../setup-test";
 import toPlainObject from "../../../toPlainObject";
-import { ArrayLiteral } from "../ArrayLiteral";
+import { ArrayExpression } from "../ArrayExpression";
 
-describe("literal-array.test", () => {
+describe("expression-array.test", () => {
   it("should parse the syntax normally", () => {
-    const result = parser.parse(`[1, "a", đúng, sai, "đúng", "true", NaN]`, ArrayLiteral);
+    const result = parser.parse(`[1, "a", đúng, sai, "đúng", "true", NaN]`, ArrayExpression);
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ArrayLiteral",
+      type: "ArrayExpression",
       elements: [
         {
           type: "NumericLiteral",
@@ -68,15 +68,15 @@ describe("literal-array.test", () => {
           end: 39,
         },
       ],
-    } as ArrayLiteral);
+    } as ArrayExpression);
   });
 
   it("should parse the syntax normally", () => {
-    const result = parser.parse(`[]`, ArrayLiteral);
+    const result = parser.parse(`[]`, ArrayExpression);
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ArrayLiteral",
+      type: "ArrayExpression",
       elements: [],
-    } as ArrayLiteral);
+    } as ArrayExpression);
   });
 });
