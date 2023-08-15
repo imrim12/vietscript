@@ -59,7 +59,7 @@ export class Parser {
       }
     }
 
-    this.lookahead = this.tokenizer.getNextToken(tokenType === Keyword.IDENTIFIER);
+    this.lookahead = this.tokenizer.getNextToken();
 
     return token;
   }
