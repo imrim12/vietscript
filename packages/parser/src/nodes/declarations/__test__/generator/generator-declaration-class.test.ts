@@ -1,26 +1,25 @@
 import generate from "@babel/generator";
 
 import parser from "../../../../setup-test";
-import { Expression } from "../../Expression";
+import { Declaration } from "../../Declaration";
 
-describe("generator-expression-object.test", () => {
+describe("generator-declaration-class.test", () => {
   it("should parse the syntax normally", () => {
     const code = `
-		{
-      tiếng kêu: "Meo meo",
-			số chân: 4,
+		lớp Con Mèo (Động Vật) {
+			số chân = 4
 			bất đồng bộ kêu(số lần, hmm) {
 				trả về "Meo meo"
 			}
 		}
 		`;
-    const ast = parser.parse(code, Expression);
+
+    const ast = parser.parse(code, Declaration);
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`{
-  ti7871ng_k234u: "Meo meo",
-  s7889_ch226n: 4,
+    expect(result.code).toBe(`class Con_M232o extends 2727897ng_V7853t {
+  s7889_ch226n = 4;
   async k234u(s7889_l7847n, hmm) {
     return "Meo meo";
   }

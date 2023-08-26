@@ -14,7 +14,7 @@ export class FunctionExpression {
 
   async = false;
 
-  params: Array<Identifier>;
+  params: Array<Identifier> = [];
 
   body: BlockStatement;
 

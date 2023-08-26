@@ -58,43 +58,39 @@ describe("declaration-class.test", () => {
               type: "Identifier",
               name: "k234u",
             },
-            value: {
-              type: "FunctionExpression",
-              id: null,
-              expression: false,
-              generator: false,
-              async: false,
-              params: [
+            kind: "method",
+            id: null,
+            generator: false,
+            async: true,
+            params: [
+              {
+                type: "Identifier",
+                name: "s7889_l7847n",
+              },
+              {
+                type: "Identifier",
+                name: "hmm",
+              },
+            ],
+            body: {
+              type: "BlockStatement",
+              body: [
                 {
-                  type: "Identifier",
-                  name: "s7889_l7847n",
-                },
-                {
-                  type: "Identifier",
-                  name: "hmm",
+                  type: "ReturnStatement",
+                  argument: {
+                    type: "StringLiteral",
+                    value: "Meo meo",
+                    extra: {
+                      rawValue: "Meo meo",
+                      raw: '"Meo meo"',
+                    },
+                    start: 88,
+                    end: 97,
+                  },
                 },
               ],
-              body: {
-                type: "BlockStatement",
-                body: [
-                  {
-                    type: "ReturnStatement",
-                    argument: {
-                      type: "StringLiteral",
-                      value: "Meo meo",
-                      extra: {
-                        rawValue: "Meo meo",
-                        raw: '"Meo meo"',
-                      },
-                      start: 88,
-                      end: 97,
-                    },
-                  },
-                ],
-              },
+              directives: [],
             },
-            async: true,
-            kind: "method",
           },
         ],
       },

@@ -22,6 +22,7 @@ describe("statement-try.test", () => {
       type: "TryStatement",
       block: {
         type: "BlockStatement",
+        directives: [],
         body: [
           {
             type: "VariableDeclaration",
@@ -46,6 +47,7 @@ describe("statement-try.test", () => {
         type: "CatchClause",
         body: {
           type: "BlockStatement",
+          directives: [],
           body: [
             {
               type: "VariableDeclaration",
@@ -73,6 +75,7 @@ describe("statement-try.test", () => {
       },
       finalizer: {
         type: "BlockStatement",
+        directives: [],
         body: [
           {
             type: "VariableDeclaration",

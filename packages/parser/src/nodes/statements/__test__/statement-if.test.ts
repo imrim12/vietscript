@@ -26,6 +26,7 @@ describe("statement-if.test", () => {
       },
       consequent: {
         type: "BlockStatement",
+        directives: [],
         body: [
           {
             type: "VariableDeclaration",
@@ -54,6 +55,7 @@ describe("statement-if.test", () => {
         },
         consequent: {
           type: "BlockStatement",
+          directives: [],
           body: [
             {
               type: "VariableDeclaration",
@@ -76,6 +78,7 @@ describe("statement-if.test", () => {
         },
         alternate: {
           type: "BlockStatement",
+          directives: [],
           body: [
             {
               type: "VariableDeclaration",

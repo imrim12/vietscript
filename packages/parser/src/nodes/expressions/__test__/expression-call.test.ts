@@ -2,6 +2,7 @@ import { Expression } from "@parser/nodes/expressions/Expression";
 
 import parser from "../../../setup-test";
 import toPlainObject from "../../../toPlainObject";
+import { CallExpression } from "../CallExpression";
 
 describe("expression-call.test", () => {
   it("should parse the syntax normally", () => {
@@ -24,7 +25,7 @@ describe("expression-call.test", () => {
         computed: false,
         optional: false,
       },
-    });
+    } as CallExpression);
   });
 
   it("should parse the syntax normally", () => {
@@ -56,7 +57,7 @@ describe("expression-call.test", () => {
         computed: false,
         optional: false,
       },
-    });
+    } as CallExpression);
   });
 
   it("should parse the syntax normally", () => {
@@ -88,6 +89,6 @@ describe("expression-call.test", () => {
         computed: false,
         optional: false,
       },
-    });
+    } as CallExpression);
   });
 });

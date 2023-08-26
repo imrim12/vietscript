@@ -8,6 +8,8 @@ export class BlockStatement {
 
   body: Array<StatementListItem>;
 
+  directives: Array<any> = [];
+
   constructor(parser: Parser) {
     const statements: Array<StatementListItem> = [];
 

@@ -1,5 +1,6 @@
 import parser from "../../../setup-test";
 import toPlainObject from "../../../toPlainObject";
+import { Expression } from "../Expression";
 import { ObjectExpression } from "../ObjectExpression";
 
 describe("expression-object.test", () => {
@@ -14,7 +15,7 @@ describe("expression-object.test", () => {
 			}
 		}
 		`,
-      ObjectExpression,
+      Expression,
     );
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -81,6 +82,7 @@ describe("expression-object.test", () => {
           ],
           body: {
             type: "BlockStatement",
+            directives: [],
             body: [
               {
                 type: "ReturnStatement",
@@ -103,7 +105,7 @@ describe("expression-object.test", () => {
   });
 
   it("should parse the syntax normally", () => {
-    const result = parser.parse(`{}`, ObjectExpression);
+    const result = parser.parse(`{}`, Expression);
 
     expect(toPlainObject(result)).toStrictEqual({
       type: "ObjectExpression",

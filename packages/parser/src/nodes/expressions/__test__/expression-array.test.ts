@@ -1,10 +1,11 @@
 import parser from "../../../setup-test";
 import toPlainObject from "../../../toPlainObject";
 import { ArrayExpression } from "../ArrayExpression";
+import { Expression } from "../Expression";
 
 describe("expression-array.test", () => {
   it("should parse the syntax normally", () => {
-    const result = parser.parse(`[1, "a", đúng, sai, "đúng", "true", NaN]`, ArrayExpression);
+    const result = parser.parse(`[1, "a", đúng, sai, "đúng", "true", NaN]`, Expression);
 
     expect(toPlainObject(result)).toStrictEqual({
       type: "ArrayExpression",
@@ -72,7 +73,7 @@ describe("expression-array.test", () => {
   });
 
   it("should parse the syntax normally", () => {
-    const result = parser.parse(`[]`, ArrayExpression);
+    const result = parser.parse(`[]`, Expression);
 
     expect(toPlainObject(result)).toStrictEqual({
       type: "ArrayExpression",

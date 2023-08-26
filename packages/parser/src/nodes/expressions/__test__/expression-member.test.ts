@@ -2,6 +2,8 @@ import { Expression } from "@parser/nodes/expressions/Expression";
 
 import parser from "../../../setup-test";
 import toPlainObject from "../../../toPlainObject";
+import { MemberExpression } from "../MemberExpression";
+import { AssignmentExpression } from "../AssignmentExpression";
 
 describe("expression-member.test", () => {
   it("should parse the syntax normally", () => {
@@ -37,7 +39,7 @@ describe("expression-member.test", () => {
       },
       computed: false,
       optional: false,
-    });
+    } as MemberExpression);
   });
 
   it("should parse the syntax normally", () => {
@@ -73,7 +75,7 @@ describe("expression-member.test", () => {
       },
       computed: false,
       optional: false,
-    });
+    } as MemberExpression);
   });
 
   it("should parse the syntax normally", () => {
@@ -123,6 +125,6 @@ describe("expression-member.test", () => {
         start: 37,
         end: 40,
       },
-    });
+    } as AssignmentExpression);
   });
 });

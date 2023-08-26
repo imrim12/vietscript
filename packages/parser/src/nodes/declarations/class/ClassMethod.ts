@@ -1,23 +1,30 @@
 import { Expression } from "@parser/nodes/expressions/Expression";
 import { FunctionExpression } from "@parser/nodes/expressions/FunctionExpression";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
 import { Parser } from "@parser/parser";
 import { Keyword } from "@vietscript/shared";
 
 export class ClassMethod {
   type = "ClassMethod";
 
-  async = false;
-
   static = false;
-
-  computed = false;
 
   key: Identifier | Expression;
 
+  computed = false;
+
   kind: "method" | "get" | "set" = "method";
 
-  value: FunctionExpression;
+  id = null;
+
+  generator = false;
+
+  async = false;
+
+  params: Identifier[] = [];
+
+  body: BlockStatement;
 
   constructor(parser: Parser, isStatic = false) {
     this.static = isStatic;
@@ -48,6 +55,11 @@ export class ClassMethod {
       this.key = new Identifier(parser);
     }
 
-    this.value = new FunctionExpression(parser, true);
+    const _method = new FunctionExpression(parser, true);
+
+    this.id = _method.id;
+    this.generator = _method.generator;
+    this.params = _method.params;
+    this.body = _method.body;
   }
 }
