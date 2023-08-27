@@ -1,8 +1,9 @@
 import { Keyword } from "@vietscript/shared";
 import { Parser } from "@parser/parser";
+import { StringLiteral } from "@parser/nodes/literals/StringLiteral";
 
 import { ExportSpecifier } from "./ExportSpecifier";
-import { StringLiteral } from "@parser/nodes/literals/StringLiteral";
+import { ExportsList } from "./ExportsList";
 
 export class ExportNamedDeclaration {
   type = "ExportNamedDeclaration";
@@ -16,13 +17,7 @@ export class ExportNamedDeclaration {
 
     parser.eat("{");
 
-    while (parser.lookahead?.type !== "}") {
-      this.specifiers.push(new ExportSpecifier(parser));
-
-      if (parser.lookahead?.type === ",") {
-        parser.eat(",");
-      }
-    }
+    this.specifiers.push(...new ExportsList(parser).specifiers);
 
     parser.eat("}");
 
