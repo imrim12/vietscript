@@ -100,8 +100,8 @@ export const Specs: Array<Spec> = [
   [/^\b(delete|xo\u00E1)\b/, Keyword.DELETE], // xoá
   [/^\b(in|trong)\b/, Keyword.IN], // trong
   [/^\b(try|th\u1EED)/, Keyword.TRY], // thử
-  [/^\bas\b/, Keyword.AS],
-  [/^\b(from|t\u1EEB)\b/, Keyword.FROM], // từ
+  [/^\bas\b/, Keyword.AS], // như là
+  [new RegExp("^\\b(from|từ)"), Keyword.FROM], // từ
 
   // --------------------------------------
   // Future Reserved Words
@@ -109,18 +109,15 @@ export const Specs: Array<Spec> = [
   [/^\b(class|l\u1EDBp)\b/, Keyword.CLASS], // lớp
   [/^\b(super|kh\u1EDFi t\u1EA1o cha)\b/, Keyword.SUPER], // khởi tạo cha
   [/^\b(constructor|kh\u1EDFi t\u1EA1o)\b/, Keyword.CONSTRUCTOR], // khởi tạo
-  [/^\benum\b/, Keyword.ENUM],
   [/^\b(extends|k\u1EBF th\u1EEBa)\b/, Keyword.EXTENDS], // kế thừa
-  [/^\b(export|xu\u1EA5t)\b/, Keyword.EXPORT], // xuất
-  [/^\b(import|nh\u1EADp)\b/, Keyword.IMPORT], // nhập
+  [/^\b(export|cho ph\u00E9p)\b/, Keyword.EXPORT], // xuất, cho phép
+  [/^\b(import|s\u1EED d\u1EE5ng)\b/, Keyword.IMPORT], // nhập, sử dụng
   [/^\b(async|b\u1EA5t \u0111\u1ED3ng b\u1ED9)/, Keyword.ASYNC], // bất đồng bộ
   [/^\b(await|ch\u1EDD)\b/, Keyword.AWAIT], // chờ
   [/^\byield\b/, Keyword.YIELD],
-  [/^\bimplements\b/, Keyword.IMPLEMENTS], // áp dụng
   [/^\blet\b/, Keyword.LET],
   [/^\bprivate\b/, Keyword.PRIVATE],
   [/^\bpublic\b/, Keyword.PUBLIC],
-  [/^\binterface\b/, Keyword.INTERFACE],
   [/^\bprotected\b/, Keyword.PROTECTED],
   [/^\bstatic\b/, Keyword.STATIC],
 

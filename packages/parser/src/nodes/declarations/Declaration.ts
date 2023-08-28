@@ -4,6 +4,7 @@ import { Keyword } from "@vietscript/shared";
 import { ClassDeclaration } from "./ClassDeclaration";
 import { FunctionDeclaration } from "./FunctionDeclaration";
 import { VariableDeclaration } from "./VariableDeclaration";
+import { ExportDeclaration } from "./export/ExportDeclaration";
 
 export class Declaration {
   [key: string]: any;
@@ -23,6 +24,10 @@ export class Declaration {
       }
       case Keyword.CLASS: {
         Object.assign(this, new ClassDeclaration(parser));
+        break;
+      }
+      case Keyword.EXPORT: {
+        Object.assign(this, new ExportDeclaration(parser));
         break;
       }
     }
