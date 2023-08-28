@@ -13,8 +13,6 @@ export class ExportNamedDeclaration {
   source: StringLiteral;
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.EXPORT);
-
     parser.eat("{");
 
     this.specifiers.push(...new ExportsList(parser).specifiers);
