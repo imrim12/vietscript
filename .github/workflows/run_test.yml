@@ -2,29 +2,30 @@
 name: Run Test
 on:
   push:
+    branches: ["main"]
   pull_request:
+    branches: ["main"]
 
 jobs:
   unit-test:
     strategy:
       matrix:
-        version: [16, 18, 20]
+        node-version: [16.x, 18.x, 20.x]
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
-    defaults:
-      run:
-        working-directory: ./
     steps:
-      - name: Setup Node.js with ${{ matrix.version }}
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js with ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.version }}
+          node-version: ${{ matrix.node-version }}
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
           version: 8
-          run_install: false
+          run_install: true
 
       - name: Get pnpm store directory
         shell: bash
@@ -38,9 +39,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
 
       - name: Run unit tests
         run: pnpm test
