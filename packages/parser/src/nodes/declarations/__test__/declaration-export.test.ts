@@ -3,7 +3,7 @@ import toPlainObject from "../../../toPlainObject";
 import { Declaration } from "../Declaration";
 import { ExportDeclaration } from "../export/ExportDeclaration";
 
-describe("declaration-class.test", () => {
+describe("declaration-export.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(`cho phép * từ "./test-path"`, Declaration);
 

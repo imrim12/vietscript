@@ -5,6 +5,7 @@ import { ClassDeclaration } from "./ClassDeclaration";
 import { FunctionDeclaration } from "./FunctionDeclaration";
 import { VariableDeclaration } from "./VariableDeclaration";
 import { ExportDeclaration } from "./export/ExportDeclaration";
+import { ImportDeclaration } from "./import/ImportDeclaration";
 
 export class Declaration {
   [key: string]: any;
@@ -28,6 +29,10 @@ export class Declaration {
       }
       case Keyword.EXPORT: {
         Object.assign(this, new ExportDeclaration(parser));
+        break;
+      }
+      case Keyword.IMPORT: {
+        Object.assign(this, new ImportDeclaration(parser));
         break;
       }
     }

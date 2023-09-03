@@ -100,7 +100,7 @@ export const Specs: Array<Spec> = [
   [/^\b(delete|xo\u00E1)\b/, Keyword.DELETE], // xoá
   [/^\b(in|trong)\b/, Keyword.IN], // trong
   [/^\b(try|th\u1EED)/, Keyword.TRY], // thử
-  [/^\bas\b/, Keyword.AS], // như là
+  [new RegExp("^\\b(as|như là)"), Keyword.AS], // như là
   [new RegExp("^\\b(from|từ)"), Keyword.FROM], // từ
 
   // --------------------------------------
