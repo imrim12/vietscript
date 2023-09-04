@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "types": [
+      "node",
+      "vite/client",
+      "vitest/globals"
+    ],
+    "paths": {
+      "@parser": [
+        "./src/index.ts"
+      ],
+      "@parser/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./dist"
+  ]
+}

@@ -1,0 +1,4 @@
+[submodule "docs/specs"]
+	path = docs/specs
+	url = git@github.com:estree/estree.git
+  branch = master

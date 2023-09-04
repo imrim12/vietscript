@@ -1,0 +1,53 @@
+{
+  "name": "@vietscript/parser-next",
+  "version": "0.0.1",
+  "description": "Vietnamese programming language - Ngôn ngữ lập trình tiếng Việt.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "rimraf ./dist && vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imrim12/vietscript.git",
+    "directory": "packages/parser-next"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "language",
+    "vietscript",
+    "vietnamese",
+    "programming language"
+  ],
+  "author": "imrim12",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imrim12/vietscript/issues"
+  },
+  "homepage": "https://github.com/imrim12/vietscript#readme",
+  "devDependencies": {
+    "@types/node": "^18.14.1",
+    "@vitest/ui": "^0.24.5",
+    "astring": "^1.8.6",
+    "lodash": "^4.17.21",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vite-plugin-dts": "^1.6.6",
+    "vitest": "^0.28.3"
+  }
+}

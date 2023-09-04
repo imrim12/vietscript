@@ -3,16 +3,16 @@
 layout: home
 
 hero:
-  name: "Vietscript - Ngôn ngữ lập trình tiếng Việt"
-  text: "Một ngôn ngữ lập trình mã nguồn mở được viết hoàn toàn bằng TypeScript và hỗ trợ cú pháp tiếng Việt với dấu cách."
-  tagline: My great project tagline
+  name: "Vietscript"
+  text: "Lập trình bằng tiếng Việt"
+  tagline: Giúp người Việt làm quen dễ dàng hơn với lập trình với trình bày giống như toán cấp 3
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Bắt đầu sử dụng
+      link: /getting-started/
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Tham khảo tại Github
+      link: https://github.com/imrim12/vietscript
 
 features:
   - title: Feature A

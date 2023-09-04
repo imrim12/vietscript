@@ -11,6 +11,9 @@ export default defineConfig({
       "@parser": path.resolve("./packages/parser/src"),
     },
   },
+  build: {
+    sourcemap: true,
+  },
   test: {
     globals: true,
     environment: "jsdom",

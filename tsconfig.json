@@ -15,10 +15,23 @@
     "skipLibCheck": true,
     "strictNullChecks": true,
     "useDefineForClassFields": true,
-    "lib": ["ESNext", "DOM"],
-    "types": ["node", "vitest/globals"],
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "types": [
+      "node",
+      "vitest/globals"
+    ],
     "outDir": "./dist"
   },
-  "include": ["./**/*.ts", "./**/*.d.ts", "./**/*.test.ts"],
-  "exclude": ["./node_modules", "./dist"]
+  "include": [
+    "./**/*.ts",
+    "./**/*.d.ts",
+    "./**/*.test.ts",
+  ],
+  "exclude": [
+    "./node_modules",
+    "./dist"
+  ]
 }
