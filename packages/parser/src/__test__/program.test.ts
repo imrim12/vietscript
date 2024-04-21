@@ -1,52 +1,49 @@
 import { Program } from "@parser/nodes/Program";
-
-import parser from "../setup-test";
 import toPlainObject from "../toPlainObject";
+import parser from "@parser";
 
 describe("program.test", () => {
   it("should parse the syntax normally", () => {
     const result = parser.parse(
       `khai báo tuổi = 25;;;
-		khai báo tên = "Tú Nguyễn";;
-		lớp Con Mèo (Động Vật) {
-			số chân
-			bất đồng bộ kêu(số lần, hmm) {
-				trả về "Meo meo"
-			}
-		}
-		
-		duyệt (tuổi tác) {
-			trường hợp 1:
-				var xyz = 1;
-			trường hợp 18:
-			trường hợp 60:
-		}
-		
-		nếu (điều kiện một) {
-			khai báo gì đó;
-		} không thì nếu (điều kiện hai) {
-			khai báo gì đó khác;
-		} không thì {
-			khai báo gì đó khác nữa; // =))
-		}
-		
-		thử {
-			khai báo gì đó;
-		} bắt lỗi (lỗi) {
-			khai báo gì đó khác;
-		} cuối cùng {
-			khai báo gì đó khác nữa;
-		};
-		
-    hàm ngẫu nhiên() {
-      khai báo hành động = "cắn";
-      con chó.mồm.sủa()
-      con chó.mồm[hành động]()
-    }
-`,
-      Program,
-    );
+  		khai báo tên = "Tú Nguyễn";;
+  		lớp Con Mèo (Động Vật) {
+  			số chân
+  			bất đồng bộ kêu(số lần, hmm) {
+  				trả về "Meo meo"
+  			}
+  		}
 
+  		duyệt (tuổi tác) {
+  			trường hợp 1:
+  				var xyz = 1;
+  			trường hợp 18:
+  			trường hợp 60:
+  		}
+
+  		nếu (điều kiện một) {
+  			khai báo gì đó;
+  		} không thì nếu (điều kiện hai) {
+  			khai báo gì đó khác;
+  		} không thì {
+  			khai báo gì đó khác nữa; // =))
+  		}
+
+  		thử {
+  			khai báo gì đó;
+  		} bắt lỗi (lỗi) {
+  			khai báo gì đó khác;
+  		} cuối cùng {
+  			khai báo gì đó khác nữa;
+  		};
+
+      hàm ngẫu nhiên() {
+        khai báo hành động = "cắn";
+        con chó.mồm.sủa()
+        con chó.mồm[hành động]()
+      }
+  `,
+    );
     expect(toPlainObject(result)).toStrictEqual({
       type: "Program",
       body: [
@@ -95,8 +92,8 @@ describe("program.test", () => {
                   rawValue: "Tú Nguyễn",
                   raw: '"Tú Nguyễn"',
                 },
-                start: 39,
-                end: 50,
+                start: 41,
+                end: 52,
               },
             },
           ],
@@ -162,8 +159,8 @@ describe("program.test", () => {
                           rawValue: "Meo meo",
                           raw: '"Meo meo"',
                         },
-                        start: 136,
-                        end: 145,
+                        start: 146,
+                        end: 155,
                       },
                     },
                   ],
@@ -189,8 +186,8 @@ describe("program.test", () => {
                   rawValue: 1,
                   raw: "1",
                 },
-                start: 193,
-                end: 194,
+                start: 209,
+                end: 210,
               },
               consequent: [
                 {
@@ -209,8 +206,8 @@ describe("program.test", () => {
                           rawValue: 1,
                           raw: "1",
                         },
-                        start: 210,
-                        end: 211,
+                        start: 228,
+                        end: 229,
                       },
                     },
                   ],
@@ -227,8 +224,8 @@ describe("program.test", () => {
                   rawValue: 18,
                   raw: "18",
                 },
-                start: 227,
-                end: 229,
+                start: 247,
+                end: 249,
               },
               consequent: [],
             },
@@ -241,8 +238,8 @@ describe("program.test", () => {
                   rawValue: 60,
                   raw: "60",
                 },
-                start: 245,
-                end: 247,
+                start: 267,
+                end: 269,
               },
               consequent: [],
             },
@@ -439,8 +436,8 @@ describe("program.test", () => {
                         rawValue: "cắn",
                         raw: '"cắn"',
                       },
-                      start: 590,
-                      end: 595,
+                      start: 640,
+                      end: 645,
                     },
                   },
                 ],
@@ -512,5 +509,87 @@ describe("program.test", () => {
         },
       ],
     } as Program);
+  });
+
+  it("should parse program with multiple const declarations correctly", () => {
+    const result = parser.parse(
+      `hằng số tuổi = 25;hằng số địa chỉ = "Đà Nẵng";
+      hằng số tên = "Tú Nguyễn";
+		}`,
+    );
+    expect(toPlainObject(result)).toStrictEqual({
+      type: "Program",
+      body: [
+        {
+          type: "VariableDeclaration",
+          declarations: [
+            {
+              type: "VariableDeclarator",
+              id: {
+                type: "Identifier",
+                name: "tu7893i",
+              },
+              init: {
+                type: "NumericLiteral",
+                value: 25,
+                extra: {
+                  rawValue: 25,
+                  raw: "25",
+                },
+                start: 15,
+                end: 17,
+              },
+            },
+          ],
+          kind: "const",
+        },
+        {
+          type: "VariableDeclaration",
+          declarations: [
+            {
+              type: "VariableDeclarator",
+              id: {
+                type: "Identifier",
+                name: "2737883a_ch7881",
+              },
+              init: {
+                type: "StringLiteral",
+                value: "Đà Nẵng",
+                extra: {
+                  rawValue: "Đà Nẵng",
+                  raw: '"Đà Nẵng"',
+                },
+                start: 36,
+                end: 45,
+              },
+            },
+          ],
+          kind: "const",
+        },
+        {
+          type: "VariableDeclaration",
+          declarations: [
+            {
+              type: "VariableDeclarator",
+              id: {
+                type: "Identifier",
+                name: "t234n",
+              },
+              init: {
+                type: "StringLiteral",
+                value: "Tú Nguyễn",
+                extra: {
+                  rawValue: "Tú Nguyễn",
+                  raw: '"Tú Nguyễn"',
+                },
+                start: 67,
+                end: 78,
+              },
+            },
+          ],
+          kind: "const",
+        },
+      ],
+    });
   });
 });
