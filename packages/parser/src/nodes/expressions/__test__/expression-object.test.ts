@@ -17,7 +17,6 @@ describe("expression-object.test", () => {
 		`,
       Expression,
     );
-
     expect(toPlainObject(result)).toStrictEqual({
       type: "ObjectExpression",
       properties: [
@@ -27,7 +26,7 @@ describe("expression-object.test", () => {
           computed: false,
           key: {
             type: "Identifier",
-            name: "ti7871ng_k234u",
+            name: "_ti7871ng_k234u",
           },
           value: {
             type: "StringLiteral",
@@ -46,7 +45,7 @@ describe("expression-object.test", () => {
           computed: false,
           key: {
             type: "Identifier",
-            name: "s7889_ch226n",
+            name: "_s7889_ch226n",
           },
           value: {
             type: "NumericLiteral",
@@ -64,7 +63,7 @@ describe("expression-object.test", () => {
           method: true,
           key: {
             type: "Identifier",
-            name: "k234u",
+            name: "_k234u",
           },
           computed: false,
           kind: "method",
@@ -73,16 +72,15 @@ describe("expression-object.test", () => {
           params: [
             {
               type: "Identifier",
-              name: "s7889_l7847n",
+              name: "_s7889_l7847n",
             },
             {
               type: "Identifier",
-              name: "hmm",
+              name: "_hmm",
             },
           ],
           body: {
             type: "BlockStatement",
-            directives: [],
             body: [
               {
                 type: "ReturnStatement",
@@ -98,6 +96,7 @@ describe("expression-object.test", () => {
                 },
               },
             ],
+            directives: [],
           },
         },
       ],

@@ -15,7 +15,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "a",
+            name: "_a",
           },
           init: {
             type: "NumericLiteral",
@@ -43,7 +43,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "a",
+            name: "_a",
           },
           init: {
             type: "NumericLiteral",
@@ -60,7 +60,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "b",
+            name: "_b",
           },
           init: {
             type: "Identifier",
@@ -82,7 +82,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "a",
+            name: "_a",
           },
           init: {
             type: "NumericLiteral",
@@ -110,7 +110,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "a",
+            name: "_a",
           },
           init: {
             type: "NumericLiteral",
@@ -127,7 +127,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "b",
+            name: "_b",
           },
           init: {
             type: "Identifier",
@@ -149,7 +149,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "a",
+            name: "_a",
           },
           init: {
             type: "NumericLiteral",
@@ -177,7 +177,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "s7889_m7897t",
+            name: "_s7889_m7897t",
           },
           init: {
             type: "NumericLiteral",
@@ -205,7 +205,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "a",
+            name: "_a",
           },
           init: {
             type: "NumericLiteral",
@@ -222,7 +222,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "b",
+            name: "_b",
           },
           init: {
             type: "Identifier",
@@ -244,7 +244,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "h7885_v224_t234n",
+            name: "_h7885_v224_t234n",
           },
           init: {
             type: "StringLiteral",
@@ -272,7 +272,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "tu7893i",
+            name: "_tu7893i",
           },
           init: {
             type: "Identifier",
@@ -285,7 +285,7 @@ describe("declaration-variable.test", () => {
           type: "VariableDeclarator",
           id: {
             type: "Identifier",
-            name: "t234n",
+            name: "_t234n",
           },
           init: {
             type: "StringLiteral",

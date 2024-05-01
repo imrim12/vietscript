@@ -22,11 +22,10 @@ describe("statement-if.test", () => {
       type: "IfStatement",
       test: {
         type: "Identifier",
-        name: "_273i_7873u_ki_7879n_hai",
+        name: "_273i7873u_ki7879n_m7897t",
       },
       consequent: {
         type: "BlockStatement",
-        directives: [],
         body: [
           {
             type: "VariableDeclaration",
@@ -35,7 +34,7 @@ describe("statement-if.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "g_236__273_243",
+                  name: "_g236_273243",
                 },
                 init: {
                   type: "Identifier",
@@ -46,16 +45,16 @@ describe("statement-if.test", () => {
             kind: "var",
           },
         ],
+        directives: [],
       },
       alternate: {
         type: "IfStatement",
         test: {
           type: "Identifier",
-          name: "_273i_7873u_ki_7879n_hai",
+          name: "_273i7873u_ki7879n_hai",
         },
         consequent: {
           type: "BlockStatement",
-          directives: [],
           body: [
             {
               type: "VariableDeclaration",
@@ -64,7 +63,7 @@ describe("statement-if.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "g_236__273_243_kh_225c",
+                    name: "_g236_273243_kh225c",
                   },
                   init: {
                     type: "Identifier",
@@ -75,10 +74,10 @@ describe("statement-if.test", () => {
               kind: "var",
             },
           ],
+          directives: [],
         },
         alternate: {
           type: "BlockStatement",
-          directives: [],
           body: [
             {
               type: "VariableDeclaration",
@@ -87,7 +86,7 @@ describe("statement-if.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "g_236__273_243_kh_225c_n_7919a",
+                    name: "_g236_273243_kh225c_n7919a",
                   },
                   init: {
                     type: "Identifier",
@@ -98,6 +97,7 @@ describe("statement-if.test", () => {
               kind: "var",
             },
           ],
+          directives: [],
         },
       },
     });

@@ -16,11 +16,11 @@ describe("expression-call.test", () => {
         type: "MemberExpression",
         object: {
           type: "Identifier",
-          name: "con_ch243",
+          name: "_con_ch243",
         },
         property: {
           type: "Identifier",
-          name: "k234u",
+          name: "_k234u",
         },
         computed: false,
         optional: false,
@@ -41,18 +41,18 @@ describe("expression-call.test", () => {
           type: "MemberExpression",
           object: {
             type: "Identifier",
-            name: "con_ch243",
+            name: "_con_ch243",
           },
           property: {
             type: "Identifier",
-            name: "ch226n_ph7843i",
+            name: "_ch226n_ph7843i",
           },
           computed: false,
           optional: false,
         },
         property: {
           type: "Identifier",
-          name: "273225",
+          name: "_273225",
         },
         computed: false,
         optional: false,
@@ -73,18 +73,18 @@ describe("expression-call.test", () => {
           type: "MemberExpression",
           object: {
             type: "Identifier",
-            name: "con_ch243",
+            name: "_con_ch243",
           },
           property: {
             type: "Identifier",
-            name: "ch226n",
+            name: "_ch226n",
           },
           computed: true,
           optional: false,
         },
         property: {
           type: "Identifier",
-          name: "273225",
+          name: "_273225",
         },
         computed: false,
         optional: false,

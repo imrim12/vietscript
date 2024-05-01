@@ -54,7 +54,7 @@ describe("program.test", () => {
               type: "VariableDeclarator",
               id: {
                 type: "Identifier",
-                name: "tu_7893i",
+                name: "_tu7893i",
               },
               init: {
                 type: "NumericLiteral",
@@ -83,7 +83,7 @@ describe("program.test", () => {
               type: "VariableDeclarator",
               id: {
                 type: "Identifier",
-                name: "t_234n",
+                name: "_t234n",
               },
               init: {
                 type: "StringLiteral",
@@ -106,11 +106,11 @@ describe("program.test", () => {
           type: "ClassDeclaration",
           id: {
             type: "Identifier",
-            name: "Con_M_232o",
+            name: "_Con_M232o",
           },
           superClass: {
             type: "Identifier",
-            name: "_272_7897ng_V_7853t",
+            name: "_2727897ng_V7853t",
           },
           body: {
             type: "ClassBody",
@@ -121,7 +121,7 @@ describe("program.test", () => {
                 computed: false,
                 key: {
                   type: "Identifier",
-                  name: "s_7889_ch_226n",
+                  name: "_s7889_ch226n",
                 },
                 value: null,
               },
@@ -131,7 +131,7 @@ describe("program.test", () => {
                 computed: false,
                 key: {
                   type: "Identifier",
-                  name: "k_234u",
+                  name: "_k234u",
                 },
                 kind: "method",
                 id: null,
@@ -140,11 +140,11 @@ describe("program.test", () => {
                 params: [
                   {
                     type: "Identifier",
-                    name: "s_7889_l_7847n",
+                    name: "_s7889_l7847n",
                   },
                   {
                     type: "Identifier",
-                    name: "hmm",
+                    name: "_hmm",
                   },
                 ],
                 body: {
@@ -174,7 +174,7 @@ describe("program.test", () => {
           type: "SwitchStatement",
           discriminant: {
             type: "Identifier",
-            name: "tu_7893i_t_225c",
+            name: "_tu7893i_t225c",
           },
           cases: [
             {
@@ -197,7 +197,7 @@ describe("program.test", () => {
                       type: "VariableDeclarator",
                       id: {
                         type: "Identifier",
-                        name: "xyz",
+                        name: "_xyz",
                       },
                       init: {
                         type: "NumericLiteral",
@@ -249,7 +249,7 @@ describe("program.test", () => {
           type: "IfStatement",
           test: {
             type: "Identifier",
-            name: "_273i_7873u_ki_7879n_m_7897t",
+            name: "_273i7873u_ki7879n_m7897t",
           },
           consequent: {
             type: "BlockStatement",
@@ -261,7 +261,7 @@ describe("program.test", () => {
                     type: "VariableDeclarator",
                     id: {
                       type: "Identifier",
-                      name: "g_236__273_243",
+                      name: "_g236_273243",
                     },
                     init: {
                       type: "Identifier",
@@ -278,7 +278,7 @@ describe("program.test", () => {
             type: "IfStatement",
             test: {
               type: "Identifier",
-              name: "_273i_7873u_ki_7879n_hai",
+              name: "_273i7873u_ki7879n_hai",
             },
             consequent: {
               type: "BlockStatement",
@@ -290,7 +290,7 @@ describe("program.test", () => {
                       type: "VariableDeclarator",
                       id: {
                         type: "Identifier",
-                        name: "g_236__273_243_kh_225c",
+                        name: "_g236_273243_kh225c",
                       },
                       init: {
                         type: "Identifier",
@@ -313,7 +313,7 @@ describe("program.test", () => {
                       type: "VariableDeclarator",
                       id: {
                         type: "Identifier",
-                        name: "g_236__273_243_kh_225c_n_7919a",
+                        name: "_g236_273243_kh225c_n7919a",
                       },
                       init: {
                         type: "Identifier",
@@ -340,7 +340,7 @@ describe("program.test", () => {
                     type: "VariableDeclarator",
                     id: {
                       type: "Identifier",
-                      name: "g_236__273_243",
+                      name: "_g236_273243",
                     },
                     init: {
                       type: "Identifier",
@@ -365,7 +365,7 @@ describe("program.test", () => {
                       type: "VariableDeclarator",
                       id: {
                         type: "Identifier",
-                        name: "g_236__273_243_kh_225c",
+                        name: "_g236_273243_kh225c",
                       },
                       init: {
                         type: "Identifier",
@@ -380,7 +380,7 @@ describe("program.test", () => {
             },
             param: {
               type: "Identifier",
-              name: "l_7895i",
+              name: "_l7895i",
             },
           },
           finalizer: {
@@ -393,7 +393,7 @@ describe("program.test", () => {
                     type: "VariableDeclarator",
                     id: {
                       type: "Identifier",
-                      name: "g_236__273_243_kh_225c_n_7919a",
+                      name: "_g236_273243_kh225c_n7919a",
                     },
                     init: {
                       type: "Identifier",
@@ -411,7 +411,7 @@ describe("program.test", () => {
           type: "FunctionDeclaration",
           id: {
             type: "Identifier",
-            name: "ng_7851u_nhi_234n",
+            name: "_ng7851u_nhi234n",
           },
           expression: false,
           generator: false,
@@ -427,7 +427,7 @@ describe("program.test", () => {
                     type: "VariableDeclarator",
                     id: {
                       type: "Identifier",
-                      name: "h_224nh__273_7897ng",
+                      name: "_h224nh_2737897ng",
                     },
                     init: {
                       type: "StringLiteral",
@@ -453,18 +453,18 @@ describe("program.test", () => {
                       type: "MemberExpression",
                       object: {
                         type: "Identifier",
-                        name: "con_ch_243",
+                        name: "_con_ch243",
                       },
                       property: {
                         type: "Identifier",
-                        name: "m_7891m",
+                        name: "_m7891m",
                       },
                       computed: false,
                       optional: false,
                     },
                     property: {
                       type: "Identifier",
-                      name: "s_7911a",
+                      name: "_s7911a",
                     },
                     computed: false,
                     optional: false,
@@ -483,18 +483,18 @@ describe("program.test", () => {
                       type: "MemberExpression",
                       object: {
                         type: "Identifier",
-                        name: "con_ch_243",
+                        name: "_con_ch243",
                       },
                       property: {
                         type: "Identifier",
-                        name: "m_7891m",
+                        name: "_m7891m",
                       },
                       computed: false,
                       optional: false,
                     },
                     property: {
                       type: "Identifier",
-                      name: "h_224nh__273_7897ng",
+                      name: "_h224nh_2737897ng",
                     },
                     computed: true,
                     optional: false,
@@ -515,7 +515,7 @@ describe("program.test", () => {
     const result = parser.parse(
       `hằng số tuổi = 25;hằng số địa chỉ = "Đà Nẵng";
       hằng số tên = "Tú Nguyễn";
-		}`,
+  	}`,
     );
     expect(toPlainObject(result)).toStrictEqual({
       type: "Program",
@@ -527,7 +527,7 @@ describe("program.test", () => {
               type: "VariableDeclarator",
               id: {
                 type: "Identifier",
-                name: "tu_7893i",
+                name: "_tu7893i",
               },
               init: {
                 type: "NumericLiteral",
@@ -550,7 +550,7 @@ describe("program.test", () => {
               type: "VariableDeclarator",
               id: {
                 type: "Identifier",
-                name: "_273_7883a_ch_7881",
+                name: "_2737883a_ch7881",
               },
               init: {
                 type: "StringLiteral",
@@ -573,7 +573,7 @@ describe("program.test", () => {
               type: "VariableDeclarator",
               id: {
                 type: "Identifier",
-                name: "t_234n",
+                name: "_t234n",
               },
               init: {
                 type: "StringLiteral",

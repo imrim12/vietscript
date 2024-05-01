@@ -24,7 +24,7 @@ describe("identifier.test", () => {
           computed: false,
           key: {
             type: "Identifier",
-            name: "Tr259m_n259m_trong_c245i_ng4327901i_ta_ch7919_t224i_ch7919_m7879nh_kh233o_l224_gh233t_nhau_Tr7843i_qua_m7897t_cu7897c_b7875_d226u_nh7919ng_273i7873u_tr244ng_th7845y_m224_273au_2737899n_l242ng_L7841_g236_b7881_s7855c_t432_phong_tr7901i_xanh_quen_v7899i_m225_h7891ng_273225nh_ghen",
+            name: "_Tr259m_n259m_trong_c245i_ng4327901i_ta_ch7919_t224i_ch7919_m7879nh_kh233o_l224_gh233t_nhau_Tr7843i_qua_m7897t_cu7897c_b7875_d226u_nh7919ng_273i7873u_tr244ng_th7845y_m224_273au_2737899n_l242ng_L7841_g236_b7881_s7855c_t432_phong_tr7901i_xanh_quen_v7899i_m225_h7891ng_273225nh_ghen",
           },
           value: {
             type: "StringLiteral",

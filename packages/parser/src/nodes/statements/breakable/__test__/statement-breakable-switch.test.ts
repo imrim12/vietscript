@@ -21,7 +21,7 @@ describe("statement-breakable-switch.test", () => {
       type: "SwitchStatement",
       discriminant: {
         type: "Identifier",
-        name: "tu7893i_t225c",
+        name: "_tu7893i_t225c",
       },
       cases: [
         {
@@ -44,7 +44,7 @@ describe("statement-breakable-switch.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "xyz",
+                    name: "_xyz",
                   },
                   init: {
                     type: "NumericLiteral",
