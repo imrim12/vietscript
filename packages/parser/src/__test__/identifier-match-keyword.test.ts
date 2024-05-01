@@ -17,7 +17,7 @@ describe("identifier-match-keyword.test", () => {
               type: "VariableDeclarator",
               id: {
                 type: "Identifier",
-                name: "m7897t_l7899p_g236_273243",
+                name: "m7897t_l7899p_g_236__273_243",
               },
               init: {
                 type: "NumericLiteral",

@@ -31,7 +31,7 @@ describe("statement-try.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "g236_273243",
+                  name: "g_236__273_243",
                 },
                 init: {
                   type: "Identifier",
@@ -56,7 +56,7 @@ describe("statement-try.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "g236_273243_kh225c",
+                    name: "g_236__273_243_kh_225c",
                   },
                   init: {
                     type: "Identifier",
@@ -84,7 +84,7 @@ describe("statement-try.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "g236_273243_kh225c_n7919a",
+                  name: "g_236__273_243_kh_225c_n_7919a",
                 },
                 init: {
                   type: "Identifier",

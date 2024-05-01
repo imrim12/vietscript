@@ -22,7 +22,7 @@ describe("statement-if.test", () => {
       type: "IfStatement",
       test: {
         type: "Identifier",
-        name: "273i7873u_ki7879n_m7897t",
+        name: "_273i_7873u_ki_7879n_hai",
       },
       consequent: {
         type: "BlockStatement",
@@ -35,7 +35,7 @@ describe("statement-if.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "g236_273243",
+                  name: "g_236__273_243",
                 },
                 init: {
                   type: "Identifier",
@@ -51,7 +51,7 @@ describe("statement-if.test", () => {
         type: "IfStatement",
         test: {
           type: "Identifier",
-          name: "273i7873u_ki7879n_hai",
+          name: "_273i_7873u_ki_7879n_hai",
         },
         consequent: {
           type: "BlockStatement",
@@ -64,7 +64,7 @@ describe("statement-if.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "g236_273243_kh225c",
+                    name: "g_236__273_243_kh_225c",
                   },
                   init: {
                     type: "Identifier",
@@ -87,7 +87,7 @@ describe("statement-if.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "g236_273243_kh225c_n7919a",
+                    name: "g_236__273_243_kh_225c_n_7919a",
                   },
                   init: {
                     type: "Identifier",
