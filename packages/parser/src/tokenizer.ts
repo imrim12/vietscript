@@ -76,7 +76,8 @@ export class Tokenizer {
    * Matches a token for a regular expression.
    */
   private match(regexp: RegExp, syntax: string) {
-    const matched = regexp.exec(syntax);
+    const formattedSyntax = syntax.split(";");
+    const matched = regexp.exec(formattedSyntax[0].concat(";"));
 
     if (matched === null) {
       return null;
