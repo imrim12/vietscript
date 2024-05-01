@@ -32,11 +32,11 @@ describe("declaration-export.test", () => {
           type: "ExportSpecifier",
           local: {
             type: "Identifier",
-            name: "t237nh_n259ng_g236_2737845y",
+            name: "_t237nh_n259ng_g236_2737845y",
           },
           exported: {
             type: "Identifier",
-            name: "t237nh_n259ng_g236_2737845y",
+            name: "_t237nh_n259ng_g236_2737845y",
           },
         },
       ],
@@ -70,33 +70,33 @@ describe("declaration-export.test", () => {
           type: "ExportSpecifier",
           local: {
             type: "Identifier",
-            name: "t237nh_n259ng_c7897ng",
+            name: "_t237nh_n259ng_c7897ng",
           },
           exported: {
             type: "Identifier",
-            name: "ph432417ng_th7913c_c7897ng",
+            name: "_ph432417ng_th7913c_c7897ng",
           },
         },
         {
           type: "ExportSpecifier",
           local: {
             type: "Identifier",
-            name: "t237nh_n259ng_chia",
+            name: "_t237nh_n259ng_chia",
           },
           exported: {
             type: "Identifier",
-            name: "ph432417ng_th7913c_chia",
+            name: "_ph432417ng_th7913c_chia",
           },
         },
         {
           type: "ExportSpecifier",
           local: {
             type: "Identifier",
-            name: "ph432417ng_th7913c_tr7915",
+            name: "_ph432417ng_th7913c_tr7915",
           },
           exported: {
             type: "Identifier",
-            name: "ph432417ng_th7913c_tr7915",
+            name: "_ph432417ng_th7913c_tr7915",
           },
         },
       ],
@@ -120,7 +120,7 @@ describe("declaration-export.test", () => {
       type: "ExportDefaultDeclaration",
       declaration: {
         type: "Identifier",
-        name: "con_m232o",
+        name: "_con_m232o",
       },
     } as ExportDeclaration);
   });

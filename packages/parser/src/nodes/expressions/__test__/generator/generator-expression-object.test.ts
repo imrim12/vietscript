@@ -19,9 +19,9 @@ describe("generator-expression-object.test", () => {
     const result = generate(ast);
 
     expect(result.code).toBe(`{
-  ti7871ng_k234u: "Meo meo",
-  s7889_ch226n: 4,
-  async k234u(s7889_l7847n, hmm) {
+  _ti7871ng_k234u: "Meo meo",
+  _s7889_ch226n: 4,
+  async _k234u(_s7889_l7847n, _hmm) {
     return "Meo meo";
   }
 }`);

@@ -11,6 +11,6 @@ describe("generator-expression-array.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`xin_ch224o === hello`);
+    expect(result.code).toBe(`_xin_ch224o === _hello`);
   });
 });

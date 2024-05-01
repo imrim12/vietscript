@@ -11,6 +11,6 @@ describe("generator-expression-array.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`var s7889_m7897t = 1;`);
+    expect(result.code).toBe(`var _s7889_m7897t = 1;`);
   });
 });

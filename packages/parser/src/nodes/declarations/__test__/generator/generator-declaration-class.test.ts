@@ -18,9 +18,9 @@ describe("generator-declaration-class.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`class Con_M232o extends 2727897ng_V7853t {
-  s7889_ch226n = 4;
-  async k234u(s7889_l7847n, hmm) {
+    expect(result.code).toBe(`class _Con_M232o extends _2727897ng_V7853t {
+  _s7889_ch226n = 4;
+  async _k234u(_s7889_l7847n, _hmm) {
     return "Meo meo";
   }
 }`);

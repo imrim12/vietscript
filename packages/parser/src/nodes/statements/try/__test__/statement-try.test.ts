@@ -31,7 +31,7 @@ describe("statement-try.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "g_236__273_243",
+                  name: "_g236_273243",
                 },
                 init: {
                   type: "Identifier",
@@ -56,7 +56,7 @@ describe("statement-try.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "g_236__273_243_kh_225c",
+                    name: "_g236_273243_kh225c",
                   },
                   init: {
                     type: "Identifier",
@@ -70,7 +70,7 @@ describe("statement-try.test", () => {
         },
         param: {
           type: "Identifier",
-          name: "l7895i",
+          name: "_l7895i",
         },
       },
       finalizer: {
@@ -84,7 +84,7 @@ describe("statement-try.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "g_236__273_243_kh_225c_n_7919a",
+                  name: "_g236_273243_kh225c_n7919a",
                 },
                 init: {
                   type: "Identifier",

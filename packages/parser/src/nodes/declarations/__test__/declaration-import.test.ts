@@ -62,7 +62,7 @@ describe("declaration-import.test", () => {
           type: "ImportDefaultSpecifier",
           local: {
             type: "Identifier",
-            name: "cái_gì_đó",
+            name: "_c225i_g236_273243",
           },
         },
       ],
@@ -82,26 +82,24 @@ describe("declaration-import.test", () => {
 
   it("should parse the syntax normally", () => {
     const result = parser.parse(`sử dụng cái gì đó, { con cún : con chó con } từ "./test-path"`, Declaration);
-
     expect(toPlainObject(result)).toStrictEqual({
       type: "ImportDeclaration",
       specifiers: [
         {
-          type: "ImportDefaultSpecifier",
           local: {
             type: "Identifier",
-            name: "cái_gì_đó",
+            name: "_c225i_g236_273243",
           },
         },
         {
           type: "ImportSpecifier",
-          local: {
-            type: "Identifier",
-            name: "con_cún",
-          },
           imported: {
             type: "Identifier",
-            name: "con_chó_con",
+            name: "_con_c250n",
+          },
+          local: {
+            type: "Identifier",
+            name: "_con_ch243_con",
           },
         },
       ],
@@ -112,10 +110,11 @@ describe("declaration-import.test", () => {
           rawValue: "./test-path",
           raw: '"./test-path"',
         },
-        start: 40,
-        end: 53,
+        start: 48,
+        end: 61,
       },
       assertions: [],
+      importType: "value",
     } as ImportDeclaration);
   });
 });

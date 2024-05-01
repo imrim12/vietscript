@@ -11,7 +11,7 @@ describe("generator-expression-call.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`con_ch243.k234u()`);
+    expect(result.code).toBe(`_con_ch243._k234u()`);
   });
 
   it("should parse the syntax normally", () => {
@@ -21,7 +21,7 @@ describe("generator-expression-call.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`con_ch243.ch226n_ph7843i.273225()`);
+    expect(result.code).toBe(`_con_ch243._ch226n_ph7843i._273225()`);
   });
 
   it("should parse the syntax normally", () => {
@@ -31,6 +31,6 @@ describe("generator-expression-call.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`con_ch243[ch226n].273225()`);
+    expect(result.code).toBe(`_con_ch243[_ch226n]._273225()`);
   });
 });
