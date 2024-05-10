@@ -79,11 +79,11 @@ export class Tokenizer {
     const formattedSyntax = syntax.split(";");
     const matched = regexp.exec(formattedSyntax[0].concat(";"));
 
-    if (matched === null) {
-      return null;
+    if (matched && matched.index === 0) {
+      this.cursor += matched[0].length;
+      return matched[0];
     }
-    this.cursor += matched[0].length;
 
-    return matched[0];
+    return null;
   }
 }
