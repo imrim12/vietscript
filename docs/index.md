@@ -4,22 +4,20 @@ layout: home
 
 hero:
   name: "Vietscript - Ngôn ngữ lập trình tiếng Việt"
-  text: "Một ngôn ngữ lập trình mã nguồn mở được viết hoàn toàn bằng TypeScript và hỗ trợ cú pháp tiếng Việt với dấu cách."
-  tagline: My great project tagline
+  tagline: "Một ngôn ngữ lập trình mã nguồn mở hỗ trợ cú pháp tiếng Việt với dấu cách."
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: VietScript là gì?
+      link: /introduction
+    - theme: alt  
+      text: Playground
+      link: /playground
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Dễ dàng sử dụng
+    details: Cú pháp của VieLang giống JavaScript 96%, chỉ khác là nó hỗ trợ tiếng Việt :D
+  - title: Được viết bằng Typescript thuần
+    details: Dự án được viết bằng Typescript thuần và không sử dụng thư viện ngoài, trừ các công cụ hỗ trợ đóng gói và kiểm thử.
+
 ---
 
