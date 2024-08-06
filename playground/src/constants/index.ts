@@ -1,0 +1,4 @@
+export const RESULTS_TAB_KEY = {
+  TEST_CASES: "TEST_CASES",
+  TEST_RESULTS: "TEST_RESULTS",
+};
