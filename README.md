@@ -24,7 +24,7 @@ pnpm test
 ```
 
 ## Lý thuyết
-VietScript là ngôn ngữ thông dịch, nó được chuyển đổi thành mã nguồn JavaScript và chạy trên trình duyệt. JavaScript cũng là ngôn ngữ thông dịch, nó không được chuyển đổi ngay lập tức thành mã máy và sẽ được thông dịch từng dòng một trước khi nó được thực thi.
+VietScript là ngôn ngữ thông dịch, nó được chuyển đổi thành mã nguồn JavaScript và chạy trên trình duyệt. JavaScript cũng từng là ngôn ngữ thông dịch (bây giờ thì là biên dịch tức thời - JIT compiled), nó không được chuyển đổi ngay lập tức thành mã máy và sẽ được thông dịch từng dòng một trước khi nó được thực thi.
 
 Cú pháp của VietScript giống JavaScript 96%, chỉ khác là nó hỗ trợ tiếng Việt :D
 
