@@ -24,6 +24,14 @@ export class Tokenizer {
     this.cursor = 0; // track the position of each character
   }
 
+  public rollback(step: number) {
+    if (this.parser.lookahead) this.parser.lookahead.end -= step;
+
+    this.cursor -= step;
+
+    return this.cursor;
+  }
+
   /**
    * Whether the tokenizer reached EOF.
    */
