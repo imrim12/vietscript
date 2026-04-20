@@ -21,6 +21,7 @@ export class StatementListItem {
         Object.assign(this, new Declaration(parser));
         break;
       }
+      case "{":
       case Keyword.IF:
       case Keyword.DO:
       case Keyword.WHILE:
