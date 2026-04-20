@@ -1,28 +1,99 @@
-# Câu lệnh lặp 
+# Vòng lặp
 
-Câu lệnh lặp `lặp` trong VieLang cho phép bạn thực thi một khối mã lặp đi lặp lại trong một khoảng thời gian xác định. Đây là một công cụ hữu ích để lặp qua một phạm vi giá trị cụ thể hoặc để thực thi mã một số lần nhất định.
+## for truyền thống
 
-
-
-## Cú pháp
-Cú pháp cho câu lệnh lặp như sau:
-
-```css
-lặp (khởi_tạo ; điều_kiện ; cập_nhật) {
-    // Khối mã sẽ được lặp lại dựa trên các điều kiện xác định
-}
-
-```
-### Ví dụ
-Dưới đây là một ví dụ về cách sử dụng câu lệnh lặp trong VieLang:
-
-```css
-lặp (khai báo i = 0; i < 5; i++) {
-    in ra (i);
+```vietscript
+lặp (biến i = 0; i < 10; i++) {
+  console.log(i)
 }
 ```
 
+## for ... of
 
-## Tổng kết
+```vietscript
+hằng số mảng = [1, 2, 3]
+lặp (biến x của mảng) {
+  console.log(x)
+}
+```
 
-Câu lệnh lặp `lặp` trong VieLang là một công cụ mạnh mẽ và linh hoạt để lặp qua một phạm vi giá trị hoặc thực thi mã một số lần nhất định. Bằng cách sử dụng câu lệnh này, bạn có thể dễ dàng kiểm soát luồng thực thi của chương trình và thực hiện các hành động lặp đi lặp lại một cách hiệu quả.
+## for ... in
+
+```vietscript
+hằng số đối tượng = { a: 1, b: 2 }
+lặp (biến khóa trong đối tượng) {
+  console.log(khóa, đối tượng[khóa])
+}
+```
+
+## for await ... of
+
+```vietscript
+bất đồng bộ hàm chạy() {
+  lặp chờ (biến x của luồng bất đồng bộ) {
+    console.log(x)
+  }
+}
+```
+
+## while
+
+```vietscript
+biến i = 0
+khi mà (i < 5) {
+  console.log(i)
+  i++
+}
+```
+
+## do ... while
+
+```vietscript
+biến i = 0
+thực hiện {
+  console.log(i)
+  i++
+} khi mà (i < 5)
+```
+
+## break / continue
+
+```vietscript
+lặp (biến i của mảng) {
+  nếu (i === 0) tiếp tục       // skip
+  nếu (i > 100) phá vòng lặp   // exit
+  console.log(i)
+}
+```
+
+## Labeled break / continue
+
+```vietscript
+ngoài: lặp (biến i = 0; i < 10; i++) {
+  lặp (biến j = 0; j < 10; j++) {
+    nếu (i * j > 20) phá vòng lặp ngoài
+  }
+}
+```
+
+## Destructuring trong for...of
+
+```vietscript
+hằng số cặp = [[1, "a"], [2, "b"]]
+lặp (hằng số [số, chữ] của cặp) {
+  console.log(số, chữ)
+}
+```
+
+## Tham chiếu
+
+| VietScript | JS |
+|---|---|
+| `lặp` | `for` |
+| `khi mà` | `while` |
+| `thực hiện` | `do` |
+| `của` | `of` |
+| `trong` | `in` |
+| `chờ` | `await` |
+| `phá vòng lặp` | `break` |
+| `tiếp tục` | `continue` |
