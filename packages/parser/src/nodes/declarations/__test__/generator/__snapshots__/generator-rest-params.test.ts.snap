@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-rest-params.test > should generate rest after normal 1`] = `"function f(a, b, ...rest) {}"`;
+
+exports[`generator-rest-params.test > should generate rest in arrow 1`] = `"(...args) => args"`;
+
+exports[`generator-rest-params.test > should generate rest param 1`] = `"function f(...args) {}"`;

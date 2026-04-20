@@ -35,18 +35,19 @@ describe("literal-string.test", () => {
     } as StringLiteral);
   });
 
-  it("should parse the syntax normally", () => {
+  it("should parse backtick as template literal", () => {
     const result = parser.parse("`Chào thế giới!`", Literal);
 
-    expect(toPlainObject(result)).toStrictEqual({
-      type: "StringLiteral",
-      value: "Chào thế giới!",
-      extra: {
-        rawValue: "Chào thế giới!",
-        raw: '"Chào thế giới!"',
-      },
-      start: 0,
-      end: 16,
-    } as StringLiteral);
+    expect(toPlainObject(result)).toMatchObject({
+      type: "TemplateLiteral",
+      quasis: [
+        {
+          type: "TemplateElement",
+          value: { raw: "Chào thế giới!", cooked: "Chào thế giới!" },
+          tail: true,
+        },
+      ],
+      expressions: [],
+    });
   });
 });

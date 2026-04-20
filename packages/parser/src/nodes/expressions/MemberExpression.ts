@@ -24,23 +24,41 @@ export class MemberExpression {
           parser.eat("[");
           this.object = this.property ? { ...this } : { ...this.object };
           this.property = new Expression(parser);
-
           parser.eat("]");
-
           this.computed = true;
-
+          this.optional = false;
           break;
         }
         case ".": {
           parser.eat(".");
           this.object = this.property ? { ...this } : { ...this.object };
           this.property = new Identifier(parser);
-
           this.computed = false;
+          this.optional = false;
+          break;
+        }
+        case "?.": {
+          parser.eat("?.");
+          this.object = this.property ? { ...this } : { ...this.object };
+          this.type = "OptionalMemberExpression";
+          this.optional = true;
 
+          if ((parser.lookahead?.type as string) === "[") {
+            parser.eat("[");
+            this.property = new Expression(parser);
+            parser.eat("]");
+            this.computed = true;
+          } else {
+            this.property = new Identifier(parser);
+            this.computed = false;
+          }
           break;
         }
       }
-    } while (parser.lookahead?.type === "." || parser.lookahead?.type === "[");
+    } while (
+      parser.lookahead?.type === "." ||
+      parser.lookahead?.type === "[" ||
+      parser.lookahead?.type === "?."
+    );
   }
 }

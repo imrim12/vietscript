@@ -1,5 +1,6 @@
 import { Expression } from "@parser/nodes/expressions/Expression";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { PrivateName } from "@parser/nodes/identifier/PrivateName";
 import { Parser } from "@parser/parser";
 import { Keyword } from "@vietscript/shared";
 
@@ -12,7 +13,7 @@ export class ClassProperty {
 
   computed = false;
 
-  key: Identifier | Expression;
+  key: Identifier | Expression | PrivateName;
 
   value: null | Expression;
 
@@ -35,6 +36,9 @@ export class ClassProperty {
           this.key = new Expression(parser);
           this.computed = true;
           parser.eat("]");
+        } else if (parser.lookahead?.type === "#") {
+          this.key = new PrivateName(parser);
+          this.type = "ClassPrivateProperty" as any;
         } else {
           this.key = new Identifier(parser);
         }

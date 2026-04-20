@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-object-pattern.test > should generate default destructuring 1`] = `
+"var {
+  a = 1
+} = o;"
+`;
+
+exports[`generator-object-pattern.test > should generate destructuring in function param 1`] = `
+"function f({
+  a,
+  b
+}) {}"
+`;
+
+exports[`generator-object-pattern.test > should generate rename destructuring 1`] = `
+"var {
+  a: b
+} = o;"
+`;
+
+exports[`generator-object-pattern.test > should generate rest destructuring 1`] = `
+"var {
+  a,
+  ...rest
+} = o;"
+`;
+
+exports[`generator-object-pattern.test > should generate shorthand destructuring 1`] = `
+"var {
+  a,
+  b
+} = o;"
+`;

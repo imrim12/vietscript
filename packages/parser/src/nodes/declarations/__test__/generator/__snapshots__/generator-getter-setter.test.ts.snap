@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-getter-setter.test > should generate getter in class 1`] = `
+"class Cat {
+  get tuổi() {
+    return 3;
+  }
+}"
+`;
+
+exports[`generator-getter-setter.test > should generate getter in object literal 1`] = `
+"{
+  get tuổi() {
+    return 3;
+  }
+}"
+`;
+
+exports[`generator-getter-setter.test > should generate setter in class 1`] = `
+"class Cat {
+  set tuổi(v) {}
+}"
+`;

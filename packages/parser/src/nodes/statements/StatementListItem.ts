@@ -31,7 +31,16 @@ export class StatementListItem {
       case Keyword.IDENTIFIER:
       case Keyword.THROW:
       case Keyword.TRY:
-      case Keyword.DEBUGGER: {
+      case Keyword.DEBUGGER:
+      case Keyword.YIELD:
+      case Keyword.AWAIT:
+      case Keyword.THIS:
+      case Keyword.NUMBER:
+      case Keyword.STRING:
+      case Keyword.BOOLEAN:
+      case Keyword.NULL:
+      case Keyword.NAN:
+      case Keyword.UNDEFINED: {
         Object.assign(this, new Statement(parser));
         break;
       }

@@ -15,5 +15,18 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     testTimeout: 10_000,
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "html", "json-summary"],
+      include: ["packages/*/src/**"],
+      exclude: [
+        "**/__test__/**",
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        "**/dist/**",
+        "**/node_modules/**",
+      ],
+      reportsDirectory: "./coverage",
+    },
   },
 });

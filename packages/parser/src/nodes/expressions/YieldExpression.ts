@@ -15,8 +15,8 @@ export class YieldExpression {
     parser.eat(Keyword.YIELD);
 
     if (parser.lookahead?.type === "*") {
+      parser.eat("*");
       this.delegate = true;
-
       this.argument = new Expression(parser);
     } else if (isExpression(parser)) {
       this.argument = new Expression(parser);

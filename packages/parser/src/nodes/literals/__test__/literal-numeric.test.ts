@@ -55,9 +55,9 @@ describe("literal-numeric.test", () => {
 
     expect(toPlainObject(result)).toStrictEqual({
       type: "NumericLiteral",
-      value: 0.001_123,
+      value: 0.001123,
       extra: {
-        rawValue: 0.001_123,
+        rawValue: 0.001123,
         raw: "0.001123",
       },
       start: 0,

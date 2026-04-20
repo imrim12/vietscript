@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-default-params.test > should generate default param in arrow 1`] = `"(a = 1) => a"`;
+
+exports[`generator-default-params.test > should generate default param in function 1`] = `"function f(a = 1) {}"`;
+
+exports[`generator-default-params.test > should generate mixed params 1`] = `"function f(a, b = 2, c) {}"`;

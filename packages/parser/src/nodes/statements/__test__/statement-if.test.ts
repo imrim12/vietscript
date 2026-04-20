@@ -22,7 +22,7 @@ describe("statement-if.test", () => {
       type: "IfStatement",
       test: {
         type: "Identifier",
-        name: "_273i7873u_ki7879n_m7897t",
+        name: "điều_kiện_một",
       },
       consequent: {
         type: "BlockStatement",
@@ -34,7 +34,7 @@ describe("statement-if.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "_g236_273243",
+                  name: "gì_đó",
                 },
                 init: {
                   type: "Identifier",
@@ -51,7 +51,7 @@ describe("statement-if.test", () => {
         type: "IfStatement",
         test: {
           type: "Identifier",
-          name: "_273i7873u_ki7879n_hai",
+          name: "điều_kiện_hai",
         },
         consequent: {
           type: "BlockStatement",
@@ -63,7 +63,7 @@ describe("statement-if.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "_g236_273243_kh225c",
+                    name: "gì_đó_khác",
                   },
                   init: {
                     type: "Identifier",
@@ -86,7 +86,7 @@ describe("statement-if.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "_g236_273243_kh225c_n7919a",
+                    name: "gì_đó_khác_nữa",
                   },
                   init: {
                     type: "Identifier",

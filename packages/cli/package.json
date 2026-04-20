@@ -1,0 +1,36 @@
+{
+  "name": "@vietscript/cli",
+  "version": "0.0.1",
+  "description": "VietScript CLI — run and build .vjs files.",
+  "type": "module",
+  "bin": {
+    "vietscript": "./bin/vietscript.mjs",
+    "vjs": "./bin/vietscript.mjs"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.22.10",
+    "@vietscript/parser": "workspace:*",
+    "chokidar": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.1",
+    "typescript": "^4.9.4"
+  }
+}

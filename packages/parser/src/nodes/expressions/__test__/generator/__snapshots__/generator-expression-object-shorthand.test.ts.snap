@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-expression-object-shorthand.test > should generate computed property 1`] = `
+"{
+  [key]: 1
+}"
+`;
+
+exports[`generator-expression-object-shorthand.test > should generate mixed shorthand and regular 1`] = `
+"{
+  a,
+  b: 2,
+  c
+}"
+`;
+
+exports[`generator-expression-object-shorthand.test > should generate shorthand property 1`] = `
+"{
+  a,
+  b
+}"
+`;

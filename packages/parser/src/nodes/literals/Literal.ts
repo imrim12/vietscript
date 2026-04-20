@@ -5,7 +5,9 @@ import { BooleanLiteral } from "./BooleanLiteral";
 import { NaNIdentifier } from "./NaNIdentifier";
 import { NullLiteral } from "./NullLiteral";
 import { NumericLiteral } from "./NumericLiteral";
+import { RegExpLiteral } from "./RegExpLiteral";
 import { StringLiteral } from "./StringLiteral";
+import { TemplateLiteral } from "./TemplateLiteral";
 import { UndefinedIdentifier } from "./UndefinedIdentifier";
 
 export class Literal {
@@ -17,6 +19,14 @@ export class Literal {
       }
       case Keyword.STRING: {
         Object.assign(this, new StringLiteral(parser));
+        break;
+      }
+      case "TemplateLiteral": {
+        Object.assign(this, new TemplateLiteral(parser));
+        break;
+      }
+      case "RegExpLiteral": {
+        Object.assign(this, new RegExpLiteral(parser));
         break;
       }
       case Keyword.BOOLEAN: {
