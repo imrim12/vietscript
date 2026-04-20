@@ -23,6 +23,7 @@ import { ObjectExpression } from "./ObjectExpression";
 import { CallExpression } from "./CallExpression";
 import { NewExpression } from "./NewExpression";
 import { ConditionalExpression } from "./ConditionalExpression";
+import { TaggedTemplateExpression } from "./TaggedTemplateExpression";
 
 export class Expression {
   [key: string]: any;
@@ -121,6 +122,11 @@ export class Expression {
 
         if ((parser.lookahead?.type as string) === "=>") {
           Object.assign(this, new ArrowFunctionExpression(parser, [identifier]));
+          break;
+        }
+
+        if ((parser.lookahead?.type as string) === "TemplateLiteral") {
+          Object.assign(this, new TaggedTemplateExpression(parser, identifier));
           break;
         }
 

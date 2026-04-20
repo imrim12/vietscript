@@ -131,7 +131,7 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 | try/catch | `try {} catch(e){}` | `thử {} bắt lỗi(e){}` | ✅ | ✅ | ✅ | — | |
 | try/finally | `try {} finally {}` | `thử {} cuối cùng {}` | ✅ | ✅ | ✅ | — | |
 | try/catch/finally | full 3-block | full 3-block | ✅ | ✅ | ✅ | — | |
-| Optional catch binding | `catch {}` | `bắt lỗi {}` | 🟡 | ✅ | ❌ | P2 | Cần verify |
+| Optional catch binding | `catch {}` | `bắt lỗi {}` | ✅ | ✅ | ✅ | — | |
 | throw | `throw e` | `báo lỗi e` | ✅ | ✅ | ✅ | — | |
 
 ## 8. Biểu thức
@@ -183,7 +183,7 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 | Escape sequences | `"\n \t \u00e1"` | giống JS | ✅ | ✅ | ✅ | — | Hỗ trợ `\n`, `\t`, `\r`, `\b`, `\f`, `\v`, `\0`, `\xFF`, `\uFFFF`, `\u{1F600}` |
 | Template literal | `` `hi` `` | `` `hi` `` | ✅ | ✅ | ✅ | — | |
 | Template interpolation | `` `${x}` `` | `` `${x}` `` | ✅ | ✅ | ✅ | — | Hỗ trợ nested braces, escape |
-| Tagged template | `` tag`x${y}` `` | chưa có | ❌ | ❌ | ❌ | P3 | |
+| Tagged template | `` tag`x${y}` `` | `` tag`x${y}` `` | ✅ | ✅ | ✅ | — | |
 | Boolean | `true false` | `đúng sai` | ✅ | ✅ | ✅ | — | |
 | null | `null` | `null` | ✅ | ✅ | ✅ | — | Chưa có từ tiếng Việt |
 | undefined | `undefined` | `không xác định` | ✅ | ✅ | ✅ | — | |
