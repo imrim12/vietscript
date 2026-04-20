@@ -15,7 +15,7 @@ Please make sure to read the [Contributing Guide](https://vietscript.org/learnin
 Thank you to all the people who already contributed to the VietScript - Vietnamese Programming Language project!
 
 <a href="https://github.com/imrim12/vietscript/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=imrim12/vietscript" />
+  <img src="https://contrib.rocks/image?repo=imrim12/vietscript" alt="VietScript contributors" />
 </a>
 
 Made with [contrib.rocks](https://contrib.rocks).

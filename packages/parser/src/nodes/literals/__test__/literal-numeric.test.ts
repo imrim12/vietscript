@@ -5,7 +5,7 @@ import parser from '../../../setup-test'
 import toPlainObject from '../../../toPlainObject'
 
 describe('literal-numeric.test', () => {
-  it('should parse the syntax normally', () => {
+  it('should parse integer "0"', () => {
     const result = parser.parse('0', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -20,7 +20,7 @@ describe('literal-numeric.test', () => {
     } as NumericLiteral)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse "3." with trailing dot', () => {
     const result = parser.parse('3.', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -35,7 +35,7 @@ describe('literal-numeric.test', () => {
     } as NumericLiteral)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse decimal "0.1"', () => {
     const result = parser.parse('0.1', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -50,7 +50,7 @@ describe('literal-numeric.test', () => {
     } as NumericLiteral)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse decimal "0.001123"', () => {
     const result = parser.parse('0.001123', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -65,7 +65,7 @@ describe('literal-numeric.test', () => {
     } as NumericLiteral)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse scientific "70e3"', () => {
     const result = parser.parse('70e3', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -80,7 +80,7 @@ describe('literal-numeric.test', () => {
     } as NumericLiteral)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse scientific "70E3"', () => {
     const result = parser.parse('70E3', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -95,7 +95,7 @@ describe('literal-numeric.test', () => {
     } as NumericLiteral)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse scientific "70E+3"', () => {
     const result = parser.parse('70E+3', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -110,7 +110,7 @@ describe('literal-numeric.test', () => {
     } as NumericLiteral)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse scientific "70e-3"', () => {
     const result = parser.parse('70e-3', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -125,7 +125,7 @@ describe('literal-numeric.test', () => {
     } as NumericLiteral)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse scientific "70E-3"', () => {
     const result = parser.parse('70E-3', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({

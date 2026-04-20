@@ -1,4 +1,5 @@
 import type { TabsProps } from 'antd'
+import type { ReactElement } from 'react'
 import type { Result, TestCase } from 'src/types'
 import { CaretRightOutlined } from '@ant-design/icons'
 import generate from '@babel/generator'
@@ -18,7 +19,7 @@ interface Props {
   fnName: string
 }
 
-export default function Results({ id, program, fnName }: Props) {
+export default function Results({ id, program, fnName }: Props): ReactElement {
   const [testCases, setTestCases] = useState([{ input: '', expectedOutput: '' }])
   const [time, setTime] = useState(0)
   const [activeTab, setActiveTab] = useState(RESULTS_TAB_KEY.TEST_CASES)
@@ -38,7 +39,7 @@ export default function Results({ id, program, fnName }: Props) {
     },
   ]
 
-  const getTestCases = async () => {
+  const getTestCases = async (): Promise<void> => {
     if (!id)
       return
     const { data, error } = await supabase.from('test_cases').select('*').eq('problem_id', id)
@@ -53,7 +54,7 @@ export default function Results({ id, program, fnName }: Props) {
     getTestCases()
   }, [id])
 
-  const runTests = (testCases: TestCase[]) => {
+  const runTests = (testCases: TestCase[]): Result[] => {
     if (!program)
       return []
     const results = testCases.map((testCase) => {
@@ -61,6 +62,7 @@ export default function Results({ id, program, fnName }: Props) {
       try {
         const ast = parser.parse(program)
         const codeGenerated = generate(ast)
+        // eslint-disable-next-line no-new-func
         const func = new Function('input', `${codeGenerated.code}\nreturn ${formatFunctionName(fnName)}(input);`)
         const output = func(JSON.parse(testCase.input))
         result = String(output)
@@ -74,7 +76,7 @@ export default function Results({ id, program, fnName }: Props) {
     return results
   }
 
-  const handleRunCode = () => {
+  const handleRunCode = (): void => {
     const timeStart = performance.now()
     const results = runTests(testCases.slice(0, 4))
     setResults(results)

@@ -5,7 +5,7 @@ import parser from '../../../setup-test'
 import toPlainObject from '../../../toPlainObject'
 
 describe('literal-string.test', () => {
-  it('should parse the syntax normally', () => {
+  it('should parse double-quoted string', () => {
     const result = parser.parse(`"Chào thế giới!"`, Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -20,7 +20,7 @@ describe('literal-string.test', () => {
     } as StringLiteral)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse single-quoted string', () => {
     const result = parser.parse(`'Chào thế giới!'`, Literal)
 
     expect(toPlainObject(result)).toStrictEqual({

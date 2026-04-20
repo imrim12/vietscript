@@ -81,7 +81,7 @@ export class Tokenizer {
     this.cursor = 0
   }
 
-  public rollback(step: number) {
+  public rollback(step: number): number {
     if (this.parser.lookahead)
       this.parser.lookahead.end -= step
 
@@ -90,11 +90,11 @@ export class Tokenizer {
     return this.cursor
   }
 
-  public isEOF() {
+  public isEOF(): boolean {
     return this.cursor === this.parser.syntax.length
   }
 
-  protected hasMoreTokens() {
+  protected hasMoreTokens(): boolean {
     return this.cursor < this.parser.syntax.length
   }
 
@@ -318,7 +318,7 @@ export class Tokenizer {
     throw new SyntaxError(`Template literal không đóng, bắt đầu tại vị trí ${start}`)
   }
 
-  private match(regexp: RegExp, syntax: string) {
+  private match(regexp: RegExp, syntax: string): string | null {
     const formattedSyntax = syntax.split(';')
     const matched = regexp.exec(formattedSyntax[0].concat(';'))
 

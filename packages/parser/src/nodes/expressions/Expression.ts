@@ -25,7 +25,7 @@ import { UnaryExpression } from './UnaryExpression'
 import { UpdateExpression } from './UpdateExpression'
 import { YieldExpression } from './YieldExpression'
 
-function applyPostfixImpl(self: any, parser: Parser) {
+function applyPostfixImpl(self: any, parser: Parser): void {
   while (true) {
     const t = parser.lookahead?.type as string
     if (t === '.' || t === '[' || t === '?.') {

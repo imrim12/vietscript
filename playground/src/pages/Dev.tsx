@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react'
 import { CaretRightOutlined } from '@ant-design/icons'
 import Editor, { useMonaco } from '@monaco-editor/react'
 import { Button, Card, Col, Row } from 'antd'
@@ -8,16 +9,16 @@ import { languageExtensionPoint, languageID } from 'src/editor/config'
 import { monarchLanguage, richLanguageConfiguration } from 'src/editor/vietscript'
 import 'react-toastify/dist/ReactToastify.css'
 
-function Dev() {
+function Dev(): ReactElement {
   const [program, setProgram] = useState('')
   const [result, setResult] = useState('')
   const monaco = useMonaco()
 
-  function handleEditorChange(value: any) {
-    setProgram(value)
+  function handleEditorChange(value: string | undefined): void {
+    setProgram(value ?? '')
   }
 
-  const executeCode = () => {
+  const executeCode = (): void => {
     let capturedOutput = ''
     const originalConsoleLog = console.log
 
@@ -28,7 +29,8 @@ function Dev() {
     try {
       // const _program = transpiler.compile(program)
       const _program = { target: program }
-      eval(_program.target)
+      // eslint-disable-next-line no-eval
+      ;(0, eval)(_program.target)
       setResult(capturedOutput)
     }
     catch (error) {
@@ -41,7 +43,7 @@ function Dev() {
 
   useEffect(() => {
     // do conditional chaining
-    ;(monaco?.languages.typescript as any)?.javascriptDefaults?.setEagerModelSync(true)
+    monaco?.typescript?.javascriptDefaults?.setEagerModelSync(true)
     monaco?.languages.register(languageExtensionPoint)
     monaco?.languages.onLanguage(languageID, () => {
       monaco?.languages.setMonarchTokensProvider(languageID, monarchLanguage)

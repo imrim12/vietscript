@@ -1,10 +1,11 @@
 import { readFileSync, unlinkSync, writeFileSync } from 'node:fs'
 import { basename, dirname, resolve } from 'node:path'
+import process from 'node:process'
 import { pathToFileURL } from 'node:url'
 
 import { compile } from '../compile.js'
 
-export async function runCommand(filepath: string) {
+export async function runCommand(filepath: string): Promise<void> {
   const abs = resolve(process.cwd(), filepath)
   const source = readFileSync(abs, 'utf8')
   const { code, map } = compile(source, abs)

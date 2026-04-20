@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": ".",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
@@ -19,6 +18,13 @@
     "types": ["node", "vitest/globals"],
     "outDir": "./dist"
   },
-  "include": ["./**/*.ts", "./**/*.d.ts", "./**/*.test.ts"],
-  "exclude": ["./node_modules", "./dist"]
+  "include": ["./**/*.ts", "./**/*.d.ts"],
+  "exclude": [
+    "**/node_modules",
+    "**/dist",
+    ".nx",
+    "coverage",
+    "docs/.vitepress/cache",
+    "docs/.vitepress/dist"
+  ]
 }

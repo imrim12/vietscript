@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react'
 import type { Result } from 'src/types'
 import { ClockCircleOutlined } from '@ant-design/icons'
 import { Button, Segmented } from 'antd'
@@ -8,7 +9,7 @@ interface Props {
   time?: number
 }
 
-export default function TestResults({ results, time }: Props) {
+export default function TestResults({ results, time }: Props): ReactElement {
   const [activeTab, setActiveTab] = useState('1')
   return (
     <div>

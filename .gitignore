@@ -11,6 +11,7 @@ lerna-debug.log*
 .claude
 !.claude/skills
 !.claude/settings.json
+.vitepress/cache
 dist
 dist-*
 node_modules

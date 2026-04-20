@@ -21,21 +21,27 @@ const queryClient = new QueryClient({
   },
 })
 
-self.MonacoEnvironment = {
+const JsonWorker = jsonWorker
+const CssWorker = cssWorker
+const HtmlWorker = htmlWorker
+const TsWorker = tsWorker
+const EditorWorker = editorWorker
+
+globalThis.MonacoEnvironment = {
   getWorker(_, label) {
     if (label === 'json') {
-      return new jsonWorker()
+      return new JsonWorker()
     }
     if (label === 'css' || label === 'scss' || label === 'less') {
-      return new cssWorker()
+      return new CssWorker()
     }
     if (label === 'html' || label === 'handlebars' || label === 'razor') {
-      return new htmlWorker()
+      return new HtmlWorker()
     }
     if (label === 'typescript' || label === 'javascript') {
-      return new tsWorker()
+      return new TsWorker()
     }
-    return new editorWorker()
+    return new EditorWorker()
   },
 }
 

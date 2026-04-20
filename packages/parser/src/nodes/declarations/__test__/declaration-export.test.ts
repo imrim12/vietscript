@@ -4,7 +4,7 @@ import toPlainObject from '../../../toPlainObject'
 import { Declaration } from '../Declaration'
 
 describe('declaration-export.test', () => {
-  it('should parse the syntax normally', () => {
+  it('should parse export-all (`cho phép * từ ...`)', () => {
     const result = parser.parse(`cho phép * từ "./test-path"`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -22,7 +22,7 @@ describe('declaration-export.test', () => {
     } as ExportDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse single named export with source', () => {
     const result = parser.parse(`cho phép { tính năng gì đấy } từ "./test-path"`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -53,7 +53,7 @@ describe('declaration-export.test', () => {
     } as ExportDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse multiple named exports with aliases', () => {
     const result = parser.parse(
       `cho phép {
         tính năng cộng: phương thức cộng,
@@ -113,7 +113,7 @@ describe('declaration-export.test', () => {
     } as ExportDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse default export (`cho phép mặc định`)', () => {
     const result = parser.parse(`cho phép mặc định con mèo`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({

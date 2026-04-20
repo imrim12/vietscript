@@ -15,6 +15,15 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     testTimeout: 10_000,
+    include: ['packages/**/src/**/*.{test,spec}.?(c|m)[jt]s?(x)'],
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.git/**',
+      '**/.nx/**',
+      '**/.vitepress/cache/**',
+      '**/coverage/**',
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'json-summary'],

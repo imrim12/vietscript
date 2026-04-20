@@ -4,7 +4,7 @@ import toPlainObject from '../../../toPlainObject'
 import { Declaration } from '../Declaration'
 
 describe('declaration-import.test', () => {
-  it('should parse the syntax normally', () => {
+  it('should parse side-effect import', () => {
     const result = parser.parse(`sử dụng "./test-path-1"`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -24,7 +24,7 @@ describe('declaration-import.test', () => {
     } as ImportDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse namespace import (`* như là`)', () => {
     const result = parser.parse(`sử dụng * như là abc từ "./test-path-2"`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -53,7 +53,7 @@ describe('declaration-import.test', () => {
     } as ImportDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse default import', () => {
     const result = parser.parse(`sử dụng cái gì đó từ "./test-path-3"`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -82,7 +82,7 @@ describe('declaration-import.test', () => {
     } as ImportDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse default + named imports with alias', () => {
     const result = parser.parse(`sử dụng cái gì đó, { con cún : con chó con } từ "./test-path-4"`, Declaration)
     expect(toPlainObject(result)).toStrictEqual({
       type: 'ImportDeclaration',

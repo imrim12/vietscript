@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react'
+import type { PropsWithChildren, ReactElement } from 'react'
 import { Alert } from 'antd'
 
 interface Props {
@@ -11,7 +11,7 @@ function AdminGuard({
   children,
   havePermission = true,
   permissionMessage = 'You don\'t have permission to view it',
-}: PropsWithChildren<Props>) {
+}: PropsWithChildren<Props>): ReactElement {
   if (!havePermission) {
     return <Alert message={permissionMessage} type="error" />
   }

@@ -61,6 +61,29 @@ export default antfu(
       '**/dist/**',
       '**/fixtures/**',
       '**/node_modules/**',
+      'packages/parser/public/**',
     ],
+  },
+  {
+    name: 'vietscript/test-fixtures',
+    files: ['packages/parser/src/**/*.test.ts'],
+    rules: {
+      'style/no-tabs': 'off',
+      'no-template-curly-in-string': 'off',
+    },
+  },
+  {
+    name: 'vietscript/stdlib',
+    files: ['packages/stdlib/**/*.ts'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
+  {
+    name: 'vietscript/playground',
+    files: ['playground/**/*.{ts,tsx}'],
+    rules: {
+      'no-console': 'off',
+    },
   },
 )

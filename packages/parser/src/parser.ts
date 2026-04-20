@@ -22,21 +22,18 @@ export class Parser {
     this.lookahead = null
   }
 
-  public parse(syntax: string, InitAtsNodeClass?: any): any
-
-  public parse(syntax: string) {
-    this.lookahead = null
-    this.syntax = ''
-
+  public parse(syntax: string, InitAtsNodeClass?: new (parser: Parser) => unknown): any {
     this.syntax = syntax
     this.tokenizer = new Tokenizer(this)
-
     this.lookahead = this.tokenizer.getNextToken()
+
+    if (InitAtsNodeClass)
+      return new InitAtsNodeClass(this)
 
     return new Program(this)
   }
 
-  eat(tokenType: Token['type']) {
+  eat(tokenType: Token['type']): Token {
     const token = this.lookahead
 
     if (token === null) {

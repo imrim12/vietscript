@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
   "type": "module",
-  "description": "Vietnamese programming language - Ngôn ngữ lập trình tiếng Việt.",
+  "description": "VietScript - Ngôn ngữ lập trình tiếng Việt.",
   "packageManager": "pnpm@10.33.0",
   "scripts": {
     "nx": "nx",

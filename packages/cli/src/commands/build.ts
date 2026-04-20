@@ -1,5 +1,6 @@
 import { mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join, relative, resolve } from 'node:path'
+import process from 'node:process'
 
 import { compile } from '../compile.js'
 
@@ -17,7 +18,7 @@ function walk(dir: string, acc: string[] = []): string[] {
   return acc
 }
 
-export function buildCommand(srcDir: string, outDir: string) {
+export function buildCommand(srcDir: string, outDir: string): void {
   const absSrc = resolve(process.cwd(), srcDir)
   const absOut = resolve(process.cwd(), outDir)
 

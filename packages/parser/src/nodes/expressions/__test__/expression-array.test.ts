@@ -72,7 +72,7 @@ describe('expression-array.test', () => {
     } as ArrayExpression)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse empty array `[]`', () => {
     const result = parser.parse(`[]`, Expression)
 
     expect(toPlainObject(result)).toStrictEqual({

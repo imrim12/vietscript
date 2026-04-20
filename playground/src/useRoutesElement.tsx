@@ -1,3 +1,4 @@
+import type { ComponentType, ReactElement } from 'react'
 import type { RouteObject } from 'react-router-dom'
 import type { Route } from './interface/app'
 
@@ -16,13 +17,13 @@ export const DEFAULT_ROUTE: Route[] = [
   },
 ]
 interface RouteElement {
-  routeElement: () => Promise<any>
+  routeElement: () => Promise<{ default: ComponentType }>
   isPrivate?: boolean
 }
 interface LazyRouteProps {
   routes: Route[]
 }
-function LazyElement({ routeElement }: RouteElement) {
+function LazyElement({ routeElement }: RouteElement): ReactElement {
   const LazyComponent = lazy(routeElement)
   return (
     <Suspense
@@ -43,7 +44,7 @@ function wrapRoutesWithLazy({ routes }: LazyRouteProps): RouteObject[] {
     ...(route.children && { children: wrapRoutesWithLazy({ routes: route.children }) }),
   }))
 }
-export default function useRouteElements() {
+export default function useRouteElements(): ReactElement | null {
   const routeElements = [
     {
       path: '*',

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -14,9 +15,9 @@ function parseMatrix(md) {
   let currentSection = null
 
   for (const line of lines) {
-    const sectionMatch = line.match(/^##\s+\d+\.\s+(.+?)\s*$/)
+    const sectionMatch = line.match(/^## \d+\. (.+)$/)
     if (sectionMatch) {
-      currentSection = { name: sectionMatch[1], done: 0, partial: 0, missing: 0, total: 0 }
+      currentSection = { name: sectionMatch[1].trim(), done: 0, partial: 0, missing: 0, total: 0 }
       sections.push(currentSection)
       continue
     }

@@ -42,7 +42,7 @@ describe('expression-member.test', () => {
     } as MemberExpression)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse bracket-access chain', () => {
     const result = parser.parse('con chó[chân phải].móng chân.độ dài', Expression)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -78,7 +78,7 @@ describe('expression-member.test', () => {
     } as MemberExpression)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse member assignment', () => {
     const result = parser.parse('con chó.chân phải.móng chân.độ dài = 123', Expression)
 
     expect(toPlainObject(result)).toStrictEqual({

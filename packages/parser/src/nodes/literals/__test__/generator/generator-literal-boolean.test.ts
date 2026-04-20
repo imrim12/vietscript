@@ -4,7 +4,7 @@ import { Literal } from '@parser/nodes/literals/Literal'
 import parser from '../../../../setup-test'
 
 describe('generator-literal-boolean.test', () => {
-  it('should parse the syntax normally', () => {
+  it('should generate "đúng"', () => {
     const code = 'đúng'
 
     const ast = parser.parse(code, Literal)
@@ -14,7 +14,7 @@ describe('generator-literal-boolean.test', () => {
     expect(result.code).toMatchSnapshot()
   })
 
-  it('should parse the syntax normally', () => {
+  it('should generate "sai"', () => {
     const code = 'sai'
 
     const ast = parser.parse(code, Literal)

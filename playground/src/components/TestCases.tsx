@@ -1,10 +1,11 @@
+import type { ReactElement } from 'react'
 import type { TestCase } from 'src/types'
 import { Tabs } from 'antd'
 
 interface Props {
   testCases: TestCase[]
 }
-function TestCases({ testCases }: Props) {
+function TestCases({ testCases }: Props): ReactElement {
   return (
     <div>
       {testCases && (

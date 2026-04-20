@@ -3,7 +3,7 @@ import { Parser } from '@vietscript/parser'
 
 const generate = (generateDefault as any).default ?? generateDefault
 
-export default function vietScriptLoader(this: any, source: string) {
+export default function vietScriptLoader(this: any, source: string): string | undefined {
   const filename = this?.resourcePath as string | undefined
   const parser = new Parser()
   parser.filename = filename

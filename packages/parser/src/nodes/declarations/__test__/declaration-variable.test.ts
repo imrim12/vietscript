@@ -5,7 +5,7 @@ import toPlainObject from '../../../toPlainObject'
 import { Declaration } from '../Declaration'
 
 describe('declaration-variable.test', () => {
-  it('should parse the syntax normally', () => {
+  it('should parse `var a = 1`', () => {
     const result = parser.parse(`var a = 1`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -33,7 +33,7 @@ describe('declaration-variable.test', () => {
     } as VariableDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse `var a = 1, b`', () => {
     const result = parser.parse(`var a = 1, b`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -69,7 +69,7 @@ describe('declaration-variable.test', () => {
     } as VariableDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse `let a = 1`', () => {
     const result = parser.parse(`let a = 1`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -97,7 +97,7 @@ describe('declaration-variable.test', () => {
     } as VariableDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse `let a = 1, b`', () => {
     const result = parser.parse(`let a = 1, b`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -133,7 +133,7 @@ describe('declaration-variable.test', () => {
     } as VariableDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse `const a = 1`', () => {
     const result = parser.parse(`const a = 1`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -161,7 +161,7 @@ describe('declaration-variable.test', () => {
     } as VariableDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse `khai báo số một = 1`', () => {
     const result = parser.parse(`khai báo số một = 1`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -189,7 +189,7 @@ describe('declaration-variable.test', () => {
     } as VariableDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse `khai báo a = 1, b`', () => {
     const result = parser.parse(`khai báo a = 1, b`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -225,7 +225,7 @@ describe('declaration-variable.test', () => {
     } as VariableDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse `hằng số họ và tên = "Nguyễn"`', () => {
     const result = parser.parse(`hằng số họ và tên = "Nguyễn"`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -253,7 +253,7 @@ describe('declaration-variable.test', () => {
     } as VariableDeclaration)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse `khai báo tuổi = không xác định, tên = "Nhi"`', () => {
     const result = parser.parse(`khai báo tuổi = không xác định, tên = "Nhi"`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({

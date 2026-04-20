@@ -11,7 +11,7 @@ export class VariableDeclarator {
 
   init: Expression | null = null
 
-  constructor(parser: Parser, isConstant = false) {
+  constructor(parser: Parser, _isConstant = false) {
     let id: Identifier | ObjectPattern | ArrayPattern
     if (parser.lookahead?.type === '{')
       id = new ObjectPattern(parser)

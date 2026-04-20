@@ -5,7 +5,7 @@ import parser from '../../../setup-test'
 import toPlainObject from '../../../toPlainObject'
 
 describe('expression-call.test', () => {
-  it('should parse the syntax normally', () => {
+  it('should parse simple call', () => {
     const result = parser.parse('con chó.kêu()', Expression)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -28,7 +28,7 @@ describe('expression-call.test', () => {
     } as CallExpression)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse chained member call', () => {
     const result = parser.parse('con chó.chân phải.đá()', Expression)
 
     expect(toPlainObject(result)).toStrictEqual({
@@ -60,7 +60,7 @@ describe('expression-call.test', () => {
     } as CallExpression)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse computed member call', () => {
     const result = parser.parse('con chó[chân].đá()', Expression)
 
     expect(toPlainObject(result)).toStrictEqual({

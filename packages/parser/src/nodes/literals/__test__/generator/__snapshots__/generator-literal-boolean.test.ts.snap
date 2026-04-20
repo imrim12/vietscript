@@ -1,5 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`generator-literal-boolean.test > should parse the syntax normally 1`] = `"true"`;
+exports[`generator-literal-boolean.test > should generate "sai" 1`] = `"false"`;
 
-exports[`generator-literal-boolean.test > should parse the syntax normally 2`] = `"false"`;
+exports[`generator-literal-boolean.test > should generate "đúng" 1`] = `"true"`;

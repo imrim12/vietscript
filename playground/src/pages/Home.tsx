@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react'
+import type { Problem } from 'src/types'
 import { CheckOutlined, MacCommandOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Editor, useMonaco } from '@monaco-editor/react'
 import { Button, Card, Col, Drawer, Row, Tag } from 'antd'
@@ -12,26 +14,26 @@ import { monarchLanguage, richLanguageConfiguration } from 'src/editor/vietscrip
 import { supabase } from 'src/utils/supabase'
 import 'react-toastify/dist/ReactToastify.css'
 
-export default function Home() {
-  const [problems, setProblems] = useState<any[]>([])
+export default function Home(): ReactElement {
+  const [problems, setProblems] = useState<Problem[]>([])
   const [program, setProgram] = useState<string | undefined>(undefined)
-  const [selectedProblem, setSelectedProblem] = useState<any>()
+  const [selectedProblem, setSelectedProblem] = useState<Problem | undefined>()
   const [open, setOpen] = useState(false)
   const monaco = useMonaco()
 
-  const showDrawer = () => {
+  const showDrawer = (): void => {
     setOpen(true)
   }
-  const onClose = () => {
+  const onClose = (): void => {
     setOpen(false)
   }
 
-  const getProblems = async () => {
+  const getProblems = async (): Promise<void> => {
     const { data, error } = await supabase.from('problems').select('*')
     console.log(data)
     if (data) {
       setProblems(data)
-      setSelectedProblem(data.find(problem => problem.serial === 1))
+      setSelectedProblem(data.find((problem: Problem) => problem.serial === 1))
     }
     if (error)
       toast(error.message, { type: 'error' })
@@ -47,7 +49,7 @@ export default function Home() {
 
   useEffect(() => {
     // do conditional chaining
-    ;(monaco?.languages.typescript as any)?.javascriptDefaults?.setEagerModelSync(true)
+    monaco?.typescript?.javascriptDefaults?.setEagerModelSync(true)
     monaco?.languages.register(languageExtensionPoint)
     monaco?.languages.onLanguage(languageID, () => {
       monaco?.languages.setMonarchTokensProvider(languageID, monarchLanguage)
@@ -133,7 +135,7 @@ export default function Home() {
           </Card>
 
           <Card className="mt-2">
-            <Results id={selectedProblem?.id} program={program} fnName={selectedProblem?.meta_data.functionName} />
+            <Results id={selectedProblem?.id ?? ''} program={program} fnName={selectedProblem?.meta_data.functionName ?? ''} />
           </Card>
         </Col>
       </Row>

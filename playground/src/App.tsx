@@ -1,10 +1,11 @@
+import type { ReactElement } from 'react'
 import { ConfigProvider } from 'antd'
 import { ToastContainer } from 'react-toastify'
 import { theme } from './configs/antd.config'
 import useRouteElements from './useRoutesElement'
 import 'react-toastify/dist/ReactToastify.css'
 
-function App() {
+function App(): ReactElement {
   const routeElements = useRouteElements()
   return (
     <>

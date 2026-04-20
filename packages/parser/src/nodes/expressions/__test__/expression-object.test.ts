@@ -105,7 +105,7 @@ describe('expression-object.test', () => {
     } as ObjectExpression)
   })
 
-  it('should parse the syntax normally', () => {
+  it('should parse empty object `{}`', () => {
     const result = parser.parse(`{}`, Expression)
 
     expect(toPlainObject(result)).toStrictEqual({

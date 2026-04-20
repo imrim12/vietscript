@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 import { VietScriptError } from '@vietscript/parser'
 
 import { buildCommand } from './commands/build.js'
@@ -24,7 +26,7 @@ function printError(error: unknown): void {
   console.error(`Lỗi: ${err.message}`)
 }
 
-export async function main(argv: string[]) {
+export async function main(argv: string[]): Promise<void> {
   const args = argv.slice(2)
   const command = args[0]
 

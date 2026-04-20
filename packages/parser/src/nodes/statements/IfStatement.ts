@@ -1,4 +1,5 @@
 import type { Parser } from '@parser/parser'
+import type { Token } from '@vietscript/shared'
 import { Expression } from '@parser/nodes/expressions/Expression'
 import { Identifier } from '@parser/nodes/identifier/Identifier'
 import { Keyword } from '@vietscript/shared'
@@ -29,14 +30,12 @@ export class IfStatement {
     if (parser.lookahead?.type === Keyword.ELSE) {
       parser.eat(Keyword.ELSE)
 
-      // @ts-ignore
-      if (parser.lookahead?.type === Keyword.IF) {
+      const nextType: Token['type'] | undefined = parser.lookahead?.type
+      if (nextType === Keyword.IF) {
         this.alternate = new IfStatement(parser)
       }
       else {
-        this.alternate
-          // @ts-ignore
-          = parser.lookahead?.type === '{' ? new BlockStatement(parser) : new Statement(parser)
+        this.alternate = nextType === '{' ? new BlockStatement(parser) : new Statement(parser)
       }
     }
   }

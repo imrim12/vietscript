@@ -1,1 +1,3 @@
-export default (object: any) => JSON.parse(JSON.stringify(object))
+export default function toPlainObject(object: unknown): unknown {
+  return JSON.parse(JSON.stringify(object))
+}

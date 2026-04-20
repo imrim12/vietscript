@@ -1,4 +1,10 @@
-function genKeywords(keywords: string[], kind: any, range: any) {
+import type * as monacoEditor from 'monaco-editor'
+
+type MonacoNS = typeof monacoEditor
+type CompletionItem = monacoEditor.languages.CompletionItem
+type Range = monacoEditor.IRange
+
+function genKeywords(keywords: string[], kind: CompletionItem['kind'], range: Range): CompletionItem[] {
   return keywords.map((keyword) => {
     return {
       label: keyword,
@@ -34,7 +40,7 @@ export const KEYWORDS = [
   'in ra',
 ]
 
-export function createDependencyProposals(range: any, monaco: any) {
+export function createDependencyProposals(range: Range, monaco: MonacoNS): CompletionItem[] {
   return [
     ...genKeywords(KEYWORDS, monaco.languages.CompletionItemKind.Keyword, range),
     {

@@ -1,4 +1,4 @@
-export function formatFunctionName(name: string) {
+export function formatFunctionName(name: string): string {
   return `_${name.replace(/(\s)|(^\d+)|([^\sA-Z])/gi, (_, p1, p2, p3) => {
     if (p1)
       return '_'

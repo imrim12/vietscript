@@ -1,15 +1,16 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join, relative, resolve } from 'node:path'
+import process from 'node:process'
 
 import chokidar from 'chokidar'
 
 import { compile } from '../compile.js'
 
-export function watchCommand(srcDir: string, outDir: string) {
+export function watchCommand(srcDir: string, outDir: string): void {
   const absSrc = resolve(process.cwd(), srcDir)
   const absOut = resolve(process.cwd(), outDir)
 
-  function buildFile(file: string) {
+  function buildFile(file: string): void {
     try {
       const source = readFileSync(file, 'utf8')
       const { code, map } = compile(source, file)
