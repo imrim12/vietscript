@@ -1,6 +1,6 @@
 {
   "name": "@vietscript/parser",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.1",
   "description": "Vietnamese programming language - Ngôn ngữ lập trình tiếng Việt.",
   "type": "module",
   "exports": {

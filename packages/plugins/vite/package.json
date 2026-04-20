@@ -1,7 +1,7 @@
 {
   "name": "@vietscript/plugin-vite",
   "description": "A VietScript Vite plugin to load .vjs files.",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.1",
   "type": "module",
   "exports": {
     ".": {

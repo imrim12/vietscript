@@ -1,6 +1,6 @@
 {
   "name": "@vietscript/cli",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.1",
   "description": "VietScript CLI — run and build .vjs files.",
   "type": "module",
   "bin": {
