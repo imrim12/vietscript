@@ -5,19 +5,19 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
   "main": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "rimraf ./dist && vite build && cp ./dist/index.umd.cjs ./public/index.js"
+    "build": "rimraf ./dist && tsc -p tsconfig.build.json && vite build && cp ./dist/index.umd.cjs ./public/index.js"
   },
   "repository": {
     "type": "git",
@@ -47,7 +47,6 @@
     "rimraf": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "vite-plugin-dts": "catalog:",
     "vitest": "catalog:"
   }
 }

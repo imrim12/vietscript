@@ -7,12 +7,5 @@
     "emitDeclarationOnly": true
   },
   "include": ["src/**/*.ts"],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "**/__test__/**",
-    "**/*.test.ts",
-    "**/*.spec.ts",
-    "src/setup-test.ts"
-  ]
+  "exclude": ["node_modules", "dist", "vite.config.ts"]
 }

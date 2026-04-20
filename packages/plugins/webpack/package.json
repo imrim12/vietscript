@@ -5,12 +5,13 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
   "main": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imrim12/vietscript.git",
@@ -25,14 +26,13 @@
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "rimraf ./dist && vite build"
+    "build": "rimraf ./dist && tsc -p tsconfig.build.json && vite build"
   },
   "devDependencies": {
     "@types/node": "catalog:",
     "rimraf": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "vite-plugin-dts": "catalog:",
     "webpack": "catalog:",
     "webpack-cli": "catalog:"
   },
