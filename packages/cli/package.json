@@ -11,6 +11,14 @@
     ".": {
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./loader": {
+      "import": "./dist/loader.js",
+      "default": "./dist/loader.js"
+    },
+    "./register": {
+      "import": "./dist/register.js",
+      "default": "./dist/register.js"
     }
   },
   "main": "./dist/index.js",

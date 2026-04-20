@@ -4,6 +4,9 @@ importers:
 
   .:
     dependencies:
+      '@vietscript/cli':
+        specifier: workspace:*
+        version: link:packages/cli
       '@vietscript/parser':
         specifier: workspace:*
         version: link:packages/parser
