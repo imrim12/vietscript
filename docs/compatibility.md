@@ -217,10 +217,13 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 | Identifier có dấu cách tiếng Việt | ✅ | `số chân`, `Con Mèo` — hoạt động |
 | Identifier mangling (Babel output) | ✅ | Output dùng Unicode trực tiếp: `xin chào` → `xin_chào` |
 | Source map | ✅ | Sinh qua `@babel/generator`, CLI run + build hỗ trợ |
-| Custom element `<vi-script>` | 🟡 | Có declare, chưa implement đầy đủ ([index.ts](../packages/parser/src/index.ts)) |
+| Custom element `<vi-script>` | ❌ | Post-v1 (dùng plugin Vite/Webpack) |
 | CLI | ✅ | `vietscript run/build/watch/check` |
-| Vite plugin | 🟡 | Có package, cần test với project thật |
-| Webpack loader | 🟡 | Tương tự |
+| Vite plugin | ✅ | Source maps + transform `.vjs` |
+| Webpack loader | ✅ | Source maps qua `this.callback` |
+| Node ESM loader | ✅ | `node --import '@vietscript/cli/register' file.vjs` |
+| Bun plugin | ✅ | `@vietscript/cli/bun-plugin` |
+| Stdlib | ✅ | `@vietscript/stdlib` — wrappers tiếng Việt cho JS globals |
 
 ---
 
