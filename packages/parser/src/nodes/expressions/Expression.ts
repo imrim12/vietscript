@@ -279,6 +279,7 @@ export class Expression {
           }
           case "(": {
             Object.assign(this, new CallExpression(parser, identifier));
+            this.applyPostfix(parser);
             break;
           }
           case "[":
