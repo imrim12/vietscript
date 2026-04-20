@@ -28,12 +28,11 @@
     "build": "rimraf ./dist && vite build"
   },
   "devDependencies": {
-    "@vitest/ui": "catalog:",
+    "@types/node": "catalog:",
     "rimraf": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plugin-dts": "catalog:",
-    "vitest": "catalog:",
     "webpack": "catalog:",
     "webpack-cli": "catalog:"
   },

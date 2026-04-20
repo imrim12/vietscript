@@ -1,28 +1,15 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist",
-    "moduleResolution": "Bundler",
-    "types": [
-      "node",
-      "vite/client",
-      "vitest/globals"
-    ],
+    "strictPropertyInitialization": false,
+    "types": ["node", "vite/client", "vitest/globals"],
     "paths": {
-      "@parser": [
-        "./src/index.ts"
-      ],
-      "@parser/*": [
-        "./src/*"
-      ]
+      "@parser": ["./src/index.ts"],
+      "@parser/*": ["./src/*"]
     }
   },
-  "include": [
-    "./**/*.ts"
-  ],
-  "exclude": [
-    "./node_modules",
-    "./dist"
-  ]
+  "include": ["src/**/*.ts", "vite.config.ts"],
+  "exclude": ["node_modules", "dist"]
 }

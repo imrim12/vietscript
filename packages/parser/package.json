@@ -44,7 +44,6 @@
     "@vietscript/shared": "workspace:*",
     "@types/node": "catalog:",
     "@vitest/ui": "catalog:",
-    "lodash": "catalog:",
     "rimraf": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",

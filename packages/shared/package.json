@@ -5,6 +5,9 @@
   "files": [
     "./"
   ],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imrim12/vietscript.git",
@@ -15,11 +18,6 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@vitest/ui": "catalog:",
-    "rimraf": "catalog:",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vite-plugin-dts": "catalog:",
-    "vitest": "catalog:"
+    "typescript": "catalog:"
   }
 }

@@ -40,7 +40,7 @@ catalogs:
       specifier: ^4.17.24
       version: 4.17.24
     '@types/node':
-      specifier: ^22.18.10
+      specifier: ^22.19.17
       version: 22.19.17
     '@types/react':
       specifier: ^18.3.12
@@ -352,9 +352,6 @@ importers:
       '@vitest/ui':
         specifier: 'catalog:'
         version: 4.1.4(vitest@4.1.4)
-      lodash:
-        specifier: 'catalog:'
-        version: 4.18.1
       rimraf:
         specifier: 'catalog:'
         version: 6.1.3
@@ -380,9 +377,9 @@ importers:
         specifier: workspace:*
         version: link:../../parser
     devDependencies:
-      '@vitest/ui':
+      '@types/node':
         specifier: 'catalog:'
-        version: 4.1.4(vitest@4.1.4)
+        version: 22.19.17
       rimraf:
         specifier: 'catalog:'
         version: 6.1.3
@@ -395,9 +392,6 @@ importers:
       vite-plugin-dts:
         specifier: 'catalog:'
         version: 4.5.4(@types/node@22.19.17)(rollup@4.60.2)(typescript@5.9.3)(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))
-      vitest:
-        specifier: 'catalog:'
-        version: 4.1.4(@types/node@22.19.17)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@29.0.2)(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))
 
   packages/plugins/webpack:
     dependencies:
@@ -408,9 +402,9 @@ importers:
         specifier: workspace:*
         version: link:../../parser
     devDependencies:
-      '@vitest/ui':
+      '@types/node':
         specifier: 'catalog:'
-        version: 4.1.4(vitest@4.1.4)
+        version: 22.19.17
       rimraf:
         specifier: 'catalog:'
         version: 6.1.3
@@ -423,9 +417,6 @@ importers:
       vite-plugin-dts:
         specifier: 'catalog:'
         version: 4.5.4(@types/node@22.19.17)(rollup@4.60.2)(typescript@5.9.3)(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))
-      vitest:
-        specifier: 'catalog:'
-        version: 4.1.4(@types/node@22.19.17)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@29.0.2)(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))
       webpack:
         specifier: 'catalog:'
         version: 5.106.2(webpack-cli@7.0.2)
@@ -435,24 +426,9 @@ importers:
 
   packages/shared:
     devDependencies:
-      '@vitest/ui':
-        specifier: 'catalog:'
-        version: 4.1.4(vitest@4.1.4)
-      rimraf:
-        specifier: 'catalog:'
-        version: 6.1.3
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
-      vite:
-        specifier: 'catalog:'
-        version: 8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3)
-      vite-plugin-dts:
-        specifier: 'catalog:'
-        version: 4.5.4(@types/node@22.19.17)(rollup@4.60.2)(typescript@5.9.3)(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))
-      vitest:
-        specifier: 'catalog:'
-        version: 4.1.4(@types/node@22.19.17)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@29.0.2)(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))
 
   packages/stdlib:
     devDependencies:
@@ -462,6 +438,9 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
+      vitest:
+        specifier: 'catalog:'
+        version: 4.1.4(@types/node@22.19.17)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@29.0.2)(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))
 
   playground:
     dependencies:

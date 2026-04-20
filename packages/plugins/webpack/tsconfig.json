@@ -1,11 +1,10 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist",
-    "moduleResolution": "Bundler",
-    "types": ["vite/client", "vitest/globals"]
+    "types": ["node", "vite/client"]
   },
-  "include": ["./**/*.ts", "./**/*.tsx", "./**/*.d.ts"],
-  "exclude": ["./node_modules", "./dist"]
+  "include": ["src/**/*.ts", "vite.config.ts"],
+  "exclude": ["node_modules", "dist"]
 }
