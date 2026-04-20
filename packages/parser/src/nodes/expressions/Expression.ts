@@ -28,6 +28,31 @@ import { TaggedTemplateExpression } from "./TaggedTemplateExpression";
 export class Expression {
   [key: string]: any;
 
+  applyPostfix(parser: Parser) {
+    while (true) {
+      const t = parser.lookahead?.type as string;
+      if (t === "." || t === "[" || t === "?.") {
+        const snapshot = { ...this } as Expression;
+        for (const key of Object.keys(this)) delete (this as any)[key];
+        Object.assign(this, new MemberExpression(parser, snapshot));
+        continue;
+      }
+      if (t === "(") {
+        const snapshot = { ...this } as Expression;
+        for (const key of Object.keys(this)) delete (this as any)[key];
+        Object.assign(this, new CallExpression(parser, snapshot));
+        continue;
+      }
+      if (t === "??" || t === "||" || t === "&&") {
+        const snapshot = { ...this } as Expression;
+        for (const key of Object.keys(this)) delete (this as any)[key];
+        Object.assign(this, new LogicalExpression(parser, snapshot as any));
+        continue;
+      }
+      break;
+    }
+  }
+
   constructor(parser: Parser) {
     switch (parser.lookahead?.type as string) {
       case Keyword.ASYNC:
@@ -37,6 +62,7 @@ export class Expression {
       }
       case "[": {
         Object.assign(this, new ArrayExpression(parser));
+        this.applyPostfix(parser);
         break;
       }
       case "(": {
@@ -48,6 +74,7 @@ export class Expression {
       }
       case "{": {
         Object.assign(this, new ObjectExpression(parser));
+        this.applyPostfix(parser);
         break;
       }
       case Keyword.NUMBER:
@@ -112,8 +139,53 @@ export class Expression {
       case Keyword.THIS: {
         Object.assign(this, new ThisExpression(parser));
 
-        if (parser.lookahead?.type === ".") {
-          Object.assign(this, new MemberExpression(parser, this));
+        if (
+          parser.lookahead?.type === "." ||
+          parser.lookahead?.type === "[" ||
+          parser.lookahead?.type === "?."
+        ) {
+          const member = new MemberExpression(parser, { ...this } as Expression);
+          Object.assign(this, member);
+        }
+
+        switch (parser.lookahead?.type as string) {
+          case "=":
+          case "+=":
+          case "-=":
+          case "*=":
+          case "/=":
+          case "%=":
+          case "**=":
+          case "&=":
+          case "|=":
+          case "^=":
+          case "<<=":
+          case ">>=":
+          case ">>>=":
+          case "&&=":
+          case "||=":
+          case "??=": {
+            Object.assign(this, new AssignmentExpression(parser, { ...this } as Expression));
+            break;
+          }
+          case "(": {
+            Object.assign(this, new CallExpression(parser, { ...this } as Expression));
+            break;
+          }
+          case "++":
+          case "--": {
+            const op = parser.lookahead?.value as string;
+            parser.eat(op);
+            const snapshot = { ...this } as Expression;
+            for (const key of Object.keys(this)) delete (this as any)[key];
+            Object.assign(this, {
+              type: "UpdateExpression",
+              operator: op,
+              argument: snapshot,
+              prefix: false,
+            });
+            break;
+          }
         }
         break;
       }
@@ -214,8 +286,23 @@ export class Expression {
           case "?.": {
             const memberExpression = new MemberExpression(parser, identifier);
 
-            switch (parser.lookahead?.type) {
-              case "=": {
+            switch (parser.lookahead?.type as string) {
+              case "=":
+              case "+=":
+              case "-=":
+              case "*=":
+              case "/=":
+              case "%=":
+              case "**=":
+              case "&=":
+              case "|=":
+              case "^=":
+              case "<<=":
+              case ">>=":
+              case ">>>=":
+              case "&&=":
+              case "||=":
+              case "??=": {
                 Object.assign(this, new AssignmentExpression(parser, memberExpression));
                 break;
               }
@@ -225,6 +312,7 @@ export class Expression {
               }
               default: {
                 Object.assign(this, memberExpression);
+                this.applyPostfix(parser);
                 break;
               }
             }

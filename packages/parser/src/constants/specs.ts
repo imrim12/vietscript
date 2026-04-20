@@ -1,6 +1,6 @@
 import { Keyword, Spec } from "@vietscript/shared";
 
-export const SpecIdentifier = [/^[A-Za-z\u00C0-\u1EF9]+(\s[A-Za-z\u00C0-\u1EF9]+)*/, Keyword.IDENTIFIER] as Spec;
+export const SpecIdentifier = [/^[A-Za-z\u00C0-\u1EF9][A-Za-z0-9\u00C0-\u1EF9]*(\s[A-Za-z\u00C0-\u1EF9][A-Za-z0-9\u00C0-\u1EF9]*)*/, Keyword.IDENTIFIER] as Spec;
 
 export const Specs: Array<Spec> = [
   // --------------------------------------

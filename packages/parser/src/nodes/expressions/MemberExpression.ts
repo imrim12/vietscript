@@ -1,6 +1,7 @@
 import { Parser } from "@parser";
 
 import { Identifier } from "../identifier/Identifier";
+import { PrivateName } from "../identifier/PrivateName";
 
 import { Expression } from "./Expression";
 
@@ -32,7 +33,11 @@ export class MemberExpression {
         case ".": {
           parser.eat(".");
           this.object = this.property ? { ...this } : { ...this.object };
-          this.property = new Identifier(parser);
+          if ((parser.lookahead?.type as string) === "#") {
+            this.property = new PrivateName(parser) as any;
+          } else {
+            this.property = new Identifier(parser);
+          }
           this.computed = false;
           this.optional = false;
           break;

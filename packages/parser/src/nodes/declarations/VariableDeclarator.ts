@@ -3,17 +3,13 @@ import { Expression } from "@parser/nodes/expressions/Expression";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
 import { ObjectPattern } from "@parser/nodes/patterns/ObjectPattern";
 import { ArrayPattern } from "@parser/nodes/patterns/ArrayPattern";
-import { Keyword } from "@vietscript/shared";
 
 export class VariableDeclarator {
   type = "VariableDeclarator";
 
   id: Identifier | ObjectPattern | ArrayPattern;
 
-  init: Expression = {
-    type: Keyword.IDENTIFIER,
-    name: "undefined",
-  };
+  init: Expression | null = null;
 
   constructor(parser: Parser, isConstant = false) {
     let id: Identifier | ObjectPattern | ArrayPattern;

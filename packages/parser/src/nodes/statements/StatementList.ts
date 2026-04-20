@@ -1,5 +1,7 @@
 import { Parser } from "@parser/parser";
 
+import { VietScriptError } from "../../errors";
+
 import { EmptyStatement } from "./EmptyStatement";
 import { StatementListItem } from "./StatementListItem";
 
@@ -22,7 +24,14 @@ export class StatementList {
       const statement = new StatementListItem(parser);
 
       if (parser.lookahead === beforeToken && parser.lookahead !== null) {
-        throw new SyntaxError(`Unexpected token: "${parser.lookahead?.value}" không thể bắt đầu một câu lệnh`);
+        throw new VietScriptError(
+          `Unexpected token: "${parser.lookahead.value}" không thể bắt đầu một câu lệnh`,
+          {
+            file: parser.filename,
+            source: parser.syntax,
+            offset: parser.lookahead.start,
+          },
+        );
       }
 
       if (statement !== undefined && Object.keys(statement).length > 0) {
