@@ -13,11 +13,11 @@ describe("expression-binary.test", () => {
       operator: "===",
       left: {
         type: "Identifier",
-        name: "_xin_ch224o",
+        name: "xin_chào",
       },
       right: {
         type: "Identifier",
-        name: "_hello",
+        name: "hello",
       },
     } as BinaryExpression);
   });

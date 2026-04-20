@@ -1,0 +1,13 @@
+hằng số tên = "Thế giới"
+console.log(`Xin chào, ${tên}!`)
+
+hàm cộng(a, b = 0) {
+  trả về a + b
+}
+
+console.log("1 + 2 =", cộng(1, 2))
+console.log("5 + 0 =", cộng(5))
+
+hằng số mảng = [1, 2, 3, 4, 5]
+hằng số tổng = mảng.reduce((acc, x) => acc + x, 0)
+console.log("Tổng:", tổng)

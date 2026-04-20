@@ -11,7 +11,7 @@ describe("generator-expression-call.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`_con_ch243._k234u()`);
+    expect(result.code).toBe(`con_chó.kêu()`);
   });
 
   it("should parse the syntax normally", () => {
@@ -21,7 +21,7 @@ describe("generator-expression-call.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`_con_ch243._ch226n_ph7843i._273225()`);
+    expect(result.code).toBe(`con_chó.chân_phải.đá()`);
   });
 
   it("should parse the syntax normally", () => {
@@ -31,6 +31,6 @@ describe("generator-expression-call.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`_con_ch243[_ch226n]._273225()`);
+    expect(result.code).toBe(`con_chó[chân].đá()`);
   });
 });

@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-array-pattern.test > should generate array pattern in param 1`] = `"function f([a, b]) {}"`;
+
+exports[`generator-array-pattern.test > should generate default array destructuring 1`] = `"var [a = 1] = arr;"`;
+
+exports[`generator-array-pattern.test > should generate nested array pattern 1`] = `"var [a, [b, c]] = arr;"`;
+
+exports[`generator-array-pattern.test > should generate rest array destructuring 1`] = `"var [a, ...rest] = arr;"`;
+
+exports[`generator-array-pattern.test > should generate simple array destructuring 1`] = `"var [a, b] = arr;"`;

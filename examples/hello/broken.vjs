@@ -1,0 +1,4 @@
+hằng số tổng = 10
+nếu (tổng >) {
+  console.log("error")
+}

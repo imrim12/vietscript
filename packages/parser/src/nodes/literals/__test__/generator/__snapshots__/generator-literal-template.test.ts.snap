@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-literal-template.test > should generate multiple interpolations 1`] = `"\`\${a}-\${b}-\${c}\`"`;
+
+exports[`generator-literal-template.test > should generate plain template 1`] = `"\`Xin chào!\`"`;
+
+exports[`generator-literal-template.test > should generate single interpolation 1`] = `"\`Xin chào \${ten}!\`"`;

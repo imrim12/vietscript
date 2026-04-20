@@ -22,11 +22,11 @@ describe("declaration-class.test", () => {
       type: "ClassDeclaration",
       id: {
         type: "Identifier",
-        name: "_Con_M232o",
+        name: "Con_Mèo",
       },
       superClass: {
         type: "Identifier",
-        name: "_2727897ng_V7853t",
+        name: "Động_Vật",
       },
       body: {
         type: "ClassBody",
@@ -37,7 +37,7 @@ describe("declaration-class.test", () => {
             computed: false,
             key: {
               type: "Identifier",
-              name: "_s7889_ch226n",
+              name: "số_chân",
             },
             value: {
               type: "NumericLiteral",
@@ -56,7 +56,7 @@ describe("declaration-class.test", () => {
             computed: false,
             key: {
               type: "Identifier",
-              name: "_k234u",
+              name: "kêu",
             },
             kind: "method",
             id: null,
@@ -65,11 +65,11 @@ describe("declaration-class.test", () => {
             params: [
               {
                 type: "Identifier",
-                name: "_s7889_l7847n",
+                name: "số_lần",
               },
               {
                 type: "Identifier",
-                name: "_hmm",
+                name: "hmm",
               },
             ],
             body: {

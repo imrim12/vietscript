@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-yield-async.test > should generate async generator function 1`] = `
+"async function* gen() {
+  yield 1;
+}"
+`;
+
+exports[`generator-yield-async.test > should generate generator function 1`] = `
+"function* gen() {
+  yield 1;
+}"
+`;
+
+exports[`generator-yield-async.test > should generate yield delegation 1`] = `"yield* other"`;

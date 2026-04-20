@@ -2,6 +2,7 @@ import { Keyword, Token } from "@vietscript/shared";
 
 import { Tokenizer } from "./tokenizer";
 import { Program } from "./nodes/Program";
+import { VietScriptError } from "./errors";
 
 export class Parser {
   public syntax: string;
@@ -10,9 +11,8 @@ export class Parser {
 
   public lookahead: Token | null;
 
-  /**
-   * Initializes the parser.
-   */
+  public filename?: string;
+
   constructor() {
     this.syntax = "";
     this.tokenizer = new Tokenizer(this);
@@ -21,9 +21,6 @@ export class Parser {
 
   public parse(syntax: string, InitAtsNodeClass?: any): any;
 
-  /**
-   * Parse a Formkl syntax string into Formkl object
-   */
   public parse(syntax: string) {
     this.lookahead = null;
     this.syntax = "";
@@ -36,27 +33,33 @@ export class Parser {
     return new Program(this);
   }
 
-  /**
-   * Expects a token of a given type.
-   */
   eat(tokenType: Token["type"]) {
     const token = this.lookahead;
 
     if (token === null) {
-      throw new SyntaxError(`Unexpected end of input, expected: "${tokenType}"`);
+      throw new VietScriptError(`Unexpected end of input, expected: "${tokenType}"`, {
+        file: this.filename,
+        source: this.syntax,
+        offset: this.syntax.length,
+      });
     }
 
     if (token.type !== tokenType) {
-      switch (tokenType) {
-        case Keyword.IDENTIFIER: {
-          throw new SyntaxError(
-            `Unexpected token: "${token.value}", cannot use keyword "${token.value}" for the beginning of the identifer`,
-          );
-        }
-        default: {
-          throw new SyntaxError(`Unexpected token: "${token.value}", expected: "${tokenType}"`);
-        }
+      if (tokenType === Keyword.IDENTIFIER) {
+        throw new VietScriptError(
+          `Unexpected token: "${token.value}", cannot use keyword "${token.value}" for the beginning of the identifer`,
+          {
+            file: this.filename,
+            source: this.syntax,
+            offset: token.start,
+          },
+        );
       }
+      throw new VietScriptError(`Unexpected token: "${token.value}", expected: "${tokenType}"`, {
+        file: this.filename,
+        source: this.syntax,
+        offset: token.start,
+      });
     }
 
     this.lookahead = this.tokenizer.getNextToken();

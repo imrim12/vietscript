@@ -6,17 +6,13 @@ import { Identifier } from "../identifier/Identifier";
 export class ContinueStatement {
   type = "ContinueStatement";
 
-  label: null | string;
+  label: Identifier | null = null;
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.BREAK);
-
-    let label: ContinueStatement["label"] = null;
+    parser.eat(Keyword.CONTINUE);
 
     if (parser.lookahead?.type === Keyword.IDENTIFIER) {
-      label = new Identifier(parser).name;
+      this.label = new Identifier(parser);
     }
-
-    this.label = label;
   }
 }

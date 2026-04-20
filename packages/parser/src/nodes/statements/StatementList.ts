@@ -13,18 +13,21 @@ export class StatementList {
       parser.tokenizer.isEOF() === false &&
       !stopTokens?.includes(String(parser.lookahead?.type))
     ) {
+      const beforeToken = parser.lookahead;
       const statement = new StatementListItem(parser);
 
-      if (statement !== undefined) {
+      if (parser.lookahead === beforeToken && parser.lookahead !== null) {
+        throw new SyntaxError(`Unexpected token: "${parser.lookahead?.value}" không thể bắt đầu một câu lệnh`);
+      }
+
+      if (statement !== undefined && Object.keys(statement).length > 0) {
         statements.push(statement);
       }
 
-      // Eat the first ";" after every statement
       if (parser.lookahead?.type === ";") {
         parser.eat(";");
       }
 
-      // The rest would be empty statements
       while (parser.lookahead?.type === ";") {
         statements.push(new EmptyStatement(parser));
       }

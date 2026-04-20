@@ -1,6 +1,6 @@
 import { Parser } from "@parser/parser";
 import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
-import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { ParameterList, Parameter } from "@parser/nodes/declarations/ParameterList";
 import { Keyword } from "@vietscript/shared";
 
 export class FunctionExpression {
@@ -14,7 +14,7 @@ export class FunctionExpression {
 
   async = false;
 
-  params: Array<Identifier> = [];
+  params: Array<Parameter> = [];
 
   body: BlockStatement;
 
@@ -35,23 +35,11 @@ export class FunctionExpression {
 
     parser.eat("(");
 
-    const parameters: Array<Identifier> = [];
-
-    while (parser.lookahead?.type !== ")") {
-      if (parameters.length > 0) {
-        parser.eat(",");
-      }
-
-      parameters.push(new Identifier(parser));
-    }
+    this.params = new ParameterList(parser, ")").parameters;
 
     parser.eat(")");
 
-    const body = new BlockStatement(parser);
-
+    this.body = new BlockStatement(parser);
     this.id = null;
-    this.expression = false;
-    this.params = parameters;
-    this.body = body;
   }
 }

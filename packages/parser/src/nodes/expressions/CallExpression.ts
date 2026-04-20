@@ -2,12 +2,14 @@ import { Parser } from "@parser/parser";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
 import { Expression } from "@parser/nodes/expressions/Expression";
 
+import { SpreadElement } from "./SpreadElement";
+
 export class CallExpression {
   type = "CallExpression";
 
   callee: Identifier | Expression;
 
-  arguments: Array<Identifier | Expression> = [];
+  arguments: Array<Identifier | Expression | SpreadElement> = [];
 
   optional = false;
 
@@ -21,7 +23,11 @@ export class CallExpression {
         parser.eat(",");
       }
 
-      this.arguments.push(new Expression(parser));
+      if (parser.lookahead?.type === "...") {
+        this.arguments.push(new SpreadElement(parser));
+      } else {
+        this.arguments.push(new Expression(parser));
+      }
     }
 
     parser.eat(")");

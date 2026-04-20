@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-private-field.test > should generate private field 1`] = `
+"class Cat {
+  #tuổi = 3;
+}"
+`;
+
+exports[`generator-private-field.test > should generate private field without init 1`] = `
+"class Cat {
+  #tuổi;
+}"
+`;

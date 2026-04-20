@@ -1,6 +1,7 @@
 import { Expression } from "@parser/nodes/expressions/Expression";
 import { FunctionExpression } from "@parser/nodes/expressions/FunctionExpression";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { PrivateName } from "@parser/nodes/identifier/PrivateName";
 import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
 import { Parser } from "@parser/parser";
 import { Keyword } from "@vietscript/shared";
@@ -10,7 +11,7 @@ export class ClassMethod {
 
   static = false;
 
-  key: Identifier | Expression;
+  key: Identifier | Expression | PrivateName;
 
   computed = false;
 
@@ -22,7 +23,7 @@ export class ClassMethod {
 
   async = false;
 
-  params: Identifier[] = [];
+  params: any[] = [];
 
   body: BlockStatement;
 
@@ -51,6 +52,9 @@ export class ClassMethod {
       this.key = new Expression(parser);
       this.computed = true;
       parser.eat("]");
+    } else if (parser.lookahead?.type === "#") {
+      this.key = new PrivateName(parser);
+      this.type = "ClassPrivateMethod" as any;
     } else {
       this.key = new Identifier(parser);
     }

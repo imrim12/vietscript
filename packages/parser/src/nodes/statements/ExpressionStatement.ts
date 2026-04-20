@@ -2,12 +2,18 @@ import { Parser } from "@parser/parser";
 
 import { Expression } from "../expressions/Expression";
 
-export class ExpressionStatement {
-  type = "ExpressionStatement";
+const STATEMENT_TYPES = new Set(["LabeledStatement"]);
 
-  expression: Expression;
+export class ExpressionStatement {
+  [key: string]: any;
 
   constructor(parser: Parser) {
-    this.expression = new Expression(parser);
+    const expr = new Expression(parser);
+    if (STATEMENT_TYPES.has((expr as any).type)) {
+      Object.assign(this, expr);
+      return;
+    }
+    this.type = "ExpressionStatement";
+    this.expression = expr;
   }
 }

@@ -24,9 +24,10 @@ describe("expression-object.test", () => {
           type: "ObjectProperty",
           method: false,
           computed: false,
+          shorthand: false,
           key: {
             type: "Identifier",
-            name: "_ti7871ng_k234u",
+            name: "tiếng_kêu",
           },
           value: {
             type: "StringLiteral",
@@ -43,9 +44,10 @@ describe("expression-object.test", () => {
           type: "ObjectProperty",
           method: false,
           computed: false,
+          shorthand: false,
           key: {
             type: "Identifier",
-            name: "_s7889_ch226n",
+            name: "số_chân",
           },
           value: {
             type: "NumericLiteral",
@@ -63,7 +65,7 @@ describe("expression-object.test", () => {
           method: true,
           key: {
             type: "Identifier",
-            name: "_k234u",
+            name: "kêu",
           },
           computed: false,
           kind: "method",
@@ -72,11 +74,11 @@ describe("expression-object.test", () => {
           params: [
             {
               type: "Identifier",
-              name: "_s7889_l7847n",
+              name: "số_lần",
             },
             {
               type: "Identifier",
-              name: "_hmm",
+              name: "hmm",
             },
           ],
           body: {

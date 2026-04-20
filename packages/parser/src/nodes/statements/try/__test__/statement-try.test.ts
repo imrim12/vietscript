@@ -31,7 +31,7 @@ describe("statement-try.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "_g236_273243",
+                  name: "gì_đó",
                 },
                 init: {
                   type: "Identifier",
@@ -56,7 +56,7 @@ describe("statement-try.test", () => {
                   type: "VariableDeclarator",
                   id: {
                     type: "Identifier",
-                    name: "_g236_273243_kh225c",
+                    name: "gì_đó_khác",
                   },
                   init: {
                     type: "Identifier",
@@ -70,7 +70,7 @@ describe("statement-try.test", () => {
         },
         param: {
           type: "Identifier",
-          name: "_l7895i",
+          name: "lỗi",
         },
       },
       finalizer: {
@@ -84,7 +84,7 @@ describe("statement-try.test", () => {
                 type: "VariableDeclarator",
                 id: {
                   type: "Identifier",
-                  name: "_g236_273243_kh225c_n7919a",
+                  name: "gì_đó_khác_nữa",
                 },
                 init: {
                   type: "Identifier",

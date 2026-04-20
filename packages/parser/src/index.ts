@@ -6,6 +6,7 @@ export default parser;
 
 export { Tokenizer } from "./tokenizer";
 export { Parser } from "./parser";
+export { VietScriptError } from "./errors";
 
 if (typeof window !== "undefined") {
   customElements.define(

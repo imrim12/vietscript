@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-optional-chain.test > should generate chained optional 1`] = `"a?.b?.c"`;
+
+exports[`generator-optional-chain.test > should generate optional computed 1`] = `"a?.[k]"`;
+
+exports[`generator-optional-chain.test > should generate optional member 1`] = `"a?.b"`;

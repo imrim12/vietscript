@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-expression-spread.test > should generate spread in array 1`] = `"[1, ...a, 2]"`;
+
+exports[`generator-expression-spread.test > should generate spread in call 1`] = `"f(1, ...args)"`;
+
+exports[`generator-expression-spread.test > should generate spread in object 1`] = `
+"{
+  a: 1,
+  ...o
+}"
+`;

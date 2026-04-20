@@ -6,17 +6,13 @@ import { Identifier } from "../identifier/Identifier";
 export class BreakStatement {
   type = "BreakStatement";
 
-  label: null | string;
+  label: Identifier | null = null;
 
   constructor(parser: Parser) {
     parser.eat(Keyword.BREAK);
 
-    let label: BreakStatement["label"] = null;
-
     if (parser.lookahead?.type === Keyword.IDENTIFIER) {
-      label = new Identifier(parser).name;
+      this.label = new Identifier(parser);
     }
-
-    this.label = label;
   }
 }

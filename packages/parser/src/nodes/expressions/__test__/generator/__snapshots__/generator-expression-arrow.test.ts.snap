@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator-expression-arrow.test > should generate javascript from block body arrow 1`] = `
+"() => {
+  return 1;
+}"
+`;
+
+exports[`generator-expression-arrow.test > should generate javascript from empty param arrow 1`] = `"() => 1"`;
+
+exports[`generator-expression-arrow.test > should generate javascript from multi param arrow 1`] = `"(x, y) => x"`;
+
+exports[`generator-expression-arrow.test > should generate javascript from single param arrow 1`] = `"x => x"`;

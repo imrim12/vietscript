@@ -4,69 +4,98 @@ import { Statement } from "@parser/nodes/statements/Statement";
 import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
 import { Expression } from "@parser/nodes/expressions/Expression";
 import { Identifier } from "@parser/nodes/identifier/Identifier";
+import { ObjectPattern } from "@parser/nodes/patterns/ObjectPattern";
+import { ArrayPattern } from "@parser/nodes/patterns/ArrayPattern";
 import { Keyword } from "@vietscript/shared";
 
-// import { ForInOfStatement } from "./ForInOfStatement";
+type ForInit = VariableDeclaration | Identifier | ObjectPattern | ArrayPattern | undefined;
 
 export class ForStatement {
-  type = "ForStatement";
-
-  init: VariableDeclaration | Identifier;
-
-  test: Expression;
-
-  update: Expression;
-
-  body: Statement | BlockStatement;
+  [key: string]: any;
 
   constructor(parser: Parser) {
     parser.eat(Keyword.FOR);
 
-    let isAsync = false;
-
+    let isAwait = false;
     if (parser.lookahead?.type === Keyword.AWAIT) {
       parser.eat(Keyword.AWAIT);
-      isAsync = true;
+      isAwait = true;
     }
 
     parser.eat("(");
 
-    if (!isAsync && parser.lookahead?.type !== Keyword.IN && parser.lookahead?.type !== Keyword.OF) {
+    let left: ForInit;
+    if (parser.lookahead?.type !== ";") {
       switch (parser.lookahead?.type) {
         case Keyword.VAR:
-        case Keyword.LET: {
-          this.init = new VariableDeclaration(parser);
+        case Keyword.LET:
+        case Keyword.CONST: {
+          left = new VariableDeclaration(parser);
           break;
         }
-        case Keyword.CONST: {
-          throw new Error("Const declarations are not allowed in for loops");
+        case "{": {
+          left = new ObjectPattern(parser);
+          break;
+        }
+        case "[": {
+          left = new ArrayPattern(parser);
+          break;
         }
         default: {
-          // TODO: LexicalDeclaration instead of Identifier
-          this.init = new Identifier(parser);
-          break;
+          left = new Identifier(parser);
         }
       }
-
-      parser.eat(";");
-
-      this.test = new Expression(parser);
-
-      if (parser.lookahead?.type === ";") {
-        parser.eat(";");
-      }
-
-      if (parser.lookahead?.type !== ")") {
-        this.update = new Expression(parser);
-      }
-    } else {
-      // Contains only type, left and right as LeftHandSideExpression
-      // Object.assign(this, new ForInOfStatement(parser, isAsync));
-      throw new Error("For loop with in or of is not implemented");
     }
+
+    if (parser.lookahead?.type === Keyword.OF) {
+      parser.eat(Keyword.OF);
+      const right = new Expression(parser);
+      parser.eat(")");
+      const body = parser.lookahead?.type === "{" ? new BlockStatement(parser) : new Statement(parser);
+
+      Object.assign(this, {
+        type: "ForOfStatement",
+        left,
+        right,
+        body,
+        await: isAwait,
+      });
+      return;
+    }
+
+    if (parser.lookahead?.type === Keyword.IN) {
+      parser.eat(Keyword.IN);
+      const right = new Expression(parser);
+      parser.eat(")");
+      const body = parser.lookahead?.type === "{" ? new BlockStatement(parser) : new Statement(parser);
+
+      Object.assign(this, {
+        type: "ForInStatement",
+        left,
+        right,
+        body,
+      });
+      return;
+    }
+
+    parser.eat(";");
+
+    const test = parser.lookahead?.type === ";" ? null : new Expression(parser);
+
+    parser.eat(";");
+
+    const update = (parser.lookahead?.type as string) === ")" ? null : new Expression(parser);
 
     parser.eat(")");
 
-    this.body = parser.lookahead?.type === "{" ? new BlockStatement(parser) : new Statement(parser);
+    const body = parser.lookahead?.type === "{" ? new BlockStatement(parser) : new Statement(parser);
+
+    Object.assign(this, {
+      type: "ForStatement",
+      init: left,
+      test,
+      update,
+      body,
+    });
   }
 }

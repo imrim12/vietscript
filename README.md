@@ -1,51 +1,111 @@
-# VietScript - Vietnamese Programming Language - Ngôn ngữ lập trình tiếng Việt
+# VietScript
 
-VietScript - Ngôn ngữ lập trình tiếng Việt, là một ngôn ngữ lập trình mã nguồn mở được viết hoàn toàn bằng TypeScript và hỗ trợ cú pháp tiếng Việt với dấu cách. VietScript được thiết kế để giúp cho người Việt mới bắt đầu học lập trình có thể dễ dàng học và sử dụng ngôn ngữ lập trình.
+**Ngôn ngữ lập trình tiếng Việt** — transpile ra JavaScript, chạy trên browser, Node, Bun.
 
-## Bắt đầu sử dụng
+```vietscript
+hằng số tên = "Thế giới"
+console.log(`Xin chào, ${tên}!`)
 
-Mời bạn xem tài liệu tại [vietscript.org](https://vietscript.org)!
+hàm cộng(a, b = 0) {
+  trả về a + b
+}
 
-Xem demo tại: [sandbox.vietscript.org](https://sandbox.vietscript.org)
-
-
-## Cài đặt và thử nghiệm
-Vietscript được phát triển theo phương pháp TDD (Test Driven Development), các trường hợp sử dụng trong ngôn ngữ được viết thành các test case và được đặt trong các thư mục `__test__`. Để chạy các test case, bạn cần cài đặt NodeJS và PNPM, sau đó các chạy lệnh sau:
-
-```bash
-# Cài đặt PNPM
-npm install -g pnpm
-
-# Cài đặt các thư viện
-pnpm install
-
-# Chạy unit test
-pnpm test
+hằng số mảng = [1, 2, 3, 4, 5]
+hằng số tổng = mảng.reduce((acc, x) => acc + x, 0)
+console.log("Tổng:", tổng)
 ```
 
-## Lý thuyết
-VietScript là ngôn ngữ thông dịch, nó được chuyển đổi thành mã nguồn JavaScript và chạy trên trình duyệt. JavaScript cũng từng là ngôn ngữ thông dịch (bây giờ thì là biên dịch tức thời - JIT compiled), nó không được chuyển đổi ngay lập tức thành mã máy và sẽ được thông dịch từng dòng một trước khi nó được thực thi.
+## Bắt đầu
 
-Cú pháp của VietScript giống JavaScript 96%, chỉ khác là nó hỗ trợ tiếng Việt :D
+```bash
+pnpm install
+pnpm -r build
+node packages/cli/bin/vietscript.mjs run examples/hello/hello.vjs
+```
 
-## Tiến độ
-Dự án được viết bằng Typescript thuần và không sử dụng thư viện ngoài, trừ các công cụ hỗ trợ đóng gói và kiểm thử. Hiện tại dự án đang trong giai đoạn phát triển và chưa thể sử dụng được. Dự án rất cần sự đóng góp từ cộng đồng để hoàn thiện :D
+### CLI
 
+```bash
+vietscript run <file.vjs>              # Chạy file .vjs
+vietscript build <srcDir> [outDir]     # Build thư mục .vjs → JS
+vietscript watch <srcDir> [outDir]     # Watch + auto-rebuild
+vietscript check <file.vjs>            # Kiểm tra cú pháp không chạy
+```
 
-## Đóng góp
+## Cú pháp
 
-Mọi người có thể đọc [hướng dẫn cách đóng góp dự án](https://vietscript.org/learning/contribution-guide.html) trước khi tạo một pull request.
+VietScript giữ ngữ nghĩa JavaScript 100% — chỉ thay keyword tiếng Anh bằng tiếng Việt. Code giống JS mà bạn đã quen.
 
-Cảm ơn tất cả mọi người đã đóng góp cho dự án VietScript - Ngôn ngữ lập trình tiếng Việt tại đây!
+| JS | VietScript |
+|---|---|
+| `var/let/const` | `khai báo` / `biến` / `hằng số` |
+| `function` | `hàm` |
+| `if/else` | `nếu` / `không thì` |
+| `for (of/in)` | `lặp (của/trong)` |
+| `while` | `khi mà` |
+| `class/extends/this` | `lớp` / `kế thừa` / `đây` |
+| `try/catch/throw` | `thử` / `bắt lỗi` / `báo lỗi` |
+| `return` | `trả về` |
+| `async/await` | `bất đồng bộ` / `chờ` |
+| `import/export/from` | `sử dụng` / `cho phép` / `từ` |
+| `true/false/null/undefined` | `đúng` / `sai` / `rỗng` / `không xác định` |
+| `typeof/instanceof` | `kiểu của` / `là kiểu` |
+| `get/set/static` | `lấy` / `gán` / `tĩnh` |
+| `public/private/protected` | `công khai` / `riêng tư` / `bảo vệ` |
 
-<a href="https://github.com/imrim12/vietscript/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=imrim12/vietscript" />
-</a>
+Đầy đủ danh sách tại [docs/compatibility.md](docs/compatibility.md).
 
-Tạo ra bởi [contrib.rocks](https://contrib.rocks).
+## Feature đã hỗ trợ
+
+| | |
+|---|---|
+| ✅ | Mọi declaration (var/let/const) + destructuring object/array |
+| ✅ | Mọi loại function (arrow, async, generator, async generator, default params, rest) |
+| ✅ | Class đầy đủ (kế thừa, private field `#x`, getter/setter, static, method) |
+| ✅ | Control flow đầy đủ (if, switch, for/of/in, while, do-while, labeled break/continue) |
+| ✅ | try/catch/finally/throw |
+| ✅ | ES6 modules (import/export/default/namespace/as) |
+| ✅ | Template literal với interpolation `` `${x}` `` |
+| ✅ | Spread/Rest `...` (array, object, call, params) |
+| ✅ | Optional chaining `?.`, nullish `??`, logical assignment `\|\|=` etc. |
+| ✅ | Regex literal `/abc/gi`, template, hex/oct/bin/BigInt/numeric separator |
+| ✅ | Comment `//` và `/* */` |
+| ✅ | Escape sequence đầy đủ (`\n`, `\x41`, `\u{1F600}`, v.v.) |
+| ✅ | Error messages tiếng Việt có file:line:col + snippet |
+| ✅ | Source maps (debug stack trace trỏ về file `.vjs`) |
+
+**Kiểm tra chi tiết:** [docs/compatibility.md](docs/compatibility.md) — 70.9% ✅ complete, 24.6% 🟡 partial, 4.5% ❌ missing.
+
+**Lộ trình:** [docs/roadmap.md](docs/roadmap.md).
+
+## Dự án cấu trúc
+
+```
+packages/
+├── parser/        Parser + AST + Babel-compatible
+├── shared/        Types + enum chung
+├── cli/           CLI `vietscript`
+└── plugins/
+    ├── vite/      Vite plugin
+    └── webpack/   Webpack loader
+```
+
+## Phát triển
+
+```bash
+pnpm install
+pnpm test                 # 249 test
+pnpm test:coverage        # coverage report (≥88% statements)
+pnpm lint
+pnpm build                # build tất cả package
+```
+
+Hướng dẫn thêm parser node mới: [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Playground
+
+Demo live: [sandbox.vietscript.org](https://sandbox.vietscript.org)
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
-
-Copyright (c) 2022-present, Nguyen Huu Nguyen Y
+[MIT](https://opensource.org/licenses/MIT) — Copyright (c) 2022-present, Nguyen Huu Nguyen Y

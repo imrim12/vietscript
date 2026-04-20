@@ -35,7 +35,7 @@ describe("declaration-import.test", () => {
           type: "ImportNamespaceSpecifier",
           local: {
             type: "Identifier",
-            name: "_abc",
+            name: "abc",
           },
         },
       ],
@@ -64,7 +64,7 @@ describe("declaration-import.test", () => {
           type: "ImportDefaultSpecifier",
           local: {
             type: "Identifier",
-            name: "_c225i_g236_273243",
+            name: "cái_gì_đó",
           },
         },
       ],
@@ -91,18 +91,18 @@ describe("declaration-import.test", () => {
           type: "ImportDefaultSpecifier",
           local: {
             type: "Identifier",
-            name: "_c225i_g236_273243",
+            name: "cái_gì_đó",
           },
         },
         {
           type: "ImportSpecifier",
           imported: {
             type: "Identifier",
-            name: "_con_c250n",
+            name: "con_cún",
           },
           local: {
             type: "Identifier",
-            name: "_con_ch243_con",
+            name: "con_chó_con",
           },
         },
       ],

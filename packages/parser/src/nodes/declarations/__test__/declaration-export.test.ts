@@ -32,11 +32,11 @@ describe("declaration-export.test", () => {
           type: "ExportSpecifier",
           local: {
             type: "Identifier",
-            name: "_t237nh_n259ng_g236_2737845y",
+            name: "tính_năng_gì_đấy",
           },
           exported: {
             type: "Identifier",
-            name: "_t237nh_n259ng_g236_2737845y",
+            name: "tính_năng_gì_đấy",
           },
         },
       ],
@@ -70,33 +70,33 @@ describe("declaration-export.test", () => {
           type: "ExportSpecifier",
           local: {
             type: "Identifier",
-            name: "_t237nh_n259ng_c7897ng",
+            name: "tính_năng_cộng",
           },
           exported: {
             type: "Identifier",
-            name: "_ph432417ng_th7913c_c7897ng",
+            name: "phương_thức_cộng",
           },
         },
         {
           type: "ExportSpecifier",
           local: {
             type: "Identifier",
-            name: "_t237nh_n259ng_chia",
+            name: "tính_năng_chia",
           },
           exported: {
             type: "Identifier",
-            name: "_ph432417ng_th7913c_chia",
+            name: "phương_thức_chia",
           },
         },
         {
           type: "ExportSpecifier",
           local: {
             type: "Identifier",
-            name: "_ph432417ng_th7913c_tr7915",
+            name: "phương_thức_trừ",
           },
           exported: {
             type: "Identifier",
-            name: "_ph432417ng_th7913c_tr7915",
+            name: "phương_thức_trừ",
           },
         },
       ],
@@ -120,7 +120,7 @@ describe("declaration-export.test", () => {
       type: "ExportDefaultDeclaration",
       declaration: {
         type: "Identifier",
-        name: "_con_m232o",
+        name: "con_mèo",
       },
     } as ExportDeclaration);
   });

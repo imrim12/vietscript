@@ -9,9 +9,11 @@ export class ObjectProperty {
 
   computed = false;
 
+  shorthand = false;
+
   key: Identifier | Expression;
 
-  value: null | Expression;
+  value: Identifier | Expression;
 
   constructor(parser: Parser) {
     if (parser.lookahead?.type === "[") {
@@ -26,8 +28,11 @@ export class ObjectProperty {
     if (parser.lookahead?.type === ":") {
       parser.eat(":");
       this.value = new Expression(parser);
+    } else if (!this.computed) {
+      this.value = this.key;
+      this.shorthand = true;
     } else {
-      this.value = null;
+      throw new SyntaxError(`Computed property key phải có giá trị theo sau`);
     }
   }
 }

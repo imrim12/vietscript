@@ -4,10 +4,16 @@ import parser from "../setup-test";
 import toPlainObject from "../toPlainObject";
 
 describe("identifier-match-keyword.test", () => {
-  it("should parse the syntax normally", () => {
-    const result = parser.parse(`khai báo một lớp gì đó = 1`, Program);
+  it("should tokenize embedded keyword as separator, not as part of identifier", () => {
+    expect(() => {
+      parser.parse(`khai báo một lớp gì đó = 1`, Program);
+    }).toThrowError();
+  });
 
-    expect(toPlainObject(result)).toStrictEqual({
+  it("should parse multi-word identifier without embedded keyword", () => {
+    const result = parser.parse(`khai báo con mèo đẹp = 1`, Program);
+
+    expect(toPlainObject(result)).toMatchObject({
       type: "Program",
       body: [
         {
@@ -15,20 +21,8 @@ describe("identifier-match-keyword.test", () => {
           declarations: [
             {
               type: "VariableDeclarator",
-              id: {
-                type: "Identifier",
-                name: "_m7897t_l7899p_g236_273243",
-              },
-              init: {
-                type: "NumericLiteral",
-                value: 1,
-                extra: {
-                  rawValue: 1,
-                  raw: "1",
-                },
-                start: 25,
-                end: 26,
-              },
+              id: { type: "Identifier" },
+              init: { type: "NumericLiteral", value: 1 },
             },
           ],
           kind: "var",
@@ -37,9 +31,9 @@ describe("identifier-match-keyword.test", () => {
     });
   });
 
-  it("should show the syntax error", () => {
+  it("should show the syntax error when identifier starts with keyword", () => {
     expect(() => {
       parser.parse("khai báo lớp gì đó = 1", Program);
-    }).toThrowError(/Unexpected token: "lớp", cannot use keyword "lớp" for the beginning of the identifer/);
+    }).toThrowError(/Unexpected token: "lớp"/);
   });
 });

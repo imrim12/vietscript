@@ -11,7 +11,7 @@ describe("generator-expression-call.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`_con_ch243._ch226n_ph7843i._m243ng_ch226n._2737897_d224i`);
+    expect(result.code).toBe(`con_chó.chân_phải.móng_chân.độ_dài`);
   });
 
   it("should parse the syntax normally", () => {
@@ -21,7 +21,7 @@ describe("generator-expression-call.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`_con_ch243[_ch226n_ph7843i]._m243ng_ch226n._2737897_d224i`);
+    expect(result.code).toBe(`con_chó[chân_phải].móng_chân.độ_dài`);
   });
 
   it("should parse the syntax normally", () => {
@@ -31,6 +31,6 @@ describe("generator-expression-call.test", () => {
 
     const result = generate(ast);
 
-    expect(result.code).toBe(`_con_ch243._ch226n_ph7843i._m243ng_ch226n._2737897_d224i = 123`);
+    expect(result.code).toBe(`con_chó.chân_phải.móng_chân.độ_dài = 123`);
   });
 });
