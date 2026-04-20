@@ -48,12 +48,12 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 | Feature | JS | VietScript | Parser | Codegen | Test | Ưu tiên | Ghi chú |
 |---|---|---|:---:|:---:|:---:|:---:|---|
 | Function declaration | `function f(){}` | `hàm f(){}` | ✅ | ✅ | ✅ | — | |
-| Function expression | `const f = function(){}` | `khai báo f = hàm(){}` | ✅ | ✅ | 🟡 | — | Test mỏng |
+| Function expression | `const f = function(){}` | `khai báo f = hàm(){}` | ✅ | ✅ | ✅ | — | |
 | Arrow function | `() => x` | `() => x` | ✅ | ✅ | ✅ | — | |
 | Arrow với body | `() => { return x }` | `() => { trả về x }` | ✅ | ✅ | ✅ | — | |
 | Default params | `f(a = 1)` | `f(a = 1)` | ✅ | ✅ | ✅ | — | |
 | Rest params | `f(...args)` | `f(...args)` | ✅ | ✅ | ✅ | — | Chỉ cho phép ở vị trí cuối |
-| Destructuring params | `f({a,b})` | chưa có | ❌ | ❌ | ❌ | **P1** | Phụ thuộc destructuring |
+| Destructuring params | `f({a,b})` | `hàm f({a,b})` | ✅ | ✅ | ✅ | — | Covered trong object/array pattern tests |
 | Async function | `async function f(){}` | `bất đồng bộ hàm f(){}` | ✅ | ✅ | ✅ | — | |
 | Generator | `function* g(){}` | `hàm* g(){}` | ✅ | ✅ | ✅ | — | |
 | Async generator | `async function* g(){}` | `bất đồng bộ hàm* g(){}` | ✅ | ✅ | ✅ | — | |
@@ -69,7 +69,7 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 | if | `if (c) {}` | `nếu (c) {}` | ✅ | ✅ | ✅ | — | |
 | if-else | `if (c) {} else {}` | `nếu (c) {} không thì {}` | ✅ | ✅ | ✅ | — | |
 | else-if chain | `else if (c)` | `không thì nếu (c)` | ✅ | ✅ | ✅ | — | |
-| Ternary | `c ? a : b` | `c ? a : b` | ✅ | ✅ | 🟡 | P2 | Test rải rác, chưa có file test riêng |
+| Ternary | `c ? a : b` | `c ? a : b` | ✅ | ✅ | ✅ | — | ConditionalExpression AST |
 | switch | `switch(x) {}` | `duyệt (x) {}` | ✅ | ✅ | ✅ | — | |
 | case | `case 1:` | `trường hợp 1:` | ✅ | ✅ | ✅ | — | |
 | default case | `default:` | `mặc định:` | ✅ | ✅ | ✅ | — | |
@@ -83,10 +83,10 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 | for...in | `for (k in o)` | `lặp (biến k trong o)` | ✅ | ✅ | ✅ | — | |
 | for...of | `for (v of arr)` | `lặp (biến v của arr)` | ✅ | ✅ | ✅ | — | Hỗ trợ destructuring pattern |
 | for-await...of | `for await (v of arr)` | `lặp chờ (biến v của arr)` | ✅ | ✅ | ✅ | — | |
-| while | `while (c) {}` | `khi mà (c) {}` | ✅ | ✅ | 🟡 | P2 | Test mỏng |
-| do...while | `do {} while (c)` | `thực hiện {} khi mà (c)` | ✅ | ✅ | 🟡 | P2 | |
+| while | `while (c) {}` | `khi mà (c) {}` | ✅ | ✅ | ✅ | — | |
+| do...while | `do {} while (c)` | `thực hiện {} khi mà (c)` | ✅ | ✅ | ✅ | — | |
 | break | `break` | `phá vòng lặp` | ✅ | ✅ | ✅ | — | |
-| continue | `continue` | `tiếp tục` | ✅ | ✅ | 🟡 | P2 | |
+| continue | `continue` | `tiếp tục` | ✅ | ✅ | ✅ | — | |
 | Labeled break/continue | `break label` | `phá vòng lặp label` | ✅ | ✅ | ✅ | — | Fix bug: ContinueStatement ăn nhầm BREAK keyword |
 
 ## 5. Lớp
@@ -96,17 +96,17 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 | Class declaration | `class A {}` | `lớp A {}` | ✅ | ✅ | ✅ | — | |
 | Kế thừa | `class A extends B` | `lớp A kế thừa B` | ✅ | ✅ | ✅ | — | Có cả syntax `lớp A (B)` |
 | Constructor | `constructor(){}` | `khởi tạo(){}` | ✅ | ✅ | ✅ | — | |
-| super call | `super()` | `khởi tạo cha()` | ✅ | ✅ | 🟡 | P2 | |
+| super call | `super()` | `khởi tạo cha()` | ✅ | ✅ | ✅ | — | |
 | Instance method | `foo(){}` | `foo(){}` | ✅ | ✅ | ✅ | — | |
 | Class property | `x = 1` | `x = 1` | ✅ | ✅ | ✅ | — | |
-| Static method | `static foo(){}` | `static foo(){}` | ✅ | ✅ | 🟡 | P2 | Chưa có từ tiếng Việt |
-| Static property | `static x = 1` | `static x = 1` | 🟡 | ✅ | ❌ | P2 | Cần verify |
-| Access modifier | `private x` | `private x` | ✅ | ✅ | 🟡 | P3 | Modifier có nhưng JS không thực sự có private |
+| Static method | `static foo(){}` | `tĩnh foo(){}` | ✅ | ✅ | ✅ | — | |
+| Static property | `static x = 1` | `tĩnh x = 1` | ✅ | ✅ | ✅ | — | |
+| Access modifier | `private x` | `riêng tư x` | ✅ | ✅ | ✅ | — | Accessibility field in AST |
 | Private field | `#x` | `#x` | ✅ | ✅ | ✅ | — | Sinh ra `ClassPrivateProperty` |
 | Getter | `get x(){}` | `lấy x(){}` | ✅ | ✅ | ✅ | — | |
 | Setter | `set x(v){}` | `gán x(v){}` | ✅ | ✅ | ✅ | — | |
 | Async method | `async foo(){}` | `bất đồng bộ foo(){}` | ✅ | ✅ | ✅ | — | |
-| Generator method | `*foo(){}` | `*foo(){}` | ✅ | ✅ | ❌ | P2 | |
+| Generator method | `*foo(){}` | `*foo(){}` | ✅ | ✅ | ✅ | — | |
 
 ## 6. Module (Import/Export)
 
@@ -121,7 +121,7 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 | Default export | `export default a` | `cho phép mặc định a` | ✅ | ✅ | ✅ | — | |
 | Re-export all | `export * from "x"` | `cho phép * từ "x"` | ✅ | ✅ | ✅ | — | |
 | Re-export named | `export {a} from "x"` | `cho phép {a} từ "x"` | ✅ | ✅ | ✅ | — | |
-| Dynamic import | `import("x")` | `sử dụng("x")` | ❌ | ❌ | ❌ | P3 | |
+| Dynamic import | `import("x")` | `sử dụng("x")` | ✅ | ✅ | ✅ | — | |
 | Import assertions | `import ... assert {}` | chưa có | ❌ | ❌ | ❌ | P3 | |
 
 ## 7. Xử lý lỗi
@@ -141,23 +141,23 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 | Binary arithmetic | `+ - * / % **` | giống JS | ✅ | ✅ | ✅ | — | |
 | Comparison | `=== !== == != < <=` | giống JS | ✅ | ✅ | ✅ | — | |
 | Logical | `&& \|\| !` | giống JS | ✅ | ✅ | ✅ | — | |
-| Nullish coalescing | `a ?? b` | `a ?? b` | ✅ | ✅ | 🟡 | P2 | Test mỏng |
-| Bitwise | `& \| ^ ~ << >> >>>` | giống JS | ✅ | ✅ | 🟡 | P2 | |
+| Nullish coalescing | `a ?? b` | `a ?? b` | ✅ | ✅ | ✅ | — | |
+| Bitwise | `& \| ^ ~ << >> >>>` | giống JS | ✅ | ✅ | ✅ | — | |
 | Assignment ops | `= += -= ...` | giống JS | ✅ | ✅ | ✅ | — | |
 | Logical assignment | `\|\|= &&= ??=` | giống JS | ✅ | ✅ | ✅ | — | |
 | Update | `++ --` | giống JS | ✅ | ✅ | ✅ | — | Cả prefix + postfix |
-| `typeof` | `typeof x` | `kiểu của x` | ✅ | ✅ | 🟡 | P2 | |
-| `instanceof` | `x instanceof A` | `x instanceof A` | ✅ | ✅ | 🟡 | P2 | Chưa có từ tiếng Việt |
-| `in` | `k in o` | `k trong o` | ✅ | ✅ | 🟡 | P2 | Phân biệt với for...in |
-| `delete` | `delete o.x` | `xoá o.x` | ✅ | ✅ | 🟡 | P2 | |
-| `void` | `void 0` | `void 0` | ✅ | ✅ | ❌ | P3 | |
+| `typeof` | `typeof x` | `kiểu của x` | ✅ | ✅ | ✅ | — | |
+| `instanceof` | `x instanceof A` | `x là kiểu A` | ✅ | ✅ | ✅ | — | |
+| `in` | `k in o` | `k trong o` | ✅ | ✅ | ✅ | — | Phân biệt với for...in qua context |
+| `delete` | `delete o.x` | `xoá o.x` | ✅ | ✅ | ✅ | — | |
+| `void` | `void 0` | `void 0` | ✅ | ✅ | ✅ | — | |
 | Member (dot) | `o.x` | `o.x` | ✅ | ✅ | ✅ | — | |
 | Member (bracket) | `o["x"]` | `o["x"]` | ✅ | ✅ | ✅ | — | |
 | Optional chaining | `o?.x` | `o?.x` | ✅ | ✅ | ✅ | — | Hỗ trợ `?.b`, `?.[k]`, chained |
 | Call | `f(a, b)` | `f(a, b)` | ✅ | ✅ | ✅ | — | |
-| New | `new A()` | `new A()` | ✅ | ✅ | 🟡 | P2 | |
-| this | `this` | `this` | ✅ | ✅ | 🟡 | P2 | Chưa có từ tiếng Việt |
-| super | `super.x` | `khởi tạo cha.x` | ✅ | ✅ | 🟡 | P2 | |
+| New | `new A()` | `new A()` | ✅ | ✅ | ✅ | — | NewExpression với args + SpreadElement |
+| this | `this` | `đây` | ✅ | ✅ | ✅ | — | |
+| super | `super.x` | `khởi tạo cha.x` | ✅ | ✅ | ✅ | — | |
 | Array literal | `[1,2,3]` | `[1,2,3]` | ✅ | ✅ | ✅ | — | |
 | Object literal | `{a:1}` | `{a:1}` | ✅ | ✅ | ✅ | — | |
 | Shorthand property | `{a}` | `{a}` | ✅ | ✅ | ✅ | — | |
@@ -174,7 +174,7 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 |---|---|---|:---:|:---:|:---:|:---:|---|
 | Số nguyên | `42` | `42` | ✅ | ✅ | ✅ | — | |
 | Số thập phân | `3.14` | `3.14` | ✅ | ✅ | ✅ | — | |
-| Scientific | `1e5` | `1e5` | ✅ | ✅ | 🟡 | P2 | |
+| Scientific | `1e5` | `1e5` | ✅ | ✅ | ✅ | — | |
 | Hex/Octal/Binary | `0xff 0o7 0b10` | giống JS | ✅ | ✅ | ✅ | — | |
 | BigInt | `10n` | `10n` | ✅ | ✅ | ✅ | — | Hỗ trợ cả hex BigInt `0xffn` |
 | Numeric separator | `1_000_000` | `1_000_000` | ✅ | ✅ | ✅ | — | |
@@ -187,8 +187,8 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 | Boolean | `true false` | `đúng sai` | ✅ | ✅ | ✅ | — | |
 | null | `null` | `null` | ✅ | ✅ | ✅ | — | Chưa có từ tiếng Việt |
 | undefined | `undefined` | `không xác định` | ✅ | ✅ | ✅ | — | |
-| NaN | `NaN` | `NaN` | ✅ | ✅ | 🟡 | P2 | |
-| Infinity | `Infinity` | `Infinity` | 🟡 | ✅ | ❌ | P3 | |
+| NaN | `NaN` | `NaN` | ✅ | ✅ | ✅ | — | |
+| Infinity | `Infinity` | `vô cực` | ✅ | ✅ | ✅ | — | |
 | Regex literal | `/x/g` | `/x/g` | ✅ | ✅ | ✅ | — | Context-sensitive tokenizer |
 
 ## 10. Câu lệnh khác
@@ -197,17 +197,17 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 |---|---|---|:---:|:---:|:---:|:---:|---|
 | Block | `{ ... }` | `{ ... }` | ✅ | ✅ | ✅ | — | |
 | Expression statement | `x;` | `x;` | ✅ | ✅ | ✅ | — | |
-| Empty statement | `;` | `;` | ✅ | ✅ | 🟡 | P3 | |
-| Debugger | `debugger` | `debugger` | ✅ | ✅ | ❌ | P3 | |
-| with | `with(o){}` | `với(o){}` | ✅ | ✅ | ❌ | P3 | Deprecated trong strict mode |
+| Empty statement | `;` | `;` | ✅ | ✅ | ✅ | — | |
+| Debugger | `debugger` | `debugger` | ✅ | ✅ | ✅ | — | |
+| with | `with(o){}` | `with(o){}` | ✅ | ✅ | ✅ | — | Deprecated trong strict mode |
 | Labeled | `label: stmt` | `label: stmt` | ✅ | ✅ | ✅ | — | |
 
 ## 11. Comment
 
 | Feature | JS | VietScript | Parser | Codegen | Test | Ưu tiên | Ghi chú |
 |---|---|---|:---:|:---:|:---:|:---:|---|
-| Single-line | `// ...` | — | 🟡 | — | ❌ | P2 | Cần verify tokenizer bỏ qua |
-| Multi-line | `/* ... */` | — | 🟡 | — | ❌ | P2 | |
+| Single-line | `// ...` | — | ✅ | — | ✅ | — | Bỏ qua trong tokenizer |
+| Multi-line | `/* ... */` | — | ✅ | — | ✅ | — | |
 | JSDoc | `/** ... */` | — | ❌ | — | ❌ | P3 | Có thể hoãn |
 
 ## 12. Tính năng chuyên biệt VietScript
@@ -216,10 +216,10 @@ Vì AST theo chuẩn Babel, codegen dùng sẵn `@babel/generator` — mọi cú
 |---|:---:|---|
 | Identifier có dấu cách tiếng Việt | ✅ | `số chân`, `Con Mèo` — hoạt động |
 | Identifier mangling (Babel output) | ✅ | Output dùng Unicode trực tiếp: `xin chào` → `xin_chào` |
-| Source map | ❌ | Chưa có. Cần cho debug trong runtime |
-| Custom element `<vi-script>` | 🟡 | Có declare, chưa implement đầy đủ ([index.ts:24-26](../packages/parser/src/index.ts)) |
-| CLI | ❌ | Chưa có |
-| Vite plugin | 🟡 | Có package nhưng chưa test với project thật |
+| Source map | ✅ | Sinh qua `@babel/generator`, CLI run + build hỗ trợ |
+| Custom element `<vi-script>` | 🟡 | Có declare, chưa implement đầy đủ ([index.ts](../packages/parser/src/index.ts)) |
+| CLI | ✅ | `vietscript run/build/watch/check` |
+| Vite plugin | 🟡 | Có package, cần test với project thật |
 | Webpack loader | 🟡 | Tương tự |
 
 ---

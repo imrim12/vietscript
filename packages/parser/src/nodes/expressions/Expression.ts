@@ -88,6 +88,14 @@ export class Expression {
         Object.assign(this, new NewExpression(parser));
         break;
       }
+      case Keyword.IMPORT: {
+        parser.eat(Keyword.IMPORT);
+        if ((parser.lookahead?.type as string) === "(") {
+          const importNode = { type: "Import" };
+          Object.assign(this, new CallExpression(parser, importNode as any));
+        }
+        break;
+      }
       case Keyword.SUPER: {
         parser.eat(Keyword.SUPER);
         const superNode = { type: "Super" };

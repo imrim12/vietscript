@@ -15,7 +15,9 @@ export class StatementListItem {
       case Keyword.CONST:
       case Keyword.ASYNC:
       case Keyword.FUNCTION:
-      case Keyword.CLASS: {
+      case Keyword.CLASS:
+      case Keyword.IMPORT:
+      case Keyword.EXPORT: {
         Object.assign(this, new Declaration(parser));
         break;
       }
