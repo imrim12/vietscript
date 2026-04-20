@@ -42,7 +42,8 @@
     "sandbox"
   ],
   "dependencies": {
-    "@vietscript/parser": "workspace:*"
+    "@vietscript/parser": "workspace:*",
+    "@vietscript/stdlib": "workspace:*"
   },
   "devDependencies": {
     "@babel/generator": "^7.22.10",

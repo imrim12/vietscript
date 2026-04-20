@@ -36,6 +36,7 @@
     "vitest": "^0.28.3"
   },
   "dependencies": {
+    "@babel/generator": "^7.22.10",
     "@vietscript/parser": "workspace:*"
   }
 }

@@ -7,6 +7,9 @@ importers:
       '@vietscript/parser':
         specifier: workspace:*
         version: link:packages/parser
+      '@vietscript/stdlib':
+        specifier: workspace:*
+        version: link:packages/stdlib
     devDependencies:
       '@babel/generator':
         specifier: ^7.22.10
@@ -159,6 +162,9 @@ importers:
 
   packages/plugins/vite:
     dependencies:
+      '@babel/generator':
+        specifier: ^7.22.10
+        version: 7.25.0
       '@vietscript/parser':
         specifier: workspace:*
         version: link:../../parser
@@ -184,6 +190,9 @@ importers:
 
   packages/plugins/webpack:
     dependencies:
+      '@babel/generator':
+        specifier: ^7.22.10
+        version: 7.25.0
       '@vietscript/parser':
         specifier: workspace:*
         version: link:../../parser
@@ -233,6 +242,15 @@ importers:
       vitest:
         specifier: ^0.28.3
         version: 0.28.5(@vitest/ui@0.24.5)(jsdom@20.0.3)
+
+  packages/stdlib:
+    devDependencies:
+      '@types/node':
+        specifier: ^18.14.1
+        version: 18.17.14
+      typescript:
+        specifier: ^4.9.4
+        version: 4.9.5
 
   playground:
     dependencies:

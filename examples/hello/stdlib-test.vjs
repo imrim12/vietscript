@@ -1,0 +1,10 @@
+sử dụng { ghi, tròn, ngẫu nhiên, độ dài } từ "@vietscript/stdlib"
+
+ghi("Xin chào từ stdlib!")
+ghi("Làm tròn 3.7:", tròn(3.7))
+
+hằng số số ngẫu = ngẫu nhiên(1, 100)
+ghi("Số ngẫu nhiên 1-100:", tròn(số ngẫu))
+
+hằng số mảng = [1, 2, 3, 4, 5]
+ghi("Độ dài mảng:", độ dài(mảng))
