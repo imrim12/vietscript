@@ -19,6 +19,10 @@
     "./register": {
       "import": "./dist/register.js",
       "default": "./dist/register.js"
+    },
+    "./bun-plugin": {
+      "import": "./dist/bun-plugin.js",
+      "default": "./dist/bun-plugin.js"
     }
   },
   "main": "./dist/index.js",
