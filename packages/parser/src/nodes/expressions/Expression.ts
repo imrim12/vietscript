@@ -55,6 +55,7 @@ export class Expression {
       case "RegExpLiteral":
       case Keyword.BOOLEAN:
       case Keyword.NAN:
+      case Keyword.INFINITY:
       case Keyword.NULL:
       case Keyword.UNDEFINED: {
         Object.assign(this, new Literal(parser));
@@ -85,6 +86,18 @@ export class Expression {
       }
       case Keyword.NEW: {
         Object.assign(this, new NewExpression(parser));
+        break;
+      }
+      case Keyword.SUPER: {
+        parser.eat(Keyword.SUPER);
+        const superNode = { type: "Super" };
+        if ((parser.lookahead?.type as string) === "(") {
+          Object.assign(this, new CallExpression(parser, superNode as any));
+        } else if ((parser.lookahead?.type as string) === ".") {
+          Object.assign(this, new MemberExpression(parser, superNode as any));
+        } else {
+          Object.assign(this, superNode);
+        }
         break;
       }
       case Keyword.THIS: {

@@ -276,7 +276,7 @@ describe("declaration-variable.test", () => {
           },
           init: {
             type: "Identifier",
-            name: "Undefined",
+            name: "undefined",
             start: 16,
             end: 30,
           },

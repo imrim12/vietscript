@@ -2,6 +2,7 @@ import { Parser } from "@parser/parser";
 import { Keyword } from "@vietscript/shared";
 
 import { BooleanLiteral } from "./BooleanLiteral";
+import { InfinityIdentifier } from "./InfinityIdentifier";
 import { NaNIdentifier } from "./NaNIdentifier";
 import { NullLiteral } from "./NullLiteral";
 import { NumericLiteral } from "./NumericLiteral";
@@ -39,6 +40,10 @@ export class Literal {
       }
       case Keyword.NAN: {
         Object.assign(this, new NaNIdentifier(parser));
+        break;
+      }
+      case Keyword.INFINITY: {
+        Object.assign(this, new InfinityIdentifier(parser));
         break;
       }
       case Keyword.UNDEFINED: {
