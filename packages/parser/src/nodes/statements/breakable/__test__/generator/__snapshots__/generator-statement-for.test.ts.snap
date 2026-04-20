@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`generator-statement-for.test > should generate for-await-of 1`] = `"for await (let x = undefined of arr) {}"`;
+exports[`generator-statement-for.test > should generate for-await-of 1`] = `"for await (let x of arr) {}"`;
 
-exports[`generator-statement-for.test > should generate for-in 1`] = `"for (let k = undefined in obj) {}"`;
+exports[`generator-statement-for.test > should generate for-in 1`] = `"for (let k in obj) {}"`;
 
-exports[`generator-statement-for.test > should generate for-of 1`] = `"for (let x = undefined of arr) {}"`;
+exports[`generator-statement-for.test > should generate for-of 1`] = `"for (let x of arr) {}"`;
 
 exports[`generator-statement-for.test > should generate traditional for 1`] = `"for (var i = 0; i < 10; i++) {}"`;

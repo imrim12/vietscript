@@ -1,0 +1,52 @@
+sử dụng { ghi } từ "@vietscript/stdlib"
+
+lớp Con Mèo {
+  #số lần kêu = 0
+
+  khởi tạo(tên, màu lông = "đen") {
+    đây.tên = tên
+    đây.màu lông = màu lông
+  }
+
+  kêu() {
+    đây.#số lần kêu++
+    trả về `${đây.tên} (${đây.màu lông}): meo meo lần thứ ${đây.#số lần kêu}`
+  }
+
+  lấy đã kêu() {
+    trả về đây.#số lần kêu
+  }
+}
+
+hằng số mèo1 = new Con Mèo("Mimi", "trắng")
+hằng số mèo2 = new Con Mèo("Luna")
+
+ghi(mèo1.kêu())
+ghi(mèo1.kêu())
+ghi(mèo2.kêu())
+ghi(`${mèo1.tên} đã kêu: ${mèo1.đã kêu} lần`)
+
+// Destructuring + spread
+hằng số { tên, màu lông } = mèo1
+hằng số sao chép = { ...mèo1, tên: "Bản sao" }
+ghi(`${tên} có màu ${màu lông}`)
+
+// Optional chaining + nullish coalescing
+hằng số tuỳ chọn = rỗng
+hằng số giá trị = tuỳ chọn?.tên ?? "không có"
+ghi("Tuỳ chọn:", giá trị)
+
+// Try-catch-finally
+thử {
+  báo lỗi new Error("Lỗi demo")
+} bắt lỗi (lỗi) {
+  ghi("Bắt được:", lỗi.message)
+} cuối cùng {
+  ghi("Luôn chạy")
+}
+
+// For-of with destructuring
+hằng số cặp = [[1, "một"], [2, "hai"], [3, "ba"]]
+lặp (hằng số [n, chữ] của cặp) {
+  ghi(`${n} = ${chữ}`)
+}
