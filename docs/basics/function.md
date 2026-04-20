@@ -1,45 +1,88 @@
-# Định nghĩa và thực thi hàm
+# Hàm
 
-Hàm VieLang là một khối mã được thiết kế để thực hiện một tác vụ cụ thể. Một hàm Vielang được thực thi khi gọi nó (call it)
+## Khai báo hàm
 
-## Cú pháp khai báo hàm
-
-Hàm `Vielang` được xác định bằng từ khóa `hàm`, theo sau là tên, theo sau là dấu ngoặc đơn `()`.
-
-Tên hàm có thể chứa các chữ cái tiếng việt có dấu cách (giống với tên biến)
-
-Các dấu ngoặc đơn có thể bao gồm các tên tham số được phân tách bằng dấu phẩy: (tham số một, tham số hai, ...)
-
-Mã được hàm thực thi được đặt bên trong dấu ngoặc nhọn: {}
-
-```js
+```vietscript
 hàm tính tuổi(năm sinh) {
-  // code to be executed
+  trả về 2024 - năm sinh
+}
 
+hàm chào(tên = "bạn") {
+  console.log(`Xin chào, ${tên}!`)
 }
 ```
 
-## Gọi hàm
+## Arrow function
 
-Hàm sẽ được thực thi khi gọi hàm  bằng cú pháp `()`
-
-```js
-hàm tính tuổi(năm sinh) {
-  // code to be executed
-
+```vietscript
+hằng số cộng = (a, b) => a + b
+hằng số bình phương = x => x * x
+hằng số xử lý = (dữ liệu) => {
+  trả về dữ liệu.lọc(x => x > 0)
 }
-
-tính tuổi()
 ```
 
-## Hàm trả về 
+## Rest & default parameters
 
-Sử dụng từ khoá `trả về` để trả về 1 giá trị của hàm
+```vietscript
+hàm tổng(khởi đầu = 0, ...số) {
+  trả về số.reduce((a, b) => a + b, khởi đầu)
+}
+```
 
-```js
-hàm tính tuổi(năm sinh) {
-  khai báo tuổi = 2024 - năm sinh
-  trả về tuổi
+## Destructuring parameters
+
+```vietscript
+hàm in người({ tên, tuổi = 18 }) {
+  console.log(`${tên}, ${tuổi} tuổi`)
 }
 
+hàm đầu cuối([đầu, ...đuôi]) {
+  trả về { đầu, đuôi }
+}
 ```
+
+## Async / await
+
+```vietscript
+bất đồng bộ hàm lấy dữ liệu(url) {
+  hằng số phản hồi = chờ fetch(url)
+  trả về chờ phản hồi.json()
+}
+```
+
+## Generator
+
+```vietscript
+hàm* đếm(từ đầu = 0) {
+  biến i = từ đầu
+  khi mà (đúng) {
+    nhường i++
+  }
+}
+```
+
+## Async generator
+
+```vietscript
+bất đồng bộ hàm* đọc từng dòng(file) {
+  // ...
+  nhường dòng
+}
+```
+
+## Hàm dưới dạng giá trị
+
+```vietscript
+hằng số ops = {
+  cộng: (a, b) => a + b,
+  trừ: (a, b) => a - b,
+}
+
+console.log(ops.cộng(1, 2))   // 3
+```
+
+## Xem thêm
+
+- [Destructuring](../compatibility.md#1-khai-báo-biến)
+- [Class](../compatibility.md#5-lớp)
