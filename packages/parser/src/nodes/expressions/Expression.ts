@@ -21,6 +21,8 @@ import { ThisExpression } from "./ThisExpression";
 import { MemberExpression } from "./MemberExpression";
 import { ObjectExpression } from "./ObjectExpression";
 import { CallExpression } from "./CallExpression";
+import { NewExpression } from "./NewExpression";
+import { ConditionalExpression } from "./ConditionalExpression";
 
 export class Expression {
   [key: string]: any;
@@ -63,9 +65,9 @@ export class Expression {
         Object.assign(this, new UpdateExpression(parser));
         break;
       }
-      case "delete":
-      case "void":
-      case "typeof":
+      case Keyword.DELETE:
+      case Keyword.VOID:
+      case Keyword.TYPEOF:
       case "+":
       case "-":
       case "~":
@@ -79,6 +81,10 @@ export class Expression {
       }
       case Keyword.YIELD: {
         Object.assign(this, new YieldExpression(parser));
+        break;
+      }
+      case Keyword.NEW: {
+        Object.assign(this, new NewExpression(parser));
         break;
       }
       case Keyword.THIS: {
@@ -116,17 +122,22 @@ export class Expression {
           case "/":
           case "%":
           case "**":
+          case "&":
+          case "|":
           case "^":
           case ">":
           case ">>":
           case ">>>":
           case "<":
           case "<<":
-          case "<<<":
           case ">=":
           case "<=":
           case "==":
-          case "===": {
+          case "===":
+          case "!=":
+          case "!==":
+          case Keyword.INSTANCEOF:
+          case Keyword.IN: {
             Object.assign(this, new BinaryExpression(parser, identifier));
             break;
           }
@@ -155,8 +166,16 @@ export class Expression {
             Object.assign(this, new LogicalExpression(parser, identifier));
             break;
           }
+          case "?": {
+            Object.assign(this, new ConditionalExpression(parser, identifier));
+            break;
+          }
           case ":": {
-            Object.assign(this, new LabelledStatement(parser, identifier));
+            if (parser.ternaryDepth > 0) {
+              Object.assign(this, identifier);
+            } else {
+              Object.assign(this, new LabelledStatement(parser, identifier));
+            }
             break;
           }
           case "(": {

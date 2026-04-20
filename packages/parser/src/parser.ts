@@ -13,6 +13,8 @@ export class Parser {
 
   public filename?: string;
 
+  public ternaryDepth = 0;
+
   constructor() {
     this.syntax = "";
     this.tokenizer = new Tokenizer(this);

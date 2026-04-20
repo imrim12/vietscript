@@ -1,5 +1,12 @@
 import { Parser } from "@parser/parser";
+import { Keyword } from "@vietscript/shared";
 import { Expression } from "@parser/nodes/expressions/Expression";
+
+const UNARY_KEYWORD_OPERATORS: Record<string, string> = {
+  [Keyword.DELETE]: "delete",
+  [Keyword.VOID]: "void",
+  [Keyword.TYPEOF]: "typeof",
+};
 
 export class UnaryExpression {
   type = "UnaryExpression";
@@ -11,19 +18,16 @@ export class UnaryExpression {
   argument: Expression;
 
   constructor(parser: Parser) {
-    switch (parser.lookahead?.type) {
-      case "delete":
-      case "void":
-      case "typeof":
-      case "+":
-      case "-":
-      case "~":
-      case "!": {
-        this.operator = String(parser.eat(parser.lookahead?.type).value);
-        this.prefix = true;
-        this.argument = new Expression(parser);
-        break;
-      }
+    const type = parser.lookahead?.type as string;
+
+    if (UNARY_KEYWORD_OPERATORS[type]) {
+      parser.eat(type);
+      this.operator = UNARY_KEYWORD_OPERATORS[type];
+    } else {
+      this.operator = String(parser.eat(type).value);
     }
+
+    this.prefix = true;
+    this.argument = new Expression(parser);
   }
 }
