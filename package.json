@@ -42,6 +42,7 @@
     "sandbox"
   ],
   "dependencies": {
+    "@vietscript/cli": "workspace:*",
     "@vietscript/parser": "workspace:*",
     "@vietscript/stdlib": "workspace:*"
   },
