@@ -1,6 +1,6 @@
 {
   "name": "@vietscript/plugin-webpack",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.1",
   "description": "A VietScript plugin to include .vjs file into Webpack build",
   "type": "module",
   "exports": {

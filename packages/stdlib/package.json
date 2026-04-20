@@ -1,6 +1,6 @@
 {
   "name": "@vietscript/stdlib",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.1",
   "description": "VietScript standard library — thin Vietnamese wrappers over JS globals.",
   "type": "module",
   "exports": {
