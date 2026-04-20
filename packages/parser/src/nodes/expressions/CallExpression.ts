@@ -1,35 +1,35 @@
-import { Parser } from "@parser/parser";
-import { Identifier } from "@parser/nodes/identifier/Identifier";
-import { Expression } from "@parser/nodes/expressions/Expression";
+import type { Parser } from '@parser/parser'
+import { Expression } from '@parser/nodes/expressions/Expression'
 
-import { SpreadElement } from "./SpreadElement";
+import { SpreadElement } from './SpreadElement'
 
 export class CallExpression {
-  type = "CallExpression";
+  type = 'CallExpression'
 
-  callee: Identifier | Expression;
+  callee: any
 
-  arguments: Array<Identifier | Expression | SpreadElement> = [];
+  arguments: Array<any> = []
 
-  optional = false;
+  optional = false
 
-  constructor(parser: Parser, identifier: Identifier | Expression) {
-    this.callee = identifier;
+  constructor(parser: Parser, identifier: any) {
+    this.callee = identifier
 
-    parser.eat("(");
+    parser.eat('(')
 
-    while (parser.lookahead?.type !== ")") {
+    while (parser.lookahead?.type !== ')') {
       if (this.arguments.length > 0) {
-        parser.eat(",");
+        parser.eat(',')
       }
 
-      if (parser.lookahead?.type === "...") {
-        this.arguments.push(new SpreadElement(parser));
-      } else {
-        this.arguments.push(new Expression(parser));
+      if (parser.lookahead?.type === '...') {
+        this.arguments.push(new SpreadElement(parser))
+      }
+      else {
+        this.arguments.push(new Expression(parser))
       }
     }
 
-    parser.eat(")");
+    parser.eat(')')
   }
 }

@@ -1,22 +1,23 @@
-import { Parser } from "@parser/parser";
-import { Identifier } from "@parser/nodes/identifier/Identifier";
+import type { Parser } from '@parser/parser'
+import { Identifier } from '@parser/nodes/identifier/Identifier'
 
 export class ImportSpecifier {
-  type = "ImportSpecifier";
+  type = 'ImportSpecifier'
 
-  imported: Identifier;
+  imported: Identifier
 
-  local: Identifier;
+  local: Identifier
 
   constructor(parser: Parser) {
-    this.imported = new Identifier(parser);
+    this.imported = new Identifier(parser)
 
-    if (parser.lookahead?.type === ":") {
-      parser.eat(":");
+    if (parser.lookahead?.type === ':') {
+      parser.eat(':')
 
-      this.local = new Identifier(parser);
-    } else {
-      this.local = this.imported;
+      this.local = new Identifier(parser)
+    }
+    else {
+      this.local = this.imported
     }
   }
 }

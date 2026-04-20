@@ -1,69 +1,71 @@
-import { Parser } from "@parser";
+import type { Parser } from '@parser'
 
-import { Identifier } from "../identifier/Identifier";
-import { PrivateName } from "../identifier/PrivateName";
+import { Identifier } from '../identifier/Identifier'
+import { PrivateName } from '../identifier/PrivateName'
 
-import { Expression } from "./Expression";
+import { Expression } from './Expression'
 
 export class MemberExpression {
-  type = "MemberExpression";
+  type = 'MemberExpression'
 
-  object: Expression;
+  object: any
 
-  property: Expression | null = null;
+  property: any = null
 
-  computed = false;
+  computed = false
 
-  optional = false;
+  optional = false
 
-  constructor(parser: Parser, object: Expression) {
-    this.object = object;
+  constructor(parser: Parser, object: any) {
+    this.object = object
 
     do {
       switch (parser.lookahead?.type) {
-        case "[": {
-          parser.eat("[");
-          this.object = this.property ? { ...this } : { ...this.object };
-          this.property = new Expression(parser);
-          parser.eat("]");
-          this.computed = true;
-          this.optional = false;
-          break;
+        case '[': {
+          parser.eat('[')
+          this.object = this.property ? { ...this } : { ...this.object }
+          this.property = new Expression(parser)
+          parser.eat(']')
+          this.computed = true
+          this.optional = false
+          break
         }
-        case ".": {
-          parser.eat(".");
-          this.object = this.property ? { ...this } : { ...this.object };
-          if ((parser.lookahead?.type as string) === "#") {
-            this.property = new PrivateName(parser) as any;
-          } else {
-            this.property = new Identifier(parser);
+        case '.': {
+          parser.eat('.')
+          this.object = this.property ? { ...this } : { ...this.object }
+          if ((parser.lookahead?.type as string) === '#') {
+            this.property = new PrivateName(parser) as any
           }
-          this.computed = false;
-          this.optional = false;
-          break;
+          else {
+            this.property = new Identifier(parser)
+          }
+          this.computed = false
+          this.optional = false
+          break
         }
-        case "?.": {
-          parser.eat("?.");
-          this.object = this.property ? { ...this } : { ...this.object };
-          this.type = "OptionalMemberExpression";
-          this.optional = true;
+        case '?.': {
+          parser.eat('?.')
+          this.object = this.property ? { ...this } : { ...this.object }
+          this.type = 'OptionalMemberExpression'
+          this.optional = true
 
-          if ((parser.lookahead?.type as string) === "[") {
-            parser.eat("[");
-            this.property = new Expression(parser);
-            parser.eat("]");
-            this.computed = true;
-          } else {
-            this.property = new Identifier(parser);
-            this.computed = false;
+          if ((parser.lookahead?.type as string) === '[') {
+            parser.eat('[')
+            this.property = new Expression(parser)
+            parser.eat(']')
+            this.computed = true
           }
-          break;
+          else {
+            this.property = new Identifier(parser)
+            this.computed = false
+          }
+          break
         }
       }
     } while (
-      parser.lookahead?.type === "." ||
-      parser.lookahead?.type === "[" ||
-      parser.lookahead?.type === "?."
-    );
+      parser.lookahead?.type === '.'
+      || parser.lookahead?.type === '['
+      || parser.lookahead?.type === '?.'
+    )
   }
 }

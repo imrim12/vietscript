@@ -1,51 +1,51 @@
-import { BooleanLiteral } from "@parser/nodes/literals/BooleanLiteral";
-import { Literal } from "@parser/nodes/literals/Literal";
+import type { BooleanLiteral } from '@parser/nodes/literals/BooleanLiteral'
+import { Literal } from '@parser/nodes/literals/Literal'
 
-import parser from "../../../setup-test";
-import toPlainObject from "../../../toPlainObject";
+import parser from '../../../setup-test'
+import toPlainObject from '../../../toPlainObject'
 
-describe("literal-boolean.test", () => {
-  it("should parse the syntax normally", () => {
-    const result = parser.parse("đúng", Literal);
+describe('literal-boolean.test', () => {
+  it('should parse the syntax normally', () => {
+    const result = parser.parse('đúng', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "BooleanLiteral",
+      type: 'BooleanLiteral',
       value: true,
       start: 0,
       end: 4,
-    } as BooleanLiteral);
-  });
+    } as BooleanLiteral)
+  })
 
-  it("should parse the syntax normally", () => {
-    const result = parser.parse("sai", Literal);
+  it('should parse the syntax normally', () => {
+    const result = parser.parse('sai', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "BooleanLiteral",
+      type: 'BooleanLiteral',
       value: false,
       start: 0,
       end: 3,
-    } as BooleanLiteral);
-  });
+    } as BooleanLiteral)
+  })
 
-  it("should parse the syntax normally", () => {
-    const result = parser.parse("true", Literal);
+  it('should parse the syntax normally', () => {
+    const result = parser.parse('true', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "BooleanLiteral",
+      type: 'BooleanLiteral',
       value: true,
       start: 0,
       end: 4,
-    } as BooleanLiteral);
-  });
+    } as BooleanLiteral)
+  })
 
-  it("should parse the syntax normally", () => {
-    const result = parser.parse("false", Literal);
+  it('should parse the syntax normally', () => {
+    const result = parser.parse('false', Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "BooleanLiteral",
+      type: 'BooleanLiteral',
       value: false,
       start: 0,
       end: 5,
-    } as BooleanLiteral);
-  });
-});
+    } as BooleanLiteral)
+  })
+})

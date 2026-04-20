@@ -1,9 +1,9 @@
-import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Keyword } from '@vietscript/shared'
 
-import { Declaration } from "../declarations/Declaration";
+import { Declaration } from '../declarations/Declaration'
 
-import { Statement } from "./Statement";
+import { Statement } from './Statement'
 
 export class StatementListItem {
   [key: string]: any;
@@ -18,10 +18,10 @@ export class StatementListItem {
       case Keyword.CLASS:
       case Keyword.IMPORT:
       case Keyword.EXPORT: {
-        Object.assign(this, new Declaration(parser));
-        break;
+        Object.assign(this, new Declaration(parser))
+        break
       }
-      case "{":
+      case '{':
       case Keyword.IF:
       case Keyword.DO:
       case Keyword.WHILE:
@@ -47,8 +47,8 @@ export class StatementListItem {
       case Keyword.UNDEFINED:
       case Keyword.SUPER:
       case Keyword.NEW: {
-        Object.assign(this, new Statement(parser));
-        break;
+        Object.assign(this, new Statement(parser))
+        break
       }
     }
   }

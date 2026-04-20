@@ -1,5 +1,5 @@
-import { ReactWithChild } from "src/interface/app";
+import type { ReactWithChild } from 'src/interface/app'
 
 export default function DefaultLayout({ children }: ReactWithChild) {
-  return <>{children}</>;
+  return <>{children}</>
 }

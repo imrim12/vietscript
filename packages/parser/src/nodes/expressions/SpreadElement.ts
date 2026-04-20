@@ -1,14 +1,14 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { Expression } from "./Expression";
+import { Expression } from './Expression'
 
 export class SpreadElement {
-  type = "SpreadElement";
+  type = 'SpreadElement'
 
-  argument: Expression;
+  argument: Expression
 
   constructor(parser: Parser) {
-    parser.eat("...");
-    this.argument = new Expression(parser);
+    parser.eat('...')
+    this.argument = new Expression(parser)
   }
 }

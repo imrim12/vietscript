@@ -1,25 +1,25 @@
-import { Parser } from "@parser/parser";
-import { Statement } from "@parser/nodes/statements/Statement";
-import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
-import { Expression } from "@parser/nodes/expressions/Expression";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Expression } from '@parser/nodes/expressions/Expression'
+import { BlockStatement } from '@parser/nodes/statements/BlockStatement'
+import { Statement } from '@parser/nodes/statements/Statement'
+import { Keyword } from '@vietscript/shared'
 
 export class WhileStatement {
-  type = "WhileStatement";
+  type = 'WhileStatement'
 
-  body: Statement | BlockStatement;
+  body: Statement | BlockStatement
 
-  test: Expression;
+  test: Expression
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.WHILE);
+    parser.eat(Keyword.WHILE)
 
-    parser.eat("(");
+    parser.eat('(')
 
-    this.test = new Expression(parser);
+    this.test = new Expression(parser)
 
-    parser.eat(")");
+    parser.eat(')')
 
-    this.body = parser.lookahead?.type === "{" ? new BlockStatement(parser) : new Statement(parser);
+    this.body = parser.lookahead?.type === '{' ? new BlockStatement(parser) : new Statement(parser)
   }
 }

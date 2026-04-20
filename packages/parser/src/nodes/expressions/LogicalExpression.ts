@@ -1,30 +1,30 @@
-import { Parser } from "@parser/parser";
-import { Identifier } from "@parser/nodes/identifier/Identifier";
-import { Expression } from "@parser/nodes/expressions/Expression";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Expression } from '@parser/nodes/expressions/Expression'
+import { Identifier } from '@parser/nodes/identifier/Identifier'
+import { Keyword } from '@vietscript/shared'
 
 export class LogicalExpression {
-  type = "LogicalExpression";
+  type = 'LogicalExpression'
 
-  left: Identifier | Expression;
+  left: any
 
-  operator: string;
+  operator: string = ''
 
-  right: Identifier | Expression;
+  right: any
 
-  constructor(parser: Parser, identifier?: Identifier) {
-    this.left =
-      identifier ?? (parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser));
+  constructor(parser: Parser, identifier?: any) {
+    this.left
+      = identifier ?? (parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser))
 
     switch (parser.lookahead?.type) {
-      case "??":
-      case "||":
-      case "&&": {
-        this.operator = String(parser.eat(parser.lookahead?.type).value);
-        break;
+      case '??':
+      case '||':
+      case '&&': {
+        this.operator = String(parser.eat(parser.lookahead?.type).value)
+        break
       }
     }
 
-    this.right = parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser);
+    this.right = parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser)
   }
 }

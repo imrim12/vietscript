@@ -1,17 +1,17 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { ObjectPropertyList } from "../initializers/object/ObjectPropertyList";
+import { ObjectPropertyList } from '../initializers/object/ObjectPropertyList'
 
 export class ObjectLiteral {
-  type = "ObjectLiteral";
+  type = 'ObjectLiteral'
 
-  properties: ObjectPropertyList["properties"] = [];
+  properties: ObjectPropertyList['properties'] = []
 
   constructor(parser: Parser) {
-    parser.eat("{");
+    parser.eat('{')
 
-    this.properties = new ObjectPropertyList(parser).properties;
+    this.properties = new ObjectPropertyList(parser).properties
 
-    parser.eat("}");
+    parser.eat('}')
   }
 }

@@ -1,13 +1,13 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { ObjectLiteral } from "../literals/ObjectLiteral";
+import { ObjectLiteral } from '../literals/ObjectLiteral'
 
 export class ObjectExpression {
-  type = "ObjectExpression";
+  type = 'ObjectExpression'
 
-  properties: ObjectLiteral["properties"] = [];
+  properties: ObjectLiteral['properties'] = []
 
   constructor(parser: Parser) {
-    this.properties = new ObjectLiteral(parser).properties;
+    this.properties = new ObjectLiteral(parser).properties
   }
 }

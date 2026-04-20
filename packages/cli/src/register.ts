@@ -1,8 +1,8 @@
-import * as nodeModule from "node:module";
+import * as nodeModule from 'node:module'
 
 const register = (nodeModule as any).register as (
   specifier: string,
   parentURL: string | URL,
-) => void;
+) => void
 
-register("./loader.js", import.meta.url);
+register('./loader.js', import.meta.url)

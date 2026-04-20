@@ -1,18 +1,18 @@
-import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Keyword } from '@vietscript/shared'
 
-import { Identifier } from "../identifier/Identifier";
+import { Identifier } from '../identifier/Identifier'
 
 export class BreakStatement {
-  type = "BreakStatement";
+  type = 'BreakStatement'
 
-  label: Identifier | null = null;
+  label: Identifier | null = null
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.BREAK);
+    parser.eat(Keyword.BREAK)
 
     if (parser.lookahead?.type === Keyword.IDENTIFIER) {
-      this.label = new Identifier(parser);
+      this.label = new Identifier(parser)
     }
   }
 }

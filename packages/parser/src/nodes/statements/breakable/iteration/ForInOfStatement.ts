@@ -1,17 +1,17 @@
-import { Parser } from "@parser/parser";
-import { VariableDeclaration } from "@parser/nodes/declarations/VariableDeclaration";
-import { Identifier } from "@parser/nodes/identifier/Identifier";
+import type { VariableDeclaration } from '@parser/nodes/declarations/VariableDeclaration'
+import type { Identifier } from '@parser/nodes/identifier/Identifier'
+import type { Parser } from '@parser/parser'
 
 export class ForInOfStatement {
-  type: "ForInStatement" | "ForOfStatement";
+  type: 'ForInStatement' | 'ForOfStatement'
 
-  await: boolean;
+  await: boolean
 
-  left: VariableDeclaration | Identifier;
+  left: VariableDeclaration | Identifier
 
-  right: Identifier;
+  right: Identifier
 
   constructor(parser: Parser, isAsync: boolean) {
-    this.await = isAsync;
+    this.await = isAsync
   }
 }

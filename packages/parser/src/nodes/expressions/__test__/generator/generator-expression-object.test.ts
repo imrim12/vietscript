@@ -1,10 +1,10 @@
-import generate from "@babel/generator";
+import generate from '@babel/generator'
 
-import parser from "../../../../setup-test";
-import { Expression } from "../../Expression";
+import parser from '../../../../setup-test'
+import { Expression } from '../../Expression'
 
-describe("generator-expression-object.test", () => {
-  it("should parse the syntax normally", () => {
+describe('generator-expression-object.test', () => {
+  it('should parse the syntax normally', () => {
     const code = `
 		{
       tiếng kêu: "Meo meo",
@@ -13,10 +13,10 @@ describe("generator-expression-object.test", () => {
 				trả về "Meo meo"
 			}
 		}
-		`;
-    const ast = parser.parse(code, Expression);
+		`
+    const ast = parser.parse(code, Expression)
 
-    const result = generate(ast);
+    const result = generate(ast)
 
     expect(result.code).toBe(`{
   tiếng_kêu: "Meo meo",
@@ -24,6 +24,6 @@ describe("generator-expression-object.test", () => {
   async kêu(số_lần, hmm) {
     return "Meo meo";
   }
-}`);
-  });
-});
+}`)
+  })
+})

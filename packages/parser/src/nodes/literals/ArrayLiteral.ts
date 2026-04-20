@@ -1,18 +1,17 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { Expression } from "../expressions/Expression";
-import { ArrayElementList } from "../initializers/array/ArrayElementList";
+import { ArrayElementList } from '../initializers/array/ArrayElementList'
 
 export class ArrayLiteral {
-  type = "ArrayLiteral";
+  type = 'ArrayLiteral'
 
-  elements: Array<Expression>;
+  elements: Array<any>
 
   constructor(parser: Parser) {
-    parser.eat("[");
+    parser.eat('[')
 
-    this.elements = new ArrayElementList(parser, "]").elements;
+    this.elements = new ArrayElementList(parser, ']').elements
 
-    parser.eat("]");
+    parser.eat(']')
   }
 }

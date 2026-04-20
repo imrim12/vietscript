@@ -1,25 +1,25 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { StatementList } from "./StatementList";
-import { StatementListItem } from "./StatementListItem";
+import type { StatementListItem } from './StatementListItem'
+import { StatementList } from './StatementList'
 
 export class BlockStatement {
-  type = "BlockStatement";
+  type = 'BlockStatement'
 
-  body: Array<StatementListItem>;
+  body: Array<StatementListItem>
 
-  directives: Array<any> = [];
+  directives: Array<any> = []
 
   constructor(parser: Parser) {
-    const statements: Array<StatementListItem> = [];
+    const statements: Array<StatementListItem> = []
 
-    parser.eat("{");
+    parser.eat('{')
 
     // List of statement
-    statements.push(...new StatementList(parser, ["}"]).body);
+    statements.push(...new StatementList(parser, ['}']).body)
 
-    parser.eat("}");
+    parser.eat('}')
 
-    this.body = statements;
+    this.body = statements
   }
 }

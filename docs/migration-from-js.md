@@ -48,47 +48,48 @@ VietScript giữ nguyên ngữ nghĩa JavaScript 100% — chỉ thay từ khóa 
 
 ```js
 class Animal {
-  #soundCount = 0;
+  #soundCount = 0
 
-  constructor(name, type = "cat") {
-    this.name = name;
-    this.type = type;
+  constructor(name, type = 'cat') {
+    this.name = name
+    this.type = type
   }
 
   makeSound() {
-    this.#soundCount++;
-    return `${this.name} (${this.type}): sound ${this.#soundCount}`;
+    this.#soundCount++
+    return `${this.name} (${this.type}): sound ${this.#soundCount}`
   }
 
   get soundCount() {
-    return this.#soundCount;
+    return this.#soundCount
   }
 
   static create(name) {
-    return new Animal(name);
+    return new Animal(name)
   }
 }
 
-const cat = Animal.create("Mimi");
-console.log(cat.makeSound());
-console.log(cat.soundCount);
+const cat = Animal.create('Mimi')
+console.log(cat.makeSound())
+console.log(cat.soundCount)
 
-const numbers = [1, 2, 3];
-const doubled = numbers.map(x => x * 2);
+const numbers = [1, 2, 3]
+const doubled = numbers.map(x => x * 2)
 
 for (const [i, val] of doubled.entries()) {
-  console.log(i, val);
+  console.log(i, val)
 }
 
 try {
-  throw new Error("demo");
-} catch (e) {
-  console.error(e.message);
+  throw new Error('demo')
+}
+catch (e) {
+  console.error(e.message)
 }
 
-const config = { ...defaults, debug: true };
-const { debug } = config;
-const value = obj?.prop ?? "default";
+const config = { ...defaults, debug: true }
+const { debug } = config
+const value = obj?.prop ?? 'default'
 ```
 
 ### VietScript

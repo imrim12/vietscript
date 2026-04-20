@@ -1,8 +1,7 @@
-/* eslint-disable no-useless-escape */
 import * as monaco from 'monaco-editor-core'
-import IRichLanguageConfiguration = monaco.languages.LanguageConfiguration
-import ILanguage = monaco.languages.IMonarchLanguage
 import { KEYWORDS } from './autocomplete'
+import ILanguage = monaco.languages.IMonarchLanguage
+import IRichLanguageConfiguration = monaco.languages.LanguageConfiguration
 
 export const richLanguageConfiguration: IRichLanguageConfiguration = {
   // If we want to support code folding, brackets ... ( [], (), {}....), we can override some properties here
@@ -50,25 +49,25 @@ export const monarchLanguage = <ILanguage>{
     '%=',
     '<<=',
     '>>=',
-    '>>>='
+    '>>>=',
   ],
 
   // we include these common regular expressions
-  symbols: /[=><!~?:&|+\-*\/\^%]+/,
+  symbols: /[=><!~?:&|+\-*/^%]+/,
   escapes: /\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
   digits: /\d+(_+\d+)*/,
   octaldigits: /[0-7]+(_+[0-7]+)*/,
-  binarydigits: /[0-1]+(_+[0-1]+)*/,
-  hexdigits: /[[0-9a-fA-F]+(_+[0-9a-fA-F]+)*/,
+  binarydigits: /[01]+(_+[01]+)*/,
+  hexdigits: /[[0-9a-f]+(_+[0-9a-f]+)*/i,
 
-  regexpctl: /[(){}\[\]\$\^|\-*+?\.]/,
-  regexpesc: /\\(?:[bBdDfnrstvwWn0\\\/]|@regexpctl|c[A-Z]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})/,
+  regexpctl: /[(){}[\]$^|\-*+?.]/,
+  regexpesc: /\\(?:[bBdDfnrstvwW0\\/]|@regexpctl|c[A-Z]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})/,
 
   // The main tokenizer for our languages
   tokenizer: {
     root: [[/[{}]/, 'delimiter.bracket'], { include: 'common' }],
     common: [
-      [/[A-Z][\w\$]*/, 'type.identifier'],
+      [/[A-Z][\w$]*/, 'type.identifier'],
 
       // identifiers and keywords
       [
@@ -77,25 +76,25 @@ export const monarchLanguage = <ILanguage>{
           cases: {
             '@typeKeywords': 'keyword',
             '@keywords': 'keyword',
-            '@default': 'identifier'
-          }
-        }
+            '@default': 'identifier',
+          },
+        },
       ],
 
       // whitespace
       { include: '@whitespace' },
 
       // delimiters and operators
-      [/[()\[\]]/, '@brackets'],
+      [/[()[\]]/, '@brackets'],
       [/[<>](?!@symbols)/, '@brackets'],
       [
         /@symbols/,
         {
           cases: {
             '@operators': 'delimiter',
-            '@default': ''
-          }
-        }
+            '@default': '',
+          },
+        },
       ],
       // numbers
       [/(@digits)[eE]([\-+]?(@digits))?/, 'number.float'],
@@ -112,47 +111,47 @@ export const monarchLanguage = <ILanguage>{
       [/'([^'\\]|\\.)*$/, 'string.invalid'], // non-teminated string
       [/"/, 'string', '@string_double'],
       [/'/, 'string', '@string_single'],
-      [/`/, 'string', '@string_backtick']
+      [/`/, 'string', '@string_backtick'],
     ],
     comment: [
-      [/[^\/*]+/, 'comment'],
+      [/[^/*]+/, 'comment'],
       [/\/\*/, 'comment', '@push'], // nested comment
       ['\\*/', 'comment', '@pop'],
-      [/[/*]/, 'comment']
+      [/[/*]/, 'comment'],
     ],
 
     jsdoc: [
-      [/[^\/*]+/, 'comment.doc'],
+      [/[^/*]+/, 'comment.doc'],
       [/\*\//, 'comment.doc', '@pop'],
-      [/[\/*]/, 'comment.doc']
+      [/[/*]/, 'comment.doc'],
     ],
 
     whitespace: [
       [/[ \t\r\n]+/, ''],
       [/\/\*\*(?!\/)/, 'comment.doc', '@jsdoc'],
       [/\/\*/, 'comment', '@comment'],
-      [/\/\/.*$/, 'comment']
+      [/\/\/.*$/, 'comment'],
     ],
 
     string: [
       [/[^\\"]+/, 'string'],
       [/@escapes/, 'string.escape'],
       [/\\./, 'string.escape.invalid'],
-      [/"/, 'string', '@pop']
+      [/"/, 'string', '@pop'],
     ],
 
     string_double: [
       [/[^\\"]+/, 'string'],
       [/@escapes/, 'string.escape'],
       [/\\./, 'string.escape.invalid'],
-      [/"/, 'string', '@pop']
+      [/"/, 'string', '@pop'],
     ],
 
     string_single: [
       [/[^\\']+/, 'string'],
       [/@escapes/, 'string.escape'],
       [/\\./, 'string.escape.invalid'],
-      [/'/, 'string', '@pop']
+      [/'/, 'string', '@pop'],
     ],
 
     string_backtick: [
@@ -160,13 +159,13 @@ export const monarchLanguage = <ILanguage>{
       [/[^\\`$]+/, 'string'],
       [/@escapes/, 'string.escape'],
       [/\\./, 'string.escape.invalid'],
-      [/`/, 'string', '@pop']
+      [/`/, 'string', '@pop'],
     ],
 
     bracketCounting: [
       [/\{/, 'delimiter.bracket', '@bracketCounting'],
       [/\}/, 'delimiter.bracket', '@pop'],
-      { include: 'common' }
-    ]
-  }
+      { include: 'common' },
+    ],
+  },
 }

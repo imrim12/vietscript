@@ -1,14 +1,14 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { Statement } from "./statements/Statement";
-import { StatementList } from "./statements/StatementList";
+import type { Statement } from './statements/Statement'
+import { StatementList } from './statements/StatementList'
 
 export class Program {
-  type = "Program";
+  type = 'Program'
 
-  body: Array<Statement>;
+  body: Array<Statement>
 
   constructor(parser: Parser) {
-    this.body = new StatementList(parser).body;
+    this.body = new StatementList(parser).body
   }
 }

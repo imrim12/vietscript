@@ -1,25 +1,25 @@
-import { Parser } from "@parser/parser";
-import { Identifier } from "@parser/nodes/identifier/Identifier";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Identifier } from '@parser/nodes/identifier/Identifier'
+import { Keyword } from '@vietscript/shared'
 
-import { BlockStatement } from "../BlockStatement";
+import { BlockStatement } from '../BlockStatement'
 
 export class CatchClause {
-  type = "CatchClause";
+  type = 'CatchClause'
 
-  body: BlockStatement;
+  body: BlockStatement
 
-  param: Identifier | null = null;
+  param: Identifier | null = null
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.CATCH);
+    parser.eat(Keyword.CATCH)
 
-    if (parser.lookahead?.type === "(") {
-      parser.eat("(");
-      this.param = new Identifier(parser);
-      parser.eat(")");
+    if (parser.lookahead?.type === '(') {
+      parser.eat('(')
+      this.param = new Identifier(parser)
+      parser.eat(')')
     }
 
-    this.body = new BlockStatement(parser);
+    this.body = new BlockStatement(parser)
   }
 }

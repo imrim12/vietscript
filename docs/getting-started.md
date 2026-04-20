@@ -53,10 +53,11 @@ Node sẽ tự động transpile file `.vjs` trước khi import.
 
 ```ts
 // plugin-preload.ts
-import plugin from "@vietscript/cli/bun-plugin";
-Bun.plugin(plugin);
+import plugin from '@vietscript/cli/bun-plugin'
 
-await import("./hello.vjs");
+Bun.plugin(plugin)
+
+await import('./hello.vjs')
 ```
 
 ```bash
@@ -69,11 +70,11 @@ bun --preload ./plugin-preload.ts ./hello.vjs
 
 ```ts
 // vite.config.ts
-import vietscript from "@vietscript/plugin-vite";
+import vietscript from '@vietscript/plugin-vite'
 
 export default {
   plugins: [vietscript()],
-};
+}
 ```
 
 Trong file code bạn: `import "./app.vjs"` bình thường.
@@ -87,11 +88,11 @@ module.exports = {
     rules: [
       {
         test: /\.vjs$/,
-        loader: "@vietscript/plugin-webpack",
+        loader: '@vietscript/plugin-webpack',
       },
     ],
   },
-};
+}
 ```
 
 ## Stdlib tiếng Việt

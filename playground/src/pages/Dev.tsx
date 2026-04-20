@@ -1,70 +1,72 @@
-import { CaretRightOutlined } from "@ant-design/icons";
-import Editor, { useMonaco } from "@monaco-editor/react";
-import { Button, Card, Col, Row } from "antd";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import { createDependencyProposals } from "src/editor/autocomplete";
-import { languageExtensionPoint, languageID } from "src/editor/config";
-import { monarchLanguage, richLanguageConfiguration } from "src/editor/vietscript";
+import { CaretRightOutlined } from '@ant-design/icons'
+import Editor, { useMonaco } from '@monaco-editor/react'
+import { Button, Card, Col, Row } from 'antd'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { createDependencyProposals } from 'src/editor/autocomplete'
+import { languageExtensionPoint, languageID } from 'src/editor/config'
+import { monarchLanguage, richLanguageConfiguration } from 'src/editor/vietscript'
+import 'react-toastify/dist/ReactToastify.css'
 
 function Dev() {
-  const [program, setProgram] = useState("");
-  const [result, setResult] = useState("");
-  const monaco = useMonaco();
+  const [program, setProgram] = useState('')
+  const [result, setResult] = useState('')
+  const monaco = useMonaco()
 
   function handleEditorChange(value: any) {
-    setProgram(value);
+    setProgram(value)
   }
 
   const executeCode = () => {
-    let capturedOutput = "";
-    const originalConsoleLog = console.log;
+    let capturedOutput = ''
+    const originalConsoleLog = console.log
 
     console.log = (output) => {
-      capturedOutput += output;
-    };
+      capturedOutput += output
+    }
 
     try {
       // const _program = transpiler.compile(program)
-      const _program = { target: program };
-      eval(_program.target);
-      setResult(capturedOutput);
-    } catch (error) {
-      setResult(`Lỗi: ${error}`);
-    } finally {
-      console.log = originalConsoleLog;
+      const _program = { target: program }
+      eval(_program.target)
+      setResult(capturedOutput)
     }
-  };
+    catch (error) {
+      setResult(`Lỗi: ${error}`)
+    }
+    finally {
+      console.log = originalConsoleLog
+    }
+  }
 
   useEffect(() => {
     // do conditional chaining
-    monaco?.languages.typescript.javascriptDefaults.setEagerModelSync(true);
-    monaco?.languages.register(languageExtensionPoint);
+    ;(monaco?.languages.typescript as any)?.javascriptDefaults?.setEagerModelSync(true)
+    monaco?.languages.register(languageExtensionPoint)
     monaco?.languages.onLanguage(languageID, () => {
-      monaco?.languages.setMonarchTokensProvider(languageID, monarchLanguage);
-      monaco?.languages.setLanguageConfiguration(languageID, richLanguageConfiguration);
-    });
+      monaco?.languages.setMonarchTokensProvider(languageID, monarchLanguage)
+      monaco?.languages.setLanguageConfiguration(languageID, richLanguageConfiguration)
+    })
 
     monaco?.languages.registerCompletionItemProvider(languageID, {
-      provideCompletionItems: function (model, position) {
-        const word = model.getWordUntilPosition(position);
+      provideCompletionItems(model, position) {
+        const word = model.getWordUntilPosition(position)
         const range = {
           startLineNumber: position.lineNumber,
           endLineNumber: position.lineNumber,
           startColumn: word.startColumn,
           endColumn: word.endColumn,
-        };
+        }
         return {
           suggestions: createDependencyProposals(range, monaco),
-        };
+        }
       },
-    });
+    })
 
     if (monaco) {
-      console.log("here is the monaco instance:", monaco);
+      console.log('here is the monaco instance:', monaco)
     }
-  }, [monaco]);
+  }, [monaco])
 
   return (
     <Card>
@@ -73,7 +75,9 @@ function Dev() {
           <Button className="mr-4 ">Trở về</Button>
         </Link>
         <Button onClick={executeCode} shape="default">
-          <CaretRightOutlined size={10} /> Thực thi
+          <CaretRightOutlined size={10} />
+          {' '}
+          Thực thi
         </Button>
       </div>
       <Row className="pt-3">
@@ -90,7 +94,7 @@ function Dev() {
         </Col>
       </Row>
     </Card>
-  );
+  )
 }
 
-export default Dev;
+export default Dev

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist",
+    "moduleResolution": "Bundler",
     "types": ["vite/client", "vitest/globals"]
   },
   "include": ["./**/*.ts", "./**/*.tsx", "./**/*.d.ts"],

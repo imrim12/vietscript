@@ -1,18 +1,18 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { ClassElementList } from "./ClassElementList";
-import { ClassProperty } from "./ClassProperty";
+import type { ClassProperty } from './ClassProperty'
+import { ClassElementList } from './ClassElementList'
 
 export class ClassBody {
-  type = "ClassBody";
+  type = 'ClassBody'
 
-  body: Array<ClassProperty> = [];
+  body: Array<ClassProperty> = []
 
   constructor(parser: Parser) {
-    parser.eat("{");
+    parser.eat('{')
 
-    this.body = new ClassElementList(parser).properties;
+    this.body = new ClassElementList(parser).properties
 
-    parser.eat("}");
+    parser.eat('}')
   }
 }

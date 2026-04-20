@@ -1,15 +1,15 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { ArrayLiteral } from "../literals/ArrayLiteral";
+import type { Expression } from './Expression'
 
-import { Expression } from "./Expression";
+import { ArrayLiteral } from '../literals/ArrayLiteral'
 
 export class ArrayExpression {
-  type = "ArrayExpression";
+  type = 'ArrayExpression'
 
-  elements: Array<Expression>;
+  elements: Array<Expression>
 
   constructor(parser: Parser) {
-    this.elements = new ArrayLiteral(parser).elements;
+    this.elements = new ArrayLiteral(parser).elements
   }
 }

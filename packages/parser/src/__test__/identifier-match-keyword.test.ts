@@ -1,39 +1,39 @@
-import { Program } from "@parser/nodes/Program";
+import { Program } from '@parser/nodes/Program'
 
-import parser from "../setup-test";
-import toPlainObject from "../toPlainObject";
+import parser from '../setup-test'
+import toPlainObject from '../toPlainObject'
 
-describe("identifier-match-keyword.test", () => {
-  it("should tokenize embedded keyword as separator, not as part of identifier", () => {
+describe('identifier-match-keyword.test', () => {
+  it('should tokenize embedded keyword as separator, not as part of identifier', () => {
     expect(() => {
-      parser.parse(`khai báo một lớp gì đó = 1`, Program);
-    }).toThrowError();
-  });
+      parser.parse(`khai báo một lớp gì đó = 1`, Program)
+    }).toThrowError()
+  })
 
-  it("should parse multi-word identifier without embedded keyword", () => {
-    const result = parser.parse(`khai báo con mèo đẹp = 1`, Program);
+  it('should parse multi-word identifier without embedded keyword', () => {
+    const result = parser.parse(`khai báo con mèo đẹp = 1`, Program)
 
     expect(toPlainObject(result)).toMatchObject({
-      type: "Program",
+      type: 'Program',
       body: [
         {
-          type: "VariableDeclaration",
+          type: 'VariableDeclaration',
           declarations: [
             {
-              type: "VariableDeclarator",
-              id: { type: "Identifier" },
-              init: { type: "NumericLiteral", value: 1 },
+              type: 'VariableDeclarator',
+              id: { type: 'Identifier' },
+              init: { type: 'NumericLiteral', value: 1 },
             },
           ],
-          kind: "var",
+          kind: 'var',
         },
       ],
-    });
-  });
+    })
+  })
 
-  it("should show the syntax error when identifier starts with keyword", () => {
+  it('should show the syntax error when identifier starts with keyword', () => {
     expect(() => {
-      parser.parse("khai báo lớp gì đó = 1", Program);
-    }).toThrowError(/Unexpected token: "lớp"/);
-  });
-});
+      parser.parse('khai báo lớp gì đó = 1', Program)
+    }).toThrowError(/Unexpected token: "lớp"/)
+  })
+})

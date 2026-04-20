@@ -1,16 +1,16 @@
-import generate from "@babel/generator";
+import generate from '@babel/generator'
 
-import parser from "../../../../setup-test";
-import { Declaration } from "../../Declaration";
+import parser from '../../../../setup-test'
+import { Declaration } from '../../Declaration'
 
-describe("generator-expression-array.test", () => {
-  it("should parse the syntax normally", () => {
-    const code = `khai báo số một = 1`;
+describe('generator-expression-array.test', () => {
+  it('should parse the syntax normally', () => {
+    const code = `khai báo số một = 1`
 
-    const ast = parser.parse(code, Declaration);
+    const ast = parser.parse(code, Declaration)
 
-    const result = generate(ast);
+    const result = generate(ast)
 
-    expect(result.code).toBe(`var số_một = 1;`);
-  });
-});
+    expect(result.code).toBe(`var số_một = 1;`)
+  })
+})

@@ -1,25 +1,31 @@
-import { ClockCircleOutlined } from "@ant-design/icons";
-import { Button, Segmented, Tabs } from "antd";
-import { useState } from "react";
-import { Result } from "src/types";
+import type { Result } from 'src/types'
+import { ClockCircleOutlined } from '@ant-design/icons'
+import { Button, Segmented } from 'antd'
+import { useState } from 'react'
 
 interface Props {
-  results: Result[];
-  time?: number;
+  results: Result[]
+  time?: number
 }
 
 export default function TestResults({ results, time }: Props) {
-  const [activeTab, setActiveTab] = useState("1");
+  const [activeTab, setActiveTab] = useState('1')
   return (
     <div>
       <div className="mb-4 flex items-center justify-between">
-        {results.every((result) => String(result.result) === result.expectedOutput) ? (
-          <p className="font-bold text-xl text-emerald-600">Thành công</p>
-        ) : (
-          <p className="font-bold text-xl text-red-500">Thất bại</p>
-        )}
+        {results.every(result => String(result.result) === result.expectedOutput)
+          ? (
+              <p className="font-bold text-xl text-emerald-600">Thành công</p>
+            )
+          : (
+              <p className="font-bold text-xl text-red-500">Thất bại</p>
+            )}
         <Button>
-          <ClockCircleOutlined /> {time?.toFixed(2)} ms
+          <ClockCircleOutlined />
+          {' '}
+          {time?.toFixed(2)}
+          {' '}
+          ms
         </Button>
       </div>
       {results && (
@@ -29,16 +35,17 @@ export default function TestResults({ results, time }: Props) {
               <div className="flex items-center">
                 <span
                   className={`w-2 h-2 ${
-                    result.expectedOutput === String(result.result) ? "bg-emerald-400" : "bg-red-500"
+                    result.expectedOutput === String(result.result) ? 'bg-emerald-400' : 'bg-red-500'
                   } rounded-full mr-2`}
-                ></span>
+                >
+                </span>
                 <p className="text-gray-600">{`Kiểm thử ${i + 1}`}</p>
               </div>
             ),
             value: String(i + 1),
           }))}
           onChange={(value) => {
-            setActiveTab(value);
+            setActiveTab(value)
           }}
         />
       )}
@@ -53,8 +60,8 @@ export default function TestResults({ results, time }: Props) {
           <div
             className={`border font-bold rounded-md bg-gray-100 p-4 ${
               String(results[Number(activeTab) - 1]?.result) === results[Number(activeTab) - 1]?.expectedOutput
-                ? "text-emerald-600"
-                : "text-red-500"
+                ? 'text-emerald-600'
+                : 'text-red-500'
             }`}
           >
             <pre>{results[Number(activeTab) - 1]?.result}</pre>
@@ -67,5 +74,5 @@ export default function TestResults({ results, time }: Props) {
         </div>
       )}
     </div>
-  );
+  )
 }

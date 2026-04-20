@@ -1,9 +1,9 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
 export class EmptyStatement {
-  type = "EmptyStatement";
+  type = 'EmptyStatement'
 
   constructor(parser: Parser) {
-    parser.eat(";");
+    parser.eat(';')
   }
 }

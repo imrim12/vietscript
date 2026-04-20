@@ -1,19 +1,20 @@
-import { Parser } from "@parser/parser";
-import { Keyword, Node } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import type { Node } from '@vietscript/shared'
+import { Keyword } from '@vietscript/shared'
 
 export class InfinityIdentifier implements Node {
-  type = Keyword.IDENTIFIER;
+  type = Keyword.IDENTIFIER
 
-  name = "Infinity";
+  name = 'Infinity'
 
-  start: number;
+  start: number
 
-  end: number;
+  end: number
 
   constructor(parser: Parser) {
-    const token = parser.eat(Keyword.INFINITY);
+    const token = parser.eat(Keyword.INFINITY)
 
-    this.start = token.start;
-    this.end = token.end;
+    this.start = token.start
+    this.end = token.end
   }
 }

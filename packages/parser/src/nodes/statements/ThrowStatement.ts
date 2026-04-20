@@ -1,18 +1,18 @@
-import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Keyword } from '@vietscript/shared'
 
-import { Expression } from "../expressions/Expression";
+import { Expression } from '../expressions/Expression'
 
 export class ThrowStatement {
-  type = "ThrowStatement";
+  type = 'ThrowStatement'
 
-  argument: Expression;
+  argument: Expression
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.THROW);
+    parser.eat(Keyword.THROW)
 
-    const expression = new Expression(parser);
+    const expression = new Expression(parser)
 
-    this.argument = expression;
+    this.argument = expression
   }
 }

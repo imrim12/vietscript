@@ -1,22 +1,22 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { Identifier } from "../identifier/Identifier";
+import type { Identifier } from '../identifier/Identifier'
 
-import { Statement } from "./Statement";
-import { BlockStatement } from "./BlockStatement";
+import { BlockStatement } from './BlockStatement'
+import { Statement } from './Statement'
 
 export class LabelledStatement {
-  type = "LabeledStatement";
+  type = 'LabeledStatement'
 
-  label: Identifier;
+  label: Identifier
 
-  body: Statement | BlockStatement;
+  body: Statement | BlockStatement
 
   constructor(parser: Parser, identifier: Identifier) {
-    this.label = identifier;
+    this.label = identifier
 
-    parser.eat(":");
+    parser.eat(':')
 
-    this.body = parser.lookahead?.type === "{" ? new BlockStatement(parser) : new Statement(parser);
+    this.body = parser.lookahead?.type === '{' ? new BlockStatement(parser) : new Statement(parser)
   }
 }

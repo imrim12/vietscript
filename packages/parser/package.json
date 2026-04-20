@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
@@ -41,13 +42,13 @@
   "homepage": "https://github.com/imrim12/vietscript#readme",
   "devDependencies": {
     "@vietscript/shared": "workspace:*",
-    "@types/node": "^18.14.1",
-    "@vitest/ui": "^0.24.5",
-    "lodash": "^4.17.21",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.9.4",
-    "vite": "^4.0.4",
-    "vite-plugin-dts": "^1.6.6",
-    "vitest": "^0.28.3"
+    "@types/node": "catalog:",
+    "@vitest/ui": "catalog:",
+    "lodash": "catalog:",
+    "rimraf": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "vitest": "catalog:"
   }
 }

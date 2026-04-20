@@ -1,36 +1,38 @@
-import { Parser } from "@parser/parser";
-import { Keyword, Node } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import type { Node } from '@vietscript/shared'
+import { Keyword } from '@vietscript/shared'
 
 export class NumericLiteral implements Node {
-  type = "NumericLiteral";
+  type = 'NumericLiteral'
 
-  value: number | string = 0;
+  value: number | string = 0
 
   extra: {
-    rawValue: number | string;
-    raw: string;
-  };
+    rawValue: number | string
+    raw: string
+  }
 
-  start: number;
+  start: number
 
-  end: number;
+  end: number
 
   constructor(parser: Parser) {
-    const token = parser.eat(Keyword.NUMBER);
-    const raw = String(token.value);
+    const token = parser.eat(Keyword.NUMBER)
+    const raw = String(token.value)
 
-    this.start = token.start;
-    this.end = token.end;
+    this.start = token.start
+    this.end = token.end
 
-    if (raw.endsWith("n")) {
-      this.type = "BigIntLiteral";
-      const clean = raw.slice(0, -1).replace(/_/g, "");
-      this.value = clean;
-      this.extra = { rawValue: clean, raw };
-    } else {
-      const clean = raw.replace(/_/g, "");
-      this.value = Number(clean);
-      this.extra = { rawValue: this.value, raw };
+    if (raw.endsWith('n')) {
+      this.type = 'BigIntLiteral'
+      const clean = raw.slice(0, -1).replace(/_/g, '')
+      this.value = clean
+      this.extra = { rawValue: clean, raw }
+    }
+    else {
+      const clean = raw.replace(/_/g, '')
+      this.value = Number(clean)
+      this.extra = { rawValue: this.value, raw }
     }
   }
 }

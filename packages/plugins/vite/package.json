@@ -28,15 +28,15 @@
     "build": "rimraf ./dist && vite build"
   },
   "devDependencies": {
-    "@vitest/ui": "^0.24.5",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.9.4",
-    "vite": "^4.0.4",
-    "vite-plugin-dts": "^1.6.6",
-    "vitest": "^0.28.3"
+    "@vitest/ui": "catalog:",
+    "rimraf": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "vitest": "catalog:"
   },
   "dependencies": {
-    "@babel/generator": "^7.22.10",
+    "@babel/generator": "catalog:",
     "@vietscript/parser": "workspace:*"
   }
 }

@@ -9,7 +9,7 @@ hero:
     - theme: brand
       text: VietScript là gì?
       link: /introduction
-    - theme: alt  
+    - theme: alt
       text: Playground
       link: /playground
 

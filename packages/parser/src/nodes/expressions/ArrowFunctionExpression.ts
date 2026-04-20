@@ -1,36 +1,37 @@
-import { Parser } from "@parser/parser";
-import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
-import { Parameter } from "@parser/nodes/declarations/ParameterList";
+import type { Parameter } from '@parser/nodes/declarations/ParameterList'
+import type { Parser } from '@parser/parser'
+import { BlockStatement } from '@parser/nodes/statements/BlockStatement'
 
-import { Expression } from "./Expression";
+import { Expression } from './Expression'
 
 export class ArrowFunctionExpression {
-  type = "ArrowFunctionExpression";
+  type = 'ArrowFunctionExpression'
 
-  id: null = null;
+  id: null = null
 
-  expression = true;
+  expression = true
 
-  generator = false;
+  generator = false
 
-  async = false;
+  async = false
 
-  params: Array<Parameter> = [];
+  params: Array<Parameter> = []
 
-  body: Expression | BlockStatement;
+  body: Expression | BlockStatement
 
   constructor(parser: Parser, params: Array<Parameter>, isAsync = false) {
-    parser.eat("=>");
+    parser.eat('=>')
 
-    this.params = params;
-    this.async = isAsync;
+    this.params = params
+    this.async = isAsync
 
-    if (parser.lookahead?.type === "{") {
-      this.body = new BlockStatement(parser);
-      this.expression = false;
-    } else {
-      this.body = new Expression(parser);
-      this.expression = true;
+    if (parser.lookahead?.type === '{') {
+      this.body = new BlockStatement(parser)
+      this.expression = false
+    }
+    else {
+      this.body = new Expression(parser)
+      this.expression = true
     }
   }
 }

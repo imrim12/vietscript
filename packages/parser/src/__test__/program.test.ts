@@ -1,9 +1,8 @@
-import { Program } from "@parser/nodes/Program";
-import toPlainObject from "../toPlainObject";
-import parser from "@parser";
+import parser from '@parser'
+import toPlainObject from '../toPlainObject'
 
-describe("program.test", () => {
-  it("should parse the syntax normally", () => {
+describe('program.test', () => {
+  it('should parse the syntax normally', () => {
     const result = parser.parse(
       `khai báo tuổi = 25;;;
   		khai báo tên = "Tú Nguyễn";;
@@ -43,53 +42,53 @@ describe("program.test", () => {
         con chó.mồm[hành động]()
       }
   `,
-    );
+    )
     expect(toPlainObject(result)).toStrictEqual({
-      type: "Program",
+      type: 'Program',
       body: [
         {
-          type: "VariableDeclaration",
+          type: 'VariableDeclaration',
           declarations: [
             {
-              type: "VariableDeclarator",
+              type: 'VariableDeclarator',
               id: {
-                type: "Identifier",
-                name: "tuổi",
+                type: 'Identifier',
+                name: 'tuổi',
               },
               init: {
-                type: "NumericLiteral",
+                type: 'NumericLiteral',
                 value: 25,
                 extra: {
                   rawValue: 25,
-                  raw: "25",
+                  raw: '25',
                 },
                 start: 16,
                 end: 18,
               },
             },
           ],
-          kind: "var",
+          kind: 'var',
         },
         {
-          type: "EmptyStatement",
+          type: 'EmptyStatement',
         },
         {
-          type: "EmptyStatement",
+          type: 'EmptyStatement',
         },
         {
-          type: "VariableDeclaration",
+          type: 'VariableDeclaration',
           declarations: [
             {
-              type: "VariableDeclarator",
+              type: 'VariableDeclarator',
               id: {
-                type: "Identifier",
-                name: "tên",
+                type: 'Identifier',
+                name: 'tên',
               },
               init: {
-                type: "StringLiteral",
-                value: "Tú Nguyễn",
+                type: 'StringLiteral',
+                value: 'Tú Nguyễn',
                 extra: {
-                  rawValue: "Tú Nguyễn",
+                  rawValue: 'Tú Nguyễn',
                   raw: '"Tú Nguyễn"',
                 },
                 start: 41,
@@ -97,66 +96,66 @@ describe("program.test", () => {
               },
             },
           ],
-          kind: "var",
+          kind: 'var',
         },
         {
-          type: "EmptyStatement",
+          type: 'EmptyStatement',
         },
         {
-          type: "ClassDeclaration",
+          type: 'ClassDeclaration',
           id: {
-            type: "Identifier",
-            name: "Con_Mèo",
+            type: 'Identifier',
+            name: 'Con_Mèo',
           },
           superClass: {
-            type: "Identifier",
-            name: "Động_Vật",
+            type: 'Identifier',
+            name: 'Động_Vật',
           },
           body: {
-            type: "ClassBody",
+            type: 'ClassBody',
             body: [
               {
-                type: "ClassProperty",
+                type: 'ClassProperty',
                 static: false,
                 computed: false,
                 key: {
-                  type: "Identifier",
-                  name: "số_chân",
+                  type: 'Identifier',
+                  name: 'số_chân',
                 },
                 value: null,
               },
               {
-                type: "ClassMethod",
+                type: 'ClassMethod',
                 static: false,
                 computed: false,
                 key: {
-                  type: "Identifier",
-                  name: "kêu",
+                  type: 'Identifier',
+                  name: 'kêu',
                 },
-                kind: "method",
+                kind: 'method',
                 id: null,
                 generator: false,
                 async: true,
                 params: [
                   {
-                    type: "Identifier",
-                    name: "số_lần",
+                    type: 'Identifier',
+                    name: 'số_lần',
                   },
                   {
-                    type: "Identifier",
-                    name: "hmm",
+                    type: 'Identifier',
+                    name: 'hmm',
                   },
                 ],
                 body: {
-                  type: "BlockStatement",
+                  type: 'BlockStatement',
                   body: [
                     {
-                      type: "ReturnStatement",
+                      type: 'ReturnStatement',
                       argument: {
-                        type: "StringLiteral",
-                        value: "Meo meo",
+                        type: 'StringLiteral',
+                        value: 'Meo meo',
                         extra: {
-                          rawValue: "Meo meo",
+                          rawValue: 'Meo meo',
                           raw: '"Meo meo"',
                         },
                         start: 146,
@@ -171,58 +170,58 @@ describe("program.test", () => {
           },
         },
         {
-          type: "SwitchStatement",
+          type: 'SwitchStatement',
           discriminant: {
-            type: "Identifier",
-            name: "tuổi_tác",
+            type: 'Identifier',
+            name: 'tuổi_tác',
           },
           cases: [
             {
-              type: "SwitchCase",
+              type: 'SwitchCase',
               test: {
-                type: "NumericLiteral",
+                type: 'NumericLiteral',
                 value: 1,
                 extra: {
                   rawValue: 1,
-                  raw: "1",
+                  raw: '1',
                 },
                 start: 209,
                 end: 210,
               },
               consequent: [
                 {
-                  type: "VariableDeclaration",
+                  type: 'VariableDeclaration',
                   declarations: [
                     {
-                      type: "VariableDeclarator",
+                      type: 'VariableDeclarator',
                       id: {
-                        type: "Identifier",
-                        name: "xyz",
+                        type: 'Identifier',
+                        name: 'xyz',
                       },
                       init: {
-                        type: "NumericLiteral",
+                        type: 'NumericLiteral',
                         value: 1,
                         extra: {
                           rawValue: 1,
-                          raw: "1",
+                          raw: '1',
                         },
                         start: 228,
                         end: 229,
                       },
                     },
                   ],
-                  kind: "var",
+                  kind: 'var',
                 },
               ],
             },
             {
-              type: "SwitchCase",
+              type: 'SwitchCase',
               test: {
-                type: "NumericLiteral",
+                type: 'NumericLiteral',
                 value: 18,
                 extra: {
                   rawValue: 18,
-                  raw: "18",
+                  raw: '18',
                 },
                 start: 247,
                 end: 249,
@@ -230,13 +229,13 @@ describe("program.test", () => {
               consequent: [],
             },
             {
-              type: "SwitchCase",
+              type: 'SwitchCase',
               test: {
-                type: "NumericLiteral",
+                type: 'NumericLiteral',
                 value: 60,
                 extra: {
                   rawValue: 60,
-                  raw: "60",
+                  raw: '60',
                 },
                 start: 267,
                 end: 269,
@@ -246,73 +245,73 @@ describe("program.test", () => {
           ],
         },
         {
-          type: "IfStatement",
+          type: 'IfStatement',
           test: {
-            type: "Identifier",
-            name: "điều_kiện_một",
+            type: 'Identifier',
+            name: 'điều_kiện_một',
           },
           consequent: {
-            type: "BlockStatement",
+            type: 'BlockStatement',
             body: [
               {
-                type: "VariableDeclaration",
+                type: 'VariableDeclaration',
                 declarations: [
                   {
-                    type: "VariableDeclarator",
+                    type: 'VariableDeclarator',
                     id: {
-                      type: "Identifier",
-                      name: "gì_đó",
+                      type: 'Identifier',
+                      name: 'gì_đó',
                     },
                     init: null,
                   },
                 ],
-                kind: "var",
+                kind: 'var',
               },
             ],
             directives: [],
           },
           alternate: {
-            type: "IfStatement",
+            type: 'IfStatement',
             test: {
-              type: "Identifier",
-              name: "điều_kiện_hai",
+              type: 'Identifier',
+              name: 'điều_kiện_hai',
             },
             consequent: {
-              type: "BlockStatement",
+              type: 'BlockStatement',
               body: [
                 {
-                  type: "VariableDeclaration",
+                  type: 'VariableDeclaration',
                   declarations: [
                     {
-                      type: "VariableDeclarator",
+                      type: 'VariableDeclarator',
                       id: {
-                        type: "Identifier",
-                        name: "gì_đó_khác",
+                        type: 'Identifier',
+                        name: 'gì_đó_khác',
                       },
                       init: null,
                     },
                   ],
-                  kind: "var",
+                  kind: 'var',
                 },
               ],
               directives: [],
             },
             alternate: {
-              type: "BlockStatement",
+              type: 'BlockStatement',
               body: [
                 {
-                  type: "VariableDeclaration",
+                  type: 'VariableDeclaration',
                   declarations: [
                     {
-                      type: "VariableDeclarator",
+                      type: 'VariableDeclarator',
                       id: {
-                        type: "Identifier",
-                        name: "gì_đó_khác_nữa",
+                        type: 'Identifier',
+                        name: 'gì_đó_khác_nữa',
                       },
                       init: null,
                     },
                   ],
-                  kind: "var",
+                  kind: 'var',
                 },
               ],
               directives: [],
@@ -320,102 +319,102 @@ describe("program.test", () => {
           },
         },
         {
-          type: "TryStatement",
+          type: 'TryStatement',
           block: {
-            type: "BlockStatement",
+            type: 'BlockStatement',
             body: [
               {
-                type: "VariableDeclaration",
+                type: 'VariableDeclaration',
                 declarations: [
                   {
-                    type: "VariableDeclarator",
+                    type: 'VariableDeclarator',
                     id: {
-                      type: "Identifier",
-                      name: "gì_đó",
+                      type: 'Identifier',
+                      name: 'gì_đó',
                     },
                     init: null,
                   },
                 ],
-                kind: "var",
+                kind: 'var',
               },
             ],
             directives: [],
           },
           handler: {
-            type: "CatchClause",
+            type: 'CatchClause',
             body: {
-              type: "BlockStatement",
+              type: 'BlockStatement',
               body: [
                 {
-                  type: "VariableDeclaration",
+                  type: 'VariableDeclaration',
                   declarations: [
                     {
-                      type: "VariableDeclarator",
+                      type: 'VariableDeclarator',
                       id: {
-                        type: "Identifier",
-                        name: "gì_đó_khác",
+                        type: 'Identifier',
+                        name: 'gì_đó_khác',
                       },
                       init: null,
                     },
                   ],
-                  kind: "var",
+                  kind: 'var',
                 },
               ],
               directives: [],
             },
             param: {
-              type: "Identifier",
-              name: "lỗi",
+              type: 'Identifier',
+              name: 'lỗi',
             },
           },
           finalizer: {
-            type: "BlockStatement",
+            type: 'BlockStatement',
             body: [
               {
-                type: "VariableDeclaration",
+                type: 'VariableDeclaration',
                 declarations: [
                   {
-                    type: "VariableDeclarator",
+                    type: 'VariableDeclarator',
                     id: {
-                      type: "Identifier",
-                      name: "gì_đó_khác_nữa",
+                      type: 'Identifier',
+                      name: 'gì_đó_khác_nữa',
                     },
                     init: null,
                   },
                 ],
-                kind: "var",
+                kind: 'var',
               },
             ],
             directives: [],
           },
         },
         {
-          type: "FunctionDeclaration",
+          type: 'FunctionDeclaration',
           id: {
-            type: "Identifier",
-            name: "ngẫu_nhiên",
+            type: 'Identifier',
+            name: 'ngẫu_nhiên',
           },
           expression: false,
           generator: false,
           async: false,
           params: [],
           body: {
-            type: "BlockStatement",
+            type: 'BlockStatement',
             body: [
               {
-                type: "VariableDeclaration",
+                type: 'VariableDeclaration',
                 declarations: [
                   {
-                    type: "VariableDeclarator",
+                    type: 'VariableDeclarator',
                     id: {
-                      type: "Identifier",
-                      name: "hành_động",
+                      type: 'Identifier',
+                      name: 'hành_động',
                     },
                     init: {
-                      type: "StringLiteral",
-                      value: "cắn",
+                      type: 'StringLiteral',
+                      value: 'cắn',
                       extra: {
-                        rawValue: "cắn",
+                        rawValue: 'cắn',
                         raw: '"cắn"',
                       },
                       start: 640,
@@ -423,30 +422,30 @@ describe("program.test", () => {
                     },
                   },
                 ],
-                kind: "var",
+                kind: 'var',
               },
               {
-                type: "ExpressionStatement",
+                type: 'ExpressionStatement',
                 expression: {
-                  type: "CallExpression",
+                  type: 'CallExpression',
                   callee: {
-                    type: "MemberExpression",
+                    type: 'MemberExpression',
                     object: {
-                      type: "MemberExpression",
+                      type: 'MemberExpression',
                       object: {
-                        type: "Identifier",
-                        name: "con_chó",
+                        type: 'Identifier',
+                        name: 'con_chó',
                       },
                       property: {
-                        type: "Identifier",
-                        name: "mồm",
+                        type: 'Identifier',
+                        name: 'mồm',
                       },
                       computed: false,
                       optional: false,
                     },
                     property: {
-                      type: "Identifier",
-                      name: "sủa",
+                      type: 'Identifier',
+                      name: 'sủa',
                     },
                     computed: false,
                     optional: false,
@@ -456,27 +455,27 @@ describe("program.test", () => {
                 },
               },
               {
-                type: "ExpressionStatement",
+                type: 'ExpressionStatement',
                 expression: {
-                  type: "CallExpression",
+                  type: 'CallExpression',
                   callee: {
-                    type: "MemberExpression",
+                    type: 'MemberExpression',
                     object: {
-                      type: "MemberExpression",
+                      type: 'MemberExpression',
                       object: {
-                        type: "Identifier",
-                        name: "con_chó",
+                        type: 'Identifier',
+                        name: 'con_chó',
                       },
                       property: {
-                        type: "Identifier",
-                        name: "mồm",
+                        type: 'Identifier',
+                        name: 'mồm',
                       },
                       computed: false,
                       optional: false,
                     },
                     property: {
-                      type: "Identifier",
-                      name: "hành_động",
+                      type: 'Identifier',
+                      name: 'hành_động',
                     },
                     computed: true,
                     optional: false,
@@ -490,55 +489,55 @@ describe("program.test", () => {
           },
         },
       ],
-    });
-  });
+    })
+  })
 
-  it("should parse program with multiple const declarations correctly", () => {
+  it('should parse program with multiple const declarations correctly', () => {
     const result = parser.parse(
       `hằng số tuổi = 25;hằng số địa chỉ = "Đà Nẵng";
       hằng số tên = "Tú Nguyễn";
   	}`,
-    );
+    )
     expect(toPlainObject(result)).toStrictEqual({
-      type: "Program",
+      type: 'Program',
       body: [
         {
-          type: "VariableDeclaration",
+          type: 'VariableDeclaration',
           declarations: [
             {
-              type: "VariableDeclarator",
+              type: 'VariableDeclarator',
               id: {
-                type: "Identifier",
-                name: "tuổi",
+                type: 'Identifier',
+                name: 'tuổi',
               },
               init: {
-                type: "NumericLiteral",
+                type: 'NumericLiteral',
                 value: 25,
                 extra: {
                   rawValue: 25,
-                  raw: "25",
+                  raw: '25',
                 },
                 start: 15,
                 end: 17,
               },
             },
           ],
-          kind: "const",
+          kind: 'const',
         },
         {
-          type: "VariableDeclaration",
+          type: 'VariableDeclaration',
           declarations: [
             {
-              type: "VariableDeclarator",
+              type: 'VariableDeclarator',
               id: {
-                type: "Identifier",
-                name: "địa_chỉ",
+                type: 'Identifier',
+                name: 'địa_chỉ',
               },
               init: {
-                type: "StringLiteral",
-                value: "Đà Nẵng",
+                type: 'StringLiteral',
+                value: 'Đà Nẵng',
                 extra: {
-                  rawValue: "Đà Nẵng",
+                  rawValue: 'Đà Nẵng',
                   raw: '"Đà Nẵng"',
                 },
                 start: 36,
@@ -546,22 +545,22 @@ describe("program.test", () => {
               },
             },
           ],
-          kind: "const",
+          kind: 'const',
         },
         {
-          type: "VariableDeclaration",
+          type: 'VariableDeclaration',
           declarations: [
             {
-              type: "VariableDeclarator",
+              type: 'VariableDeclarator',
               id: {
-                type: "Identifier",
-                name: "tên",
+                type: 'Identifier',
+                name: 'tên',
               },
               init: {
-                type: "StringLiteral",
-                value: "Tú Nguyễn",
+                type: 'StringLiteral',
+                value: 'Tú Nguyễn',
                 extra: {
-                  rawValue: "Tú Nguyễn",
+                  rawValue: 'Tú Nguyễn',
                   raw: '"Tú Nguyễn"',
                 },
                 start: 67,
@@ -569,9 +568,9 @@ describe("program.test", () => {
               },
             },
           ],
-          kind: "const",
+          kind: 'const',
         },
       ],
-    });
-  });
-});
+    })
+  })
+})

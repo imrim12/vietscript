@@ -1,27 +1,28 @@
-import { Parser } from "@parser/parser";
-import { Identifier } from "@parser/nodes/identifier/Identifier";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Identifier } from '@parser/nodes/identifier/Identifier'
+import { Keyword } from '@vietscript/shared'
 
 export class UpdateExpression {
-  type = "UpdateExpression";
+  type = 'UpdateExpression'
 
-  operator: string;
+  operator: string
 
-  argument: Identifier;
+  argument: Identifier
 
-  prefix: boolean;
+  prefix: boolean
 
   constructor(parser: Parser) {
-    if (parser.lookahead?.type === "++" || parser.lookahead?.type === "--") {
-      this.prefix = true;
-      this.operator = String(parser.eat(parser.lookahead.type).value);
+    if (parser.lookahead?.type === '++' || parser.lookahead?.type === '--') {
+      this.prefix = true
+      this.operator = String(parser.eat(parser.lookahead.type).value)
 
-      this.argument = new Identifier(parser);
-    } else if (parser.lookahead?.type === Keyword.IDENTIFIER) {
-      this.argument = new Identifier(parser);
+      this.argument = new Identifier(parser)
+    }
+    else if (parser.lookahead?.type === Keyword.IDENTIFIER) {
+      this.argument = new Identifier(parser)
 
-      this.prefix = false;
-      this.operator = String(parser.eat(parser.lookahead.type).value);
+      this.prefix = false
+      this.operator = String(parser.eat(parser.lookahead.type).value)
     }
   }
 }

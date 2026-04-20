@@ -1,9 +1,11 @@
-import { Keyword } from "./keyword.enum";
-import { Operator } from "./operator.type";
+import type { Keyword } from './keyword.enum'
+import type { Operator } from './operator.type'
 
-export type Token = {
-  type: Keyword | Operator | null;
-  value: string | number;
-  start: number;
-  end: number;
-};
+export type TokenType = Keyword | Operator | (string & {}) | null
+
+export interface Token {
+  type: TokenType
+  value: string | number
+  start: number
+  end: number
+}

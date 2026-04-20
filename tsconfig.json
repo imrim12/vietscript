@@ -6,7 +6,7 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "target": "ESNext",
     "declaration": false,
     "sourceMap": true,

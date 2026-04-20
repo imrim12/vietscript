@@ -1,34 +1,35 @@
-import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Keyword } from '@vietscript/shared'
 
-import { SpreadElement } from "../../expressions/SpreadElement";
+import { SpreadElement } from '../../expressions/SpreadElement'
 
-import { ObjectProperty } from "./ObjectProperty";
-import { ObjectMethod } from "./ObjectMethod";
+import { ObjectMethod } from './ObjectMethod'
+import { ObjectProperty } from './ObjectProperty'
 
 export class ObjectPropertyList {
-  properties: Array<ObjectProperty | ObjectMethod | SpreadElement> = [];
+  properties: Array<ObjectProperty | ObjectMethod | SpreadElement> = []
 
-  constructor(parser: Parser, stopToken = "}") {
+  constructor(parser: Parser, stopToken = '}') {
     while (parser.lookahead?.type !== stopToken) {
-      if (parser.lookahead?.type === "...") {
-        this.properties.push(new SpreadElement(parser));
-      } else {
+      if (parser.lookahead?.type === '...') {
+        this.properties.push(new SpreadElement(parser))
+      }
+      else {
         switch (parser.lookahead?.type) {
           case Keyword.GET:
           case Keyword.SET:
           case Keyword.ASYNC: {
-            this.properties.push(new ObjectMethod(parser));
-            break;
+            this.properties.push(new ObjectMethod(parser))
+            break
           }
           default: {
-            this.properties.push(new ObjectProperty(parser));
+            this.properties.push(new ObjectProperty(parser))
           }
         }
       }
 
       if (parser.lookahead?.type !== stopToken) {
-        parser.eat(",");
+        parser.eat(',')
       }
     }
   }

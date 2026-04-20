@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     extend: {
       maxHeight: {
-        30: '120px'
-      }
-    }
+        30: '120px',
+      },
+    },
   },
   plugins: [],
   corePlugins: {
-    preflight: false
-  }
+    preflight: false,
+  },
 }

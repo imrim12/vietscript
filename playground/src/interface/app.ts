@@ -1,5 +1,4 @@
-import { UploadProps } from 'antd'
-import { iteratee } from 'lodash'
+import type { UploadProps } from 'antd'
 
 export interface ReactWithChild {
   children?: React.ReactNode

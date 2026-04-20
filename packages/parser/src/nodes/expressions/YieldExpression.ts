@@ -1,25 +1,26 @@
-import { Keyword } from "@vietscript/shared";
-import { Parser } from "@parser/parser";
-import { isExpression } from "@parser/utils/is-expression";
+import type { Parser } from '@parser/parser'
+import { isExpression } from '@parser/utils/is-expression'
+import { Keyword } from '@vietscript/shared'
 
-import { Expression } from "./Expression";
+import { Expression } from './Expression'
 
 export class YieldExpression {
-  type = "YieldExpression";
+  type = 'YieldExpression'
 
-  delegate = false;
+  delegate = false
 
-  argument: Expression | null = null;
+  argument: Expression | null = null
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.YIELD);
+    parser.eat(Keyword.YIELD)
 
-    if (parser.lookahead?.type === "*") {
-      parser.eat("*");
-      this.delegate = true;
-      this.argument = new Expression(parser);
-    } else if (isExpression(parser)) {
-      this.argument = new Expression(parser);
+    if (parser.lookahead?.type === '*') {
+      parser.eat('*')
+      this.delegate = true
+      this.argument = new Expression(parser)
+    }
+    else if (isExpression(parser)) {
+      this.argument = new Expression(parser)
     }
   }
 }

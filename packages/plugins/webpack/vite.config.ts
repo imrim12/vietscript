@@ -1,30 +1,30 @@
-import path from "node:path";
+import path from 'node:path'
 
-import dts from "vite-plugin-dts";
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   build: {
     emptyOutDir: false,
     lib: {
-      name: "@vietscript/plugin-webpack",
-      entry: path.resolve("./src/index.ts"),
-      formats: ["es", "cjs"],
-      fileName: "index",
+      name: '@vietscript/plugin-webpack',
+      entry: path.resolve('./src/index.ts'),
+      formats: ['es', 'cjs'],
+      fileName: 'index',
     },
     rollupOptions: {
-      external: ["@vietscript/parser", "fs", "path"],
+      external: ['@vietscript/parser', 'fs', 'path'],
       output: {
-        exports: "named",
+        exports: 'named',
         globals: {},
       },
     },
   },
   plugins: [
     dts({
-      root: ".",
-      entryRoot: "./src",
-      outputDir: "./dist/types",
+      root: '.',
+      entryRoot: './src',
+      outDir: './dist/types',
     }),
   ],
-});
+})

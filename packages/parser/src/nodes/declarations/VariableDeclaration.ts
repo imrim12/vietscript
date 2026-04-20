@@ -1,52 +1,51 @@
-import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Keyword } from '@vietscript/shared'
 
-import { VariableDeclarator } from "./VariableDeclarator";
+import { VariableDeclarator } from './VariableDeclarator'
 
 export class VariableDeclaration {
-  type = "VariableDeclaration";
+  type = 'VariableDeclaration'
 
-  declarations: Array<VariableDeclarator>;
+  declarations: Array<VariableDeclarator>
 
-  kind: "var" | "let" | "const";
+  kind: 'var' | 'let' | 'const'
 
   constructor(parser: Parser) {
-    let kind: "var" | "let" | "const" = "var";
-    let isConstant = false;
+    let kind: 'var' | 'let' | 'const' = 'var'
+    let isConstant = false
 
     switch (parser.lookahead?.type) {
       case Keyword.VAR: {
-        parser.eat(Keyword.VAR);
-        kind = "var";
+        parser.eat(Keyword.VAR)
+        kind = 'var'
 
-        break;
+        break
       }
       case Keyword.LET: {
-        parser.eat(Keyword.LET);
-        kind = "let";
+        parser.eat(Keyword.LET)
+        kind = 'let'
 
-        break;
+        break
       }
       case Keyword.CONST: {
-        parser.eat(Keyword.CONST);
-        kind = "const";
-        isConstant = true;
+        parser.eat(Keyword.CONST)
+        kind = 'const'
+        isConstant = true
 
-        break;
+        break
       }
       default: {
-        throw new SyntaxError(`Unexpected token: "${parser.lookahead?.value}", expected a variable declarator!`);
+        throw new SyntaxError(`Unexpected token: "${parser.lookahead?.value}", expected a variable declarator!`)
       }
     }
 
-    const declarations: Array<VariableDeclarator> = [];
+    const declarations: Array<VariableDeclarator> = []
 
     do {
-      declarations.push(new VariableDeclarator(parser, isConstant));
-      // @ts-expect-error no overlap
-    } while (parser.lookahead?.type === "," && parser.eat(","));
+      declarations.push(new VariableDeclarator(parser, isConstant))
+    } while ((parser.lookahead?.type as string) === ',' && parser.eat(','))
 
-    this.declarations = declarations;
-    this.kind = kind;
+    this.declarations = declarations
+    this.kind = kind
   }
 }

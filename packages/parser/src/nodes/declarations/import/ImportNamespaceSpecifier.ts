@@ -1,27 +1,27 @@
-import { Identifier } from "@parser/nodes/identifier/Identifier";
-import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Identifier } from '@parser/nodes/identifier/Identifier'
+import { Keyword } from '@vietscript/shared'
 
 export class ImportNamespaceSpecifier {
-  type = "ImportNamespaceSpecifier";
+  type = 'ImportNamespaceSpecifier'
 
-  local: Identifier;
+  local: Identifier
 
   constructor(parser: Parser) {
-    parser.eat("*");
+    parser.eat('*')
 
-    parser.eat(Keyword.AS);
+    parser.eat(Keyword.AS)
 
-    if (typeof parser.lookahead?.value === "string") {
-      const fromToken = /\s+từ$/g.exec(parser.lookahead.value)?.[0];
+    if (typeof parser.lookahead?.value === 'string') {
+      const fromToken = /\s+từ$/.exec(parser.lookahead.value)?.[0]
 
       if (fromToken) {
-        parser.tokenizer.rollback(fromToken.length);
+        parser.tokenizer.rollback(fromToken.length)
 
-        parser.lookahead.value = parser.lookahead.value.replace(/\s+từ$/g, "");
+        parser.lookahead.value = parser.lookahead.value.replace(/\s+từ$/g, '')
       }
     }
 
-    this.local = new Identifier(parser);
+    this.local = new Identifier(parser)
   }
 }

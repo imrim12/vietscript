@@ -1,10 +1,10 @@
-import { Tabs } from "antd";
-import { TestCase } from "src/types";
+import type { TestCase } from 'src/types'
+import { Tabs } from 'antd'
 
 interface Props {
-  testCases: TestCase[];
+  testCases: TestCase[]
 }
-const TestCases = ({ testCases }: Props) => {
+function TestCases({ testCases }: Props) {
   return (
     <div>
       {testCases && (
@@ -12,7 +12,7 @@ const TestCases = ({ testCases }: Props) => {
           defaultActiveKey="1"
           style={{ marginBottom: 32 }}
           items={testCases.slice(0, 4).map((testCase, i) => {
-            const id = String(i + 1);
+            const id = String(i + 1)
             return {
               label: `Kiểm thử ${id}`,
               key: id,
@@ -29,12 +29,12 @@ const TestCases = ({ testCases }: Props) => {
                   </div>
                 </>
               ),
-            };
+            }
           })}
         />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default TestCases;
+export default TestCases

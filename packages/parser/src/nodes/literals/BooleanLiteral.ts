@@ -1,23 +1,24 @@
-import { Parser } from "@parser/parser";
-import { Keyword, Node } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import type { Node } from '@vietscript/shared'
+import { Keyword } from '@vietscript/shared'
 
 export class BooleanLiteral implements Node {
-  type = "BooleanLiteral";
+  type = 'BooleanLiteral'
 
-  value: boolean;
+  value: boolean
 
-  start: number;
+  start: number
 
-  end: number;
+  end: number
 
   constructor(parser: Parser) {
-    const token = parser.eat(Keyword.BOOLEAN);
+    const token = parser.eat(Keyword.BOOLEAN)
 
-    this.start = token.start;
-    this.end = token.end;
+    this.start = token.start
+    this.end = token.end
 
-    const value = token.value === "true" ? true : token.value === "đúng" ? true : false;
+    const value = token.value === 'true' ? true : token.value === 'đúng'
 
-    this.value = value;
+    this.value = value
   }
 }

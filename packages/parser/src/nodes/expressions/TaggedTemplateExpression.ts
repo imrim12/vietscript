@@ -1,17 +1,17 @@
-import { Parser } from "@parser/parser";
-import { Identifier } from "@parser/nodes/identifier/Identifier";
+import type { Identifier } from '@parser/nodes/identifier/Identifier'
+import type { Parser } from '@parser/parser'
 
-import { TemplateLiteral } from "../literals/TemplateLiteral";
+import { TemplateLiteral } from '../literals/TemplateLiteral'
 
 export class TaggedTemplateExpression {
-  type = "TaggedTemplateExpression";
+  type = 'TaggedTemplateExpression'
 
-  tag: Identifier;
+  tag: Identifier
 
-  quasi: TemplateLiteral;
+  quasi: TemplateLiteral
 
   constructor(parser: Parser, tag: Identifier) {
-    this.tag = tag;
-    this.quasi = new TemplateLiteral(parser);
+    this.tag = tag
+    this.quasi = new TemplateLiteral(parser)
   }
 }

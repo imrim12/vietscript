@@ -1,10 +1,10 @@
-import parser from "../../../setup-test";
-import toPlainObject from "../../../toPlainObject";
-import { Expression } from "../Expression";
-import { ObjectExpression } from "../ObjectExpression";
+import type { ObjectExpression } from '../ObjectExpression'
+import parser from '../../../setup-test'
+import toPlainObject from '../../../toPlainObject'
+import { Expression } from '../Expression'
 
-describe("expression-object.test", () => {
-  it("should parse the syntax normally", () => {
+describe('expression-object.test', () => {
+  it('should parse the syntax normally', () => {
     const result = parser.parse(
       `
 		{
@@ -16,24 +16,24 @@ describe("expression-object.test", () => {
 		}
 		`,
       Expression,
-    );
+    )
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ObjectExpression",
+      type: 'ObjectExpression',
       properties: [
         {
-          type: "ObjectProperty",
+          type: 'ObjectProperty',
           method: false,
           computed: false,
           shorthand: false,
           key: {
-            type: "Identifier",
-            name: "tiếng_kêu",
+            type: 'Identifier',
+            name: 'tiếng_kêu',
           },
           value: {
-            type: "StringLiteral",
-            value: "Meo meo",
+            type: 'StringLiteral',
+            value: 'Meo meo',
             extra: {
-              rawValue: "Meo meo",
+              rawValue: 'Meo meo',
               raw: '"Meo meo"',
             },
             start: 22,
@@ -41,56 +41,56 @@ describe("expression-object.test", () => {
           },
         },
         {
-          type: "ObjectProperty",
+          type: 'ObjectProperty',
           method: false,
           computed: false,
           shorthand: false,
           key: {
-            type: "Identifier",
-            name: "số_chân",
+            type: 'Identifier',
+            name: 'số_chân',
           },
           value: {
-            type: "NumericLiteral",
+            type: 'NumericLiteral',
             value: 4,
             extra: {
               rawValue: 4,
-              raw: "4",
+              raw: '4',
             },
             start: 45,
             end: 46,
           },
         },
         {
-          type: "ObjectMethod",
+          type: 'ObjectMethod',
           method: true,
           key: {
-            type: "Identifier",
-            name: "kêu",
+            type: 'Identifier',
+            name: 'kêu',
           },
           computed: false,
-          kind: "method",
+          kind: 'method',
           generator: false,
           async: true,
           params: [
             {
-              type: "Identifier",
-              name: "số_lần",
+              type: 'Identifier',
+              name: 'số_lần',
             },
             {
-              type: "Identifier",
-              name: "hmm",
+              type: 'Identifier',
+              name: 'hmm',
             },
           ],
           body: {
-            type: "BlockStatement",
+            type: 'BlockStatement',
             body: [
               {
-                type: "ReturnStatement",
+                type: 'ReturnStatement',
                 argument: {
-                  type: "StringLiteral",
-                  value: "Meo meo",
+                  type: 'StringLiteral',
+                  value: 'Meo meo',
                   extra: {
-                    rawValue: "Meo meo",
+                    rawValue: 'Meo meo',
                     raw: '"Meo meo"',
                   },
                   start: 93,
@@ -102,15 +102,15 @@ describe("expression-object.test", () => {
           },
         },
       ],
-    } as ObjectExpression);
-  });
+    } as ObjectExpression)
+  })
 
-  it("should parse the syntax normally", () => {
-    const result = parser.parse(`{}`, Expression);
+  it('should parse the syntax normally', () => {
+    const result = parser.parse(`{}`, Expression)
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ObjectExpression",
+      type: 'ObjectExpression',
       properties: [],
-    } as ObjectExpression);
-  });
-});
+    } as ObjectExpression)
+  })
+})

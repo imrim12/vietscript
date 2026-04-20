@@ -1,53 +1,53 @@
-import { StringLiteral } from "@parser/nodes/literals/StringLiteral";
-import { Literal } from "@parser/nodes/literals/Literal";
+import type { StringLiteral } from '@parser/nodes/literals/StringLiteral'
+import { Literal } from '@parser/nodes/literals/Literal'
 
-import parser from "../../../setup-test";
-import toPlainObject from "../../../toPlainObject";
+import parser from '../../../setup-test'
+import toPlainObject from '../../../toPlainObject'
 
-describe("literal-string.test", () => {
-  it("should parse the syntax normally", () => {
-    const result = parser.parse(`"Chào thế giới!"`, Literal);
+describe('literal-string.test', () => {
+  it('should parse the syntax normally', () => {
+    const result = parser.parse(`"Chào thế giới!"`, Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "StringLiteral",
-      value: "Chào thế giới!",
+      type: 'StringLiteral',
+      value: 'Chào thế giới!',
       extra: {
-        rawValue: "Chào thế giới!",
+        rawValue: 'Chào thế giới!',
         raw: '"Chào thế giới!"',
       },
       start: 0,
       end: 16,
-    } as StringLiteral);
-  });
+    } as StringLiteral)
+  })
 
-  it("should parse the syntax normally", () => {
-    const result = parser.parse(`'Chào thế giới!'`, Literal);
+  it('should parse the syntax normally', () => {
+    const result = parser.parse(`'Chào thế giới!'`, Literal)
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "StringLiteral",
-      value: "Chào thế giới!",
+      type: 'StringLiteral',
+      value: 'Chào thế giới!',
       extra: {
-        rawValue: "Chào thế giới!",
+        rawValue: 'Chào thế giới!',
         raw: '"Chào thế giới!"',
       },
       start: 0,
       end: 16,
-    } as StringLiteral);
-  });
+    } as StringLiteral)
+  })
 
-  it("should parse backtick as template literal", () => {
-    const result = parser.parse("`Chào thế giới!`", Literal);
+  it('should parse backtick as template literal', () => {
+    const result = parser.parse('`Chào thế giới!`', Literal)
 
     expect(toPlainObject(result)).toMatchObject({
-      type: "TemplateLiteral",
+      type: 'TemplateLiteral',
       quasis: [
         {
-          type: "TemplateElement",
-          value: { raw: "Chào thế giới!", cooked: "Chào thế giới!" },
+          type: 'TemplateElement',
+          value: { raw: 'Chào thế giới!', cooked: 'Chào thế giới!' },
           tail: true,
         },
       ],
       expressions: [],
-    });
-  });
-});
+    })
+  })
+})

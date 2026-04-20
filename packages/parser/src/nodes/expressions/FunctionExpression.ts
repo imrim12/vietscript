@@ -1,45 +1,46 @@
-import { Parser } from "@parser/parser";
-import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
-import { ParameterList, Parameter } from "@parser/nodes/declarations/ParameterList";
-import { Keyword } from "@vietscript/shared";
+import type { Parameter } from '@parser/nodes/declarations/ParameterList'
+import type { Parser } from '@parser/parser'
+import { ParameterList } from '@parser/nodes/declarations/ParameterList'
+import { BlockStatement } from '@parser/nodes/statements/BlockStatement'
+import { Keyword } from '@vietscript/shared'
 
 export class FunctionExpression {
-  type = "FunctionExpression";
+  type = 'FunctionExpression'
 
-  id: null;
+  id: null
 
-  expression = false;
+  expression = false
 
-  generator = false;
+  generator = false
 
-  async = false;
+  async = false
 
-  params: Array<Parameter> = [];
+  params: Array<Parameter> = []
 
-  body: BlockStatement;
+  body: BlockStatement
 
   constructor(parser: Parser, ignoreFunctionKeyword = false) {
     if (parser.lookahead?.type === Keyword.ASYNC) {
-      parser.eat(Keyword.ASYNC);
-      this.async = true;
+      parser.eat(Keyword.ASYNC)
+      this.async = true
     }
 
     if (!ignoreFunctionKeyword) {
-      parser.eat(Keyword.FUNCTION);
+      parser.eat(Keyword.FUNCTION)
     }
 
-    if (parser.lookahead?.type === "*") {
-      parser.eat("*");
-      this.generator = true;
+    if (parser.lookahead?.type === '*') {
+      parser.eat('*')
+      this.generator = true
     }
 
-    parser.eat("(");
+    parser.eat('(')
 
-    this.params = new ParameterList(parser, ")").parameters;
+    this.params = new ParameterList(parser, ')').parameters
 
-    parser.eat(")");
+    parser.eat(')')
 
-    this.body = new BlockStatement(parser);
-    this.id = null;
+    this.body = new BlockStatement(parser)
+    this.id = null
   }
 }

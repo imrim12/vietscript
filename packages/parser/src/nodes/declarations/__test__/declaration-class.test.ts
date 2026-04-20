@@ -1,11 +1,11 @@
-import { ClassDeclaration } from "@parser/nodes/declarations/ClassDeclaration";
+import type { ClassDeclaration } from '@parser/nodes/declarations/ClassDeclaration'
 
-import parser from "../../../setup-test";
-import toPlainObject from "../../../toPlainObject";
-import { Declaration } from "../Declaration";
+import parser from '../../../setup-test'
+import toPlainObject from '../../../toPlainObject'
+import { Declaration } from '../Declaration'
 
-describe("declaration-class.test", () => {
-  it("should parse the syntax normally", () => {
+describe('declaration-class.test', () => {
+  it('should parse the syntax normally', () => {
     const result = parser.parse(
       `
 		lớp Con Mèo (Động Vật) {
@@ -16,72 +16,72 @@ describe("declaration-class.test", () => {
 		}
 		`,
       Declaration,
-    );
+    )
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ClassDeclaration",
+      type: 'ClassDeclaration',
       id: {
-        type: "Identifier",
-        name: "Con_Mèo",
+        type: 'Identifier',
+        name: 'Con_Mèo',
       },
       superClass: {
-        type: "Identifier",
-        name: "Động_Vật",
+        type: 'Identifier',
+        name: 'Động_Vật',
       },
       body: {
-        type: "ClassBody",
+        type: 'ClassBody',
         body: [
           {
-            type: "ClassProperty",
+            type: 'ClassProperty',
             static: false,
             computed: false,
             key: {
-              type: "Identifier",
-              name: "số_chân",
+              type: 'Identifier',
+              name: 'số_chân',
             },
             value: {
-              type: "NumericLiteral",
+              type: 'NumericLiteral',
               value: 4,
               extra: {
                 rawValue: 4,
-                raw: "4",
+                raw: '4',
               },
               start: 41,
               end: 42,
             },
           },
           {
-            type: "ClassMethod",
+            type: 'ClassMethod',
             static: false,
             computed: false,
             key: {
-              type: "Identifier",
-              name: "kêu",
+              type: 'Identifier',
+              name: 'kêu',
             },
-            kind: "method",
+            kind: 'method',
             id: null,
             generator: false,
             async: true,
             params: [
               {
-                type: "Identifier",
-                name: "số_lần",
+                type: 'Identifier',
+                name: 'số_lần',
               },
               {
-                type: "Identifier",
-                name: "hmm",
+                type: 'Identifier',
+                name: 'hmm',
               },
             ],
             body: {
-              type: "BlockStatement",
+              type: 'BlockStatement',
               body: [
                 {
-                  type: "ReturnStatement",
+                  type: 'ReturnStatement',
                   argument: {
-                    type: "StringLiteral",
-                    value: "Meo meo",
+                    type: 'StringLiteral',
+                    value: 'Meo meo',
                     extra: {
-                      rawValue: "Meo meo",
+                      rawValue: 'Meo meo',
                       raw: '"Meo meo"',
                     },
                     start: 88,
@@ -94,6 +94,6 @@ describe("declaration-class.test", () => {
           },
         ],
       },
-    } as ClassDeclaration);
-  });
-});
+    } as ClassDeclaration)
+  })
+})

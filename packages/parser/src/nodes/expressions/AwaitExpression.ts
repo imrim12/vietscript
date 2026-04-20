@@ -1,16 +1,16 @@
-import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Keyword } from '@vietscript/shared'
 
-import { Expression } from "./Expression";
+import { Expression } from './Expression'
 
 export class AwaitExpression {
-  type = "AwaitExpression";
+  type = 'AwaitExpression'
 
-  argument: Expression;
+  argument: Expression
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.AWAIT);
+    parser.eat(Keyword.AWAIT)
 
-    this.argument = new Expression(parser);
+    this.argument = new Expression(parser)
   }
 }

@@ -1,18 +1,18 @@
-import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Keyword } from '@vietscript/shared'
 
-import { Identifier } from "../identifier/Identifier";
+import { Identifier } from '../identifier/Identifier'
 
 export class ContinueStatement {
-  type = "ContinueStatement";
+  type = 'ContinueStatement'
 
-  label: Identifier | null = null;
+  label: Identifier | null = null
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.CONTINUE);
+    parser.eat(Keyword.CONTINUE)
 
     if (parser.lookahead?.type === Keyword.IDENTIFIER) {
-      this.label = new Identifier(parser);
+      this.label = new Identifier(parser)
     }
   }
 }

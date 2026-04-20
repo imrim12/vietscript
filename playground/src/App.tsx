@@ -1,11 +1,11 @@
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import useRouteElements from "./useRoutesElement";
-import { ConfigProvider } from "antd";
-import { theme } from "./configs/antd.config";
+import { ConfigProvider } from 'antd'
+import { ToastContainer } from 'react-toastify'
+import { theme } from './configs/antd.config'
+import useRouteElements from './useRoutesElement'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
-  const routeElements = useRouteElements();
+  const routeElements = useRouteElements()
   return (
     <>
       <ConfigProvider theme={theme}>
@@ -22,7 +22,7 @@ function App() {
         />
       </ConfigProvider>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

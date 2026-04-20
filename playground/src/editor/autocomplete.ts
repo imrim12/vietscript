@@ -1,10 +1,10 @@
-const genKeywords = (keywords: string[], kind: any, range: any) => {
+function genKeywords(keywords: string[], kind: any, range: any) {
   return keywords.map((keyword) => {
     return {
       label: keyword,
       kind,
       insertText: keyword,
-      range: range
+      range,
     }
   })
 }
@@ -31,7 +31,7 @@ export const KEYWORDS = [
   'xoá',
   'trong',
   'từ',
-  'in ra'
+  'in ra',
 ]
 
 export function createDependencyProposals(range: any, monaco: any) {
@@ -41,7 +41,7 @@ export function createDependencyProposals(range: any, monaco: any) {
       label: 'chiều dài mảng',
       kind: monaco.languages.CompletionItemKind.Function,
       insertText: 'chiều dài mảng',
-      range
-    }
+      range,
+    },
   ]
 }

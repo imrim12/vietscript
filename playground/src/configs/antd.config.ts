@@ -3,6 +3,6 @@ export const theme = {
     // Seed Token
     colorPrimary: '#00BD9B',
     colorLinkHover: '#4F8E6E',
-    fontFamily: 'Roboto'
-  }
+    fontFamily: 'Roboto',
+  },
 }

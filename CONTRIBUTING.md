@@ -43,20 +43,20 @@ Nếu cú pháp cần keyword mới:
 Mỗi AST node là 1 file trong `packages/parser/src/nodes/<category>/<NodeName>.ts`. Template:
 
 ```ts
-import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import { Parser } from '@parser/parser'
+import { Keyword } from '@vietscript/shared'
 
 export class MyStatement {
-  type = "MyStatement";
+  type = 'MyStatement'
 
   // field khai báo theo chuẩn Babel AST
-  foo: SomeNode;
+  foo: SomeNode
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.MY_KEYWORD);
-    parser.eat("(");
-    this.foo = new SomeNode(parser);
-    parser.eat(")");
+    parser.eat(Keyword.MY_KEYWORD)
+    parser.eat('(')
+    this.foo = new SomeNode(parser)
+    parser.eat(')')
   }
 }
 ```
@@ -78,45 +78,45 @@ Mỗi feature mới phải có đủ 3 loại test trước khi merge:
 
 ```ts
 // packages/parser/src/nodes/.../__test__/my-statement.test.ts
-import { MyStatement } from "@parser/nodes/.../MyStatement";
-import parser from "../../../setup-test";
-import toPlainObject from "../../../toPlainObject";
+import { MyStatement } from '@parser/nodes/.../MyStatement'
+import parser from '../../../setup-test'
+import toPlainObject from '../../../toPlainObject'
 
-describe("my-statement.test", () => {
-  it("should parse normally", () => {
-    const result = parser.parse(`từ khoá của tôi (x)`, MyStatement);
+describe('my-statement.test', () => {
+  it('should parse normally', () => {
+    const result = parser.parse(`từ khoá của tôi (x)`, MyStatement)
     expect(toPlainObject(result)).toStrictEqual({
-      type: "MyStatement",
+      type: 'MyStatement',
       foo: { /* expected shape */ },
-    });
-  });
-});
+    })
+  })
+})
 ```
 
 **b) Parser negative** — cú pháp sai throw error rõ ràng.
 
 ```ts
-it("should throw on missing paren", () => {
+it('should throw on missing paren', () => {
   expect(() => parser.parse(`từ khoá của tôi`, MyStatement))
-    .toThrowError(/expected/i);
-});
+    .toThrowError(/expected/i)
+})
 ```
 
 **c) Codegen** — AST sinh ra JS string chuẩn, dùng snapshot.
 
 ```ts
 // packages/parser/src/nodes/.../__test__/generator/generator-my-statement.test.ts
-import generate from "@babel/generator";
-import { MyStatement } from "@parser/nodes/.../MyStatement";
-import parser from "../../../../setup-test";
+import generate from '@babel/generator'
+import { MyStatement } from '@parser/nodes/.../MyStatement'
+import parser from '../../../../setup-test'
 
-describe("generator-my-statement.test", () => {
-  it("should generate javascript", () => {
-    const ast = parser.parse(`từ khoá của tôi (x)`, MyStatement);
-    const result = generate(ast);
-    expect(result.code).toMatchSnapshot();
-  });
-});
+describe('generator-my-statement.test', () => {
+  it('should generate javascript', () => {
+    const ast = parser.parse(`từ khoá của tôi (x)`, MyStatement)
+    const result = generate(ast)
+    expect(result.code).toMatchSnapshot()
+  })
+})
 ```
 
 ### 5. Cập nhật compatibility matrix

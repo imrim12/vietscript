@@ -1,26 +1,26 @@
-import { Parser } from "@parser/parser";
-import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
-import { Expression } from "@parser/nodes/expressions/Expression";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Expression } from '@parser/nodes/expressions/Expression'
+import { BlockStatement } from '@parser/nodes/statements/BlockStatement'
+import { Keyword } from '@vietscript/shared'
 
 export class DoWhileStatement {
-  type = "DoWhileStatement";
+  type = 'DoWhileStatement'
 
-  body: BlockStatement;
+  body: BlockStatement
 
-  test: Expression;
+  test: Expression
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.DO);
+    parser.eat(Keyword.DO)
 
-    this.body = new BlockStatement(parser);
+    this.body = new BlockStatement(parser)
 
-    parser.eat(Keyword.WHILE);
+    parser.eat(Keyword.WHILE)
 
-    parser.eat("(");
+    parser.eat('(')
 
-    this.test = new Expression(parser);
+    this.test = new Expression(parser)
 
-    parser.eat(")");
+    parser.eat(')')
   }
 }

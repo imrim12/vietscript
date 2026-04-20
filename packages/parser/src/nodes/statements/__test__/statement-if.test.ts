@@ -1,10 +1,10 @@
-import { IfStatement } from "@parser/nodes/statements/IfStatement";
+import { IfStatement } from '@parser/nodes/statements/IfStatement'
 
-import parser from "../../../setup-test";
-import toPlainObject from "../../../toPlainObject";
+import parser from '../../../setup-test'
+import toPlainObject from '../../../toPlainObject'
 
-describe("statement-if.test", () => {
-  it("should parse the syntax normally", () => {
+describe('statement-if.test', () => {
+  it('should parse the syntax normally', () => {
     const result = parser.parse(
       `
 			nếu (điều kiện một) {
@@ -16,81 +16,81 @@ describe("statement-if.test", () => {
 			}
 		`,
       IfStatement,
-    );
+    )
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "IfStatement",
+      type: 'IfStatement',
       test: {
-        type: "Identifier",
-        name: "điều_kiện_một",
+        type: 'Identifier',
+        name: 'điều_kiện_một',
       },
       consequent: {
-        type: "BlockStatement",
+        type: 'BlockStatement',
         body: [
           {
-            type: "VariableDeclaration",
+            type: 'VariableDeclaration',
             declarations: [
               {
-                type: "VariableDeclarator",
+                type: 'VariableDeclarator',
                 id: {
-                  type: "Identifier",
-                  name: "gì_đó",
+                  type: 'Identifier',
+                  name: 'gì_đó',
                 },
                 init: null,
               },
             ],
-            kind: "var",
+            kind: 'var',
           },
         ],
         directives: [],
       },
       alternate: {
-        type: "IfStatement",
+        type: 'IfStatement',
         test: {
-          type: "Identifier",
-          name: "điều_kiện_hai",
+          type: 'Identifier',
+          name: 'điều_kiện_hai',
         },
         consequent: {
-          type: "BlockStatement",
+          type: 'BlockStatement',
           body: [
             {
-              type: "VariableDeclaration",
+              type: 'VariableDeclaration',
               declarations: [
                 {
-                  type: "VariableDeclarator",
+                  type: 'VariableDeclarator',
                   id: {
-                    type: "Identifier",
-                    name: "gì_đó_khác",
+                    type: 'Identifier',
+                    name: 'gì_đó_khác',
                   },
                   init: null,
                 },
               ],
-              kind: "var",
+              kind: 'var',
             },
           ],
           directives: [],
         },
         alternate: {
-          type: "BlockStatement",
+          type: 'BlockStatement',
           body: [
             {
-              type: "VariableDeclaration",
+              type: 'VariableDeclaration',
               declarations: [
                 {
-                  type: "VariableDeclarator",
+                  type: 'VariableDeclarator',
                   id: {
-                    type: "Identifier",
-                    name: "gì_đó_khác_nữa",
+                    type: 'Identifier',
+                    name: 'gì_đó_khác_nữa',
                   },
                   init: null,
                 },
               ],
-              kind: "var",
+              kind: 'var',
             },
           ],
           directives: [],
         },
       },
-    });
-  });
-});
+    })
+  })
+})

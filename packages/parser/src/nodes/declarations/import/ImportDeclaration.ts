@@ -1,57 +1,57 @@
-import { Keyword } from "@vietscript/shared";
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
+import type { ImportDefaultSpecifier } from './ImportDefaultSpecifier'
 
-import { StringLiteral } from "../../literals/StringLiteral";
-import { Expression } from "../../expressions/Expression";
+import type { ImportNamespaceSpecifier } from './ImportNamespaceSpecifier'
+import type { ImportSpecifier } from './ImportSpecifier'
 
-import { ImportSpecifier } from "./ImportSpecifier";
-import { ImportClause } from "./ImportClause";
-import { ImportDefaultSpecifier } from "./ImportDefaultSpecifier";
-import { ImportNamespaceSpecifier } from "./ImportNamespaceSpecifier";
+import { Keyword } from '@vietscript/shared'
+import { Expression } from '../../expressions/Expression'
+import { StringLiteral } from '../../literals/StringLiteral'
+import { ImportClause } from './ImportClause'
 
 export class ImportDeclaration {
   [key: string]: any;
 
-  type = "ImportDeclaration";
+  type = 'ImportDeclaration'
 
-  specifiers: Array<ImportSpecifier | ImportDefaultSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier> = [];
+  specifiers: Array<ImportSpecifier | ImportDefaultSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier> = []
 
-  source!: StringLiteral;
+  source!: StringLiteral
 
-  assertions: any[] = [];
+  assertions: any[] = []
 
-  importType?: "value";
+  importType?: 'value'
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.IMPORT);
+    parser.eat(Keyword.IMPORT)
 
-    if (parser.lookahead?.type === "(") {
-      parser.eat("(");
-      const argument = new Expression(parser);
-      parser.eat(")");
+    if (parser.lookahead?.type === '(') {
+      parser.eat('(')
+      const argument = new Expression(parser)
+      parser.eat(')')
       Object.assign(this, {
-        type: "ExpressionStatement",
+        type: 'ExpressionStatement',
         expression: {
-          type: "CallExpression",
-          callee: { type: "Import" },
+          type: 'CallExpression',
+          callee: { type: 'Import' },
           arguments: [argument],
         },
-      });
-      return;
+      })
+      return
     }
 
     if (
-      parser.lookahead?.type === Keyword.IDENTIFIER ||
-      parser.lookahead?.type === "*" ||
-      parser.lookahead?.type === "{"
+      parser.lookahead?.type === Keyword.IDENTIFIER
+      || parser.lookahead?.type === '*'
+      || parser.lookahead?.type === '{'
     ) {
-      this.importType = "value";
+      this.importType = 'value'
 
-      this.specifiers = new ImportClause(parser).specifiers;
+      this.specifiers = new ImportClause(parser).specifiers
 
-      parser.eat(Keyword.FROM);
+      parser.eat(Keyword.FROM)
     }
 
-    this.source = new StringLiteral(parser);
+    this.source = new StringLiteral(parser)
   }
 }

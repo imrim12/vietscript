@@ -1,18 +1,18 @@
-import { Parser } from "@parser/parser";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Keyword } from '@vietscript/shared'
 
-import { Expression } from "../expressions/Expression";
+import { Expression } from '../expressions/Expression'
 
 export class ReturnStatement {
-  type = "ReturnStatement";
+  type = 'ReturnStatement'
 
-  argument: Expression;
+  argument: Expression
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.RETURN);
+    parser.eat(Keyword.RETURN)
 
-    const expression = new Expression(parser);
+    const expression = new Expression(parser)
 
-    this.argument = expression;
+    this.argument = expression
   }
 }

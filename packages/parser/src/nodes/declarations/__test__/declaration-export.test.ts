@@ -1,59 +1,59 @@
-import parser from "../../../setup-test";
-import toPlainObject from "../../../toPlainObject";
-import { Declaration } from "../Declaration";
-import { ExportDeclaration } from "../export/ExportDeclaration";
+import type { ExportDeclaration } from '../export/ExportDeclaration'
+import parser from '../../../setup-test'
+import toPlainObject from '../../../toPlainObject'
+import { Declaration } from '../Declaration'
 
-describe("declaration-export.test", () => {
-  it("should parse the syntax normally", () => {
-    const result = parser.parse(`cho phép * từ "./test-path"`, Declaration);
+describe('declaration-export.test', () => {
+  it('should parse the syntax normally', () => {
+    const result = parser.parse(`cho phép * từ "./test-path"`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ExportAllDeclaration",
+      type: 'ExportAllDeclaration',
       source: {
-        type: "StringLiteral",
-        value: "./test-path",
+        type: 'StringLiteral',
+        value: './test-path',
         extra: {
-          rawValue: "./test-path",
+          rawValue: './test-path',
           raw: '"./test-path"',
         },
         start: 14,
         end: 27,
       },
-    } as ExportDeclaration);
-  });
+    } as ExportDeclaration)
+  })
 
-  it("should parse the syntax normally", () => {
-    const result = parser.parse(`cho phép { tính năng gì đấy } từ "./test-path"`, Declaration);
+  it('should parse the syntax normally', () => {
+    const result = parser.parse(`cho phép { tính năng gì đấy } từ "./test-path"`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ExportNamedDeclaration",
+      type: 'ExportNamedDeclaration',
       specifiers: [
         {
-          type: "ExportSpecifier",
+          type: 'ExportSpecifier',
           local: {
-            type: "Identifier",
-            name: "tính_năng_gì_đấy",
+            type: 'Identifier',
+            name: 'tính_năng_gì_đấy',
           },
           exported: {
-            type: "Identifier",
-            name: "tính_năng_gì_đấy",
+            type: 'Identifier',
+            name: 'tính_năng_gì_đấy',
           },
         },
       ],
       source: {
-        type: "StringLiteral",
-        value: "./test-path",
+        type: 'StringLiteral',
+        value: './test-path',
         extra: {
-          rawValue: "./test-path",
+          rawValue: './test-path',
           raw: '"./test-path"',
         },
         start: 33,
         end: 46,
       },
-    } as ExportDeclaration);
-  });
+    } as ExportDeclaration)
+  })
 
-  it("should parse the syntax normally", () => {
+  it('should parse the syntax normally', () => {
     const result = parser.parse(
       `cho phép {
         tính năng cộng: phương thức cộng,
@@ -61,67 +61,67 @@ describe("declaration-export.test", () => {
         phương thức trừ
       } từ "./test-path"`,
       Declaration,
-    );
+    )
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ExportNamedDeclaration",
+      type: 'ExportNamedDeclaration',
       specifiers: [
         {
-          type: "ExportSpecifier",
+          type: 'ExportSpecifier',
           local: {
-            type: "Identifier",
-            name: "tính_năng_cộng",
+            type: 'Identifier',
+            name: 'tính_năng_cộng',
           },
           exported: {
-            type: "Identifier",
-            name: "phương_thức_cộng",
+            type: 'Identifier',
+            name: 'phương_thức_cộng',
           },
         },
         {
-          type: "ExportSpecifier",
+          type: 'ExportSpecifier',
           local: {
-            type: "Identifier",
-            name: "tính_năng_chia",
+            type: 'Identifier',
+            name: 'tính_năng_chia',
           },
           exported: {
-            type: "Identifier",
-            name: "phương_thức_chia",
+            type: 'Identifier',
+            name: 'phương_thức_chia',
           },
         },
         {
-          type: "ExportSpecifier",
+          type: 'ExportSpecifier',
           local: {
-            type: "Identifier",
-            name: "phương_thức_trừ",
+            type: 'Identifier',
+            name: 'phương_thức_trừ',
           },
           exported: {
-            type: "Identifier",
-            name: "phương_thức_trừ",
+            type: 'Identifier',
+            name: 'phương_thức_trừ',
           },
         },
       ],
       source: {
-        type: "StringLiteral",
-        value: "./test-path",
+        type: 'StringLiteral',
+        value: './test-path',
         extra: {
-          rawValue: "./test-path",
+          rawValue: './test-path',
           raw: '"./test-path"',
         },
         start: 130,
         end: 143,
       },
-    } as ExportDeclaration);
-  });
+    } as ExportDeclaration)
+  })
 
-  it("should parse the syntax normally", () => {
-    const result = parser.parse(`cho phép mặc định con mèo`, Declaration);
+  it('should parse the syntax normally', () => {
+    const result = parser.parse(`cho phép mặc định con mèo`, Declaration)
 
     expect(toPlainObject(result)).toStrictEqual({
-      type: "ExportDefaultDeclaration",
+      type: 'ExportDefaultDeclaration',
       declaration: {
-        type: "Identifier",
-        name: "con_mèo",
+        type: 'Identifier',
+        name: 'con_mèo',
       },
-    } as ExportDeclaration);
-  });
-});
+    } as ExportDeclaration)
+  })
+})

@@ -1,17 +1,17 @@
-import { Keyword } from "@vietscript/shared";
-import { Parser } from "@parser/parser";
-import { StringLiteral } from "@parser/nodes/literals/StringLiteral";
+import type { Parser } from '@parser/parser'
+import { StringLiteral } from '@parser/nodes/literals/StringLiteral'
+import { Keyword } from '@vietscript/shared'
 
 export class ExportAllDeclaration {
-  type = "ExportAllDeclaration";
+  type = 'ExportAllDeclaration'
 
-  source: StringLiteral;
+  source: StringLiteral
 
   constructor(parser: Parser) {
-    parser.eat("*");
+    parser.eat('*')
 
-    parser.eat(Keyword.FROM);
+    parser.eat(Keyword.FROM)
 
-    this.source = new StringLiteral(parser);
+    this.source = new StringLiteral(parser)
   }
 }

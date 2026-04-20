@@ -1,66 +1,66 @@
-import { Parser } from "@parser/parser";
-import { Expression } from "@parser/nodes/expressions/Expression";
-import { Statement } from "@parser/nodes/statements/Statement";
-import { StatementList } from "@parser/nodes/statements/StatementList";
-import { Keyword } from "@vietscript/shared";
+import type { Statement } from '@parser/nodes/statements/Statement'
+import type { Parser } from '@parser/parser'
+import { Expression } from '@parser/nodes/expressions/Expression'
+import { StatementList } from '@parser/nodes/statements/StatementList'
+import { Keyword } from '@vietscript/shared'
 
 export class SwitchStatement {
-  type = "SwitchStatement";
+  type = 'SwitchStatement'
 
-  discriminant: Expression;
+  discriminant: Expression
 
   cases: Array<{
-    type: "SwitchCase";
-    test: Expression | null;
-    consequent: Array<Statement>;
-  }> = [];
+    type: 'SwitchCase'
+    test: Expression | null
+    consequent: Array<Statement>
+  }> = []
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.SWITCH);
-    parser.eat("(");
+    parser.eat(Keyword.SWITCH)
+    parser.eat('(')
 
-    this.discriminant = new Expression(parser);
+    this.discriminant = new Expression(parser)
 
-    parser.eat(")");
-    parser.eat("{");
+    parser.eat(')')
+    parser.eat('{')
 
-    while (![Keyword.DEFAULT, "}"].includes(parser.lookahead?.type as string)) {
-      let hasConsequent = false;
+    while (![Keyword.DEFAULT, '}'].includes(parser.lookahead?.type as string)) {
+      let hasConsequent = false
 
-      parser.eat(Keyword.CASE);
+      parser.eat(Keyword.CASE)
 
-      const test = new Expression(parser);
+      const test = new Expression(parser)
 
-      parser.eat(":");
+      parser.eat(':')
 
-      while (![Keyword.CASE, Keyword.DEFAULT, "}"].includes(parser.lookahead?.type as string)) {
+      while (![Keyword.CASE, Keyword.DEFAULT, '}'].includes(parser.lookahead?.type as string)) {
         this.cases.push({
-          type: "SwitchCase",
+          type: 'SwitchCase',
           test,
-          consequent: new StatementList(parser, [Keyword.CASE, Keyword.DEFAULT, "}"]).body,
-        });
-        hasConsequent = true;
+          consequent: new StatementList(parser, [Keyword.CASE, Keyword.DEFAULT, '}']).body,
+        })
+        hasConsequent = true
       }
 
       if (!hasConsequent) {
         this.cases.push({
-          type: "SwitchCase",
+          type: 'SwitchCase',
           test,
           consequent: [],
-        });
+        })
       }
     }
 
     if (parser.lookahead?.type === Keyword.DEFAULT) {
-      parser.eat(Keyword.DEFAULT);
-      parser.eat(":");
+      parser.eat(Keyword.DEFAULT)
+      parser.eat(':')
       this.cases.push({
-        type: "SwitchCase",
+        type: 'SwitchCase',
         test: null,
         consequent: new StatementList(parser).body,
-      });
+      })
     }
 
-    parser.eat("}");
+    parser.eat('}')
   }
 }

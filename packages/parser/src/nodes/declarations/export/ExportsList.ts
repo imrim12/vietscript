@@ -1,16 +1,16 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { ExportSpecifier } from "./ExportSpecifier";
+import { ExportSpecifier } from './ExportSpecifier'
 
 export class ExportsList {
-  specifiers: ExportSpecifier[] = [];
+  specifiers: ExportSpecifier[] = []
 
   constructor(parser: Parser) {
-    while (parser.lookahead?.type !== "}") {
-      this.specifiers.push(new ExportSpecifier(parser));
+    while (parser.lookahead?.type !== '}') {
+      this.specifiers.push(new ExportSpecifier(parser))
 
-      if (parser.lookahead?.type === ",") {
-        parser.eat(",");
+      if (parser.lookahead?.type === ',') {
+        parser.eat(',')
       }
     }
   }

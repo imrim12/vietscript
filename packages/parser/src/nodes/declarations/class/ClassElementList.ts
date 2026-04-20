@@ -1,15 +1,15 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { ClassProperty } from "./ClassProperty";
+import { ClassProperty } from './ClassProperty'
 
 export class ClassElementList {
-  type = "ClassElementList";
+  type = 'ClassElementList'
 
-  properties: Array<ClassProperty> = [];
+  properties: Array<ClassProperty> = []
 
   constructor(parser: Parser) {
-    while (parser.lookahead?.type !== "}") {
-      this.properties.push(new ClassProperty(parser));
+    while (parser.lookahead?.type !== '}') {
+      this.properties.push(new ClassProperty(parser))
     }
   }
 }

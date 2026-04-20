@@ -1,26 +1,27 @@
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
 
-import { Expression } from "./Expression";
+import { Expression } from './Expression'
 
 export class ConditionalExpression {
-  type = "ConditionalExpression";
+  type = 'ConditionalExpression'
 
-  test: Expression;
+  test: any
 
-  consequent: Expression;
+  consequent: any
 
-  alternate: Expression;
+  alternate: any
 
-  constructor(parser: Parser, test: Expression) {
-    this.test = test;
-    parser.eat("?");
-    parser.ternaryDepth++;
+  constructor(parser: Parser, test: any) {
+    this.test = test
+    parser.eat('?')
+    parser.ternaryDepth++
     try {
-      this.consequent = new Expression(parser);
-    } finally {
-      parser.ternaryDepth--;
+      this.consequent = new Expression(parser)
     }
-    parser.eat(":");
-    this.alternate = new Expression(parser);
+    finally {
+      parser.ternaryDepth--
+    }
+    parser.eat(':')
+    this.alternate = new Expression(parser)
   }
 }

@@ -1,10 +1,10 @@
-import { Keyword } from "@vietscript/shared";
-import { Parser } from "@parser/parser";
+import type { Parser } from '@parser/parser'
+import { Keyword } from '@vietscript/shared'
 
 export class DebuggerStatement {
-  type = "DebuggerStatement";
+  type = 'DebuggerStatement'
 
   constructor(parser: Parser) {
-    parser.eat(Keyword.DEBUGGER);
+    parser.eat(Keyword.DEBUGGER)
   }
 }

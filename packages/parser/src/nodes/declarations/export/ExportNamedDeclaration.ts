@@ -1,28 +1,28 @@
-import { Keyword } from "@vietscript/shared";
-import { Parser } from "@parser/parser";
-import { StringLiteral } from "@parser/nodes/literals/StringLiteral";
+import type { Parser } from '@parser/parser'
+import type { ExportSpecifier } from './ExportSpecifier'
+import { StringLiteral } from '@parser/nodes/literals/StringLiteral'
 
-import { ExportSpecifier } from "./ExportSpecifier";
-import { ExportsList } from "./ExportsList";
+import { Keyword } from '@vietscript/shared'
+import { ExportsList } from './ExportsList'
 
 export class ExportNamedDeclaration {
-  type = "ExportNamedDeclaration";
+  type = 'ExportNamedDeclaration'
 
-  specifiers: ExportSpecifier[] = [];
+  specifiers: ExportSpecifier[] = []
 
-  source: StringLiteral;
+  source: StringLiteral
 
   constructor(parser: Parser) {
-    parser.eat("{");
+    parser.eat('{')
 
-    this.specifiers.push(...new ExportsList(parser).specifiers);
+    this.specifiers.push(...new ExportsList(parser).specifiers)
 
-    parser.eat("}");
+    parser.eat('}')
 
     if (parser.lookahead?.type === Keyword.FROM) {
-      parser.eat(Keyword.FROM);
+      parser.eat(Keyword.FROM)
 
-      this.source = new StringLiteral(parser);
+      this.source = new StringLiteral(parser)
     }
   }
 }

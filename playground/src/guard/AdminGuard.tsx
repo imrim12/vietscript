@@ -1,5 +1,5 @@
-import { Alert } from 'antd'
 import type { PropsWithChildren } from 'react'
+import { Alert } from 'antd'
 
 interface Props {
   projectID?: string
@@ -10,10 +10,10 @@ interface Props {
 function AdminGuard({
   children,
   havePermission = true,
-  permissionMessage = "You don't have permission to view it"
+  permissionMessage = 'You don\'t have permission to view it',
 }: PropsWithChildren<Props>) {
   if (!havePermission) {
-    return <Alert message={permissionMessage} type='error' />
+    return <Alert message={permissionMessage} type="error" />
   }
   return <>{children}</>
 }

@@ -1,59 +1,59 @@
-import { Parser } from "@parser/parser";
-import { Identifier } from "@parser/nodes/identifier/Identifier";
-import { BlockStatement } from "@parser/nodes/statements/BlockStatement";
-import { Keyword } from "@vietscript/shared";
+import type { Parser } from '@parser/parser'
+import { Identifier } from '@parser/nodes/identifier/Identifier'
+import { BlockStatement } from '@parser/nodes/statements/BlockStatement'
+import { Keyword } from '@vietscript/shared'
 
-import { ParameterList } from "./ParameterList";
+import { ParameterList } from './ParameterList'
 
 export class FunctionDeclaration {
-  type = "FunctionDeclaration";
+  type = 'FunctionDeclaration'
 
-  id: Identifier;
+  id: Identifier
 
-  expression: boolean;
+  expression: boolean
 
-  generator: boolean;
+  generator: boolean
 
-  async: boolean;
+  async: boolean
 
-  params: Array<Identifier>;
+  params: Array<any>
 
-  body: BlockStatement;
+  body: BlockStatement
 
   constructor(parser: Parser) {
-    let isAsync = false;
-    let isGenerator = false;
+    let isAsync = false
+    let isGenerator = false
 
     if (parser.lookahead?.type === Keyword.ASYNC) {
-      parser.eat(Keyword.ASYNC);
-      isAsync = true;
+      parser.eat(Keyword.ASYNC)
+      isAsync = true
     }
 
-    parser.eat(Keyword.FUNCTION);
+    parser.eat(Keyword.FUNCTION)
 
-    if (parser.lookahead?.type === "*") {
-      parser.eat("*");
-      isGenerator = true;
+    if (parser.lookahead?.type === '*') {
+      parser.eat('*')
+      isGenerator = true
     }
 
-    const name = String(new Identifier(parser).name);
+    const name = String(new Identifier(parser).name)
 
-    parser.eat("(");
+    parser.eat('(')
 
-    const params: Array<Identifier> = new ParameterList(parser, ")").parameters;
+    const params: Array<any> = new ParameterList(parser, ')').parameters
 
-    parser.eat(")");
+    parser.eat(')')
 
-    const body = new BlockStatement(parser);
+    const body = new BlockStatement(parser)
 
     this.id = {
       type: Keyword.IDENTIFIER,
       name,
-    };
-    this.expression = false;
-    this.generator = isGenerator;
-    this.async = isAsync;
-    this.params = params;
-    this.body = body;
+    }
+    this.expression = false
+    this.generator = isGenerator
+    this.async = isAsync
+    this.params = params
+    this.body = body
   }
 }
