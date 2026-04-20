@@ -13,6 +13,11 @@ export class StatementList {
       parser.tokenizer.isEOF() === false &&
       !stopTokens?.includes(String(parser.lookahead?.type))
     ) {
+      if (parser.lookahead?.type === ";") {
+        statements.push(new EmptyStatement(parser));
+        continue;
+      }
+
       const beforeToken = parser.lookahead;
       const statement = new StatementListItem(parser);
 

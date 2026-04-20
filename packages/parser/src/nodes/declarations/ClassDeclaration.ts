@@ -20,10 +20,11 @@ export class ClassDeclaration {
 
     if (parser.lookahead?.type === "(") {
       parser.eat("(");
-
       this.superClass = new Identifier(parser);
-
       parser.eat(")");
+    } else if (parser.lookahead?.type === Keyword.EXTENDS) {
+      parser.eat(Keyword.EXTENDS);
+      this.superClass = new Identifier(parser);
     }
 
     this.body = new ClassBody(parser);

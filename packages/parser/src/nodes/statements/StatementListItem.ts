@@ -40,7 +40,10 @@ export class StatementListItem {
       case Keyword.BOOLEAN:
       case Keyword.NULL:
       case Keyword.NAN:
-      case Keyword.UNDEFINED: {
+      case Keyword.INFINITY:
+      case Keyword.UNDEFINED:
+      case Keyword.SUPER:
+      case Keyword.NEW: {
         Object.assign(this, new Statement(parser));
         break;
       }
