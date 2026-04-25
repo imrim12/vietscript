@@ -1,0 +1,10 @@
+khai báo tuổi = 25
+khai báo tên = "Tú Nguyễn"
+
+hàm chào(người) {
+  trả về "Xin chào " + người
+}
+
+nếu (tuổi > 18) {
+  chào(tên)
+}

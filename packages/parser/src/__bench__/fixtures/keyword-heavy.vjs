@@ -1,0 +1,98 @@
+// Worst-case: identifier đa-từ + keyword đa-từ chen lẫn nhau
+// Đây là kịch bản truncateBeforeEmbeddedKeyword bị gọi nhiều nhất
+
+khai báo con mèo đẹp = 1
+khai báo con chó nhanh = 2
+khai báo con cá vàng to = 3
+khai báo bầu trời xanh = 4
+khai báo đại dương sâu thẳm = 5
+khai báo dòng sông quê hương = 6
+khai báo ngọn núi cao chót vót = 7
+khai báo cánh đồng lúa mơn mởn = 8
+khai báo cây tre trăm đốt = 9
+khai báo bông hoa nhỏ xinh = 10
+khai báo ánh mặt trời rực rỡ = 11
+khai báo đêm trăng huyền ảo = 12
+khai báo gió thu se lạnh = 13
+khai báo mưa rào tháng sáu = 14
+khai báo tuyết trắng phương bắc = 15
+khai báo lửa hồng bếp xưa = 16
+khai báo đóa hồng nhung = 17
+khai báo dòng suối trong vắt = 18
+khai báo tiếng chim ban mai = 19
+khai báo sương sớm buổi bình minh = 20
+
+biến phương thức của tôi = hàm() { trả về 0 }
+biến phương thức xử lý dữ liệu = hàm() { trả về 1 }
+biến phương thức kiểm tra điều kiện = hàm() { trả về 2 }
+biến phương thức tính toán giá trị = hàm() { trả về 3 }
+
+hằng số con đường dài và xa = "đến đó"
+hằng số kết quả cuối cùng tốt = "ok"
+hằng số trạng thái hiện tại của hệ thống = "active"
+
+lớp Con Mèo Đẹp Trai {
+  riêng tư danh hiệu của nó
+  công khai số tuổi hiện tại = 0
+  công khai màu lông tự nhiên = "đen"
+  bảo vệ vùng lãnh thổ riêng = []
+
+  khởi tạo(tên gọi cho nó) {
+    đây.danh hiệu của nó = tên gọi cho nó
+  }
+
+  lấy danh hiệu chính thức() {
+    trả về đây.danh hiệu của nó
+  }
+
+  gán danh hiệu chính thức(giá trị mới) {
+    đây.danh hiệu của nó = giá trị mới
+  }
+
+  tĩnh tạo con mèo mới(tên) {
+    trả về new Con Mèo Đẹp Trai(tên)
+  }
+}
+
+lớp Con Chó Nhanh Nhẹn kế thừa Con Mèo Đẹp Trai {
+  bất đồng bộ chạy thật nhanh đi(quãng đường) {
+    chờ ngủ một chút(100)
+    trả về quãng đường * 2
+  }
+}
+
+lặp (khai báo từng phần tử của danh sách dài) {
+  nếu (từng phần tử là kiểu Con Mèo Đẹp Trai) {
+    console.log("là mèo")
+    tiếp tục
+  }
+  nếu (từng phần tử trong vùng lãnh thổ riêng) {
+    phá vòng lặp
+  }
+}
+
+khi mà (điều kiện vẫn còn đúng) {
+  khai báo kết quả tạm thời = phương thức xử lý dữ liệu()
+  nếu (kết quả tạm thời === rỗng) {
+    phá vòng lặp
+  }
+}
+
+duyệt (trạng thái hiện tại của hệ thống) {
+  trường hợp "đang chạy":
+    console.log("ok")
+    phá vòng lặp
+  trường hợp "tạm dừng":
+    console.log("paused")
+    phá vòng lặp
+  mặc định:
+    console.log("unknown")
+}
+
+thử {
+  khai báo dữ liệu nhận được = chờ tải dữ liệu từ máy chủ()
+} bắt lỗi (lỗi xảy ra ngẫu nhiên) {
+  báo lỗi mới Lỗi Hệ Thống(lỗi xảy ra ngẫu nhiên)
+} cuối cùng {
+  dọn dẹp tài nguyên đã sử dụng()
+}
