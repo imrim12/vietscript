@@ -10,6 +10,8 @@
     "typecheck": "nx run-many --target=typecheck --all",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
+    "bench": "vitest bench --run",
+    "bench:baseline": "vitest bench --run --outputJson packages/parser/bench/baseline.json",
     "coverage:summary": "node scripts/compat-summary.mjs",
     "dev": "vitest --ui",
     "dev:docs": "vitepress dev docs",

@@ -23,15 +23,26 @@ export default defineConfig({
       '**/.nx/**',
       '**/.vitepress/cache/**',
       '**/coverage/**',
+      '**/__bench__/**',
+      '**/*.bench.?(c|m)[jt]s?(x)',
     ],
+    benchmark: {
+      include: ['packages/**/src/**/*.bench.?(c|m)[jt]s?(x)'],
+      exclude: [
+        '**/node_modules/**',
+        '**/dist/**',
+      ],
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'json-summary'],
       include: ['packages/parser/src/**', 'packages/shared/**'],
       exclude: [
         '**/__test__/**',
+        '**/__bench__/**',
         '**/*.test.ts',
         '**/*.spec.ts',
+        '**/*.bench.ts',
         '**/dist/**',
         '**/node_modules/**',
       ],

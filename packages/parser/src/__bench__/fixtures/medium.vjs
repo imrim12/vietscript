@@ -1,0 +1,101 @@
+// Fixture trung bình mô phỏng script đời thực
+// Kết hợp keyword EN + VI, biểu thức, lớp, vòng lặp
+
+khai báo PI = 3.14159
+hằng số E = 2.71828
+biến đếm = 0
+
+hàm tính diện tích(bán kính) {
+  trả về PI * bán kính * bán kính
+}
+
+hàm cộng(a, b) {
+  trả về a + b
+}
+
+const cube = (x) => x ** 3
+const square = function (x) { return x * x }
+
+lớp Hình Tròn {
+  khởi tạo(bán kính) {
+    đây.bán kính = bán kính
+  }
+
+  lấy diện tích() {
+    trả về tính diện tích(đây.bán kính)
+  }
+
+  tĩnh tạo từ đường kính(d) {
+    trả về new Hình Tròn(d / 2)
+  }
+}
+
+lớp Tam Giác kế thừa Hình Tròn {
+  riêng tư cạnh
+  công khai tên = "tam giác"
+
+  khởi tạo(cạnh) {
+    khởi tạo cha(cạnh)
+    đây.cạnh = cạnh
+  }
+}
+
+lặp (khai báo i = 0; i < 100; i++) {
+  đếm = đếm + i
+  nếu (i % 2 === 0) {
+    tiếp tục
+  }
+  nếu (i > 50) {
+    phá vòng lặp
+  }
+}
+
+lặp (khai báo phần tử của [1, 2, 3, 4, 5]) {
+  console.log(phần tử)
+}
+
+khi mà (đếm > 0) {
+  đếm--
+}
+
+duyệt (đếm) {
+  trường hợp 0:
+    console.log("zero")
+    phá vòng lặp
+  trường hợp 1:
+  trường hợp 2:
+    console.log("nhỏ")
+    phá vòng lặp
+  mặc định:
+    console.log("khác")
+}
+
+thử {
+  khai báo x = JSON.parse('{"a":1}')
+} bắt lỗi (lỗi) {
+  console.error(lỗi)
+} cuối cùng {
+  console.log("xong")
+}
+
+bất đồng bộ hàm fetchData(url) {
+  khai báo res = chờ fetch(url)
+  trả về chờ res.json()
+}
+
+khai báo arr = [1, 2, 3, ...[4, 5, 6]]
+khai báo obj = { a: 1, b: 2, c: { d: 3 } }
+khai báo { a, b, ...rest } = obj
+khai báo [first, second, ...others] = arr
+
+khai báo result = đếm > 50 ? "lớn" : đếm > 10 ? "trung bình" : "nhỏ"
+
+khai báo greeting = `Xin chào ${tên}, bạn đang ${đếm} tuổi`
+
+khai báo regex = /^[a-z]+$/gi
+
+cho phép default Hình Tròn
+cho phép { Tam Giác, tính diện tích }
+
+sử dụng Foo từ "./foo"
+sử dụng { Bar, Baz như là QualifiedBaz } từ "./bar"
