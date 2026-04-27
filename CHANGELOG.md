@@ -83,8 +83,20 @@
 - `ClassDeclaration`: support `extends` keyword (ngoài dạng paren)
 - Docs: xóa JSON-based dummy output từ Vite/Webpack plugin
 
+### Performance — Tokenizer state-machine
+- Thay tokenizer regex (linear scan ~80 specs/token + `String#split` mỗi lần) bằng FSM + keyword trie + bounded backtracking (`packages/parser/src/tokenizer-fsm.ts`)
+- Mặc định bật qua `new Parser()`; `new Parser({ tokenizer: 'regex' })` để rollback debug
+- Bench (vitest bench, side-by-side regex vs FSM):
+  - tiny (129 chars): 1,770 → 364,125 hz (**206×**)
+  - medium (1,777 chars): 48 → 26,334 hz (**546×**)
+  - keywordHeavy (2,511 chars): 33 → 20,107 hz (**609×**)
+  - stringHeavy (1,410 chars): 143 → 69,160 hz (**484×**)
+  - large (14,262 chars): 1.1 → 3,280 hz (**2,969×**) — loại được hành vi siêu tuyến tính
+- Hạ tầng bench: 5 fixtures, baseline JSON, snapshot drift tests, parity tests
+- Doc: `docs/architecture/tokenizer.md`
+
 ### Stats
-- Tests: 70 → 298 (100% pass)
+- Tests: 70 → 402 (100% pass)
 - Coverage: 79.85% → 92.44% statements / 71.23% → 85.88% branches / 84.89% → 96.25% functions
 - Compatibility matrix: 40.8% → 98.5% complete (135/137 features)
 

@@ -73,8 +73,11 @@ VietScript giữ ngữ nghĩa JavaScript 100% — chỉ thay keyword tiếng Anh
 | ✅ | Escape sequence đầy đủ (`\n`, `\x41`, `\u{1F600}`, v.v.) |
 | ✅ | Error messages tiếng Việt có file:line:col + snippet |
 | ✅ | Source maps (debug stack trace trỏ về file `.vjs`) |
+| ✅ | Tokenizer state-machine (FSM + keyword trie) — 200×–3000× nhanh hơn regex tokenizer cũ |
 
 **Kiểm tra chi tiết:** [docs/compatibility.md](docs/compatibility.md) — 70.9% ✅ complete, 24.6% 🟡 partial, 4.5% ❌ missing.
+
+**Kiến trúc tokenizer:** [docs/architecture/tokenizer.md](docs/architecture/tokenizer.md).
 
 **Lộ trình:** [docs/roadmap.md](docs/roadmap.md).
 
@@ -94,8 +97,9 @@ packages/
 
 ```bash
 pnpm install
-pnpm test                 # 249 test
+pnpm test                 # 402 test
 pnpm test:coverage        # coverage report (≥88% statements)
+pnpm bench                # benchmark tokenizer (regex vs FSM)
 pnpm lint
 pnpm build                # build tất cả package
 ```
