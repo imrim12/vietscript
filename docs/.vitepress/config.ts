@@ -31,6 +31,12 @@ export default defineConfig({
           { text: 'Câu lệnh duyệt', link: '/basics/switch-case' },
         ],
       },
+      {
+        text: 'Kiến trúc',
+        items: [
+          { text: 'Tokenizer (state machine)', link: '/architecture/tokenizer' },
+        ],
+      },
     ],
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
