@@ -4,32 +4,11 @@ import { Keyword } from '@vietscript/shared'
 import { VietScriptError } from './errors'
 import { Program } from './nodes/Program'
 import { Tokenizer } from './tokenizer'
-import { TokenizerFSM } from './tokenizer-fsm'
-
-export type TokenizerKind = 'regex' | 'fsm'
-
-export interface ITokenizer {
-  getNextToken: () => Token | null
-  isEOF: () => boolean
-  rollback: (step: number) => number
-}
-
-export interface ParserOptions {
-  tokenizer?: TokenizerKind
-}
-
-export function createTokenizer(parser: Parser): ITokenizer {
-  return parser.tokenizerKind === 'fsm'
-    ? new TokenizerFSM(parser)
-    : new Tokenizer(parser)
-}
 
 export class Parser {
   public syntax: string
 
-  public tokenizer: ITokenizer
-
-  public tokenizerKind: TokenizerKind
+  public tokenizer: Tokenizer
 
   public lookahead: Token | null
 
@@ -37,16 +16,15 @@ export class Parser {
 
   public ternaryDepth = 0
 
-  constructor(options: ParserOptions = {}) {
+  constructor() {
     this.syntax = ''
-    this.tokenizerKind = options.tokenizer ?? 'fsm'
-    this.tokenizer = createTokenizer(this)
+    this.tokenizer = new Tokenizer(this)
     this.lookahead = null
   }
 
   public parse(syntax: string, InitAtsNodeClass?: new (parser: Parser) => unknown): any {
     this.syntax = syntax
-    this.tokenizer = createTokenizer(this)
+    this.tokenizer = new Tokenizer(this)
     this.lookahead = this.tokenizer.getNextToken()
 
     if (InitAtsNodeClass)

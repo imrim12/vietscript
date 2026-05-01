@@ -7,7 +7,7 @@ import { fixtures } from './fixtures'
 // The other fixtures still exercise the tokenizer (see tokenizer.bench.ts).
 const PARSE_OK = ['tiny'] as const
 
-describe('parser end-to-end (regex baseline)', () => {
+describe('parser end-to-end', () => {
   for (const name of PARSE_OK) {
     const source = fixtures[name]
     bench(`parse ${name} (${source.length} chars)`, () => {

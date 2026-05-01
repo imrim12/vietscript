@@ -4,9 +4,7 @@ Kế hoạch đầy đủ đưa dự án từ trạng thái hiện tại (parser
 
 Tham chiếu trạng thái: [compatibility.md](./compatibility.md).
 
-## Cập nhật ngoài lịch trình
-
-- **Tokenizer state-machine (đã merge):** thay thế tokenizer regex cũ bằng FSM + keyword trie + bounded backtracking. Speedup 200×–3000× trên fixtures bench, loại được hành vi siêu tuyến tính trên file lớn. Chi tiết: [architecture/tokenizer.md](./architecture/tokenizer.md).
+Kiến trúc tokenizer được mô tả tại [architecture/tokenizer.md](./architecture/tokenizer.md).
 
 ---
 
