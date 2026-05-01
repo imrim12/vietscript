@@ -1,4 +1,5 @@
-import { createTokenizer, Parser } from '@parser/parser'
+import { Parser } from '@parser/parser'
+import { Tokenizer } from '@parser/tokenizer'
 
 import { Expression } from '../expressions/Expression'
 
@@ -122,9 +123,9 @@ export class TemplateLiteral {
     }
 
     for (const exprSource of expressions) {
-      const subParser = new Parser({ tokenizer: parser.tokenizerKind })
+      const subParser = new Parser()
       subParser.syntax = exprSource
-      subParser.tokenizer = createTokenizer(subParser)
+      subParser.tokenizer = new Tokenizer(subParser)
       subParser.lookahead = subParser.tokenizer.getNextToken()
       this.expressions.push(new Expression(subParser))
     }

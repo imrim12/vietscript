@@ -116,11 +116,11 @@ Dự án phát triển theo TDD. Mỗi cú pháp mới có 3 loại test: parser
 ```bash
 pnpm test              # Chạy toàn bộ test
 pnpm test:coverage     # Test + coverage report
-pnpm bench             # Chạy benchmark tokenizer (regex vs FSM)
+pnpm bench             # Chạy benchmark tokenizer trên 5 fixture
 pnpm bench:baseline    # Bench → JSON baseline (packages/parser/bench/baseline.json)
 pnpm build             # Build tất cả package
 ```
 
-Tokenizer mặc định là state machine (FSM) — xem [Kiến trúc Tokenizer](./architecture/tokenizer) để biết chi tiết và cách bench.
+Kiến trúc tokenizer (state machine + keyword trie + bounded backtracking): xem [Kiến trúc Tokenizer](./architecture/tokenizer).
 
 Hướng dẫn thêm parser node: [CONTRIBUTING.md](../CONTRIBUTING.md).

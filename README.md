@@ -73,7 +73,7 @@ VietScript giữ ngữ nghĩa JavaScript 100% — chỉ thay keyword tiếng Anh
 | ✅ | Escape sequence đầy đủ (`\n`, `\x41`, `\u{1F600}`, v.v.) |
 | ✅ | Error messages tiếng Việt có file:line:col + snippet |
 | ✅ | Source maps (debug stack trace trỏ về file `.vjs`) |
-| ✅ | Tokenizer state-machine (FSM + keyword trie) — 200×–3000× nhanh hơn regex tokenizer cũ |
+| ✅ | Tokenizer state-machine (char-code dispatch + keyword trie + bounded backtracking) |
 
 **Kiểm tra chi tiết:** [docs/compatibility.md](docs/compatibility.md) — 70.9% ✅ complete, 24.6% 🟡 partial, 4.5% ❌ missing.
 
