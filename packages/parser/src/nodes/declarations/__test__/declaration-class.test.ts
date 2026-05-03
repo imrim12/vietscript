@@ -1,7 +1,7 @@
 import type { ClassDeclaration } from '@parser/nodes/declarations/ClassDeclaration'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 import { Declaration } from '../Declaration'
 
 describe('declaration-class.test', () => {

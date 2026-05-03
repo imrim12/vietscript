@@ -1,7 +1,7 @@
 import type { VariableDeclaration } from '@parser/nodes/declarations/VariableDeclaration'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 import { Declaration } from '../Declaration'
 
 describe('declaration-variable.test', () => {

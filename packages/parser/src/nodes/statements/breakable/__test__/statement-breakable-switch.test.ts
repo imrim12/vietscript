@@ -1,7 +1,7 @@
 import { SwitchStatement } from '@parser/nodes/statements/breakable/SwitchStatement'
 
 import parser from '../../../../setup-test'
-import toPlainObject from '../../../../toPlainObject'
+import toPlainObject from '../../../../utils/test'
 
 describe('statement-breakable-switch.test', () => {
   it('should parse the syntax normally', () => {

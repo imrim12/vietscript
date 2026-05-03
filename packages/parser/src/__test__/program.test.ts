@@ -1,5 +1,5 @@
 import parser from '@parser'
-import toPlainObject from '../toPlainObject'
+import toPlainObject from '../utils/test'
 
 describe('program.test', () => {
   it('should parse the syntax normally', () => {

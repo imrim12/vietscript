@@ -1,7 +1,7 @@
 import { Expression } from '@parser/nodes/expressions/Expression'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('expression-optional-chain.test', () => {
   it('should parse optional member access', () => {

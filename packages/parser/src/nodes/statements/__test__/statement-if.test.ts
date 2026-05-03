@@ -1,7 +1,7 @@
 import { IfStatement } from '@parser/nodes/statements/IfStatement'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('statement-if.test', () => {
   it('should parse the syntax normally', () => {

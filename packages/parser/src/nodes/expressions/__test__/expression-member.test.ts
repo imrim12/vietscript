@@ -3,7 +3,7 @@ import type { AssignmentExpression } from '../AssignmentExpression'
 import type { MemberExpression } from '../MemberExpression'
 import { Expression } from '@parser/nodes/expressions/Expression'
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('expression-member.test', () => {
   it('should parse the syntax normally', () => {

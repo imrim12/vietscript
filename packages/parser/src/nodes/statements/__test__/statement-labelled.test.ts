@@ -3,7 +3,7 @@ import { BreakStatement } from '@parser/nodes/statements/BreakStatement'
 import { ContinueStatement } from '@parser/nodes/statements/ContinueStatement'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('statement-labelled.test', () => {
   it('should parse labelled for loop', () => {

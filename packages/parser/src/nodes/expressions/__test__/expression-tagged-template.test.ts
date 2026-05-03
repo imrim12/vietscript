@@ -1,7 +1,7 @@
 import { Expression } from '@parser/nodes/expressions/Expression'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('expression-tagged-template.test', () => {
   it('should parse simple tagged template', () => {

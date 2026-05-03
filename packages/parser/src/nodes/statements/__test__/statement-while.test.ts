@@ -2,7 +2,7 @@ import { DoWhileStatement } from '@parser/nodes/statements/breakable/iteration/D
 import { WhileStatement } from '@parser/nodes/statements/breakable/iteration/WhileStatement'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('statement-while.test', () => {
   it('should parse while with English keyword', () => {

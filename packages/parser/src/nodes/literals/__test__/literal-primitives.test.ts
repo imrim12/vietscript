@@ -2,7 +2,7 @@ import { Expression } from '@parser/nodes/expressions/Expression'
 import { Literal } from '@parser/nodes/literals/Literal'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('literal-primitives.test', () => {
   it('should parse NaN', () => {

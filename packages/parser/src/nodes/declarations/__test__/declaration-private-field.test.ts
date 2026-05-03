@@ -1,7 +1,7 @@
 import { ClassDeclaration } from '@parser/nodes/declarations/ClassDeclaration'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('declaration-private-field.test', () => {
   it('should parse private field with initializer', () => {

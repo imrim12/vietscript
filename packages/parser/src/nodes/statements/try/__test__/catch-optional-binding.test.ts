@@ -1,7 +1,7 @@
 import { TryStatement } from '@parser/nodes/statements/try/TryStatement'
 
 import parser from '../../../../setup-test'
-import toPlainObject from '../../../../toPlainObject'
+import toPlainObject from '../../../../utils/test'
 
 describe('catch-optional-binding.test', () => {
   it('should parse try-catch with no binding', () => {

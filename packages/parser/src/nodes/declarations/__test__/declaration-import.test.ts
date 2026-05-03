@@ -1,6 +1,6 @@
 import type { ImportDeclaration } from '../import/ImportDeclaration'
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 import { Declaration } from '../Declaration'
 
 describe('declaration-import.test', () => {

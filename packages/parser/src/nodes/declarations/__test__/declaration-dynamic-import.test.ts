@@ -1,7 +1,7 @@
 import { Program } from '@parser/nodes/Program'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('declaration-dynamic-import.test', () => {
   it('should parse dynamic import with string literal', () => {

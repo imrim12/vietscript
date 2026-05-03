@@ -1,7 +1,7 @@
 import { Program } from '@parser/nodes/Program'
 
 import parser from '../setup-test'
-import toPlainObject from '../toPlainObject'
+import toPlainObject from '../utils/test'
 
 describe('identifier-match-keyword.test', () => {
   it('should tokenize embedded keyword as separator, not as part of identifier', () => {

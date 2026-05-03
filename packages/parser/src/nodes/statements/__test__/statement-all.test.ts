@@ -1,7 +1,7 @@
 import { Program } from '@parser/nodes/Program'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('statement-all.test', () => {
   it('should parse throw', () => {

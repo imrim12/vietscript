@@ -1,7 +1,7 @@
 import type { BinaryExpression } from '@parser/nodes/expressions/BinaryExpression'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 import { Expression } from '../Expression'
 
 describe('expression-binary.test', () => {

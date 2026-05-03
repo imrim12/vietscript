@@ -2,7 +2,7 @@ import type { BooleanLiteral } from '@parser/nodes/literals/BooleanLiteral'
 import { Literal } from '@parser/nodes/literals/Literal'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('literal-boolean.test', () => {
   it('should parse "đúng" as true', () => {

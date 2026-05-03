@@ -1,7 +1,7 @@
 import { ForStatement } from '@parser/nodes/statements/breakable/iteration/ForStatement'
 
 import parser from '../../../../setup-test'
-import toPlainObject from '../../../../toPlainObject'
+import toPlainObject from '../../../../utils/test'
 
 describe('statement-for.test', () => {
   it('should parse traditional for loop', () => {

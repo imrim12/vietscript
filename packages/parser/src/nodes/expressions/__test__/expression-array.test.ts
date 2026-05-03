@@ -1,6 +1,6 @@
 import type { ArrayExpression } from '../ArrayExpression'
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 import { Expression } from '../Expression'
 
 describe('expression-array.test', () => {

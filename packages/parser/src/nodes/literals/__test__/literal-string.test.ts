@@ -2,7 +2,7 @@ import type { StringLiteral } from '@parser/nodes/literals/StringLiteral'
 import { Literal } from '@parser/nodes/literals/Literal'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('literal-string.test', () => {
   it('should parse double-quoted string', () => {

@@ -4,7 +4,7 @@ import { EmptyStatement } from '@parser/nodes/statements/EmptyStatement'
 import { WithStatement } from '@parser/nodes/statements/WithStatement'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('statement-misc.test', () => {
   it('should parse debugger statement', () => {

@@ -1,7 +1,7 @@
 import { Literal } from '@parser/nodes/literals/Literal'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('literal-numeric-advanced.test', () => {
   const decimalCases: Array<[string, number]> = [

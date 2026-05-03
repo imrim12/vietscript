@@ -1,7 +1,7 @@
 import { ObjectExpression } from '@parser/nodes/expressions/ObjectExpression'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('identifier.test', () => {
   it('should parse long Vietnamese identifier without embedded keyword', () => {

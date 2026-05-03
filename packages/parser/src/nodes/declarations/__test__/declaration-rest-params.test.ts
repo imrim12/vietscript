@@ -2,7 +2,7 @@ import { FunctionDeclaration } from '@parser/nodes/declarations/FunctionDeclarat
 import { Expression } from '@parser/nodes/expressions/Expression'
 
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 
 describe('declaration-rest-params.test', () => {
   it('should parse rest param alone', () => {

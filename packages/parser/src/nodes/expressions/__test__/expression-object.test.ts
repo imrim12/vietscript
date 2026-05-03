@@ -1,6 +1,6 @@
 import type { ObjectExpression } from '../ObjectExpression'
 import parser from '../../../setup-test'
-import toPlainObject from '../../../toPlainObject'
+import toPlainObject from '../../../utils/test'
 import { Expression } from '../Expression'
 
 describe('expression-object.test', () => {
