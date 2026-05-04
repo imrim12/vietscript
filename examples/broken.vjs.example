@@ -1,4 +1,3 @@
-hằng số tổng = 10
-nếu (tổng >) {
-  console.log("error")
-}
+// This file is intentionally broken to validate that
+// eslint-plugin-vietscript surfaces parse errors.
+hằng số x = ((((

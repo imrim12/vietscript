@@ -1,5 +1,6 @@
 import antfu from '@antfu/eslint-config'
 import pnpm from 'eslint-plugin-pnpm'
+import vietscript from 'eslint-plugin-vietscript'
 import * as jsoncParser from 'jsonc-eslint-parser'
 import * as yamlParser from 'yaml-eslint-parser'
 
@@ -86,4 +87,5 @@ export default antfu(
       'no-console': 'off',
     },
   },
+  ...vietscript.configs.recommended,
 )

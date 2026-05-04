@@ -1,0 +1,174 @@
+:root {
+  --bg: #fafaf7;
+  --card: #ffffff;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --accent: #c2410c;
+  --line: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+nav a {
+  margin-left: 16px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a.active {
+  color: var(--ink);
+}
+
+.container {
+  max-width: 720px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.search {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 24px;
+  background: #fff;
+}
+
+.search:focus {
+  outline: 2px solid var(--accent);
+  border-color: transparent;
+}
+
+.post-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.post-card h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+.post-card h2 a {
+  color: var(--ink);
+}
+
+.meta {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 0;
+}
+
+.tags li {
+  background: #f3f4f6;
+  color: var(--muted);
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 24px;
+}
+
+.post-detail {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px 32px;
+}
+
+.post-detail h1 {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.post-detail .body p {
+  margin: 16px 0;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.missing {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 24px;
+  font-size: 13px;
+}

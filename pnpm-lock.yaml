@@ -24,6 +24,9 @@ catalogs:
     '@eslint/js':
       specifier: ^10.0.1
       version: 10.0.1
+    '@jridgewell/trace-mapping':
+      specifier: ^0.3.31
+      version: 0.3.31
     '@monaco-editor/react':
       specifier: ^4.7.0
       version: 4.7.0
@@ -36,6 +39,9 @@ catalogs:
     '@types/babel__generator':
       specifier: ^7.27.0
       version: 7.27.0
+    '@types/eslint':
+      specifier: ^9.6.1
+      version: 9.6.1
     '@types/lodash':
       specifier: ^4.17.24
       version: 4.17.24
@@ -48,6 +54,9 @@ catalogs:
     '@types/react-dom':
       specifier: ^18.3.1
       version: 18.3.7
+    '@types/vscode':
+      specifier: ^1.85.0
+      version: 1.118.0
     '@uiw/react-textarea-code-editor':
       specifier: ^3.1.1
       version: 3.1.1
@@ -105,6 +114,9 @@ catalogs:
     eslint-plugin-unicorn:
       specifier: ^64.0.0
       version: 64.0.0
+    espree:
+      specifier: ^11.0.0
+      version: 11.2.0
     gh-pages:
       specifier: ^6.3.0
       version: 6.3.0
@@ -189,9 +201,27 @@ catalogs:
     vitest:
       specifier: ^4.1.4
       version: 4.1.4
+    vscode-languageclient:
+      specifier: ^9.0.1
+      version: 9.0.1
+    vscode-languageserver:
+      specifier: ^9.0.1
+      version: 9.0.1
+    vscode-languageserver-textdocument:
+      specifier: ^1.0.12
+      version: 1.0.12
+    vscode-oniguruma:
+      specifier: ^2.0.1
+      version: 2.0.1
+    vscode-textmate:
+      specifier: ^9.3.2
+      version: 9.3.2
     vue:
       specifier: ^3.5.32
       version: 3.5.32
+    vue-router:
+      specifier: ^4.4.5
+      version: 4.6.4
     vue-tsc:
       specifier: ^3.2.7
       version: 3.2.7
@@ -273,6 +303,9 @@ importers:
       eslint-plugin-unicorn:
         specifier: 'catalog:'
         version: 64.0.0(eslint@10.2.1(jiti@2.6.1))
+      eslint-plugin-vietscript:
+        specifier: workspace:*
+        version: link:packages/eslint-plugin
       globals:
         specifier: 'catalog:'
         version: 17.5.0
@@ -309,6 +342,12 @@ importers:
       vitest:
         specifier: 'catalog:'
         version: 4.1.4(@types/node@22.19.17)(@vitest/coverage-v8@4.1.4)(@vitest/ui@4.1.4)(jsdom@29.0.2)(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))
+      vscode-oniguruma:
+        specifier: 'catalog:'
+        version: 2.0.1
+      vscode-textmate:
+        specifier: 'catalog:'
+        version: 9.3.2
       vue:
         specifier: 'catalog:'
         version: 3.5.32(typescript@5.9.3)
@@ -318,6 +357,75 @@ importers:
       yaml-eslint-parser:
         specifier: 'catalog:'
         version: 2.0.0
+
+  examples/class-management:
+    dependencies:
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.32(typescript@5.9.3)
+    devDependencies:
+      '@vietscript/parser':
+        specifier: workspace:*
+        version: link:../../packages/parser
+      '@vietscript/plugin-vite':
+        specifier: workspace:*
+        version: link:../../packages/plugins/vite
+      '@vietscript/stdlib':
+        specifier: workspace:*
+        version: link:../../packages/stdlib
+      '@vitejs/plugin-vue':
+        specifier: 'catalog:'
+        version: 6.0.6(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))
+      vite:
+        specifier: 'catalog:'
+        version: 8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3)
+
+  examples/simple-blog:
+    dependencies:
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.32(typescript@5.9.3)
+      vue-router:
+        specifier: 'catalog:'
+        version: 4.6.4(vue@3.5.32(typescript@5.9.3))
+    devDependencies:
+      '@vietscript/parser':
+        specifier: workspace:*
+        version: link:../../packages/parser
+      '@vietscript/plugin-vite':
+        specifier: workspace:*
+        version: link:../../packages/plugins/vite
+      '@vietscript/stdlib':
+        specifier: workspace:*
+        version: link:../../packages/stdlib
+      '@vitejs/plugin-vue':
+        specifier: 'catalog:'
+        version: 6.0.6(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))
+      vite:
+        specifier: 'catalog:'
+        version: 8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3)
+
+  examples/todomvc:
+    dependencies:
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.32(typescript@5.9.3)
+    devDependencies:
+      '@vietscript/parser':
+        specifier: workspace:*
+        version: link:../../packages/parser
+      '@vietscript/plugin-vite':
+        specifier: workspace:*
+        version: link:../../packages/plugins/vite
+      '@vietscript/stdlib':
+        specifier: workspace:*
+        version: link:../../packages/stdlib
+      '@vitejs/plugin-vue':
+        specifier: 'catalog:'
+        version: 6.0.6(vite@8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))
+      vite:
+        specifier: 'catalog:'
+        version: 8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3)
 
   packages/cli:
     dependencies:
@@ -337,6 +445,83 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
+
+  packages/eslint-plugin:
+    dependencies:
+      '@babel/generator':
+        specifier: 'catalog:'
+        version: 7.29.1
+      '@jridgewell/trace-mapping':
+        specifier: 'catalog:'
+        version: 0.3.31
+      '@vietscript/parser':
+        specifier: workspace:*
+        version: link:../parser
+      espree:
+        specifier: 'catalog:'
+        version: 11.2.0
+    devDependencies:
+      '@types/babel__generator':
+        specifier: 'catalog:'
+        version: 7.27.0
+      '@types/eslint':
+        specifier: 'catalog:'
+        version: 9.6.1
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.19.17
+      eslint:
+        specifier: 'catalog:'
+        version: 10.2.1(jiti@2.6.1)
+      rimraf:
+        specifier: 'catalog:'
+        version: 6.1.3
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      vite:
+        specifier: 'catalog:'
+        version: 8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3)
+
+  packages/extension:
+    dependencies:
+      '@babel/generator':
+        specifier: 'catalog:'
+        version: 7.29.1
+      '@vietscript/parser':
+        specifier: workspace:*
+        version: link:../parser
+      vscode-languageclient:
+        specifier: 'catalog:'
+        version: 9.0.1
+      vscode-languageserver:
+        specifier: 'catalog:'
+        version: 9.0.1
+      vscode-languageserver-textdocument:
+        specifier: 'catalog:'
+        version: 1.0.12
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.19.17
+      '@types/vscode':
+        specifier: 'catalog:'
+        version: 1.118.0
+      rimraf:
+        specifier: 'catalog:'
+        version: 6.1.3
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      vite:
+        specifier: 'catalog:'
+        version: 8.0.9(@types/node@22.19.17)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3)
+      vscode-oniguruma:
+        specifier: 'catalog:'
+        version: 2.0.1
+      vscode-textmate:
+        specifier: 'catalog:'
+        version: 9.3.2
 
   packages/parser:
     devDependencies:
@@ -2194,6 +2379,9 @@ packages:
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
 
+  '@types/vscode@1.118.0':
+    resolution: {integrity: sha512-Ah6eTlqDcwIMELEVwQMO++rJAFBRz/oLluLD/vWdYrH1KuI9kfpaM+7pg0OvvascgcJy+ghLCERAYouM4QbzGw==}
+
   '@types/web-bluetooth@0.0.21':
     resolution: {integrity: sha512-oIQLCGWtcFZy2JW77j9k8nHzAOpqMHLQejDA48XXMWH6tjCQHz5RCFz1bzsmROyL6PUm+LLnUiI4BCn221inxA==}
 
@@ -2404,6 +2592,9 @@ packages:
 
   '@vue/compiler-ssr@3.5.32':
     resolution: {integrity: sha512-Gp4gTs22T3DgRotZ8aA/6m2jMR+GMztvBXUBEUOYOcST+giyGWJ4WvFd7QLHBkzTxkfOt8IELKNdpzITLbA2rw==}
+
+  '@vue/devtools-api@6.6.4':
+    resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
 
   '@vue/devtools-api@7.7.9':
     resolution: {integrity: sha512-kIE8wvwlcZ6TJTbNeU2HQNtaxLx3a84aotTITUuL/4bzfPxzajGBOoqjMhwZJ8L9qFYDU/lAYMEEm11dnZOD6g==}
@@ -5055,6 +5246,10 @@ packages:
   minimatch@3.1.5:
     resolution: {integrity: sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w==}
 
+  minimatch@5.1.9:
+    resolution: {integrity: sha512-7o1wEA2RyMP7Iu7GNba9vc0RWWGACJOCZBJX2GJWip0ikV+wcOsgVuY9uE8CPiyQhkGFSlhuSkZPavN7u1c2Fw==}
+    engines: {node: '>=10'}
+
   minimatch@9.0.9:
     resolution: {integrity: sha512-OBwBN9AL4dqmETlpS2zasx+vTeWclWzkblfZk7KTA5j3jeOONz/tRCnZomUyvNg83wL5Zv9Ss6HMJXAgL8R2Yg==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -6793,6 +6988,33 @@ packages:
   vm-browserify@1.1.2:
     resolution: {integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==}
 
+  vscode-jsonrpc@8.2.0:
+    resolution: {integrity: sha512-C+r0eKJUIfiDIfwJhria30+TYWPtuHJXHtI7J0YlOmKAo7ogxP20T0zxB7HZQIFhIyvoBPwWskjxrvAtfjyZfA==}
+    engines: {node: '>=14.0.0'}
+
+  vscode-languageclient@9.0.1:
+    resolution: {integrity: sha512-JZiimVdvimEuHh5olxhxkht09m3JzUGwggb5eRUkzzJhZ2KjCN0nh55VfiED9oez9DyF8/fz1g1iBV3h+0Z2EA==}
+    engines: {vscode: ^1.82.0}
+
+  vscode-languageserver-protocol@3.17.5:
+    resolution: {integrity: sha512-mb1bvRJN8SVznADSGWM9u/b07H7Ecg0I3OgXDuLdn307rl/J3A9YD6/eYOssqhecL27hK1IPZAsaqh00i/Jljg==}
+
+  vscode-languageserver-textdocument@1.0.12:
+    resolution: {integrity: sha512-cxWNPesCnQCcMPeenjKKsOCKQZ/L6Tv19DTRIGuLWe32lyzWhihGVJ/rcckZXJxfdKCFvRLS3fpBIsV/ZGX4zA==}
+
+  vscode-languageserver-types@3.17.5:
+    resolution: {integrity: sha512-Ld1VelNuX9pdF39h2Hgaeb5hEZM2Z3jUrrMgWQAu82jMtZp7p3vJT3BzToKtZI7NgQssZje5o0zryOrhQvzQAg==}
+
+  vscode-languageserver@9.0.1:
+    resolution: {integrity: sha512-woByF3PDpkHFUreUa7Hos7+pUWdeWMXRd26+ZX2A8cFx6v/JPTtd4/uN0/jB6XQHYaOlHbio03NTHCqrgG5n7g==}
+    hasBin: true
+
+  vscode-oniguruma@2.0.1:
+    resolution: {integrity: sha512-poJU8iHIWnC3vgphJnrLZyI3YdqRlR27xzqDmpPXYzA93R4Gk8z7T6oqDzDoHjoikA2aS82crdXFkjELCdJsjQ==}
+
+  vscode-textmate@9.3.2:
+    resolution: {integrity: sha512-n2uGbUcrjhUEBH16uGA0TvUfhWwliFZ1e3+pTjrkim1Mt7ydB41lV08aUvsi70OlzDWp6X7Bx3w/x3fAXIsN0Q==}
+
   vscode-uri@3.1.0:
     resolution: {integrity: sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==}
 
@@ -6804,6 +7026,11 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
+
+  vue-router@4.6.4:
+    resolution: {integrity: sha512-Hz9q5sa33Yhduglwz6g9skT8OBPii+4bFn88w6J+J4MfEo4KRRpmiNG/hHHkdbRFlLBOqxN8y8gf2Fb0MTUgVg==}
+    peerDependencies:
+      vue: ^3.5.0
 
   vue-tsc@3.2.7:
     resolution: {integrity: sha512-zc1tL3HoQni1zGTGrwBVRQb7rGP5SWdu/m4rGB6JcnAC5MT5LFZIxF7Y+EJEnt4hGF23d60rXH7gRjHGb5KQQQ==}
@@ -8598,6 +8825,8 @@ snapshots:
 
   '@types/unist@3.0.3': {}
 
+  '@types/vscode@1.118.0': {}
+
   '@types/web-bluetooth@0.0.21': {}
 
   '@types/ws@8.18.1':
@@ -8954,6 +9183,8 @@ snapshots:
     dependencies:
       '@vue/compiler-dom': 3.5.32
       '@vue/shared': 3.5.32
+
+  '@vue/devtools-api@6.6.4': {}
 
   '@vue/devtools-api@7.7.9':
     dependencies:
@@ -12236,6 +12467,10 @@ snapshots:
     dependencies:
       brace-expansion: 1.1.14
 
+  minimatch@5.1.9:
+    dependencies:
+      brace-expansion: 2.1.0
+
   minimatch@9.0.9:
     dependencies:
       brace-expansion: 2.1.0
@@ -14392,6 +14627,31 @@ snapshots:
 
   vm-browserify@1.1.2: {}
 
+  vscode-jsonrpc@8.2.0: {}
+
+  vscode-languageclient@9.0.1:
+    dependencies:
+      minimatch: 5.1.9
+      semver: 7.7.4
+      vscode-languageserver-protocol: 3.17.5
+
+  vscode-languageserver-protocol@3.17.5:
+    dependencies:
+      vscode-jsonrpc: 8.2.0
+      vscode-languageserver-types: 3.17.5
+
+  vscode-languageserver-textdocument@1.0.12: {}
+
+  vscode-languageserver-types@3.17.5: {}
+
+  vscode-languageserver@9.0.1:
+    dependencies:
+      vscode-languageserver-protocol: 3.17.5
+
+  vscode-oniguruma@2.0.1: {}
+
+  vscode-textmate@9.3.2: {}
+
   vscode-uri@3.1.0: {}
 
   vue-component-type-helpers@2.2.12: {}
@@ -14407,6 +14667,11 @@ snapshots:
       semver: 7.7.4
     transitivePeerDependencies:
       - supports-color
+
+  vue-router@4.6.4(vue@3.5.32(typescript@5.9.3)):
+    dependencies:
+      '@vue/devtools-api': 6.6.4
+      vue: 3.5.32(typescript@5.9.3)
 
   vue-tsc@3.2.7(typescript@5.9.3):
     dependencies:

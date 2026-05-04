@@ -1,0 +1,4 @@
+sử dụng { createApp } từ "vue"
+sử dụng App từ "./App.vue"
+
+createApp(App).mount("#app")

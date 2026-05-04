@@ -1,0 +1,54 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "VietScript embedded in Vue",
+  "scopeName": "vjs.injection.vue",
+  "injectionSelector": "L:source.vue -comment",
+  "patterns": [
+    {
+      "begin": "(?i)(<)(script)\\b(?=[^>]*\\blang\\s*=\\s*(?:\"vjs\"|'vjs'))",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.html" },
+        "2": { "name": "entity.name.tag.html" }
+      },
+      "end": "(</)(script)(>)",
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.html" },
+        "2": { "name": "entity.name.tag.html" },
+        "3": { "name": "punctuation.definition.tag.end.html" }
+      },
+      "name": "meta.embedded.block.vue.vjs",
+      "patterns": [
+        {
+          "begin": "\\G",
+          "end": "(?<=>)",
+          "patterns": [
+            {
+              "match": "\\b(setup|lang|generic)\\b",
+              "name": "entity.other.attribute-name.html"
+            },
+            {
+              "match": "(\"[^\"]*\"|'[^']*')",
+              "name": "string.quoted.html"
+            },
+            {
+              "match": "=",
+              "name": "punctuation.separator.key-value.html"
+            },
+            {
+              "match": ">",
+              "name": "punctuation.definition.tag.end.html"
+            }
+          ]
+        },
+        {
+          "begin": "(?<=>)",
+          "end": "(?=</script\\b)",
+          "contentName": "source.vjs",
+          "patterns": [
+            { "include": "source.vjs" }
+          ]
+        }
+      ]
+    }
+  ]
+}

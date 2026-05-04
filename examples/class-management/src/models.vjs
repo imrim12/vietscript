@@ -1,0 +1,46 @@
+lớp HocSinh {
+  khởi tạo(id, hoTen, email) {
+    đây.id = id
+    đây.hoTen = hoTen
+    đây.email = email
+  }
+
+  lấy chuKy() {
+    trả về `${đây.hoTen} <${đây.email}>`
+  }
+}
+
+lớp KhoaHoc {
+  khởi tạo(id, ten, giangVien) {
+    đây.id = id
+    đây.ten = ten
+    đây.giangVien = giangVien
+    đây.danhSachHocSinh = []
+  }
+
+  themHocSinh(hocSinh) {
+    nếu (đây.coHocSinh(hocSinh.id)) {
+      trả về sai
+    }
+    đây.danhSachHocSinh.push(hocSinh)
+    trả về đúng
+  }
+
+  xoaHocSinh(id) {
+    đây.danhSachHocSinh = đây.danhSachHocSinh.filter(hs => hs.id !== id)
+  }
+
+  coHocSinh(id) {
+    trả về đây.danhSachHocSinh.some(hs => hs.id === id)
+  }
+
+  lấy soLuong() {
+    trả về đây.danhSachHocSinh.length
+  }
+}
+
+hàm taoId() {
+  trả về Math.floor(Math.random() * 1000000)
+}
+
+cho phép { HocSinh, KhoaHoc, taoId }

@@ -67,6 +67,7 @@
     "typescript",
     "typescriptreact",
     "vue",
+    "vietscript",
     "html",
     "markdown",
     "json",
@@ -83,5 +84,15 @@
     "scss",
     "pcss",
     "postcss"
+  ],
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "vietscript",
+    "html",
+    "markdown"
   ]
 }

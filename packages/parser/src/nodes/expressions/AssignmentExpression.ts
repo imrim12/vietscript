@@ -1,7 +1,5 @@
 import type { Parser } from '@parser/parser'
 import { Expression } from '@parser/nodes/expressions/Expression'
-import { Identifier } from '@parser/nodes/identifier/Identifier'
-import { Keyword } from '@vietscript/shared'
 
 const ASSIGNMENT_OPERATORS = new Set([
   '=',
@@ -32,8 +30,7 @@ export class AssignmentExpression {
   right: any
 
   constructor(parser: Parser, identifier?: any) {
-    this.left
-      = identifier ?? (parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser))
+    this.left = identifier ?? new Expression(parser)
 
     const op = String(parser.lookahead?.type)
     if (!ASSIGNMENT_OPERATORS.has(op)) {
@@ -42,6 +39,6 @@ export class AssignmentExpression {
 
     this.operator = String(parser.eat(op).value)
 
-    this.right = parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser)
+    this.right = new Expression(parser)
   }
 }

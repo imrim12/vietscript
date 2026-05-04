@@ -1,6 +1,6 @@
+import type { Identifier } from '@parser/nodes/identifier/Identifier'
 import type { Parser } from '@parser/parser'
 import { Expression } from '@parser/nodes/expressions/Expression'
-import { Identifier } from '@parser/nodes/identifier/Identifier'
 import { Keyword } from '@vietscript/shared'
 
 const KEYWORD_OPERATORS: Record<string, string> = {
@@ -41,8 +41,7 @@ export class BinaryExpression {
   right: Identifier | Expression
 
   constructor(parser: Parser, identifier?: Identifier) {
-    this.left
-      = identifier ?? (parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser))
+    this.left = identifier ?? new Expression(parser)
 
     const type = parser.lookahead?.type as string
 
@@ -54,6 +53,6 @@ export class BinaryExpression {
       this.operator = String(parser.eat(type).value)
     }
 
-    this.right = parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser)
+    this.right = new Expression(parser)
   }
 }

@@ -1,0 +1,20 @@
+# Source — only the bundled dist needs to ship.
+src/**
+scripts/**
+**/*.ts
+**/*.mjs
+!dist/**/*.d.ts
+
+# Build / tooling config.
+tsconfig*.json
+vite*.config.ts
+vite*.config.js
+
+# Repo metadata.
+.gitignore
+.eslintrc*
+.editorconfig
+.prettierrc*
+
+# Don't ship a previously-built .vsix back into a new one.
+*.vsix

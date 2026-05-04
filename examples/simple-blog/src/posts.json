@@ -1,0 +1,29 @@
+[
+  {
+    "id": "lap-trinh-bang-tieng-viet",
+    "title": "Lập trình bằng tiếng Việt với VietScript",
+    "author": "Mai Lan",
+    "date": "2025-09-12",
+    "excerpt": "Vì sao chúng ta lại cần một ngôn ngữ lập trình bằng tiếng Việt? Câu trả lời nằm ở rào cản học tập.",
+    "tags": ["vietscript", "ngôn ngữ", "giáo dục"],
+    "body": "Lâu nay, người mới học lập trình ở Việt Nam thường phải đối diện với hai trở ngại cùng lúc: tư duy thuật toán và tiếng Anh. VietScript ra đời để gỡ bớt một trong hai trở ngại đó.\n\nTrong VietScript, bạn có thể viết `hằng số tên = \"An\"` thay vì `const tên = \"An\"`. Cú pháp tựa JavaScript nhưng từ khoá đã được bản địa hoá, vì thế người học vẫn dễ dàng chuyển sang JS sau này.\n\nNgôn ngữ này không phải để thay thế JS, mà là một bậc thang. Khi đã quen thuộc với vòng lặp, hàm, lớp, người học có thể chuyển sang JS hay TypeScript mà không phải học lại tư duy."
+  },
+  {
+    "id": "vue-3-va-vietscript",
+    "title": "Vue 3 và VietScript: bộ đôi cho người mới",
+    "author": "Trí Dũng",
+    "date": "2025-10-04",
+    "excerpt": "Tích hợp VietScript vào dự án Vue 3 chỉ tốn vài dòng cấu hình, và đổi lại bạn có thể viết logic bằng tiếng mẹ đẻ.",
+    "tags": ["vue", "vite", "tutorial"],
+    "body": "Plugin Vite của VietScript giúp Vue 3 hiểu được khối `<script setup lang=\"vjs\">`. Mọi câu lệnh `hằng số`, `hàm`, `lớp` đều được biên dịch sang JavaScript trước khi Vue compiler chạm vào.\n\nKhi đã cài plugin, dự án Vue của bạn vẫn dùng template, style như bình thường. Chỉ có script là viết bằng VietScript.\n\nMột điều thú vị: bạn có thể trộn tiếng Việt và tiếng Anh tự do trong cùng một file. Code review trên team đa quốc gia vẫn hiểu được ý định của hàm."
+  },
+  {
+    "id": "lop-va-doi-tuong",
+    "title": "Lớp và đối tượng trong VietScript",
+    "author": "Mai Lan",
+    "date": "2025-10-22",
+    "excerpt": "Từ khoá `lớp`, `khởi tạo`, `kế thừa` cho phép bạn mô hình hoá miền nghiệp vụ bằng từ vựng tự nhiên.",
+    "tags": ["vietscript", "oop"],
+    "body": "Khi xây ứng dụng quản lý lớp học, ta thường có các thực thể như Học Sinh, Giảng Viên, Khoá Học. VietScript cho phép đặt tên lớp đa từ — `lớp Học Sinh` — nhờ tokenizer hiểu định danh nhiều từ.\n\nKết hợp với `kế thừa`, `khởi tạo cha`, `riêng tư`, `công khai`, bạn có một bộ công cụ OOP đủ để mô hình các bài toán thực tế.\n\nBuổi tới chúng ta sẽ xây một ứng dụng quản lý lớp học hoàn chỉnh — và bạn sẽ thấy domain code đọc gần như tiếng Việt thuần."
+  }
+]

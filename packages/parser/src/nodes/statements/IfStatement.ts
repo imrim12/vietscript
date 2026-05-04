@@ -1,7 +1,7 @@
+import type { Identifier } from '@parser/nodes/identifier/Identifier'
 import type { Parser } from '@parser/parser'
 import type { Token } from '@vietscript/shared'
 import { Expression } from '@parser/nodes/expressions/Expression'
-import { Identifier } from '@parser/nodes/identifier/Identifier'
 import { Keyword } from '@vietscript/shared'
 
 import { BlockStatement } from './BlockStatement'
@@ -21,7 +21,7 @@ export class IfStatement {
 
     parser.eat('(')
 
-    this.test = parser.lookahead?.type === Keyword.IDENTIFIER ? new Identifier(parser) : new Expression(parser)
+    this.test = new Expression(parser)
 
     parser.eat(')')
 

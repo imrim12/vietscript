@@ -25,25 +25,103 @@ import { UnaryExpression } from './UnaryExpression'
 import { UpdateExpression } from './UpdateExpression'
 import { YieldExpression } from './YieldExpression'
 
+const BINARY_OP_TOKENS = new Set([
+  '+',
+  '-',
+  '*',
+  '/',
+  '%',
+  '**',
+  '&',
+  '|',
+  '^',
+  '>',
+  '>>',
+  '>>>',
+  '<',
+  '<<',
+  '>=',
+  '<=',
+  '==',
+  '===',
+  '!=',
+  '!==',
+  Keyword.INSTANCEOF as string,
+  Keyword.IN as string,
+])
+
+const ASSIGN_OP_TOKENS = new Set([
+  '=',
+  '+=',
+  '-=',
+  '*=',
+  '/=',
+  '%=',
+  '**=',
+  '&=',
+  '|=',
+  '^=',
+  '<<=',
+  '>>=',
+  '>>>=',
+  '&&=',
+  '||=',
+  '??=',
+])
+
+function replaceSelf(self: any, replacement: any): void {
+  for (const key of Object.keys(self)) delete self[key]
+  Object.assign(self, replacement)
+}
+
 function applyPostfixImpl(self: any, parser: Parser): void {
   while (true) {
     const t = parser.lookahead?.type as string
     if (t === '.' || t === '[' || t === '?.') {
       const snapshot = { ...self }
-      for (const key of Object.keys(self)) delete self[key]
-      Object.assign(self, new MemberExpression(parser, snapshot))
+      replaceSelf(self, new MemberExpression(parser, snapshot))
       continue
     }
     if (t === '(') {
       const snapshot = { ...self }
-      for (const key of Object.keys(self)) delete self[key]
-      Object.assign(self, new CallExpression(parser, snapshot))
+      replaceSelf(self, new CallExpression(parser, snapshot))
       continue
     }
     if (t === '??' || t === '||' || t === '&&') {
       const snapshot = { ...self }
-      for (const key of Object.keys(self)) delete self[key]
-      Object.assign(self, new LogicalExpression(parser, snapshot as any))
+      replaceSelf(self, new LogicalExpression(parser, snapshot as any))
+      continue
+    }
+    if (t === '++' || t === '--') {
+      const op = parser.lookahead?.value as string
+      parser.eat(op)
+      const snapshot = { ...self }
+      replaceSelf(self, {
+        type: 'UpdateExpression',
+        operator: op,
+        argument: snapshot,
+        prefix: false,
+      })
+      continue
+    }
+    if (BINARY_OP_TOKENS.has(t)) {
+      const snapshot = { ...self }
+      replaceSelf(self, new BinaryExpression(parser, snapshot as any))
+      continue
+    }
+    if (ASSIGN_OP_TOKENS.has(t)) {
+      const snapshot = { ...self }
+      replaceSelf(self, new AssignmentExpression(parser, snapshot as any))
+      continue
+    }
+    if (t === '?') {
+      const snapshot = { ...self }
+      replaceSelf(self, new ConditionalExpression(parser, snapshot as any))
+      continue
+    }
+    if (t === 'TemplateLiteral') {
+      const snapshot = { ...self }
+      replaceSelf(self, new TaggedTemplateExpression(parser, snapshot as any))
       continue
     }
     break
@@ -87,6 +165,7 @@ export class Expression {
       case Keyword.NULL:
       case Keyword.UNDEFINED: {
         Object.assign(this, new Literal(parser))
+        applyPostfixImpl(this, parser)
         break
       }
       case '++':
@@ -312,6 +391,7 @@ export class Expression {
               }
               case '(': {
                 Object.assign(this, new CallExpression(parser, memberExpression))
+                applyPostfixImpl(this, parser)
                 break
               }
               default: {

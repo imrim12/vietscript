@@ -8,10 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 .nx
-.claude
-!.claude/skills
-!.claude/settings.json
-.vitepress/cache
+docs/.vitepress/cache
 dist
 dist-*
 node_modules
@@ -19,3 +16,5 @@ coverage
 
 .DS_Store
 .env
+
+*.vsix

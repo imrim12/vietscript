@@ -327,7 +327,7 @@ function isVietnameseLetter(code: number): boolean {
 }
 
 function isIdentStart(code: number): boolean {
-  return isAsciiLetter(code) || isVietnameseLetter(code)
+  return isAsciiLetter(code) || isVietnameseLetter(code) || code === 0x5F /* _ */ || code === 0x24 /* $ */
 }
 
 function isDigit(code: number): boolean {

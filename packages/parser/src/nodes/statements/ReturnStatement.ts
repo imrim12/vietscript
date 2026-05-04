@@ -3,16 +3,21 @@ import { Keyword } from '@vietscript/shared'
 
 import { Expression } from '../expressions/Expression'
 
+const TERMINATORS = new Set<string>(['}', ';', ')'])
+
 export class ReturnStatement {
   type = 'ReturnStatement'
 
-  argument: Expression
+  argument: Expression | null = null
 
   constructor(parser: Parser) {
     parser.eat(Keyword.RETURN)
 
-    const expression = new Expression(parser)
+    const next = parser.lookahead?.type as string | undefined
+    if (next === undefined || TERMINATORS.has(next)) {
+      return
+    }
 
-    this.argument = expression
+    this.argument = new Expression(parser)
   }
 }

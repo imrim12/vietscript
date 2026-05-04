@@ -1,0 +1,63 @@
+{
+  "name": "eslint-plugin-vietscript",
+  "version": "1.0.0-beta.1",
+  "description": "ESLint plugin and parser for VietScript — lint .vjs files and Vue SFCs with <script lang=\"vjs\"> blocks.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./parser": {
+      "types": "./dist/parser.d.ts",
+      "import": "./dist/parser.js",
+      "require": "./dist/parser.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc -p tsconfig.build.json && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --root ../.. packages/eslint-plugin"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "vietscript",
+    "vue"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imrim12/vietscript.git",
+    "directory": "packages/eslint-plugin"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "eslint": ">=8"
+  },
+  "dependencies": {
+    "@babel/generator": "catalog:",
+    "@jridgewell/trace-mapping": "catalog:",
+    "@vietscript/parser": "workspace:*",
+    "espree": "catalog:"
+  },
+  "devDependencies": {
+    "@types/babel__generator": "catalog:",
+    "@types/eslint": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "rimraf": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  }
+}

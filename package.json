@@ -67,6 +67,7 @@
     "eslint-plugin-import": "catalog:",
     "eslint-plugin-pnpm": "catalog:",
     "eslint-plugin-unicorn": "catalog:",
+    "eslint-plugin-vietscript": "workspace:*",
     "globals": "catalog:",
     "husky": "catalog:",
     "jsdom": "catalog:",
@@ -79,6 +80,8 @@
     "typescript-eslint": "catalog:",
     "vitepress": "catalog:",
     "vitest": "catalog:",
+    "vscode-oniguruma": "catalog:",
+    "vscode-textmate": "catalog:",
     "vue": "catalog:",
     "vue-tsc": "catalog:",
     "yaml-eslint-parser": "catalog:"

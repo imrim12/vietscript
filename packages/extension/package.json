@@ -1,0 +1,102 @@
+{
+  "name": "vscode-vietscript",
+  "displayName": "VietScript",
+  "description": "Syntax highlighting and diagnostics for VietScript (.vjs).",
+  "version": "1.0.0-beta.1",
+  "publisher": "vietscript",
+  "private": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imrim12/vietscript.git",
+    "directory": "packages/extension"
+  },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onLanguage:vietscript"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "vietscript",
+        "aliases": ["VietScript", "vietscript", "vjs"],
+        "extensions": [".vjs"],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/vjs.svg",
+          "dark": "./icons/vjs.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "vietscript",
+        "scopeName": "source.vjs",
+        "path": "./syntaxes/vietscript.tmLanguage.json"
+      },
+      {
+        "scopeName": "vjs.injection.vue",
+        "path": "./syntaxes/vue-injection.tmLanguage.json",
+        "injectTo": ["source.vue"],
+        "embeddedLanguages": {
+          "meta.embedded.block.vue.vjs": "vietscript"
+        }
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "VietScript",
+      "properties": {
+        "vietscript.diagnostics.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show parse-error diagnostics for .vjs files."
+        },
+        "vietscript.trace.server": {
+          "type": "string",
+          "scope": "window",
+          "enum": ["off", "messages", "verbose"],
+          "default": "off",
+          "description": "Traces communication between the editor and the VietScript language server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build:extension": "vite build",
+    "build:server": "vite build --config vite.server.config.ts",
+    "build": "rimraf ./dist && pnpm run build:extension && pnpm run build:server && tsc --emitDeclarationOnly -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --root ../.. packages/extension",
+    "diagnose": "node scripts/diagnose.mjs",
+    "vscode:prepublish": "pnpm run build",
+    "package": "node scripts/package.mjs",
+    "install:editors": "node scripts/install.mjs",
+    "install:code": "node scripts/install.mjs code",
+    "install:cursor": "node scripts/install.mjs cursor",
+    "preview": "pnpm run package && pnpm run install:editors"
+  },
+  "dependencies": {
+    "@babel/generator": "catalog:",
+    "@vietscript/parser": "workspace:*",
+    "vscode-languageclient": "catalog:",
+    "vscode-languageserver": "catalog:",
+    "vscode-languageserver-textdocument": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/vscode": "catalog:",
+    "rimraf": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vscode-oniguruma": "catalog:",
+    "vscode-textmate": "catalog:"
+  }
+}

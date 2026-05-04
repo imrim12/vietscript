@@ -1,0 +1,204 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "VietScript",
+  "scopeName": "source.vjs",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#templates" },
+    { "include": "#numbers" },
+    { "include": "#regex" },
+    { "include": "#function-declaration" },
+    { "include": "#class-declaration" },
+    { "include": "#new-call" },
+    { "include": "#keywords-control" },
+    { "include": "#keywords-declaration" },
+    { "include": "#keywords-class" },
+    { "include": "#keywords-module" },
+    { "include": "#keywords-modifiers" },
+    { "include": "#keywords-operators" },
+    { "include": "#keywords-literals" },
+    { "include": "#keywords-this" },
+    { "include": "#operators" },
+    { "include": "#function-call" },
+    { "include": "#member-call" },
+    { "include": "#identifiers" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.vjs",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.vjs",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.vjs",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            { "name": "constant.character.escape.vjs", "match": "\\\\." }
+          ]
+        },
+        {
+          "name": "string.quoted.single.vjs",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            { "name": "constant.character.escape.vjs", "match": "\\\\." }
+          ]
+        }
+      ]
+    },
+    "templates": {
+      "name": "string.template.vjs",
+      "begin": "`",
+      "end": "`",
+      "patterns": [
+        { "name": "constant.character.escape.vjs", "match": "\\\\." },
+        {
+          "name": "meta.template.expression.vjs",
+          "begin": "\\$\\{",
+          "end": "\\}",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.template-expression.begin.vjs" }
+          },
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.template-expression.end.vjs" }
+          },
+          "patterns": [
+            { "include": "$self" }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hex.vjs",
+          "match": "\\b0[xX][0-9A-Fa-f_]+n?\\b"
+        },
+        {
+          "name": "constant.numeric.binary.vjs",
+          "match": "\\b0[bB][01_]+n?\\b"
+        },
+        {
+          "name": "constant.numeric.octal.vjs",
+          "match": "\\b0[oO][0-7_]+n?\\b"
+        },
+        {
+          "name": "constant.numeric.decimal.vjs",
+          "match": "\\b[0-9][0-9_]*(?:\\.[0-9_]+)?(?:[eE][+-]?[0-9_]+)?n?\\b"
+        }
+      ]
+    },
+    "regex": {
+      "name": "string.regexp.vjs",
+      "begin": "(?<=^|[(,;:=!&|?+\\-*/~^<>%\\[{]|return|yield|await|typeof|void|delete|new|throw|in|of|instanceof|case)\\s*/(?![/*])",
+      "end": "/[gimsuy]*",
+      "patterns": [
+        { "name": "constant.character.escape.vjs", "match": "\\\\." }
+      ]
+    },
+    "keywords-control": {
+      "name": "keyword.control.vjs",
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(if|nếu|else|không thì|for|lặp|while|khi mà|do|thực hiện|switch|duyệt|case|trường hợp|default|mặc định|break|phá vòng lặp|continue|tiếp tục|return|trả về|throw|báo lỗi|try|thử|catch|bắt lỗi|finally|cuối cùng|yield|nhường|await|chờ|with)(?![A-Za-zÀ-ỹ_$0-9])"
+    },
+    "keywords-declaration": {
+      "name": "storage.type.vjs",
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(var|khai báo|let|biến|const|hằng số|function|hàm)(?![A-Za-zÀ-ỹ_$0-9])"
+    },
+    "keywords-class": {
+      "name": "storage.type.class.vjs",
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(class|lớp|extends|kế thừa|constructor|khởi tạo cha|khởi tạo|super|new|get|lấy|set|gán)(?![A-Za-zÀ-ỹ_$0-9])"
+    },
+    "keywords-module": {
+      "name": "keyword.control.module.vjs",
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(import|sử dụng|export|cho phép|from|từ|as|như là)(?![A-Za-zÀ-ỹ_$0-9])"
+    },
+    "keywords-modifiers": {
+      "name": "storage.modifier.vjs",
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(static|tĩnh|public|công khai|private|riêng tư|protected|bảo vệ|abstract|async|bất đồng bộ)(?![A-Za-zÀ-ỹ_$0-9])"
+    },
+    "keywords-operators": {
+      "name": "keyword.operator.word.vjs",
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(in|trong|of|của|instanceof|là kiểu|typeof|kiểu của|delete|xoá|void)(?![A-Za-zÀ-ỹ_$0-9])"
+    },
+    "keywords-literals": {
+      "name": "constant.language.vjs",
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(true|đúng|false|sai|null|rỗng|undefined|không xác định|NaN|Infinity|vô cực)(?![A-Za-zÀ-ỹ_$0-9])"
+    },
+    "keywords-this": {
+      "name": "variable.language.vjs",
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(this|đây)(?![A-Za-zÀ-ỹ_$0-9])"
+    },
+    "operators": {
+      "name": "keyword.operator.vjs",
+      "match": "===|!==|==|!=|<=|>=|<<=|>>=|>>>=|<<|>>|>>>|\\*\\*=|\\*\\*|&&=|\\|\\|=|\\?\\?=|&&|\\|\\||\\?\\?|\\?\\.|\\.\\.\\.|=>|\\+\\+|--|\\+=|-=|\\*=|/=|%=|&=|\\|=|\\^=|=|<|>|\\+|-|\\*|/|%|&|\\||\\^|~|!|\\?"
+    },
+    "function-declaration": {
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(hàm|function)\\s+([A-Za-zÀ-ỹ_$][A-Za-z0-9À-ỹ_$]*)",
+      "captures": {
+        "1": { "name": "storage.type.vjs" },
+        "2": { "name": "entity.name.function.vjs" }
+      }
+    },
+    "class-declaration": {
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(lớp|class)\\s+([A-Za-zÀ-ỹ_$][A-Za-z0-9À-ỹ_$]*)",
+      "captures": {
+        "1": { "name": "storage.type.class.vjs" },
+        "2": { "name": "entity.name.type.class.vjs" }
+      }
+    },
+    "new-call": {
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9])(new)\\s+([A-Za-zÀ-ỹ_$][A-Za-z0-9À-ỹ_$]*)",
+      "captures": {
+        "1": { "name": "storage.type.class.vjs" },
+        "2": { "name": "entity.name.type.class.vjs" }
+      }
+    },
+    "function-call": {
+      "match": "(?<![A-Za-zÀ-ỹ_$0-9.])([A-Za-zÀ-ỹ_$][A-Za-z0-9À-ỹ_$]*)(?=\\s*\\()",
+      "captures": {
+        "1": { "name": "entity.name.function.vjs" }
+      }
+    },
+    "member-call": {
+      "match": "(\\.)\\s*([A-Za-zÀ-ỹ_$][A-Za-z0-9À-ỹ_$]*)(?=\\s*\\()",
+      "captures": {
+        "1": { "name": "punctuation.accessor.vjs" },
+        "2": { "name": "entity.name.function.vjs" }
+      }
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "variable.other.private.vjs",
+          "match": "#[A-Za-zÀ-ỹ_$][A-Za-z0-9À-ỹ_$]*"
+        },
+        {
+          "name": "variable.other.vjs",
+          "match": "[A-Za-zÀ-ỹ_$][A-Za-z0-9À-ỹ_$]*"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        { "name": "punctuation.terminator.vjs", "match": ";" },
+        { "name": "punctuation.separator.vjs", "match": "[,:]" },
+        { "name": "punctuation.section.brace.vjs", "match": "[{}]" },
+        { "name": "punctuation.section.bracket.vjs", "match": "[\\[\\]]" },
+        { "name": "punctuation.section.paren.vjs", "match": "[()]" }
+      ]
+    }
+  }
+}

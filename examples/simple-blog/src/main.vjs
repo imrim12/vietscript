@@ -1,0 +1,19 @@
+sử dụng { createApp } từ "vue"
+sử dụng { createRouter, createWebHashHistory } từ "vue-router"
+sử dụng App từ "./App.vue"
+sử dụng PostList từ "./views/PostList.vue"
+sử dụng PostView từ "./views/PostView.vue"
+sử dụng NotFound từ "./views/NotFound.vue"
+
+hằng số danh sách đường dẫn = [
+  { path: "/", name: "list", component: PostList },
+  { path: "/post/:id", name: "post", component: PostView },
+  { path: "/:pathMatch(.*)*", name: "notfound", component: NotFound },
+]
+
+hằng số router = createRouter({
+  history: createWebHashHistory(),
+  routes: danh sách đường dẫn,
+})
+
+createApp(App).use(router).mount("#app")

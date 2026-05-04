@@ -1,0 +1,23 @@
+sử dụng data từ "./posts.json"
+
+hằng số allPosts = data
+
+hàm findById(id) {
+  trả về allPosts.find(p => p.id === id)
+}
+
+hàm sortedByDate() {
+  hằng số copy = allPosts.slice()
+  copy.sort((a, b) => {
+    nếu (a.date < b.date) {
+      trả về 1
+    }
+    nếu (a.date > b.date) {
+      trả về -1
+    }
+    trả về 0
+  })
+  trả về copy
+}
+
+cho phép { allPosts, findById, sortedByDate }

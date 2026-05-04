@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build VietScript Extension",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["--filter", "vscode-vietscript", "build"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Watch VietScript Server",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["--filter", "vscode-vietscript", "build:server", "--watch"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}
